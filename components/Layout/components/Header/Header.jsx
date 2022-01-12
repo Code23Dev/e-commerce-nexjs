@@ -297,7 +297,7 @@ export default function Header(){
                                                             <li><a href="shop-fullwidth-banner.html">Dressers</a></li>
                                                             <li><a href="shop-fullwidth-banner.html">Nightstands</a>
                                                             </li>
-                                                            <li><a href="shop-fullwidth-banner.html">Kid's Beds &
+                                                            <li><a href="shop-fullwidth-banner.html">Kids Beds &
                                                                 Headboards</a></li>
                                                             <li><a href="shop-fullwidth-banner.html">Armoires</a></li>
                                                         </ul>
@@ -378,20 +378,20 @@ export default function Header(){
                                                 </a>
                                                 <ul className="megamenu">
                                                     <li>
-                                                        <h4 className="menu-title">Laptops &amp; Computers</h4>
+                                                        <h4 className="menu-title">LaptopsBComputers</h4>
                                                         <hr className="divider"/>
                                                         <ul>
                                                             <li><a href="shop-fullwidth-banner.html">Desktop
                                                                 Computers</a></li>
                                                             <li><a href="shop-fullwidth-banner.html">Monitors</a></li>
                                                             <li><a href="shop-fullwidth-banner.html">Laptops</a></li>
-                                                            <li><a href="shop-fullwidth-banner.html">Hard Drives &amp;
+                                                            <li><a href="shop-fullwidth-banner.html">Hard Drives
                                                                 Storage</a></li>
                                                             <li><a href="shop-fullwidth-banner.html">Computer
                                                                 Accessories</a></li>
                                                         </ul>
 
-                                                        <h4 className="menu-title mt-1">TV &amp; Video</h4>
+                                                        <h4 className="menu-title mt-1">TV  Video</h4>
                                                         <hr className="divider"/>
                                                         <ul>
                                                             <li><a href="shop-fullwidth-banner.html">TVs</a></li>
@@ -554,7 +554,7 @@ export default function Header(){
                                                                         Best Seller</h4>
                                                                     <h3
                                                                         className="banner-title font-weight-bolder text-capitalize text-white ls-normal">
-                                                                        Chair &amp; Lamp</h3>
+                                                                        Chair Lamp</h3>
                                                                     <div
                                                                         className="banner-price-info font-weight-normal ls-normal text-white">
                                                                         From <strong>$165.00</strong></div>
@@ -648,14 +648,14 @@ export default function Header(){
                                                     <h4 className="menu-title">Product Pages</h4>
                                                     <ul>
                                                         <li><a href="product-variable.html">Variable Product</a></li>
-                                                        <li><a href="product-featured.html">Featured &amp; Sale</a></li>
+                                                        <li><a href="product-featured.html">Featured  Sale</a></li>
                                                         <li><a href="product-accordion.html">Data In Accordion</a></li>
                                                         <li><a href="product-section.html">Data In Sections</a></li>
                                                         <li><a href="product-swatch.html">Image Swatch</a></li>
                                                         <li><a href="product-extended.html">Extended Info</a>
                                                         </li>
                                                         <li><a href="product-without-sidebar.html">Without Sidebar</a></li>
-                                                        <li><a href="product-video.html">360<sup>o</sup> &amp; Video<span
+                                                        <li><a href="product-video.html">360<sup>o</sup>  Video<span
                                                             className="tip tip-new">New</span></a></li>
                                                     </ul>
                                                 </li>
@@ -757,7 +757,7 @@ export default function Header(){
                                             <a href="elements.html">Elements</a>
                                             <ul>
                                                 <li><a href="element-accordions.html">Accordions</a></li>
-                                                <li><a href="element-alerts.html">Alert &amp; Notification</a></li>
+                                                <li><a href="element-alerts.html">Alert  Notification</a></li>
                                                 <li><a href="element-blog-posts.html">Blog Posts</a></li>
                                                 <li><a href="element-buttons.html">Buttons</a></li>
                                                 <li><a href="element-cta.html">Call to Action</a></li>

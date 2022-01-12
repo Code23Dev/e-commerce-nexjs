@@ -152,8 +152,8 @@ export default function Main(){
                                         <li><a href="shop-fullwidth-banner.html">Knitwears</a></li>
                                         <li><a href="shop-fullwidth-banner.html">Jumpers</a></li>
                                         <li><a href="shop-fullwidth-banner.html">Trousers</a></li>
-                                        <li><a href="shop-fullwidth-banner.html">Dress &amp; Skirts</a></li>
-                                        <li><a href="shop-fullwidth-banner.html">Men's</a></li>
+                                        <li><a href="shop-fullwidth-banner.html">Dress  Skirts</a></li>
+                                        <li><a href="shop-fullwidth-banner.html">Mens</a></li>
                                         <li><a href="shop-fullwidth-banner.html">Accessories</a></li>
                                     </ul>
                                 </div>
@@ -172,7 +172,7 @@ export default function Main(){
                                         Electronics</a></h4>
                                     <ul className="category-list">
                                         <li><a href="shop-fullwidth-banner.html">Printers</a></li>
-                                        <li><a href="shop-fullwidth-banner.html">Store &amp; Business</a></li>
+                                        <li><a href="shop-fullwidth-banner.html">Store Business</a></li>
                                         <li><a href="shop-fullwidth-banner.html">Scanners</a></li>
                                         <li><a href="shop-fullwidth-banner.html">Projectors</a></li>
                                         <li><a href="shop-fullwidth-banner.html">Phones</a></li>
@@ -190,12 +190,12 @@ export default function Main(){
                         <div className="category-wrap mb-4">
                             <div className="category category-group-image br-sm">
                                 <div className="category-content">
-                                    <h4 className="category-name"><a href="shop-fullwidth-banner.html">Home &amp; Kitchen</a>
+                                    <h4 className="category-name"><a href="shop-fullwidth-banner.html">HomeKitchen</a>
                                     </h4>
                                     <ul className="category-list">
-                                        <li><a href="shop-fullwidth-banner.html">Furnitures &amp; Decor</a></li>
+                                        <li><a href="shop-fullwidth-banner.html">FurnituresDecor</a></li>
                                         <li><a href="shop-fullwidth-banner.html">Cookwares</a></li>
-                                        <li><a href="shop-fullwidth-banner.html">Utensil &amp; Gadgets</a></li>
+                                        <li><a href="shop-fullwidth-banner.html">UtensilGadgets</a></li>
                                         <li><a href="shop-fullwidth-banner.html">Garden Tools</a></li>
                                         <li><a href="shop-fullwidth-banner.html">Livingroom</a></li>
                                         <li><a href="shop-fullwidth-banner.html">Bedroom</a></li>
@@ -234,13 +234,13 @@ export default function Main(){
                         <div className="category-wrap mb-4">
                             <div className="category category-group-image br-sm">
                                 <div className="category-content">
-                                    <h4 className="category-name"><a href="shop-fullwidth-banner.html">Healthy &amp; Beauty</a>
+                                    <h4 className="category-name"><a href="shop-fullwidth-banner.html">Healthy  Beauty</a>
                                     </h4>
                                     <ul className="category-list">
                                         <li><a href="shop-fullwidth-banner.html">Makeup</a></li>
                                         <li><a href="shop-fullwidth-banner.html">Skin Care</a></li>
                                         <li><a href="shop-fullwidth-banner.html">Hair Care</a></li>
-                                        <li><a href="shop-fullwidth-banner.html">Tools &amp; Equipments</a></li>
+                                        <li><a href="shop-fullwidth-banner.html">Tool Equipments</a></li>
                                         <li><a href="shop-fullwidth-banner.html">Perfumes</a></li>
                                         <li><a href="shop-fullwidth-banner.html">Accessories</a></li>
                                     </ul>
@@ -256,7 +256,7 @@ export default function Main(){
                         <div className="category-wrap mb-4">
                             <div className="category category-group-image br-sm">
                                 <div className="category-content">
-                                    <h4 className="category-name"><a href="shop-fullwidth-banner.html">Jewelry &amp; Watch</a>
+                                    <h4 className="category-name"><a href="shop-fullwidth-banner.html">Jewelry  Watch</a>
                                     </h4>
                                     <ul className="category-list">
                                         <li><a href="shop-fullwidth-banner.html">Pendant</a></li>

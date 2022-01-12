@@ -18,7 +18,7 @@ export default function Newsletter(){
                     <input type="checkbox" className="custom-checkbox" id="hide-newsletter-popup"
                            name="hide-newsletter-popup"
                            required=""/>
-                        <label htmlFor="hide-newsletter-popup" className="font-size-sm text-light">Don't show this popup
+                        <label htmlFor="hide-newsletter-popup" className="font-size-sm text-light">Dont show this popup
                             again.</label>
                 </div>
             </div>

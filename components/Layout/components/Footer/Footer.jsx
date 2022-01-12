@@ -112,9 +112,9 @@ export default function Footer(){
                             </div>
                             <div className="category-box">
                                 <h6 className="category-name">Clothing & Apparel:</h6>
-                                <a href="#">Men's T-shirt</a>
+                                <a href="#">Mens T-shirt</a>
                                 <a href="#">Dresses</a>
-                                <a href="#">Men's Sneacker</a>
+                                <a href="#">Mens Sneacker</a>
                                 <a href="#">Leather Backpack</a>
                                 <a href="#">Watches</a>
                                 <a href="#">Jeans</a>
@@ -179,7 +179,7 @@ export default function Footer(){
                             <p className="copyright">Copyright © 2022</p>
                         </div>
                         <div className="footer-right">
-                            <span className="payment-label mr-lg-8">We're using safe payment for</span>
+                            <span className="payment-label mr-lg-8">Were using safe payment for</span>
                             <figure className="payment">
                                 <img src="assets/images/payment.png" alt="payment" width="159" height="25"/>
                             </figure>
