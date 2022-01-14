@@ -1,13 +1,9 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
-import {Component} from "react";
-import Mobile from "../components/Layout/components/Mobile/Mobile";
-
-
-
 class MyDocument extends Document {
     static async getInitialProps(ctx) {
         const initialProps = await Document.getInitialProps(ctx)
         return { ...initialProps }
+
     }
 
     render() {
@@ -30,16 +26,20 @@ class MyDocument extends Document {
                  <link rel="stylesheet" type="text/css" href="assets/vendor/animate/animate.min.css"/>
                  <link rel="stylesheet" type="text/css" href="assets/vendor/magnific-popup/magnific-popup.min.css"/>
                  <link rel="stylesheet" type="text/css" href="assets/css/demo8.min.css"/>
+                 <link rel="preload" href="assets/vendor/fontawesome-free/webfonts/fa-regular-400.woff2" as="font" type="font/woff2" crossOrigin="anonymous"/>
+                 <link rel="preload" href="assets/vendor/fontawesome-free/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossOrigin="anonymous"/>
+                 <link rel="preload" href="assets/vendor/fontawesome-free/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossOrigin="anonymous"/>
+                 <link rel="preload" href="assets/fonts/wolmart.woff?png09e" as="font" type="font/woff" crossOrigin="anonymous"/>
+                 <link rel="stylesheet" type="text/css" href="assets/vendor/fontawesome-free/css/all.min.css"/>
+                 <link rel="stylesheet" type="text/css" href="assets/vendor/animate/animate.min.css"/>
+                 <link rel="stylesheet" type="text/css" href="assets/vendor/magnific-popup/magnific-popup.min.css"/>
+                 <link rel="stylesheet" href="assets/vendor/swiper/swiper-bundle.min.css"/>
+                 <link rel="stylesheet" type="text/css" href="assets/vendor/photoswipe/photoswipe.min.css"/>
+                 <link rel="stylesheet" type="text/css" href="assets/vendor/photoswipe/default-skin/default-skin.min.css"/>
+                 <link rel="stylesheet" type="text/css" href="assets/css/style.min.css"/>
                 </Head>
                 <body>
                 <Main />
-                <Mobile/>
-                <a id="scroll-top" className="scroll-top" href="#top" title="Top" role="button"> <i className="w-icon-angle-up"></i>
-                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 70">
-                      <circle id="progress-indicator" fill="transparent" stroke="#000000" strokeMiterlimit="10" cx="35" cy="35"
-                              r="34" style={{strokeDasharray: '16.4198, 400'}}></circle>
-                    </svg>
-                </a>
                 <NextScript />
                 <script src="assets/vendor/jquery/jquery.min.js"></script>
                 <script src="assets/vendor/parallax/parallax.min.js"></script>
@@ -52,6 +52,7 @@ class MyDocument extends Document {
                 <script src="assets/vendor/jquery.countdown/jquery.countdown.min.js"></script>
                 <script src="assets/mainJs/index.js"></script>
                 <script src="assets/mainJs/main.js"></script>
+
                 </body>
             </Html>
         )
