@@ -3,6 +3,19 @@ import React from "react";
 export default function ProductPageMain(){
     return (
         <div>
+            <style jsx>{`
+            .header a:not(.btn):hover {
+             color: #336699;
+             }
+             .right-scroll{
+              overflow-y: auto;
+              height: 600px;
+              overflow-x:hidden;
+            }
+            `}
+            </style>
+
+
             <main className="main">
                 <nav className="breadcrumb-nav container">
                     <ul className="breadcrumb bb-no">
@@ -154,28 +167,26 @@ export default function ProductPageMain(){
                                             </div>
                                             <div className="row cols-md-3">
                                                 <div className="mb-3">
-                                                    <h5 className="sub-title font-weight-bold"><span
-                                                        className="mr-3">1.</span>Free
-                                                        Shipping &amp; Return</h5>
-                                                    <p className="detail pl-5">We offer free shipping for products on
-                                                        orders
-                                                        above 50$ and offer free delivery for all orders in US.</p>
-                                                </div>
-                                                <div className="mb-3">
-                                                    <h5 className="sub-title font-weight-bold"><span>2.</span>Free and
-                                                        Easy
-                                                        Returns</h5>
-                                                    <p className="detail pl-5">We guarantee our products and you could
-                                                        get back
-                                                        all of your money anytime you want in 30 days.</p>
-                                                </div>
-                                                <div className="mb-3">
-                                                    <h5 className="sub-title font-weight-bold"><span>3.</span>Special
-                                                        Financing
-                                                    </h5>
-                                                    <p className="detail pl-5">Get 20%-50% off items over 50$ for a
-                                                        month or
-                                                        over 250$ for a year with our special credit card.</p>
+                                                    <div className="tab-pane" id="product-tab-specification">
+                                                        <ul className="list-none">
+                                                            <li>
+                                                                <label>Model</label>
+                                                                <p>Skysuite 320</p>
+                                                            </li>
+                                                            <li>
+                                                                <label>Color</label>
+                                                                <p>Black</p>
+                                                            </li>
+                                                            <li>
+                                                                <label>Size</label>
+                                                                <p>Large, Small</p>
+                                                            </li>
+                                                            <li>
+                                                                <label>Guarantee Time</label>
+                                                                <p>3 Months</p>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -914,202 +925,386 @@ export default function ProductPageMain(){
                                         <a href="#" className="btn btn-dark btn-link btn-slide-right btn-icon-right">More
                                             Products<i className="w-icon-long-arrow-right"></i></a>
                                     </div>
-                                    <div className="swiper-container swiper-theme" data-swiper-options="{
-                                    'spaceBetween': 20,
-                                    'slidesPerView': 2,
-                                    'breakpoints': {
-                                        '576': {
-                                            'slidesPerView': 3
-                                        },
-                                        '768': {
-                                            'slidesPerView': 4
-                                        },
-                                        '992': {
-                                            'slidesPerView': 3
-                                        }
-                                    }
-                                }">
-                                        <div className="swiper-wrapper row cols-lg-3 cols-md-4 cols-sm-3 cols-2">
-                                            <div className="swiper-slide product">
-                                                <figure className="product-media">
-                                                    <a href="product-default.html">
-                                                        <img src="assets/images/products/default/1-1.jpg" alt="Product"
-                                                             width="300" height="338"/>
-                                                        <img src="assets/images/products/default/1-2.jpg" alt="Product"
-                                                             width="300" height="338"/>
-                                                    </a>
-                                                    <div className="product-action-vertical">
-                                                        <a href="#" className="btn-product-icon btn-cart w-icon-cart"
-                                                           title="Add to cart"></a>
-                                                        <a href="#"
-                                                           className="btn-product-icon btn-wishlist w-icon-heart"
-                                                           title="Add to wishlist"></a>
-                                                        <a href="#"
-                                                           className="btn-product-icon btn-compare w-icon-compare"
-                                                           title="Add to Compare"></a>
-                                                    </div>
-                                                    <div className="product-action">
-                                                        <a href="#" className="btn-product btn-quickview"
-                                                           title="Quick View">Quick
-                                                            View</a>
-                                                    </div>
-                                                </figure>
-                                                <div className="product-details">
-                                                    <div className="product-cat"><a
-                                                        href="shop-banner-sidebar.html">Accessories</a>
-                                                    </div>
-                                                    <h4 className="product-name"><a href="product-default.html">Sticky
-                                                        Pencil</a>
-                                                    </h4>
-                                                    <div className="ratings-container">
-                                                        <div className="ratings-full">
-                                                            <span className="ratings" style={{width: '100%'}}></span>
-                                                            <span className="tooltiptext tooltip-top"></span>
+                                    <div>
+                                        <div className="product-wrapper row cols-lg-4 cols-md-3 cols-sm-2 cols-2">
+                                            <div className="product-wrap">
+                                                <div className="product text-center">
+                                                    <figure className="product-media">
+                                                        <a href="product-default.html">
+                                                            <img src="assets/images/shop/1.jpg" alt="Product" width="300"
+                                                                 height="338"/>
+                                                        </a>
+                                                        <div className="product-action-horizontal">
+                                                            <a href="#" className="btn-product-icon btn-cart w-icon-cart"
+                                                               title="Add to cart"></a>
+                                                            <a href="#" className="btn-product-icon btn-wishlist w-icon-heart"
+                                                               title="Wishlist"></a>
+                                                            <a href="#" className="btn-product-icon btn-compare w-icon-compare"
+                                                               title="Compare"></a>
+                                                            <a href="#" className="btn-product-icon btn-quickview w-icon-search"
+                                                               title="Quick View"></a>
                                                         </div>
-                                                        <a href="product-default.html" className="rating-reviews">(3
-                                                            reviews)</a>
-                                                    </div>
-                                                    <div className="product-pa-wrapper">
-                                                        <div className="product-price">$20.00</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div className="swiper-slide product">
-                                                <figure className="product-media">
-                                                    <a href="product-default.html">
-                                                        <img src="assets/images/products/default/2.jpg" alt="Product"
-                                                             width="300" height="338"/>
-                                                    </a>
-                                                    <div className="product-action-vertical">
-                                                        <a href="#" className="btn-product-icon btn-cart w-icon-cart"
-                                                           title="Add to cart"></a>
-                                                        <a href="#"
-                                                           className="btn-product-icon btn-wishlist w-icon-heart"
-                                                           title="Add to wishlist"></a>
-                                                        <a href="#"
-                                                           className="btn-product-icon btn-compare w-icon-compare"
-                                                           title="Add to Compare"></a>
-                                                    </div>
-                                                    <div className="product-action">
-                                                        <a href="#" className="btn-product btn-quickview"
-                                                           title="Quick View">Quick
-                                                            View</a>
-                                                    </div>
-                                                </figure>
-                                                <div className="product-details">
-                                                    <div className="product-cat"><a
-                                                        href="shop-banner-sidebar.html">Electronics</a>
-                                                    </div>
-                                                    <h4 className="product-name"><a href="product-default.html">Mini
-                                                        Multi-Functional Cooker</a></h4>
-                                                    <div className="ratings-container">
-                                                        <div className="ratings-full">
-                                                            <span className="ratings" style={{width: '80%'}}></span>
-                                                            <span className="tooltiptext tooltip-top"></span>
+                                                    </figure>
+                                                    <div className="product-details">
+                                                        <div className="product-cat">
+                                                            <a href="shop-banner-sidebar.html">Electronics</a>
                                                         </div>
-                                                        <a href="product-default.html" className="rating-reviews">(5
-                                                            reviews)</a>
-                                                    </div>
-                                                    <div className="product-pa-wrapper">
-                                                        <div className="product-price">
-                                                            <ins className="new-price">$480.00</ins>
-                                                            <del
-                                                                className="old-price">$534.00
-                                                            </del>
+                                                        <h3 className="product-name">
+                                                            <a href="product-default.html">3D Television</a>
+                                                        </h3>
+                                                        <div className="ratings-container">
+                                                            <div className="ratings-full">
+                                                                <span className="ratings" style={{width: '100%'}}></span>
+                                                                <span className="tooltiptext tooltip-top"></span>
+                                                            </div>
+                                                            <a href="product-default.html" className="rating-reviews">(3
+                                                                reviews)</a>
+                                                        </div>
+                                                        <div className="product-pa-wrapper">
+                                                            <div className="product-price">
+                                                                $220.00 - $230.00
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div className="swiper-slide product">
-                                                <figure className="product-media">
-                                                    <a href="product-default.html">
-                                                        <img src="assets/images/products/default/3.jpg" alt="Product"
-                                                             width="300" height="338"/>
-                                                    </a>
-                                                    <div className="product-action-vertical">
-                                                        <a href="#" className="btn-product-icon btn-cart w-icon-cart"
-                                                           title="Add to cart"></a>
-                                                        <a href="#"
-                                                           className="btn-product-icon btn-wishlist w-icon-heart"
-                                                           title="Add to wishlist"></a>
-                                                        <a href="#"
-                                                           className="btn-product-icon btn-compare w-icon-compare"
-                                                           title="Add to Compare"></a>
-                                                    </div>
-                                                    <div className="product-action">
-                                                        <a href="#" className="btn-product btn-quickview"
-                                                           title="Quick View">Quick
-                                                            View</a>
-                                                    </div>
-                                                </figure>
-                                                <div className="product-details">
-                                                    <div className="product-cat"><a
-                                                        href="shop-banner-sidebar.html">Sports</a></div>
-                                                    <h4 className="product-name"><a href="product-default.html">Skate
-                                                        Pan</a></h4>
-                                                    <div className="ratings-container">
-                                                        <div className="ratings-full">
-                                                            <span className="ratings" style={{width: '100%'}}></span>
-                                                            <span className="tooltiptext tooltip-top"></span>
+                                            <div className="product-wrap">
+                                                <div className="product text-center">
+                                                    <figure className="product-media">
+                                                        <a href="product-default.html">
+                                                            <img src="assets/images/shop/2-1.jpg" alt="Product" width="300"
+                                                                 height="338"/>
+                                                            <img src="assets/images/shop/2-2.jpg" alt="Product" width="300"
+                                                                 height="338"/>
+                                                        </a>
+                                                        <div className="product-countdown-container" style={{height: '35px'}}>
+                                                            <div className="product-countdown countdown-compact" data-until="2021, 9, 9"
+                                                                 data-format="DHMS" data-compact="false"
+                                                                 style={{fontSize: '20px'}}
+                                                                 data-labels-short="Days, Hours, Mins, Secs">
+                                                                00:00:00:00
+                                                            </div>
                                                         </div>
-                                                        <a href="product-default.html" className="rating-reviews">(3
-                                                            reviews)</a>
-                                                    </div>
-                                                    <div className="product-pa-wrapper">
-                                                        <div className="product-price">
-                                                            <ins className="new-price">$278.00</ins>
-                                                            <del
-                                                                className="old-price">$310.00
-                                                            </del>
+                                                        <div className="product-action-horizontal">
+                                                            <a href="#" className="btn-product-icon btn-cart w-icon-cart"
+                                                               title="Add to cart"></a>
+                                                            <a href="#" className="btn-product-icon btn-wishlist w-icon-heart"
+                                                               title="Wishlist"></a>
+                                                            <a href="#" className="btn-product-icon btn-compare w-icon-compare"
+                                                               title="Compare"></a>
+                                                            <a href="#" className="btn-product-icon btn-quickview w-icon-search"
+                                                               title="Quick View"></a>
+                                                        </div>
+                                                    </figure>
+                                                    <div className="product-details">
+                                                        <div className="product-cat">
+                                                            <a href="shop-banner-sidebar.html">Electronics</a>
+                                                        </div>
+                                                        <h3 className="product-name">
+                                                            <a href="product-default.html">Alarm Clock With Lamp</a>
+                                                        </h3>
+                                                        <div className="ratings-container">
+                                                            <div className="ratings-full">
+                                                                <span className="ratings" style={{width: '100%'}}></span>
+                                                                <span className="tooltiptext tooltip-top"></span>
+                                                            </div>
+                                                            <a href="product-default.html" className="rating-reviews">(10
+                                                                reviews)</a>
+                                                        </div>
+                                                        <div className="product-pa-wrapper">
+                                                            <div className="product-price">
+                                                                <ins className="new-price">$30.00</ins>
+                                                                <del
+                                                                    className="old-price">$60.00
+                                                                </del>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div className="swiper-slide product">
-                                                <figure className="product-media">
-                                                    <a href="product-default.html">
-                                                        <img src="assets/images/products/default/4-1.jpg" alt="Product"
-                                                             width="300" height="338"/>
-                                                        <img src="assets/images/products/default/4-2.jpg" alt="Product"
-                                                             width="300" height="338"/>
-                                                    </a>
-                                                    <div className="product-action-vertical">
-                                                        <a href="#" className="btn-product-icon btn-cart w-icon-cart"
-                                                           title="Add to cart"></a>
-                                                        <a href="#"
-                                                           className="btn-product-icon btn-wishlist w-icon-heart"
-                                                           title="Add to wishlist"></a>
-                                                        <a href="#"
-                                                           className="btn-product-icon btn-compare w-icon-compare"
-                                                           title="Add to Compare"></a>
-                                                    </div>
-                                                    <div className="product-action">
-                                                        <a href="#" className="btn-product btn-quickview"
-                                                           title="Quick View">Quick
-                                                            View</a>
-                                                    </div>
-                                                </figure>
-                                                <div className="product-details">
-                                                    <div className="product-cat"><a
-                                                        href="shop-banner-sidebar.html">Accessories</a>
-                                                    </div>
-                                                    <h4 className="product-name"><a href="product-default.html">Clip
-                                                        Attachment</a>
-                                                    </h4>
-                                                    <div className="ratings-container">
-                                                        <div className="ratings-full">
-                                                            <span className="ratings" style={{width: '100%'}}></span>
-                                                            <span className="tooltiptext tooltip-top"></span>
+                                            <div className="product-wrap">
+                                                <div className="product text-center">
+                                                    <figure className="product-media">
+                                                        <a href="product-default.html">
+                                                            <img src="assets/images/shop/3.jpg" alt="Product" width="300"
+                                                                 height="338"/>
+                                                        </a>
+                                                        <div className="product-action-horizontal">
+                                                            <a href="#" className="btn-product-icon btn-cart w-icon-cart"
+                                                               title="Add to cart"></a>
+                                                            <a href="#" className="btn-product-icon btn-wishlist w-icon-heart"
+                                                               title="Wishlist"></a>
+                                                            <a href="#" className="btn-product-icon btn-compare w-icon-compare"
+                                                               title="Compare"></a>
+                                                            <a href="#" className="btn-product-icon btn-quickview w-icon-search"
+                                                               title="Quick View"></a>
                                                         </div>
-                                                        <a href="product-default.html" className="rating-reviews">(5
-                                                            reviews)</a>
+                                                    </figure>
+                                                    <div className="product-details">
+                                                        <div className="product-cat">
+                                                            <a href="shop-banner-sidebar.html">Electronics</a>
+                                                        </div>
+                                                        <h3 className="product-name">
+                                                            <a href="product-default.html">Apple Laptop</a>
+                                                        </h3>
+                                                        <div className="ratings-container">
+                                                            <div className="ratings-full">
+                                                                <span className="ratings" style={{width: '80%'}}></span>
+                                                                <span className="tooltiptext tooltip-top"></span>
+                                                            </div>
+                                                            <a href="product-default.html" className="rating-reviews">(5
+                                                                reviews)</a>
+                                                        </div>
+                                                        <div className="product-pa-wrapper">
+                                                            <div className="product-price">
+                                                                $1,000.00
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                    <div className="product-pa-wrapper">
-                                                        <div className="product-price">$40.00</div>
+                                                </div>
+                                            </div>
+                                            <div className="product-wrap">
+                                                <div className="product text-center">
+                                                    <figure className="product-media">
+                                                        <a href="product-default.html">
+                                                            <img src="assets/images/shop/4.jpg" alt="Product" width="300"
+                                                                 height="338"/>
+                                                        </a>
+                                                        <div className="product-action-horizontal">
+                                                            <a href="#" className="btn-product-icon btn-cart w-icon-cart"
+                                                               title="Add to cart"></a>
+                                                            <a href="#" className="btn-product-icon btn-wishlist w-icon-heart"
+                                                               title="Wishlist"></a>
+                                                            <a href="#" className="btn-product-icon btn-compare w-icon-compare"
+                                                               title="Compare"></a>
+                                                            <a href="#" className="btn-product-icon btn-quickview w-icon-search"
+                                                               title="Quick View"></a>
+                                                        </div>
+                                                    </figure>
+                                                    <div className="product-details">
+                                                        <div className="product-cat">
+                                                            <a href="shop-banner-sidebar.html">Electronics</a>
+                                                        </div>
+                                                        <h3 className="product-name">
+                                                            <a href="product-default.html">Attachable Charge Alarm</a>
+                                                        </h3>
+                                                        <div className="ratings-container">
+                                                            <div className="ratings-full">
+                                                                <span className="ratings" style={{width: '60%'}}></span>
+                                                                <span className="tooltiptext tooltip-top"></span>
+                                                            </div>
+                                                            <a href="product-default.html" className="rating-reviews">(7
+                                                                reviews)</a>
+                                                        </div>
+                                                        <div className="product-pa-wrapper">
+                                                            <div className="product-price">
+                                                                $15.00
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div className="product-wrap">
+                                                <div className="product text-center">
+                                                    <figure className="product-media">
+                                                        <a href="product-default.html">
+                                                            <img src="assets/images/shop/1.jpg" alt="Product" width="300"
+                                                                 height="338"/>
+                                                        </a>
+                                                        <div className="product-action-horizontal">
+                                                            <a href="#" className="btn-product-icon btn-cart w-icon-cart"
+                                                               title="Add to cart"></a>
+                                                            <a href="#" className="btn-product-icon btn-wishlist w-icon-heart"
+                                                               title="Wishlist"></a>
+                                                            <a href="#" className="btn-product-icon btn-compare w-icon-compare"
+                                                               title="Compare"></a>
+                                                            <a href="#" className="btn-product-icon btn-quickview w-icon-search"
+                                                               title="Quick View"></a>
+                                                        </div>
+                                                    </figure>
+                                                    <div className="product-details">
+                                                        <div className="product-cat">
+                                                            <a href="shop-banner-sidebar.html">Electronics</a>
+                                                        </div>
+                                                        <h3 className="product-name">
+                                                            <a href="product-default.html">3D Television</a>
+                                                        </h3>
+                                                        <div className="ratings-container">
+                                                            <div className="ratings-full">
+                                                                <span className="ratings" style={{width: '100%'}}></span>
+                                                                <span className="tooltiptext tooltip-top"></span>
+                                                            </div>
+                                                            <a href="product-default.html" className="rating-reviews">(3
+                                                                reviews)</a>
+                                                        </div>
+                                                        <div className="product-pa-wrapper">
+                                                            <div className="product-price">
+                                                                $220.00 - $230.00
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div className="product-wrap">
+                                                <div className="product text-center">
+                                                    <figure className="product-media">
+                                                        <a href="product-default.html">
+                                                            <img src="assets/images/shop/2-1.jpg" alt="Product" width="300"
+                                                                 height="338"/>
+                                                            <img src="assets/images/shop/2-2.jpg" alt="Product" width="300"
+                                                                 height="338"/>
+                                                        </a>
+                                                        <div className="product-countdown-container" style={{height: '35px'}}>
+                                                            <div className="product-countdown countdown-compact" data-until="2021, 9, 9"
+                                                                 data-format="DHMS" data-compact="false"
+                                                                 style={{fontSize: '20px'}}
+                                                                 data-labels-short="Days, Hours, Mins, Secs">
+                                                                00:00:00:00
+                                                            </div>
+                                                        </div>
+                                                        <div className="product-action-horizontal">
+                                                            <a href="#" className="btn-product-icon btn-cart w-icon-cart"
+                                                               title="Add to cart"></a>
+                                                            <a href="#" className="btn-product-icon btn-wishlist w-icon-heart"
+                                                               title="Wishlist"></a>
+                                                            <a href="#" className="btn-product-icon btn-compare w-icon-compare"
+                                                               title="Compare"></a>
+                                                            <a href="#" className="btn-product-icon btn-quickview w-icon-search"
+                                                               title="Quick View"></a>
+                                                        </div>
+                                                    </figure>
+                                                    <div className="product-details">
+                                                        <div className="product-cat">
+                                                            <a href="shop-banner-sidebar.html">Electronics</a>
+                                                        </div>
+                                                        <h3 className="product-name">
+                                                            <a href="product-default.html">Alarm Clock With Lamp</a>
+                                                        </h3>
+                                                        <div className="ratings-container">
+                                                            <div className="ratings-full">
+                                                                <span className="ratings" style={{width: '100%'}}></span>
+                                                                <span className="tooltiptext tooltip-top"></span>
+                                                            </div>
+                                                            <a href="product-default.html" className="rating-reviews">(10
+                                                                reviews)</a>
+                                                        </div>
+                                                        <div className="product-pa-wrapper">
+                                                            <div className="product-price">
+                                                                <ins className="new-price">$30.00</ins>
+                                                                <del
+                                                                    className="old-price">$60.00
+                                                                </del>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div className="product-wrap">
+                                                <div className="product text-center">
+                                                    <figure className="product-media">
+                                                        <a href="product-default.html">
+                                                            <img src="assets/images/shop/3.jpg" alt="Product" width="300"
+                                                                 height="338"/>
+                                                        </a>
+                                                        <div className="product-action-horizontal">
+                                                            <a href="#" className="btn-product-icon btn-cart w-icon-cart"
+                                                               title="Add to cart"></a>
+                                                            <a href="#" className="btn-product-icon btn-wishlist w-icon-heart"
+                                                               title="Wishlist"></a>
+                                                            <a href="#" className="btn-product-icon btn-compare w-icon-compare"
+                                                               title="Compare"></a>
+                                                            <a href="#" className="btn-product-icon btn-quickview w-icon-search"
+                                                               title="Quick View"></a>
+                                                        </div>
+                                                    </figure>
+                                                    <div className="product-details">
+                                                        <div className="product-cat">
+                                                            <a href="shop-banner-sidebar.html">Electronics</a>
+                                                        </div>
+                                                        <h3 className="product-name">
+                                                            <a href="product-default.html">Apple Laptop</a>
+                                                        </h3>
+                                                        <div className="ratings-container">
+                                                            <div className="ratings-full">
+                                                                <span className="ratings" style={{width: '80%'}}></span>
+                                                                <span className="tooltiptext tooltip-top"></span>
+                                                            </div>
+                                                            <a href="product-default.html" className="rating-reviews">(5
+                                                                reviews)</a>
+                                                        </div>
+                                                        <div className="product-pa-wrapper">
+                                                            <div className="product-price">
+                                                                $1,000.00
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div className="product-wrap">
+                                                <div className="product text-center">
+                                                    <figure className="product-media">
+                                                        <a href="product-default.html">
+                                                            <img src="assets/images/shop/4.jpg" alt="Product" width="300"
+                                                                 height="338"/>
+                                                        </a>
+                                                        <div className="product-action-horizontal">
+                                                            <a href="#" className="btn-product-icon btn-cart w-icon-cart"
+                                                               title="Add to cart"></a>
+                                                            <a href="#" className="btn-product-icon btn-wishlist w-icon-heart"
+                                                               title="Wishlist"></a>
+                                                            <a href="#" className="btn-product-icon btn-compare w-icon-compare"
+                                                               title="Compare"></a>
+                                                            <a href="#" className="btn-product-icon btn-quickview w-icon-search"
+                                                               title="Quick View"></a>
+                                                        </div>
+                                                    </figure>
+                                                    <div className="product-details">
+                                                        <div className="product-cat">
+                                                            <a href="shop-banner-sidebar.html">Electronics</a>
+                                                        </div>
+                                                        <h3 className="product-name">
+                                                            <a href="product-default.html">Attachable Charge Alarm</a>
+                                                        </h3>
+                                                        <div className="ratings-container">
+                                                            <div className="ratings-full">
+                                                                <span className="ratings" style={{width: '60%'}}></span>
+                                                                <span className="tooltiptext tooltip-top"></span>
+                                                            </div>
+                                                            <a href="product-default.html" className="rating-reviews">(7
+                                                                reviews)</a>
+                                                        </div>
+                                                        <div className="product-pa-wrapper">
+                                                            <div className="product-price">
+                                                                $15.00
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
+                                        {/*<div className="toolbox toolbox-pagination justify-content-between">*/}
+                                        {/*    <p className="showing-info mb-2 mb-sm-0">*/}
+                                        {/*        Showing<span>1-12 of 60</span>Products*/}
+                                        {/*    </p>*/}
+                                        {/*    <ul className="pagination">*/}
+                                        {/*        <li className="prev disabled">*/}
+                                        {/*            <a href="#" aria-label="Previous" tabIndex="-1" aria-disabled="true">*/}
+                                        {/*                <i className="w-icon-long-arrow-left"></i>Prev*/}
+                                        {/*            </a>*/}
+                                        {/*        </li>*/}
+                                        {/*        <li className="page-item active">*/}
+                                        {/*            <a className="page-link" href="#">1</a>*/}
+                                        {/*        </li>*/}
+                                        {/*        <li className="page-item">*/}
+                                        {/*            <a className="page-link" href="#">2</a>*/}
+                                        {/*        </li>*/}
+                                        {/*        <li className="next">*/}
+                                        {/*            <a href="#" aria-label="Next">*/}
+                                        {/*                Next<i className="w-icon-long-arrow-right"></i>*/}
+                                        {/*            </a>*/}
+                                        {/*        </li>*/}
+                                        {/*    </ul>*/}
+                                        {/*</div>*/}
                                     </div>
                                 </section>
                                 <section className="related-product-section">
@@ -1118,184 +1313,386 @@ export default function ProductPageMain(){
                                         <a href="#" className="btn btn-dark btn-link btn-slide-right btn-icon-right">More
                                             Products<i className="w-icon-long-arrow-right"></i></a>
                                     </div>
-                                    <div className="swiper-container swiper-theme" data-swiper-options="{
-                                    'spaceBetween': 20,
-                                    'slidesPerView': 2,
-                                    'breakpoints': {
-                                        '576': {
-                                            'slidesPerView': 3
-                                        },
-                                        '768': {
-                                            'slidesPerView': 4
-                                        },
-                                        '992': {
-                                            'slidesPerView': 3
-                                        }
-                                    }
-                                }">
-                                        <div className="swiper-wrapper row cols-lg-3 cols-md-4 cols-sm-3 cols-2">
-                                            <div className="swiper-slide product">
-                                                <figure className="product-media">
-                                                    <a href="product-default.html">
-                                                        <img src="assets/images/products/default/5.jpg" alt="Product"
-                                                             width="300" height="338"/>
-                                                    </a>
-                                                    <div className="product-action-vertical">
-                                                        <a href="#" className="btn-product-icon btn-cart w-icon-cart"
-                                                           title="Add to cart"></a>
-                                                        <a href="#"
-                                                           className="btn-product-icon btn-wishlist w-icon-heart"
-                                                           title="Add to wishlist"></a>
-                                                        <a href="#"
-                                                           className="btn-product-icon btn-compare w-icon-compare"
-                                                           title="Add to Compare"></a>
-                                                    </div>
-                                                    <div className="product-action">
-                                                        <a href="#" className="btn-product btn-quickview"
-                                                           title="Quick View">Quick
-                                                            View</a>
-                                                    </div>
-                                                </figure>
-                                                <div className="product-details">
-                                                    <h4 className="product-name"><a
-                                                        href="product-default.html">Drone</a></h4>
-                                                    <div className="ratings-container">
-                                                        <div className="ratings-full">
-                                                            <span className="ratings" style={{width: '100%'}}></span>
-                                                            <span className="tooltiptext tooltip-top"></span>
+                                    <div className="container">
+                                        <div className="product-wrapper row cols-lg-4 cols-md-3 cols-sm-2 cols-2">
+                                            <div className="product-wrap">
+                                                <div className="product text-center">
+                                                    <figure className="product-media">
+                                                        <a href="product-default.html">
+                                                            <img src="assets/images/shop/1.jpg" alt="Product" width="300"
+                                                                 height="338"/>
+                                                        </a>
+                                                        <div className="product-action-horizontal">
+                                                            <a href="#" className="btn-product-icon btn-cart w-icon-cart"
+                                                               title="Add to cart"></a>
+                                                            <a href="#" className="btn-product-icon btn-wishlist w-icon-heart"
+                                                               title="Wishlist"></a>
+                                                            <a href="#" className="btn-product-icon btn-compare w-icon-compare"
+                                                               title="Compare"></a>
+                                                            <a href="#" className="btn-product-icon btn-quickview w-icon-search"
+                                                               title="Quick View"></a>
                                                         </div>
-                                                        <a href="product-default.html" className="rating-reviews">(3
-                                                            reviews)</a>
-                                                    </div>
-                                                    <div className="product-pa-wrapper">
-                                                        <div className="product-price">$632.00</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div className="swiper-slide product">
-                                                <figure className="product-media">
-                                                    <a href="product-default.html">
-                                                        <img src="assets/images/products/default/6.jpg" alt="Product"
-                                                             width="300" height="338"/>
-                                                    </a>
-                                                    <div className="product-action-vertical">
-                                                        <a href="#" className="btn-product-icon btn-cart w-icon-cart"
-                                                           title="Add to cart"></a>
-                                                        <a href="#"
-                                                           className="btn-product-icon btn-wishlist w-icon-heart"
-                                                           title="Add to wishlist"></a>
-                                                        <a href="#"
-                                                           className="btn-product-icon btn-compare w-icon-compare"
-                                                           title="Add to Compare"></a>
-                                                    </div>
-                                                    <div className="product-action">
-                                                        <a href="#" className="btn-product btn-quickview"
-                                                           title="Quick View">Quick
-                                                            View</a>
-                                                    </div>
-                                                </figure>
-                                                <div className="product-details">
-                                                    <h4 className="product-name"><a href="product-default.html">Official
-                                                        Camera</a>
-                                                    </h4>
-                                                    <div className="ratings-container">
-                                                        <div className="ratings-full">
-                                                            <span className="ratings" style={{width: '100%'}}></span>
-                                                            <span className="tooltiptext tooltip-top"></span>
+                                                    </figure>
+                                                    <div className="product-details">
+                                                        <div className="product-cat">
+                                                            <a href="shop-banner-sidebar.html">Electronics</a>
                                                         </div>
-                                                        <a href="product-default.html" className="rating-reviews">(3
-                                                            reviews)</a>
-                                                    </div>
-                                                    <div className="product-pa-wrapper">
-                                                        <div className="product-price">
-                                                            <ins className="new-price">$263.00</ins>
-                                                            <del
-                                                                className="old-price">$300.00
-                                                            </del>
+                                                        <h3 className="product-name">
+                                                            <a href="product-default.html">3D Television</a>
+                                                        </h3>
+                                                        <div className="ratings-container">
+                                                            <div className="ratings-full">
+                                                                <span className="ratings" style={{width: '100%'}}></span>
+                                                                <span className="tooltiptext tooltip-top"></span>
+                                                            </div>
+                                                            <a href="product-default.html" className="rating-reviews">(3
+                                                                reviews)</a>
+                                                        </div>
+                                                        <div className="product-pa-wrapper">
+                                                            <div className="product-price">
+                                                                $220.00 - $230.00
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div className="swiper-slide product">
-                                                <figure className="product-media">
-                                                    <a href="product-default.html">
-                                                        <img src="assets/images/products/default/7-1.jpg" alt="Product"
-                                                             width="300" height="338"/>
-                                                        <img src="assets/images/products/default/7-2.jpg" alt="Product"
-                                                             width="300" height="338"/>
-                                                    </a>
-                                                    <div className="product-action-vertical">
-                                                        <a href="#" className="btn-product-icon btn-cart w-icon-cart"
-                                                           title="Add to cart"></a>
-                                                        <a href="#"
-                                                           className="btn-product-icon btn-wishlist w-icon-heart"
-                                                           title="Add to wishlist"></a>
-                                                        <a href="#"
-                                                           className="btn-product-icon btn-compare w-icon-compare"
-                                                           title="Add to Compare"></a>
-                                                    </div>
-                                                    <div className="product-action">
-                                                        <a href="#" className="btn-product btn-quickview"
-                                                           title="Quick View">Quick
-                                                            View</a>
-                                                    </div>
-                                                </figure>
-                                                <div className="product-details">
-                                                    <h4 className="product-name"><a href="product-default.html">Phone
-                                                        Charge Pad</a>
-                                                    </h4>
-                                                    <div className="ratings-container">
-                                                        <div className="ratings-full">
-                                                            <span className="ratings" style={{width: '80%'}}></span>
-                                                            <span className="tooltiptext tooltip-top"></span>
+                                            <div className="product-wrap">
+                                                <div className="product text-center">
+                                                    <figure className="product-media">
+                                                        <a href="product-default.html">
+                                                            <img src="assets/images/shop/2-1.jpg" alt="Product" width="300"
+                                                                 height="338"/>
+                                                            <img src="assets/images/shop/2-2.jpg" alt="Product" width="300"
+                                                                 height="338"/>
+                                                        </a>
+                                                        <div className="product-countdown-container" style={{height: '35px'}}>
+                                                            <div className="product-countdown countdown-compact" data-until="2021, 9, 9"
+                                                                 data-format="DHMS" data-compact="false"
+                                                                 style={{fontSize: '20px'}}
+                                                                 data-labels-short="Days, Hours, Mins, Secs">
+                                                                00:00:00:00
+                                                            </div>
                                                         </div>
-                                                        <a href="product-default.html" className="rating-reviews">(8
-                                                            reviews)</a>
-                                                    </div>
-                                                    <div className="product-pa-wrapper">
-                                                        <div className="product-price">$23.00</div>
+                                                        <div className="product-action-horizontal">
+                                                            <a href="#" className="btn-product-icon btn-cart w-icon-cart"
+                                                               title="Add to cart"></a>
+                                                            <a href="#" className="btn-product-icon btn-wishlist w-icon-heart"
+                                                               title="Wishlist"></a>
+                                                            <a href="#" className="btn-product-icon btn-compare w-icon-compare"
+                                                               title="Compare"></a>
+                                                            <a href="#" className="btn-product-icon btn-quickview w-icon-search"
+                                                               title="Quick View"></a>
+                                                        </div>
+                                                    </figure>
+                                                    <div className="product-details">
+                                                        <div className="product-cat">
+                                                            <a href="shop-banner-sidebar.html">Electronics</a>
+                                                        </div>
+                                                        <h3 className="product-name">
+                                                            <a href="product-default.html">Alarm Clock With Lamp</a>
+                                                        </h3>
+                                                        <div className="ratings-container">
+                                                            <div className="ratings-full">
+                                                                <span className="ratings" style={{width: '100%'}}></span>
+                                                                <span className="tooltiptext tooltip-top"></span>
+                                                            </div>
+                                                            <a href="product-default.html" className="rating-reviews">(10
+                                                                reviews)</a>
+                                                        </div>
+                                                        <div className="product-pa-wrapper">
+                                                            <div className="product-price">
+                                                                <ins className="new-price">$30.00</ins>
+                                                                <del
+                                                                    className="old-price">$60.00
+                                                                </del>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div className="swiper-slide product">
-                                                <figure className="product-media">
-                                                    <a href="product-default.html">
-                                                        <img src="assets/images/products/default/8.jpg" alt="Product"
-                                                             width="300" height="338"/>
-                                                    </a>
-                                                    <div className="product-action-vertical">
-                                                        <a href="#" className="btn-product-icon btn-cart w-icon-cart"
-                                                           title="Add to cart"></a>
-                                                        <a href="#"
-                                                           className="btn-product-icon btn-wishlist w-icon-heart"
-                                                           title="Add to wishlist"></a>
-                                                        <a href="#"
-                                                           className="btn-product-icon btn-compare w-icon-compare"
-                                                           title="Add to Compare"></a>
-                                                    </div>
-                                                    <div className="product-action">
-                                                        <a href="#" className="btn-product btn-quickview"
-                                                           title="Quick View">Quick
-                                                            View</a>
-                                                    </div>
-                                                </figure>
-                                                <div className="product-details">
-                                                    <h4 className="product-name"><a href="product-default.html">Fashionalble
-                                                        Pencil</a></h4>
-                                                    <div className="ratings-container">
-                                                        <div className="ratings-full">
-                                                            <span className="ratings" style={{width: '100%'}}></span>
-                                                            <span className="tooltiptext tooltip-top"></span>
+                                            <div className="product-wrap">
+                                                <div className="product text-center">
+                                                    <figure className="product-media">
+                                                        <a href="product-default.html">
+                                                            <img src="assets/images/shop/3.jpg" alt="Product" width="300"
+                                                                 height="338"/>
+                                                        </a>
+                                                        <div className="product-action-horizontal">
+                                                            <a href="#" className="btn-product-icon btn-cart w-icon-cart"
+                                                               title="Add to cart"></a>
+                                                            <a href="#" className="btn-product-icon btn-wishlist w-icon-heart"
+                                                               title="Wishlist"></a>
+                                                            <a href="#" className="btn-product-icon btn-compare w-icon-compare"
+                                                               title="Compare"></a>
+                                                            <a href="#" className="btn-product-icon btn-quickview w-icon-search"
+                                                               title="Quick View"></a>
                                                         </div>
-                                                        <a href="product-default.html" className="rating-reviews">(9
-                                                            reviews)</a>
+                                                    </figure>
+                                                    <div className="product-details">
+                                                        <div className="product-cat">
+                                                            <a href="shop-banner-sidebar.html">Electronics</a>
+                                                        </div>
+                                                        <h3 className="product-name">
+                                                            <a href="product-default.html">Apple Laptop</a>
+                                                        </h3>
+                                                        <div className="ratings-container">
+                                                            <div className="ratings-full">
+                                                                <span className="ratings" style={{width: '80%'}}></span>
+                                                                <span className="tooltiptext tooltip-top"></span>
+                                                            </div>
+                                                            <a href="product-default.html" className="rating-reviews">(5
+                                                                reviews)</a>
+                                                        </div>
+                                                        <div className="product-pa-wrapper">
+                                                            <div className="product-price">
+                                                                $1,000.00
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                    <div className="product-pa-wrapper">
-                                                        <div className="product-price">$50.00</div>
+                                                </div>
+                                            </div>
+                                            <div className="product-wrap">
+                                                <div className="product text-center">
+                                                    <figure className="product-media">
+                                                        <a href="product-default.html">
+                                                            <img src="assets/images/shop/4.jpg" alt="Product" width="300"
+                                                                 height="338"/>
+                                                        </a>
+                                                        <div className="product-action-horizontal">
+                                                            <a href="#" className="btn-product-icon btn-cart w-icon-cart"
+                                                               title="Add to cart"></a>
+                                                            <a href="#" className="btn-product-icon btn-wishlist w-icon-heart"
+                                                               title="Wishlist"></a>
+                                                            <a href="#" className="btn-product-icon btn-compare w-icon-compare"
+                                                               title="Compare"></a>
+                                                            <a href="#" className="btn-product-icon btn-quickview w-icon-search"
+                                                               title="Quick View"></a>
+                                                        </div>
+                                                    </figure>
+                                                    <div className="product-details">
+                                                        <div className="product-cat">
+                                                            <a href="shop-banner-sidebar.html">Electronics</a>
+                                                        </div>
+                                                        <h3 className="product-name">
+                                                            <a href="product-default.html">Attachable Charge Alarm</a>
+                                                        </h3>
+                                                        <div className="ratings-container">
+                                                            <div className="ratings-full">
+                                                                <span className="ratings" style={{width: '60%'}}></span>
+                                                                <span className="tooltiptext tooltip-top"></span>
+                                                            </div>
+                                                            <a href="product-default.html" className="rating-reviews">(7
+                                                                reviews)</a>
+                                                        </div>
+                                                        <div className="product-pa-wrapper">
+                                                            <div className="product-price">
+                                                                $15.00
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div className="product-wrap">
+                                                <div className="product text-center">
+                                                    <figure className="product-media">
+                                                        <a href="product-default.html">
+                                                            <img src="assets/images/shop/1.jpg" alt="Product" width="300"
+                                                                 height="338"/>
+                                                        </a>
+                                                        <div className="product-action-horizontal">
+                                                            <a href="#" className="btn-product-icon btn-cart w-icon-cart"
+                                                               title="Add to cart"></a>
+                                                            <a href="#" className="btn-product-icon btn-wishlist w-icon-heart"
+                                                               title="Wishlist"></a>
+                                                            <a href="#" className="btn-product-icon btn-compare w-icon-compare"
+                                                               title="Compare"></a>
+                                                            <a href="#" className="btn-product-icon btn-quickview w-icon-search"
+                                                               title="Quick View"></a>
+                                                        </div>
+                                                    </figure>
+                                                    <div className="product-details">
+                                                        <div className="product-cat">
+                                                            <a href="shop-banner-sidebar.html">Electronics</a>
+                                                        </div>
+                                                        <h3 className="product-name">
+                                                            <a href="product-default.html">3D Television</a>
+                                                        </h3>
+                                                        <div className="ratings-container">
+                                                            <div className="ratings-full">
+                                                                <span className="ratings" style={{width: '100%'}}></span>
+                                                                <span className="tooltiptext tooltip-top"></span>
+                                                            </div>
+                                                            <a href="product-default.html" className="rating-reviews">(3
+                                                                reviews)</a>
+                                                        </div>
+                                                        <div className="product-pa-wrapper">
+                                                            <div className="product-price">
+                                                                $220.00 - $230.00
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div className="product-wrap">
+                                                <div className="product text-center">
+                                                    <figure className="product-media">
+                                                        <a href="product-default.html">
+                                                            <img src="assets/images/shop/2-1.jpg" alt="Product" width="300"
+                                                                 height="338"/>
+                                                            <img src="assets/images/shop/2-2.jpg" alt="Product" width="300"
+                                                                 height="338"/>
+                                                        </a>
+                                                        <div className="product-countdown-container" style={{height: '35px'}}>
+                                                            <div className="product-countdown countdown-compact" data-until="2021, 9, 9"
+                                                                 data-format="DHMS" data-compact="false"
+                                                                 style={{fontSize: '20px'}}
+                                                                 data-labels-short="Days, Hours, Mins, Secs">
+                                                                00:00:00:00
+                                                            </div>
+                                                        </div>
+                                                        <div className="product-action-horizontal">
+                                                            <a href="#" className="btn-product-icon btn-cart w-icon-cart"
+                                                               title="Add to cart"></a>
+                                                            <a href="#" className="btn-product-icon btn-wishlist w-icon-heart"
+                                                               title="Wishlist"></a>
+                                                            <a href="#" className="btn-product-icon btn-compare w-icon-compare"
+                                                               title="Compare"></a>
+                                                            <a href="#" className="btn-product-icon btn-quickview w-icon-search"
+                                                               title="Quick View"></a>
+                                                        </div>
+                                                    </figure>
+                                                    <div className="product-details">
+                                                        <div className="product-cat">
+                                                            <a href="shop-banner-sidebar.html">Electronics</a>
+                                                        </div>
+                                                        <h3 className="product-name">
+                                                            <a href="product-default.html">Alarm Clock With Lamp</a>
+                                                        </h3>
+                                                        <div className="ratings-container">
+                                                            <div className="ratings-full">
+                                                                <span className="ratings" style={{width: '100%'}}></span>
+                                                                <span className="tooltiptext tooltip-top"></span>
+                                                            </div>
+                                                            <a href="product-default.html" className="rating-reviews">(10
+                                                                reviews)</a>
+                                                        </div>
+                                                        <div className="product-pa-wrapper">
+                                                            <div className="product-price">
+                                                                <ins className="new-price">$30.00</ins>
+                                                                <del
+                                                                    className="old-price">$60.00
+                                                                </del>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div className="product-wrap">
+                                                <div className="product text-center">
+                                                    <figure className="product-media">
+                                                        <a href="product-default.html">
+                                                            <img src="assets/images/shop/3.jpg" alt="Product" width="300"
+                                                                 height="338"/>
+                                                        </a>
+                                                        <div className="product-action-horizontal">
+                                                            <a href="#" className="btn-product-icon btn-cart w-icon-cart"
+                                                               title="Add to cart"></a>
+                                                            <a href="#" className="btn-product-icon btn-wishlist w-icon-heart"
+                                                               title="Wishlist"></a>
+                                                            <a href="#" className="btn-product-icon btn-compare w-icon-compare"
+                                                               title="Compare"></a>
+                                                            <a href="#" className="btn-product-icon btn-quickview w-icon-search"
+                                                               title="Quick View"></a>
+                                                        </div>
+                                                    </figure>
+                                                    <div className="product-details">
+                                                        <div className="product-cat">
+                                                            <a href="shop-banner-sidebar.html">Electronics</a>
+                                                        </div>
+                                                        <h3 className="product-name">
+                                                            <a href="product-default.html">Apple Laptop</a>
+                                                        </h3>
+                                                        <div className="ratings-container">
+                                                            <div className="ratings-full">
+                                                                <span className="ratings" style={{width: '80%'}}></span>
+                                                                <span className="tooltiptext tooltip-top"></span>
+                                                            </div>
+                                                            <a href="product-default.html" className="rating-reviews">(5
+                                                                reviews)</a>
+                                                        </div>
+                                                        <div className="product-pa-wrapper">
+                                                            <div className="product-price">
+                                                                $1,000.00
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div className="product-wrap">
+                                                <div className="product text-center">
+                                                    <figure className="product-media">
+                                                        <a href="product-default.html">
+                                                            <img src="assets/images/shop/4.jpg" alt="Product" width="300"
+                                                                 height="338"/>
+                                                        </a>
+                                                        <div className="product-action-horizontal">
+                                                            <a href="#" className="btn-product-icon btn-cart w-icon-cart"
+                                                               title="Add to cart"></a>
+                                                            <a href="#" className="btn-product-icon btn-wishlist w-icon-heart"
+                                                               title="Wishlist"></a>
+                                                            <a href="#" className="btn-product-icon btn-compare w-icon-compare"
+                                                               title="Compare"></a>
+                                                            <a href="#" className="btn-product-icon btn-quickview w-icon-search"
+                                                               title="Quick View"></a>
+                                                        </div>
+                                                    </figure>
+                                                    <div className="product-details">
+                                                        <div className="product-cat">
+                                                            <a href="shop-banner-sidebar.html">Electronics</a>
+                                                        </div>
+                                                        <h3 className="product-name">
+                                                            <a href="product-default.html">Attachable Charge Alarm</a>
+                                                        </h3>
+                                                        <div className="ratings-container">
+                                                            <div className="ratings-full">
+                                                                <span className="ratings" style={{width: '60%'}}></span>
+                                                                <span className="tooltiptext tooltip-top"></span>
+                                                            </div>
+                                                            <a href="product-default.html" className="rating-reviews">(7
+                                                                reviews)</a>
+                                                        </div>
+                                                        <div className="product-pa-wrapper">
+                                                            <div className="product-price">
+                                                                $15.00
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
+                                        {/*<div className="toolbox toolbox-pagination justify-content-between">*/}
+                                        {/*    <p className="showing-info mb-2 mb-sm-0">*/}
+                                        {/*        Showing<span>1-12 of 60</span>Products*/}
+                                        {/*    </p>*/}
+                                        {/*    <ul className="pagination">*/}
+                                        {/*        <li className="prev disabled">*/}
+                                        {/*            <a href="#" aria-label="Previous" tabIndex="-1" aria-disabled="true">*/}
+                                        {/*                <i className="w-icon-long-arrow-left"></i>Prev*/}
+                                        {/*            </a>*/}
+                                        {/*        </li>*/}
+                                        {/*        <li className="page-item active">*/}
+                                        {/*            <a className="page-link" href="#">1</a>*/}
+                                        {/*        </li>*/}
+                                        {/*        <li className="page-item">*/}
+                                        {/*            <a className="page-link" href="#">2</a>*/}
+                                        {/*        </li>*/}
+                                        {/*        <li className="next">*/}
+                                        {/*            <a href="#" aria-label="Next">*/}
+                                        {/*                Next<i className="w-icon-long-arrow-right"></i>*/}
+                                        {/*            </a>*/}
+                                        {/*        </li>*/}
+                                        {/*    </ul>*/}
+                                        {/*</div>*/}
                                     </div>
                                 </section>
                             </div>
@@ -1307,36 +1704,6 @@ export default function ProductPageMain(){
                                     className="fas fa-chevron-left"></i></a>
                                 <div className="sidebar-content scrollable">
                                     <div className="sticky-sidebar">
-                                        <div className="widget widget-icon-box mb-6">
-                                            <div className="icon-box icon-box-side">
-                                            <span className="icon-box-icon text-dark">
-                                                <i className="w-icon-truck"></i>
-                                            </span>
-                                                <div className="icon-box-content">
-                                                    <h4 className="icon-box-title">Free Shipping & Returns</h4>
-                                                    <p>For all orders over $99</p>
-                                                </div>
-                                            </div>
-                                            <div className="icon-box icon-box-side">
-                                            <span className="icon-box-icon text-dark">
-                                                <i className="w-icon-bag"></i>
-                                            </span>
-                                                <div className="icon-box-content">
-                                                    <h4 className="icon-box-title">Secure Payment</h4>
-                                                    <p>We ensure secure payment</p>
-                                                </div>
-                                            </div>
-                                            <div className="icon-box icon-box-side">
-                                            <span className="icon-box-icon text-dark">
-                                                <i className="w-icon-money"></i>
-                                            </span>
-                                                <div className="icon-box-content">
-                                                    <h4 className="icon-box-title">Money Back Guarantee</h4>
-                                                    <p>Any back within 30 days</p>
-                                                </div>
-                                            </div>
-                                        </div>
-
                                         <div className="widget widget-banner mb-9">
                                             <div className="banner banner-fixed br-sm">
                                                 <figure>
@@ -1355,7 +1722,6 @@ export default function ProductPageMain(){
                                                 </div>
                                             </div>
                                         </div>
-
                                         <div className="widget widget-products">
                                             <div className="title-link-wrapper mb-2">
                                                 <h4 className="title title-link font-weight-bold">More Products</h4>
@@ -1371,7 +1737,7 @@ export default function ProductPageMain(){
                                                     'nextEl': '.swiper-button-next'
                                                 }
                                             }">
-                                                    <div className="swiper-wrapper">
+                                                    <div className="swiper-wrapper right-scroll">
                                                         <div className="widget-col swiper-slide">
                                                             <div className="product product-widget">
                                                                 <figure className="product-media">
@@ -1442,8 +1808,77 @@ export default function ProductPageMain(){
                                                                     <div className="product-price">$374.00</div>
                                                                 </div>
                                                             </div>
+                                                            <div className="product product-widget">
+                                                                <figure className="product-media">
+                                                                    <a href="#">
+                                                                        <img src="assets/images/shop/13.jpg"
+                                                                             alt="Product"
+                                                                             width="100" height="113"/>
+                                                                    </a>
+                                                                </figure>
+                                                                <div className="product-details">
+                                                                    <h4 className="product-name">
+                                                                        <a href="#">Smart Watch</a>
+                                                                    </h4>
+                                                                    <div className="ratings-container">
+                                                                        <div className="ratings-full">
+                                                                            <span className="ratings"
+                                                                                  style={{width: '100%'}}></span>
+                                                                            <span
+                                                                                className="tooltiptext tooltip-top"></span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className="product-price">$80.00 - $90.00</div>
+                                                                </div>
+                                                            </div>
+                                                            <div className="product product-widget">
+                                                                <figure className="product-media">
+                                                                    <a href="#">
+                                                                        <img src="assets/images/shop/14.jpg"
+                                                                             alt="Product"
+                                                                             width="100" height="113"/>
+                                                                    </a>
+                                                                </figure>
+                                                                <div className="product-details">
+                                                                    <h4 className="product-name">
+                                                                        <a href="#">Sky Medical Facility</a>
+                                                                    </h4>
+                                                                    <div className="ratings-container">
+                                                                        <div className="ratings-full">
+                                                                            <span className="ratings"
+                                                                                  style={{width: '80%'}}></span>
+                                                                            <span
+                                                                                className="tooltiptext tooltip-top"></span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className="product-price">$58.00</div>
+                                                                </div>
+                                                            </div>
+                                                            <div className="product product-widget">
+                                                                <figure className="product-media">
+                                                                    <a href="#">
+                                                                        <img src="assets/images/shop/15.jpg"
+                                                                             alt="Product"
+                                                                             width="100" height="113"/>
+                                                                    </a>
+                                                                </figure>
+                                                                <div className="product-details">
+                                                                    <h4 className="product-name">
+                                                                        <a href="#">Black Stunt Motor</a>
+                                                                    </h4>
+                                                                    <div className="ratings-container">
+                                                                        <div className="ratings-full">
+                                                                            <span className="ratings"
+                                                                                  style={{width: '60%'}}></span>
+                                                                            <span
+                                                                                className="tooltiptext tooltip-top"></span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className="product-price">$374.00</div>
+                                                                </div>
+                                                            </div>
                                                         </div>
-                                                        <div className="widget-col swiper-slide">
+                                                        <div className="widget-col swiper-slide right-scroll">
                                                             <div className="product product-widget">
                                                                 <figure className="product-media">
                                                                     <a href="#">

@@ -3,6 +3,12 @@ import React from 'react'
 export default function HeaderTop2() {
     return (
         <div>
+            <style jsx>{`
+            .category-dropdown > a:not(.btn):hover {
+                color: #336699 !important;
+               }
+            `} </style>
+
             <header className="header header-border">
                 <div className="header-bottom sticky-content fix-top sticky-header">
                     <div className="container-fluid">

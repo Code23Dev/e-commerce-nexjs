@@ -27,7 +27,6 @@ export default function ShopPageMain(){
                             </div>
                         </div>
 
-
                         <div className="shop-content row gutter-lg mb-10">
                             <aside className="sidebar shop-sidebar sticky-sidebar-wrapper sidebar-fixed">
                                 <div className="sidebar-overlay"></div>
@@ -200,10 +199,10 @@ export default function ShopPageMain(){
                                                     <img src="assets/images/shop/2-2.jpg" alt="Product" width="300"
                                                          height="338"/>
                                                 </a>
-                                                <div className="product-countdown-container">
-                                                    <div className="product-countdown countdown-compact"
-                                                         data-until="2021, 9, 9"
+                                                <div className="product-countdown-container" style={{height: '35px'}}>
+                                                    <div className="product-countdown countdown-compact" data-until="2021, 9, 9"
                                                          data-format="DHMS" data-compact="false"
+                                                         style={{fontSize: '20px'}}
                                                          data-labels-short="Days, Hours, Mins, Secs">
                                                         00:00:00:00
                                                     </div>
@@ -660,7 +659,6 @@ export default function ShopPageMain(){
                                         </div>
                                     </div>
                                 </div>
-
                                 <div className="toolbox toolbox-pagination justify-content-between">
                                     <p className="showing-info mb-2 mb-sm-0">
                                         Showing<span>1-12 of 60</span>Products
