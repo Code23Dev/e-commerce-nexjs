@@ -8,6 +8,8 @@ export default function Home() {
      useEffect(() => {
         if(router.pathname === '/'){
              router.push({pathname: '/homePage',})
+        }else{
+            router.push({pathname: '/error',})
         }
          window.setTimeout(() => {
              window.location.reload(true);

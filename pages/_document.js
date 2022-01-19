@@ -52,7 +52,10 @@ class MyDocument extends Document {
                 <script src="assets/vendor/jquery.countdown/jquery.countdown.min.js"></script>
                 <script src="assets/mainJs/index.js"></script>
                 <script src="assets/mainJs/main.js"></script>
-
+                <script src="assets/vendor/jquery/jquery.min.js"></script>
+                <script src="assets/vendor/jquery.count-to/jquery.count-to.min.js"></script>
+                <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+                <script src="assets/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
                 </body>
             </Html>
         )
