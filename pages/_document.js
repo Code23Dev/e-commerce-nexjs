@@ -13,9 +13,6 @@ class MyDocument extends Document {
                  <meta charSet="UTF-8"/>
                  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0"/>
                  <title>Wolmart - Marketplace</title>
-                 <meta name="keywords" content="Marketplace ecommerce responsive HTML5 Template"/>
-                 <meta name="description" content="Wolmart is powerful marketplace &amp; ecommerce responsive Html5 Template."/>
-                 <meta name="author" content="D-THEMES"/>
                  <link rel="icon" type="image/png" href="assets/images/icons/favicon.png"/>
                  <link rel="preload" href="assets/vendor/fontawesome-free/webfonts/fa-regular-400.woff2" as="font" type="font/woff2" crossOrigin="anonymous"/>
                  <link rel="preload" href="assets/vendor/fontawesome-free/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossOrigin="anonymous"/>
@@ -26,9 +23,6 @@ class MyDocument extends Document {
                  <link rel="stylesheet" type="text/css" href="assets/vendor/animate/animate.min.css"/>
                  <link rel="stylesheet" type="text/css" href="assets/vendor/magnific-popup/magnific-popup.min.css"/>
                  <link rel="stylesheet" type="text/css" href="assets/css/demo8.min.css"/>
-                 <link rel="preload" href="assets/vendor/fontawesome-free/webfonts/fa-regular-400.woff2" as="font" type="font/woff2" crossOrigin="anonymous"/>
-                 <link rel="preload" href="assets/vendor/fontawesome-free/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossOrigin="anonymous"/>
-                 <link rel="preload" href="assets/vendor/fontawesome-free/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossOrigin="anonymous"/>
                  <link rel="preload" href="assets/fonts/wolmart.woff?png09e" as="font" type="font/woff" crossOrigin="anonymous"/>
                  <link rel="stylesheet" type="text/css" href="assets/vendor/fontawesome-free/css/all.min.css"/>
                  <link rel="stylesheet" type="text/css" href="assets/vendor/animate/animate.min.css"/>
@@ -41,7 +35,6 @@ class MyDocument extends Document {
                 <body>
                 <Main />
                 <NextScript />
-                <script src="assets/vendor/jquery/jquery.min.js"></script>
                 <script src="assets/vendor/parallax/parallax.min.js"></script>
                 <script src="assets/vendor/jquery.plugin/jquery.plugin.min.js"></script>
                 <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
@@ -52,7 +45,6 @@ class MyDocument extends Document {
                 <script src="assets/vendor/jquery.countdown/jquery.countdown.min.js"></script>
                 <script src="assets/mainJs/index.js"></script>
                 <script src="assets/mainJs/main.js"></script>
-                <script src="assets/vendor/jquery/jquery.min.js"></script>
                 <script src="assets/vendor/jquery.count-to/jquery.count-to.min.js"></script>
                 <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
                 <script src="assets/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>

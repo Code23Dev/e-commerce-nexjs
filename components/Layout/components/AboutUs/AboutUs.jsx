@@ -1,4 +1,5 @@
 import React from 'react'
+import AccordionCard from "./AccordionCard";
 
 export default function Compare(){
     return (
@@ -77,6 +78,7 @@ export default function Compare(){
                                                 </p>
                                             </div>
                                         </div>
+                                        <AccordionCard/>
                                     </div>
                                 </div>
                                 <div className="col-md-6 mb-8">

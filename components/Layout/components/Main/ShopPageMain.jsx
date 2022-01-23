@@ -26,7 +26,6 @@ export default function ShopPageMain(){
                                     Now<i className="w-icon-long-arrow-right"></i></a>
                             </div>
                         </div>
-
                         <div className="shop-content row gutter-lg mb-10">
                             <aside className="sidebar shop-sidebar sticky-sidebar-wrapper sidebar-fixed">
                                 <div className="sidebar-overlay"></div>
@@ -148,6 +147,7 @@ export default function ShopPageMain(){
                                         </div>
                                     </div>
                                 </nav>
+
                                 <div className="product-wrapper row cols-lg-4 cols-md-3 cols-sm-2 cols-2">
                                     <div className="product-wrap">
                                         <div className="product text-center">
@@ -659,6 +659,7 @@ export default function ShopPageMain(){
                                         </div>
                                     </div>
                                 </div>
+
                                 <div className="toolbox toolbox-pagination justify-content-between">
                                     <p className="showing-info mb-2 mb-sm-0">
                                         Showing<span>1-12 of 60</span>Products
