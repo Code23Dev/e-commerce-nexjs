@@ -475,9 +475,9 @@ export default function Header(){
                                 <nav className="main-nav">
                                     <ul className="menu active-underline">
                                         <li>
-                                            <a href="/homePage">Home</a>
+                                            <a href="/home">Home</a>
                                         </li>
-                                        <li className="active">
+                                        <li>
                                             <a href="/shop">Shop</a>
                                         </li>
                                         <li>
@@ -496,6 +496,7 @@ export default function Header(){
                                 </nav>
                             </div>
                             <div className="header-right">
+                                <a href="#" className="d-xl-show"><i className="w-icon-map-marker mr-1"></i>Track Order</a>
                             </div>
                         </div>
                     </div>

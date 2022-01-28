@@ -466,9 +466,9 @@ export default function HeaderTop2() {
                                 <nav className="main-nav">
                                     <ul className="menu active-underline">
                                         <li>
-                                            <a href="/homePage">Home</a>
+                                            <a href="/home">Home</a>
                                         </li>
-                                        <li className="active">
+                                        <li>
                                             <a href="/shop">Shop</a>
                                         </li>
                                         <li>
@@ -488,7 +488,6 @@ export default function HeaderTop2() {
                             </div>
                             <div className="header-right">
                                 <a href="#" className="d-xl-show"><i className="w-icon-map-marker mr-1"></i>Track Order</a>
-                                <a href="#"><i className="w-icon-sale"></i>Daily Deals</a>
                             </div>
                         </div>
                     </div>

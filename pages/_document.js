@@ -48,6 +48,19 @@ class MyDocument extends Document {
                 <script src="assets/vendor/jquery.count-to/jquery.count-to.min.js"></script>
                 <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
                 <script src="assets/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+
+                <script src="assets/vendor/jquery/jquery.min.js"></script>
+                <script src="assets/vendor/sticky/sticky.min.js"></script>
+                <script src="assets/vendor//jquery.plugin/jquery.plugin.min.js"></script>
+                <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+                <script src="assets/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+                <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+                <script src="assets/vendor/zoom/jquery.zoom.js"></script>
+                <script src="assets/vendor/photoswipe/photoswipe.min.js"></script>
+                <script src="assets/vendor/photoswipe/photoswipe-ui-default.min.js"></script>
+                <script src="assets/js/main.min.js"></script>
                 </body>
             </Html>
         )
