@@ -11,7 +11,7 @@ export default function HeaderTop2() {
 
             <header className="header header-border">
                 <div className="header-bottom sticky-content fix-top sticky-header">
-                    <div className="container-fluid">
+                    <div className="container">
                         <div className="inner-wrap">
                             <div className="header-left">
                                 <div className="dropdown category-dropdown has-border" data-visible="true">

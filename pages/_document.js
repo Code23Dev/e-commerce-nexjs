@@ -50,6 +50,7 @@ class MyDocument extends Document {
                 <script src="assets/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
 
 
+
                 <script src="assets/vendor/jquery/jquery.min.js"></script>
                 <script src="assets/vendor/sticky/sticky.min.js"></script>
                 <script src="assets/vendor//jquery.plugin/jquery.plugin.min.js"></script>

@@ -1,8 +1,15 @@
 import React from 'react'
-
-export default function Card(){
+import Link from 'next/link'
+export default function MyAccount(){
     return (
         <div>
+            <style jsx>{`
+                .span-link:hover {
+                   color: #1914fe !important;
+                   cursor: pointer;
+                  }
+            `}
+            </style>
             <main className="main">
                 <div className="page-header">
                     <div className="container">
@@ -25,22 +32,18 @@ export default function Card(){
                                     <a href="#account-dashboard" className="nav-link active">Dashboard</a>
                                 </li>
                                 <li className="nav-item">
-                                    <a href="#account-orders" className="nav-link">Orders</a>
-                                </li>
-                                <li className="nav-item">
-                                    <a href="#account-downloads" className="nav-link">Downloads</a>
-                                </li>
-                                <li className="nav-item">
-                                    <a href="#account-addresses" className="nav-link">Addresses</a>
-                                </li>
-                                <li className="nav-item">
                                     <a href="#account-details" className="nav-link">Account details</a>
                                 </li>
                                 <li className="link-item">
-                                    <a href="wishlist.html">Wishlist</a>
+                                    <Link href="/wishlist">
+                                        <span  className="nav-link span-link">Wishlist</span>
+                                    </Link>
+
                                 </li>
                                 <li className="link-item">
-                                    <a href="login.html">Logout</a>
+                                    <Link href="/login">
+                                        <span  className="nav-link span-link">Logout</span>
+                                    </Link>
                                 </li>
                             </ul>
 
@@ -68,37 +71,13 @@ export default function Card(){
 
                                     <div className="row">
                                         <div className="col-lg-4 col-md-6 col-sm-4 col-xs-6 mb-4">
-                                            <a href="#account-orders" className="link-to-tab">
+                                            <a href="#account-details" className="link-to-tab">
                                                 <div className="icon-box text-center">
-                                                <span className="icon-box-icon icon-orders">
-                                                    <i className="w-icon-orders"></i>
+                                                <span className="icon-box-icon icon-account">
+                                                    <i className="w-icon-user"></i>
                                                 </span>
                                                     <div className="icon-box-content">
-                                                        <p className="text-uppercase mb-0">Orders</p>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div className="col-lg-4 col-md-6 col-sm-4 col-xs-6 mb-4">
-                                            <a href="#account-downloads" className="link-to-tab">
-                                                <div className="icon-box text-center">
-                                                <span className="icon-box-icon icon-download">
-                                                    <i className="w-icon-download"></i>
-                                                </span>
-                                                    <div className="icon-box-content">
-                                                        <p className="text-uppercase mb-0">Downloads</p>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div className="col-lg-4 col-md-6 col-sm-4 col-xs-6 mb-4">
-                                            <a href="#account-addresses" className="link-to-tab">
-                                                <div className="icon-box text-center">
-                                                <span className="icon-box-icon icon-address">
-                                                    <i className="w-icon-map-marker"></i>
-                                                </span>
-                                                    <div className="icon-box-content">
-                                                        <p className="text-uppercase mb-0">Addresses</p>
+                                                        <p className="text-uppercase mb-0">Account Details</p>
                                                     </div>
                                                 </div>
                                             </a>
@@ -116,16 +95,18 @@ export default function Card(){
                                             </a>
                                         </div>
                                         <div className="col-lg-4 col-md-6 col-sm-4 col-xs-6 mb-4">
-                                            <a href="wishlist.html" className="link-to-tab">
-                                                <div className="icon-box text-center">
+                                            <Link href="/wishlist">
+                                                <a className="link-to-tab">
+                                                    <div className="icon-box text-center">
                                                 <span className="icon-box-icon icon-wishlist">
                                                     <i className="w-icon-heart"></i>
                                                 </span>
-                                                    <div className="icon-box-content">
-                                                        <p className="text-uppercase mb-0">Wishlist</p>
+                                                        <div className="icon-box-content">
+                                                            <p className="text-uppercase mb-0">Wishlist</p>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            </a>
+                                                </a>
+                                            </Link>
                                         </div>
                                         <div className="col-lg-4 col-md-6 col-sm-4 col-xs-6 mb-4">
                                             <a href="#">
@@ -138,200 +119,6 @@ export default function Card(){
                                                     </div>
                                                 </div>
                                             </a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div className="tab-pane mb-4" id="account-orders">
-                                    <div className="icon-box icon-box-side icon-box-light">
-                                    <span className="icon-box-icon icon-orders">
-                                        <i className="w-icon-orders"></i>
-                                    </span>
-                                        <div className="icon-box-content">
-                                            <h4 className="icon-box-title text-capitalize ls-normal mb-0">Orders</h4>
-                                        </div>
-                                    </div>
-
-                                    <table className="shop-table account-orders-table mb-6">
-                                        <thead>
-                                        <tr>
-                                            <th className="order-id">Order</th>
-                                            <th className="order-date">Date</th>
-                                            <th className="order-status">Status</th>
-                                            <th className="order-total">Total</th>
-                                            <th className="order-actions">Actions</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        <tr>
-                                            <td className="order-id">#2321</td>
-                                            <td className="order-date">August 20, 2021</td>
-                                            <td className="order-status">Processing</td>
-                                            <td className="order-total">
-                                                <span className="order-price">$121.00</span> for
-                                                <span className="order-quantity"> 1</span> item
-                                            </td>
-                                            <td className="order-action">
-                                                <a href="#"
-                                                   className="btn btn-outline btn-default btn-block btn-sm btn-rounded">View</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td className="order-id">#2321</td>
-                                            <td className="order-date">August 20, 2021</td>
-                                            <td className="order-status">Processing</td>
-                                            <td className="order-total">
-                                                <span className="order-price">$150.00</span> for
-                                                <span className="order-quantity"> 1</span> item
-                                            </td>
-                                            <td className="order-action">
-                                                <a href="#"
-                                                   className="btn btn-outline btn-default btn-block btn-sm btn-rounded">View</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td className="order-id">#2319</td>
-                                            <td className="order-date">August 20, 2021</td>
-                                            <td className="order-status">Processing</td>
-                                            <td className="order-total">
-                                                <span className="order-price">$201.00</span> for
-                                                <span className="order-quantity"> 1</span> item
-                                            </td>
-                                            <td className="order-action">
-                                                <a href="#"
-                                                   className="btn btn-outline btn-default btn-block btn-sm btn-rounded">View</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td className="order-id">#2318</td>
-                                            <td className="order-date">August 20, 2021</td>
-                                            <td className="order-status">Processing</td>
-                                            <td className="order-total">
-                                                <span className="order-price">$321.00</span> for
-                                                <span className="order-quantity"> 1</span> item
-                                            </td>
-                                            <td className="order-action">
-                                                <a href="#"
-                                                   className="btn btn-outline btn-default btn-block btn-sm btn-rounded">View</a>
-                                            </td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-
-                                    <a href="shop-banner-sidebar.html"
-                                       className="btn btn-dark btn-rounded btn-icon-right">Go
-                                        Shop<i className="w-icon-long-arrow-right"></i></a>
-                                </div>
-
-                                <div className="tab-pane" id="account-downloads">
-                                    <div className="icon-box icon-box-side icon-box-light">
-                                    <span className="icon-box-icon icon-downloads mr-2">
-                                        <i className="w-icon-download"></i>
-                                    </span>
-                                        <div className="icon-box-content">
-                                            <h4 className="icon-box-title ls-normal">Downloads</h4>
-                                        </div>
-                                    </div>
-                                    <p className="mb-4">No downloads available yet.</p>
-                                    <a href="shop-banner-sidebar.html"
-                                       className="btn btn-dark btn-rounded btn-icon-right">Go
-                                        Shop<i className="w-icon-long-arrow-right"></i></a>
-                                </div>
-
-                                <div className="tab-pane" id="account-addresses">
-                                    <div className="icon-box icon-box-side icon-box-light">
-                                    <span className="icon-box-icon icon-map-marker">
-                                        <i className="w-icon-map-marker"></i>
-                                    </span>
-                                        <div className="icon-box-content">
-                                            <h4 className="icon-box-title mb-0 ls-normal">Addresses</h4>
-                                        </div>
-                                    </div>
-                                    <p>The following addresses will be used on the checkout page
-                                        by default.</p>
-                                    <div className="row">
-                                        <div className="col-sm-6 mb-6">
-                                            <div className="ecommerce-address billing-address pr-lg-8">
-                                                <h4 className="title title-underline ls-25 font-weight-bold">Billing
-                                                    Address</h4>
-                                                <address className="mb-4">
-                                                    <table className="address-table">
-                                                        <tbody>
-                                                        <tr>
-                                                            <th>Name:</th>
-                                                            <td>John Doe</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th>Company:</th>
-                                                            <td>Conia</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th>Address:</th>
-                                                            <td>Wall Street</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th>City:</th>
-                                                            <td>California</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th>Country:</th>
-                                                            <td>United States (US)</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th>Postcode:</th>
-                                                            <td>92020</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th>Phone:</th>
-                                                            <td>1112223334</td>
-                                                        </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </address>
-                                                <a href="#"
-                                                   className="btn btn-link btn-underline btn-icon-right text-primary">Edit
-                                                    your billing address<i className="w-icon-long-arrow-right"></i></a>
-                                            </div>
-                                        </div>
-                                        <div className="col-sm-6 mb-6">
-                                            <div className="ecommerce-address shipping-address pr-lg-8">
-                                                <h4 className="title title-underline ls-25 font-weight-bold">Shipping
-                                                    Address</h4>
-                                                <address className="mb-4">
-                                                    <table className="address-table">
-                                                        <tbody>
-                                                        <tr>
-                                                            <th>Name:</th>
-                                                            <td>John Doe</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th>Company:</th>
-                                                            <td>Conia</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th>Address:</th>
-                                                            <td>Wall Street</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th>City:</th>
-                                                            <td>California</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th>Country:</th>
-                                                            <td>United States (US)</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th>Postcode:</th>
-                                                            <td>92020</td>
-                                                        </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </address>
-                                                <a href="#"
-                                                   className="btn btn-link btn-underline btn-icon-right text-primary">Edit
-                                                    your
-                                                    shipping address<i className="w-icon-long-arrow-right"></i></a>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -365,14 +152,185 @@ export default function Card(){
                                         </div>
 
                                         <div className="form-group mb-3">
-                                            <label htmlFor="display-name">Display name *</label>
-                                            <input type="text" id="display-name" name="display_name"
-                                                   placeholder="John Doe"
+                                            <label htmlFor="display-name">Phone number *</label>
+                                            <input type="tel" id="display-name" name="phone"
+                                                   placeholder="123-45-678" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
                                                    className="form-control form-control-md mb-0"/>
-                                                <p>This will be how your name will be displayed in the account section
-                                                    and in reviews</p>
                                         </div>
 
+                                        <div className="form-group mb-3">
+                                            <label htmlFor="display-name">Şəhər *</label>
+                                            <select className="form-control form-control-md mb-0">
+                                                <option value="Afghanistan">Afghanistan</option>
+                                                <option value="Åland Islands">Åland Islands</option>
+                                                <option value="Albania">Albania</option>
+                                                <option value="Algeria">Algeria</option>
+                                                <option value="American Samoa">American Samoa</option>
+                                                <option value="Andorra">Andorra</option>
+                                                <option value="Angola">Angola</option>
+                                                <option value="Anguilla">Anguilla</option>
+                                                <option value="Antarctica">Antarctica</option>
+                                                <option value="Antigua and Barbuda">Antigua and Barbuda</option>
+                                                <option value="Argentina">Argentina</option>
+                                                <option value="Armenia">Armenia</option>
+                                                <option value="Aruba">Aruba</option>
+                                                <option value="Australia">Australia</option>
+                                                <option value="Austria">Austria</option>
+                                                <option value="Azerbaijan">Azerbaijan</option>
+                                                <option value="Bahamas">Bahamas</option>
+                                                <option value="Bahrain">Bahrain</option>
+                                                <option value="Bangladesh">Bangladesh</option>
+                                                <option value="Barbados">Barbados</option>
+                                                <option value="Belarus">Belarus</option>
+                                                <option value="Belgium">Belgium</option>
+                                                <option value="Belize">Belize</option>
+                                                <option value="Benin">Benin</option>
+                                                <option value="Bermuda">Bermuda</option>
+                                                <option value="Bhutan">Bhutan</option>
+                                                <option value="Bolivia">Bolivia</option>
+                                                <option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
+                                                <option value="Botswana">Botswana</option>
+                                                <option value="Bouvet Island">Bouvet Island</option>
+                                                <option value="Brazil">Brazil</option>
+                                                <option value="British Indian Ocean Territory">British Indian Ocean Territory</option>
+                                                <option value="Brunei Darussalam">Brunei Darussalam</option>
+                                                <option value="Bulgaria">Bulgaria</option>
+                                                <option value="Burkina Faso">Burkina Faso</option>
+                                                <option value="Burundi">Burundi</option>
+                                                <option value="Cambodia">Cambodia</option>
+                                            </select>
+                                        </div>
+                                        <div className="form-group mb-3">
+                                            <label htmlFor="display-name">Rayon *</label>
+                                            <select className="form-control form-control-md mb-0">
+                                                <option value="Afghanistan">Afghanistan</option>
+                                                <option value="Åland Islands">Åland Islands</option>
+                                                <option value="Albania">Albania</option>
+                                                <option value="Algeria">Algeria</option>
+                                                <option value="American Samoa">American Samoa</option>
+                                                <option value="Andorra">Andorra</option>
+                                                <option value="Angola">Angola</option>
+                                                <option value="Anguilla">Anguilla</option>
+                                                <option value="Antarctica">Antarctica</option>
+                                                <option value="Antigua and Barbuda">Antigua and Barbuda</option>
+                                                <option value="Argentina">Argentina</option>
+                                                <option value="Armenia">Armenia</option>
+                                                <option value="Aruba">Aruba</option>
+                                                <option value="Australia">Australia</option>
+                                                <option value="Austria">Austria</option>
+                                                <option value="Azerbaijan">Azerbaijan</option>
+                                                <option value="Bahamas">Bahamas</option>
+                                                <option value="Bahrain">Bahrain</option>
+                                                <option value="Bangladesh">Bangladesh</option>
+                                                <option value="Barbados">Barbados</option>
+                                                <option value="Belarus">Belarus</option>
+                                                <option value="Belgium">Belgium</option>
+                                                <option value="Belize">Belize</option>
+                                                <option value="Benin">Benin</option>
+                                                <option value="Bermuda">Bermuda</option>
+                                                <option value="Bhutan">Bhutan</option>
+                                                <option value="Bolivia">Bolivia</option>
+                                                <option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
+                                                <option value="Botswana">Botswana</option>
+                                                <option value="Bouvet Island">Bouvet Island</option>
+                                                <option value="Brazil">Brazil</option>
+                                                <option value="British Indian Ocean Territory">British Indian Ocean Territory</option>
+                                                <option value="Brunei Darussalam">Brunei Darussalam</option>
+                                                <option value="Bulgaria">Bulgaria</option>
+                                                <option value="Burkina Faso">Burkina Faso</option>
+                                                <option value="Burundi">Burundi</option>
+                                                <option value="Cambodia">Cambodia</option>
+                                            </select>
+                                        </div>
+                                        <div className="form-group mb-3">
+                                            <label htmlFor="display-name">Qəsəbə *</label>
+                                            <select className="form-control form-control-md mb-0">
+                                                <option value="Afghanistan">Afghanistan</option>
+                                                <option value="Åland Islands">Åland Islands</option>
+                                                <option value="Albania">Albania</option>
+                                                <option value="Algeria">Algeria</option>
+                                                <option value="American Samoa">American Samoa</option>
+                                                <option value="Andorra">Andorra</option>
+                                                <option value="Angola">Angola</option>
+                                                <option value="Anguilla">Anguilla</option>
+                                                <option value="Antarctica">Antarctica</option>
+                                                <option value="Antigua and Barbuda">Antigua and Barbuda</option>
+                                                <option value="Argentina">Argentina</option>
+                                                <option value="Armenia">Armenia</option>
+                                                <option value="Aruba">Aruba</option>
+                                                <option value="Australia">Australia</option>
+                                                <option value="Austria">Austria</option>
+                                                <option value="Azerbaijan">Azerbaijan</option>
+                                                <option value="Bahamas">Bahamas</option>
+                                                <option value="Bahrain">Bahrain</option>
+                                                <option value="Bangladesh">Bangladesh</option>
+                                                <option value="Barbados">Barbados</option>
+                                                <option value="Belarus">Belarus</option>
+                                                <option value="Belgium">Belgium</option>
+                                                <option value="Belize">Belize</option>
+                                                <option value="Benin">Benin</option>
+                                                <option value="Bermuda">Bermuda</option>
+                                                <option value="Bhutan">Bhutan</option>
+                                                <option value="Bolivia">Bolivia</option>
+                                                <option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
+                                                <option value="Botswana">Botswana</option>
+                                                <option value="Bouvet Island">Bouvet Island</option>
+                                                <option value="Brazil">Brazil</option>
+                                                <option value="British Indian Ocean Territory">British Indian Ocean Territory</option>
+                                                <option value="Brunei Darussalam">Brunei Darussalam</option>
+                                                <option value="Bulgaria">Bulgaria</option>
+                                                <option value="Burkina Faso">Burkina Faso</option>
+                                                <option value="Burundi">Burundi</option>
+                                                <option value="Cambodia">Cambodia</option>
+                                            </select>
+                                        </div>
+                                        <div className="form-group mb-3">
+                                            <label htmlFor="display-name">Küçə *</label>
+                                            <select className="form-control form-control-md mb-0">
+                                                <option value="Afghanistan">Afghanistan</option>
+                                                <option value="Åland Islands">Åland Islands</option>
+                                                <option value="Albania">Albania</option>
+                                                <option value="Algeria">Algeria</option>
+                                                <option value="American Samoa">American Samoa</option>
+                                                <option value="Andorra">Andorra</option>
+                                                <option value="Angola">Angola</option>
+                                                <option value="Anguilla">Anguilla</option>
+                                                <option value="Antarctica">Antarctica</option>
+                                                <option value="Antigua and Barbuda">Antigua and Barbuda</option>
+                                                <option value="Argentina">Argentina</option>
+                                                <option value="Armenia">Armenia</option>
+                                                <option value="Aruba">Aruba</option>
+                                                <option value="Australia">Australia</option>
+                                                <option value="Austria">Austria</option>
+                                                <option value="Azerbaijan">Azerbaijan</option>
+                                                <option value="Bahamas">Bahamas</option>
+                                                <option value="Bahrain">Bahrain</option>
+                                                <option value="Bangladesh">Bangladesh</option>
+                                                <option value="Barbados">Barbados</option>
+                                                <option value="Belarus">Belarus</option>
+                                                <option value="Belgium">Belgium</option>
+                                                <option value="Belize">Belize</option>
+                                                <option value="Benin">Benin</option>
+                                                <option value="Bermuda">Bermuda</option>
+                                                <option value="Bhutan">Bhutan</option>
+                                                <option value="Bolivia">Bolivia</option>
+                                                <option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
+                                                <option value="Botswana">Botswana</option>
+                                                <option value="Bouvet Island">Bouvet Island</option>
+                                                <option value="Brazil">Brazil</option>
+                                                <option value="British Indian Ocean Territory">British Indian Ocean Territory</option>
+                                                <option value="Brunei Darussalam">Brunei Darussalam</option>
+                                                <option value="Bulgaria">Bulgaria</option>
+                                                <option value="Burkina Faso">Burkina Faso</option>
+                                                <option value="Burundi">Burundi</option>
+                                                <option value="Cambodia">Cambodia</option>
+                                            </select>
+                                        </div>
+                                        <div className="form-group mb-3">
+                                            <label htmlFor="display-name">Digər *</label>
+                                            <input type="text" id="lastname" name="lastname" placeholder="Digər"
+                                                   className="form-control form-control-md"/>
+                                        </div>
                                         <div className="form-group mb-6">
                                             <label htmlFor="email_1">Email address *</label>
                                             <input type="email" id="email_1" name="email_1"

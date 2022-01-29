@@ -487,7 +487,7 @@ export default function Header(){
                                             <a href="/aboutUs">Haqqimizda</a>
                                         </li>
                                         <li>
-                                            <a href="/contactUs">Əlaqə</a>
+                                            <a href="/contact-us">Əlaqə</a>
                                         </li>
                                         <li>
                                             <a href="/faq">Faq</a>
