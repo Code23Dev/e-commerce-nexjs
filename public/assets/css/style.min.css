@@ -3601,7 +3601,7 @@ blockquote {
 .card-header {
   color: #333;
   font-size: 1.6rem;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: -0.025em;
   line-height: 1.5;
 }
@@ -5261,7 +5261,7 @@ blockquote {
 }
 .btn:hover, .btn:active, .btn:focus {
   color: #666;
-  border-color: gainsboro;
+  /*border-color: gainsboro;*/
   background-color: gainsboro;
 }
 .btn i {
@@ -9063,8 +9063,8 @@ img.mfp-img {
 }
 
 .page-title {
-  font-size: 3.4rem;
-  font-weight: 700;
+    font-size: 3.2rem;
+    font-weight: 800;
   letter-spacing: -0.025em;
   line-height: 1.1;
   margin-bottom: 0.2rem;
@@ -14944,16 +14944,15 @@ body .product-popup {
   max-width: 38rem;
 }
 .header-search input.form-control {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  min-width: 40px;
-  padding: 0.9rem;
-  border: 2px solid #336699;
-  border-right: 0;
-  font-size: 1.2rem;
-  letter-spacing: 0;
-  font-family: Poppins, sans-serif;
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    min-width: 40px;
+    padding: 0.9rem;
+    border-right: 0;
+    font-size: 1.2rem;
+    letter-spacing: 0;
+    font-family: Poppins, sans-serif;
 }
 .header-search input.form-control::-webkit-input-placeholder {
   color: inherit;
@@ -14971,16 +14970,15 @@ body .product-popup {
   color: inherit;
 }
 .header-search .btn-search {
-  margin: 0;
-  padding: 0;
-  min-width: 5.1rem;
-  color: #333;
-  border-left: 0;
-  border-color: #336699;
-  font-size: 1.5rem;
-  font-weight: normal;
-  letter-spacing: -0.025em;
-  text-transform: none;
+    margin: 0;
+    padding: 0;
+    min-width: 5.1rem;
+    color: #333;
+    border-left: 0;
+    font-size: 1.5rem;
+    font-weight: normal;
+    letter-spacing: -0.025em;
+    text-transform: none;
 }
 .header-search .btn-search i {
   font-size: 1.7rem;
@@ -14990,7 +14988,7 @@ body .product-popup {
 }
 .header-search .btn-search:hover, .header-search .btn-search:active, .header-search .btn-search:focus {
   color: #336699;
-  background-color: transparent;
+  /*background-color: transparent;*/
 }
 .header-search .select-box::before {
   right: 1.2rem;
@@ -15070,10 +15068,9 @@ body .product-popup {
   max-width: 55.6rem;
 }
 .header-search.hs-expanded .select-box {
-  width: 14.6rem;
-  border: 2px solid #336699;
-  border-right: none;
-  color: #666666;
+    width: 14.6rem;
+    border-right: none;
+    color: #666666;
 }
 .header-search.hs-expanded .select-box::after {
   content: "";

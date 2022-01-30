@@ -63,11 +63,6 @@ export default function Header(){
                                     <i className="w-icon-furniture"></i>Freezer
                                 </a>
                             </li>
-                            <li>
-                                <a href="demo9-shop.html">
-                                    <i className="w-icon-dots-circle"></i>All Categories
-                                </a>
-                            </li>
                         </ul>
                     </div>
                 </div>
@@ -484,7 +479,7 @@ export default function Header(){
                                             <a href="/vendor">Satıcılar</a>
                                         </li>
                                         <li>
-                                            <a href="/aboutUs">Haqqimizda</a>
+                                            <a href="/aboutUs">Haqqımızda</a>
                                         </li>
                                         <li>
                                             <a href="/contact-us">Əlaqə</a>
@@ -496,6 +491,7 @@ export default function Header(){
                                 </nav>
                             </div>
                             <div className="header-right">
+                                <a href="/more-products" className="d-xl-show" style={{color:'red'}}>Endirimli Məhsullar</a>
                                 <a href="#" className="d-xl-show"><i className="w-icon-map-marker mr-1"></i>Track Order</a>
                             </div>
                         </div>

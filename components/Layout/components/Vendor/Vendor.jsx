@@ -9,7 +9,6 @@ export default function Vendor() {
                         <ul className="breadcrumb bb-no">
                             <li><a href="demo1.html">Home</a></li>
                             <li><a href="#">Vendor</a></li>
-                            <li><a href="#">WCFM</a></li>
                             <li>Store List</li>
                         </ul>
                     </div>
@@ -118,27 +117,21 @@ export default function Vendor() {
                                                 </figure>
                                             </div>
                                             <div className="store-content">
-                                                <h4 className="store-title">
+                                                <h4 className="store-title" style={{marginBottom: '0.9rem',marginTop:'2.9rem'}}>
                                                     <a href="vendor-dokan-store.html">Vendor 1</a>
                                                 </h4>
-                                                <div className="ratings-container">
-                                                    <div className="ratings-full">
-                                                        <span className="ratings" style={{width: '100%'}}></span>
-                                                        <span className="tooltiptext tooltip-top"></span>
-                                                    </div>
-                                                </div>
+                                                <span style={{color:"white"}}>Electronics</span>
                                                 <ul className="seller-info-list list-style-none">
-                                                    <li className="store-email">
-                                                        <a href="email:#">
-                                                            <i className="far fa-envelope"></i>
-                                                            wolamrtvendor1@email.com
-                                                        </a>
-                                                    </li>
                                                     <li className="store-phone">
                                                         <a href="tel:123456789">
                                                             <i className="w-icon-phone"></i>
                                                             123456789
                                                         </a>
+                                                    </li>
+                                                    <li className="store-address">
+                                                        <i className="w-icon-map-marker"></i>
+                                                        Street1, Street2, Great Area, California, United States (US), 92090El
+                                                        Carjon,
                                                     </li>
                                                 </ul>
                                             </div>
@@ -147,9 +140,7 @@ export default function Vendor() {
                                                     <img src="assets/images/vendor/brand/1.jpg" alt="Brand" width="80"
                                                          height="80"/>
                                                 </figure>
-                                                <a href="#" className="btn btn-inquiry btn-rounded btn-icon-left"><i
-                                                    className="far fa-question-circle"></i>Inquiry</a>
-                                                <a href="#" className="btn btn-rounded btn-visit">Visit</a>
+                                                <a href="/vendorStoreProduct" className="btn btn-rounded btn-visit">Visit</a>
                                             </div>
                                         </div>
                                     </div>
@@ -163,27 +154,21 @@ export default function Vendor() {
                                                 </figure>
                                             </div>
                                             <div className="store-content">
-                                                <h4 className="store-title">
-                                                    <a href="vendor-dokan-store.html">Vendor 2</a>
+                                                <h4 className="store-title" style={{marginBottom: '0.9rem',marginTop:'2.9rem'}}>
+                                                    <a href="vendor-dokan-store.html">Vendor 1</a>
                                                 </h4>
-                                                <div className="ratings-container">
-                                                    <div className="ratings-full">
-                                                        <span className="ratings" style={{width: '100%'}}></span>
-                                                        <span className="tooltiptext tooltip-top"></span>
-                                                    </div>
-                                                </div>
+                                                <span style={{color:"white"}}>Electronics</span>
                                                 <ul className="seller-info-list list-style-none">
-                                                    <li className="store-email">
-                                                        <a href="email:#">
-                                                            <i className="far fa-envelope"></i>
-                                                            wolamrtvendor2@email.com
-                                                        </a>
-                                                    </li>
                                                     <li className="store-phone">
                                                         <a href="tel:123456789">
                                                             <i className="w-icon-phone"></i>
-                                                            1234567890
+                                                            123456789
                                                         </a>
+                                                    </li>
+                                                    <li className="store-address">
+                                                        <i className="w-icon-map-marker"></i>
+                                                        Street1, Street2, Great Area, California, United States (US), 92090El
+                                                        Carjon,
                                                     </li>
                                                 </ul>
                                             </div>
@@ -192,9 +177,7 @@ export default function Vendor() {
                                                     <img src="assets/images/vendor/brand/2.jpg" alt="Brand" width="80"
                                                          height="80"/>
                                                 </figure>
-                                                <a href="#" className="btn btn-inquiry btn-rounded btn-icon-left"><i
-                                                    className="far fa-question-circle"></i>Inquiry</a>
-                                                <a href="#" className="btn btn-rounded btn-visit">Visit</a>
+                                                <a href="/vendorStoreProduct" className="btn btn-rounded btn-visit">Visit</a>
                                             </div>
                                         </div>
                                     </div>
@@ -208,27 +191,21 @@ export default function Vendor() {
                                                 </figure>
                                             </div>
                                             <div className="store-content">
-                                                <h4 className="store-title">
-                                                    <a href="vendor-dokan-store.html">Vendor 3</a>
+                                                <h4 className="store-title" style={{marginBottom: '0.9rem',marginTop:'2.9rem'}}>
+                                                    <a href="vendor-dokan-store.html">Vendor 1</a>
                                                 </h4>
-                                                <div className="ratings-container">
-                                                    <div className="ratings-full">
-                                                        <span className="ratings" style={{width: '100%'}}></span>
-                                                        <span className="tooltiptext tooltip-top"></span>
-                                                    </div>
-                                                </div>
+                                                <span style={{color:"white"}}>Electronics</span>
                                                 <ul className="seller-info-list list-style-none">
-                                                    <li className="store-email">
-                                                        <a href="email:#">
-                                                            <i className="far fa-envelope"></i>
-                                                            wolamrtvendor3@email.com
-                                                        </a>
-                                                    </li>
                                                     <li className="store-phone">
                                                         <a href="tel:123456789">
                                                             <i className="w-icon-phone"></i>
-                                                            12312567
+                                                            123456789
                                                         </a>
+                                                    </li>
+                                                    <li className="store-address">
+                                                        <i className="w-icon-map-marker"></i>
+                                                        Street1, Street2, Great Area, California, United States (US), 92090El
+                                                        Carjon,
                                                     </li>
                                                 </ul>
                                             </div>
@@ -237,9 +214,7 @@ export default function Vendor() {
                                                     <img src="assets/images/vendor/brand/3.jpg" alt="Brand" width="80"
                                                          height="80"/>
                                                 </figure>
-                                                <a href="#" className="btn btn-inquiry btn-rounded btn-icon-left"><i
-                                                    className="far fa-question-circle"></i>Inquiry</a>
-                                                <a href="#" className="btn btn-rounded btn-visit">Visit</a>
+                                                <a href="/vendorStoreProduct" className="btn btn-rounded btn-visit">Visit</a>
                                             </div>
                                         </div>
                                     </div>
@@ -253,27 +228,21 @@ export default function Vendor() {
                                                 </figure>
                                             </div>
                                             <div className="store-content">
-                                                <h4 className="store-title">
-                                                    <a href="vendor-dokan-store.html">Vendor 4</a>
+                                                <h4 className="store-title" style={{marginBottom: '0.9rem',marginTop:'2.9rem'}}>
+                                                    <a href="vendor-dokan-store.html">Vendor 1</a>
                                                 </h4>
-                                                <div className="ratings-container">
-                                                    <div className="ratings-full">
-                                                        <span className="ratings" style={{width: '100%'}}></span>
-                                                        <span className="tooltiptext tooltip-top"></span>
-                                                    </div>
-                                                </div>
+                                                <span style={{color:"white"}}>Electronics</span>
                                                 <ul className="seller-info-list list-style-none">
-                                                    <li className="store-email">
-                                                        <a href="email:#">
-                                                            <i className="far fa-envelope"></i>
-                                                            wolamrtvendor4@email.com
-                                                        </a>
-                                                    </li>
                                                     <li className="store-phone">
                                                         <a href="tel:123456789">
                                                             <i className="w-icon-phone"></i>
-                                                            123325794
+                                                            123456789
                                                         </a>
+                                                    </li>
+                                                    <li className="store-address">
+                                                        <i className="w-icon-map-marker"></i>
+                                                        Street1, Street2, Great Area, California, United States (US), 92090El
+                                                        Carjon,
                                                     </li>
                                                 </ul>
                                             </div>
@@ -282,9 +251,7 @@ export default function Vendor() {
                                                     <img src="assets/images/vendor/brand/4.jpg" alt="Brand" width="80"
                                                          height="80"/>
                                                 </figure>
-                                                <a href="#" className="btn btn-inquiry btn-rounded btn-icon-left"><i
-                                                    className="far fa-question-circle"></i>Inquiry</a>
-                                                <a href="#" className="btn btn-rounded btn-visit">Visit</a>
+                                                <a href="/vendorStoreProduct" className="btn btn-rounded btn-visit">Visit</a>
                                             </div>
                                         </div>
                                     </div>

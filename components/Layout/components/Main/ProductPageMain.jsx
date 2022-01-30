@@ -83,6 +83,7 @@ export default function ProductPageMain(){
                                                         <a href="#" className="product-gallery-btn product-image-full"><i
                                                             className="w-icon-zoom"></i></a>
                                                     </div>
+
                                                     <div className="product-thumbs-wrap swiper-container"
                                                          data-swiper-options="{
                                             'navigation': {
@@ -931,7 +932,7 @@ export default function ProductPageMain(){
                                                             </div>
                                                             <div className="product-pa-wrapper">
                                                                 <div className="product-price">
-                                                                    $220.00 - $230.00
+                                                                    $220.00
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1108,7 +1109,7 @@ export default function ProductPageMain(){
                                                             </div>
                                                             <div className="product-pa-wrapper">
                                                                 <div className="product-price">
-                                                                    $220.00 - $230.00
+                                                                    $220.00
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1296,7 +1297,7 @@ export default function ProductPageMain(){
                                                             </div>
                                                             <div className="product-pa-wrapper">
                                                                 <div className="product-price">
-                                                                    $220.00 - $230.00
+                                                                    $220.00
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1473,7 +1474,7 @@ export default function ProductPageMain(){
                                                             </div>
                                                             <div className="product-pa-wrapper">
                                                                 <div className="product-price">
-                                                                    $220.00 - $230.00
+                                                                    $220.00
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1664,7 +1665,7 @@ export default function ProductPageMain(){
                                                                                     className="tooltiptext tooltip-top"></span>
                                                                             </div>
                                                                         </div>
-                                                                        <div className="product-price">$80.00 - $90.00</div>
+                                                                        <div className="product-price">$80.00 </div>
                                                                     </div>
                                                                 </div>
                                                                 <div className="product product-widget">

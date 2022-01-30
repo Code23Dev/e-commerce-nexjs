@@ -7,6 +7,15 @@ export default function HeaderTop2() {
             .category-dropdown > a:not(.btn):hover {
                 color: #336699 !important;
                }
+               .header-search .btn-search:hover, .header-search .btn-search:active, .header-search .btn-search:focus {
+                     color: #336699 !important; 
+                    background-color:  red !important; 
+                }
+                .btn:hover, .btn:active, .btn:focus {
+                    color: #666;
+                    border-color: white; 
+                    background-color: gainsboro;
+                }
             `} </style>
 
             <header className="header header-border">
@@ -475,10 +484,10 @@ export default function HeaderTop2() {
                                             <a href="/vendor">Satıcılar</a>
                                         </li>
                                         <li>
-                                            <a href="/aboutUs">Haqqimizda</a>
+                                            <a href="/aboutUs">Haqqımızda</a>
                                         </li>
                                         <li>
-                                            <a href="/contactUs">Əlaqə</a>
+                                            <a href="/contact-us">Əlaqə</a>
                                         </li>
                                         <li>
                                             <a href="/faq">Faq</a>
@@ -487,12 +496,14 @@ export default function HeaderTop2() {
                                 </nav>
                             </div>
                             <div className="header-right">
+                                <a href="/more-products" className="d-xl-show" style={{color:'red'}}>Endirimli Məhsullar</a>
                                 <a href="#" className="d-xl-show"><i className="w-icon-map-marker mr-1"></i>Track Order</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </header>
+
         </div>
     )
 }

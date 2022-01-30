@@ -31,6 +31,9 @@ class MyDocument extends Document {
                  <link rel="stylesheet" type="text/css" href="assets/vendor/photoswipe/photoswipe.min.css"/>
                  <link rel="stylesheet" type="text/css" href="assets/vendor/photoswipe/default-skin/default-skin.min.css"/>
                  <link rel="stylesheet" type="text/css" href="assets/css/style.min.css"/>
+                 <link rel="stylesheet" type="text/css" href="assets/css/about.css"/>
+                    <link rel="stylesheet" type="text/css" href="assets/vendor/fontawesome-free/css/all.min.css"/>
+                        <link rel="stylesheet" type="text/css" href="assets/vendor/animate/animate.min.css"/>
                 </Head>
                 <body>
                 <Main />
@@ -48,7 +51,6 @@ class MyDocument extends Document {
                 <script src="assets/vendor/jquery.count-to/jquery.count-to.min.js"></script>
                 <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
                 <script src="assets/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
-
 
 
                 <script src="assets/vendor/jquery/jquery.min.js"></script>

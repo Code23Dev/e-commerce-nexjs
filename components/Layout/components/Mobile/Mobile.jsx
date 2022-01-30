@@ -36,10 +36,10 @@ export default function Mobile(){
                                 <a href="/vendor">Satıcılar</a>
                             </li>
                             <li>
-                                <a href="/aboutUs">Haqqimizda</a>
+                                <a href="/aboutUs">Haqqımızda</a>
                             </li>
                             <li>
-                                <a href="/contactUs">Əlaqə</a>
+                                <a href="/contact-us">Əlaqə</a>
                             </li>
                             <li>
                                 <a href="/faq">Faq</a>

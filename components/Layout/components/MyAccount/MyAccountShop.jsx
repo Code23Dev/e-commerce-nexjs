@@ -34,21 +34,26 @@ export default function MyAccountShop(){
                                         <li className="nav-item">
                                             <a href="#account-dashboard" className="nav-link active">Dashboard</a>
                                         </li>
+                                        <hr className="product-divider"/>
                                         <li className="nav-item">
                                             <a href="#account-details" className="nav-link">Account details</a>
                                         </li>
+                                        <hr className="product-divider"/>
                                         <li className="nav-item">
                                             <a href="#account-orders" className="nav-link">Orders</a>
                                         </li>
+                                        <hr className="product-divider"/>
                                         <li className="nav-item">
                                             <a href="#account-downloads" className="nav-link">Məhsul əlavə et</a>
                                         </li>
+                                        <hr className="product-divider"/>
                                         <li className="link-item">
                                             <Link href="/wishlist">
                                                 <span  className="nav-link span-link">Wishlist</span>
                                             </Link>
 
                                         </li>
+                                        <hr className="product-divider"/>
                                         <li className="link-item">
                                             <Link href="/login">
                                                 <span  className="nav-link span-link">Logout</span>
@@ -84,10 +89,10 @@ export default function MyAccountShop(){
                                                     <a href="#account-orders" className="link-to-tab">
                                                         <div className="icon-box text-center">
                                                 <span className="icon-box-icon icon-orders">
-                                                    <i className="w-icon-orders"></i>
+                                                    <i className="w-icon-orders" style={{fontSize:'52px'}}></i>
                                                 </span>
                                                             <div className="icon-box-content">
-                                                                <p className="text-uppercase mb-0">Orders</p>
+                                                                <p className="text-uppercase mb-0" style={{fontSize:'18px'}}>Orders</p>
                                                             </div>
                                                         </div>
                                                     </a>
@@ -96,10 +101,10 @@ export default function MyAccountShop(){
                                                     <a href="#account-downloads" className="link-to-tab">
                                                         <div className="icon-box text-center">
                                                 <span className="icon-box-icon icon-download">
-                                                    <i className="w-icon-download"></i>
+                                                    <i className="w-icon-download" style={{fontSize:'52px'}}></i>
                                                 </span>
                                                             <div className="icon-box-content">
-                                                                <p className="text-uppercase mb-0">Məhsul əlavə et</p>
+                                                                <p className="text-uppercase mb-0" style={{fontSize:'18px'}}>Məhsul əlavə et</p>
                                                             </div>
                                                         </div>
                                                     </a>
@@ -108,10 +113,10 @@ export default function MyAccountShop(){
                                                     <a href="#account-addresses" className="link-to-tab">
                                                         <div className="icon-box text-center">
                                                 <span className="icon-box-icon icon-address">
-                                                    <i className="w-icon-map-marker"></i>
+                                                    <i className="w-icon-map-marker" style={{fontSize:'52px'}}></i>
                                                 </span>
                                                             <div className="icon-box-content">
-                                                                <p className="text-uppercase mb-0">Addresses</p>
+                                                                <p className="text-uppercase mb-0" style={{fontSize:'18px'}}>Addresses</p>
                                                             </div>
                                                         </div>
                                                     </a>
@@ -120,10 +125,10 @@ export default function MyAccountShop(){
                                                     <a href="#account-details" className="link-to-tab">
                                                         <div className="icon-box text-center">
                                                 <span className="icon-box-icon icon-account">
-                                                    <i className="w-icon-user"></i>
+                                                    <i className="w-icon-user"style={{fontSize:'52px'}}></i>
                                                 </span>
                                                             <div className="icon-box-content">
-                                                                <p className="text-uppercase mb-0">Account Details</p>
+                                                                <p className="text-uppercase mb-0" style={{fontSize:'18px'}}>Account Details</p>
                                                             </div>
                                                         </div>
                                                     </a>
@@ -132,10 +137,10 @@ export default function MyAccountShop(){
                                                     <a href="wishlist.html" className="link-to-tab">
                                                         <div className="icon-box text-center">
                                                 <span className="icon-box-icon icon-wishlist">
-                                                    <i className="w-icon-heart"></i>
+                                                    <i className="w-icon-heart" style={{fontSize:'52px'}}></i>
                                                 </span>
                                                             <div className="icon-box-content">
-                                                                <p className="text-uppercase mb-0">Wishlist</p>
+                                                                <p className="text-uppercase mb-0" style={{fontSize:'18px'}}>Wishlist</p>
                                                             </div>
                                                         </div>
                                                     </a>
@@ -144,10 +149,10 @@ export default function MyAccountShop(){
                                                     <a href="#">
                                                         <div className="icon-box text-center">
                                                 <span className="icon-box-icon icon-logout">
-                                                    <i className="w-icon-logout"></i>
+                                                    <i className="w-icon-logout" style={{fontSize:'52px'}}></i>
                                                 </span>
                                                             <div className="icon-box-content">
-                                                                <p className="text-uppercase mb-0">Logout</p>
+                                                                <p className="text-uppercase mb-0" style={{fontSize:'18px'}}>Logout</p>
                                                             </div>
                                                         </div>
                                                     </a>
@@ -156,14 +161,14 @@ export default function MyAccountShop(){
                                         </div>
 
                                         <div className="tab-pane mb-4" id="account-orders">
-                                            <div className="icon-box icon-box-side icon-box-light">
-                                    <span className="icon-box-icon icon-orders">
-                                        <i className="w-icon-orders"></i>
-                                    </span>
-                                                <div className="icon-box-content">
-                                                    <h4 className="icon-box-title text-capitalize ls-normal mb-0">Orders</h4>
-                                                </div>
-                                            </div>
+                                    {/*        <div className="icon-box icon-box-side icon-box-light">*/}
+                                    {/*<span className="icon-box-icon icon-orders">*/}
+                                    {/*    <i className="w-icon-orders"></i>*/}
+                                    {/*</span>*/}
+                                    {/*            <div className="icon-box-content">*/}
+                                    {/*                <h4 className="icon-box-title text-capitalize ls-normal mb-0">Orders</h4>*/}
+                                    {/*            </div>*/}
+                                    {/*        </div>*/}
 
                                             <table className="shop-table account-orders-table mb-6">
                                                 <thead>
@@ -237,26 +242,26 @@ export default function MyAccountShop(){
                                         </div>
 
                                         <div className="tab-pane" id="account-downloads">
-                                            <div className="icon-box icon-box-side icon-box-light">
-                                    <span className="icon-box-icon icon-downloads mr-2">
-                                        <i className="w-icon-download"></i>
-                                    </span>
-                                                <div className="icon-box-content">
-                                                    <h4 className="icon-box-title ls-normal">Məhsul əlavə et</h4>
-                                                </div>
-                                            </div>
+                                    {/*        <div className="icon-box icon-box-side icon-box-light">*/}
+                                    {/*<span className="icon-box-icon icon-downloads mr-2">*/}
+                                    {/*    <i className="w-icon-download"></i>*/}
+                                    {/*</span>*/}
+                                    {/*            <div className="icon-box-content">*/}
+                                    {/*                <h4 className="icon-box-title ls-normal">Məhsul əlavə et</h4>*/}
+                                    {/*            </div>*/}
+                                    {/*        </div>*/}
                                             <MyAccountVendorDetails/>
                                         </div>
 
                                         <div className="tab-pane" id="account-details">
-                                            <div className="icon-box icon-box-side icon-box-light">
-                                    <span className="icon-box-icon icon-account mr-2">
-                                        <i className="w-icon-user"></i>
-                                    </span>
-                                                <div className="icon-box-content">
-                                                    <h4 className="icon-box-title mb-0 ls-normal">Account Details</h4>
-                                                </div>
-                                            </div>
+                                    {/*        <div className="icon-box icon-box-side icon-box-light">*/}
+                                    {/*<span className="icon-box-icon icon-account mr-2">*/}
+                                    {/*    <i className="w-icon-user"></i>*/}
+                                    {/*</span>*/}
+                                    {/*            <div className="icon-box-content">*/}
+                                    {/*                <h4 className="icon-box-title mb-0 ls-normal">Account Details</h4>*/}
+                                    {/*            </div>*/}
+                                    {/*        </div>*/}
                                             <form className="form account-details-form" action="#" method="post">
                                                 <div className="row">
                                                     <div className="col-md-6">

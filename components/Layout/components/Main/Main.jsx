@@ -79,6 +79,7 @@ export default function Main(){
                 </div>
                 <div className="container mb-10 pb-2">
                     <div className="swiper-container swiper-theme icon-box-wrapper appear-animate br-sm bg-white"
+                         style={{padding:'11px'}}
                          data-swiper-options="{
                     'loop': true,
                     'slidesPerView': 1,
@@ -142,7 +143,7 @@ export default function Main(){
                             </div>
                         </div>
                     </div>
-                    <div className="row category-wrapper cols-lg-3 cols-sm-2 mt-3 appear-animate mb-8">
+                    <div className="row category-wrapper cols-lg-3 cols-sm-2 mt-3 appear-animate ">
                         <div className="category-wrap mb-4">
                             <div className="category category-group-image br-sm">
                                 <div className="category-content">
@@ -209,7 +210,7 @@ export default function Main(){
                                 </a>
                             </div>
                         </div>
-                        <div className="category-wrap mb-4">
+                        <div className="category-wrap">
                             <div className="category category-group-image br-sm">
                                 <div className="category-content">
                                     <h4 className="category-name"><a href="shop-fullwidth-banner.html">Television</a>
@@ -231,7 +232,7 @@ export default function Main(){
                                 </a>
                             </div>
                         </div>
-                        <div className="category-wrap mb-4">
+                        <div className="category-wrap">
                             <div className="category category-group-image br-sm">
                                 <div className="category-content">
                                     <h4 className="category-name"><a href="shop-fullwidth-banner.html">Healthy  Beauty</a>
@@ -253,7 +254,7 @@ export default function Main(){
                                 </a>
                             </div>
                         </div>
-                        <div className="category-wrap mb-4">
+                        <div className="category-wrap">
                             <div className="category category-group-image br-sm">
                                 <div className="category-content">
                                     <h4 className="category-name"><a href="shop-fullwidth-banner.html">Jewelry  Watch</a>
@@ -278,7 +279,7 @@ export default function Main(){
                     </div>
 
                 </div>
-                <div className="container mt-5 pt-4">
+                <div className="container mt-1 pt-2">
                     <h2 className="title title-underline mb-4 appear-animate">Top Weekly Vendors</h2>
                     <div className="swiper-container swiper-theme mb-10 pb-2 appear-animate" data-swiper-options="{
                     'spaceBetween': 20,
@@ -501,8 +502,17 @@ export default function Main(){
                     </div>
                 </div>
                 <Home1Card/>
-                <div className="container">
-                    <div className="product-wrapper row cols-lg-4 cols-md-3 cols-sm-2 cols-2">
+                <div className="container mt-1 pt-2">
+                    <div className="filter-with-title appear-animate">
+                        <h2 className="title">Clothing &amp; Apparel</h2>
+                        <ul className="nav-filters filter-boxed" data-target="#products-1">
+                            <li><a href="#" className="nav-filter active" data-filter=".1-1">New Arrivals</a></li>
+                            <li><a href="#" className="nav-filter" data-filter=".1-2">Best Seller</a></li>
+                            <li><a href="#" className="nav-filter" data-filter=".1-3">Most Popular</a></li>
+                            <li><a href="#" className="nav-filter" data-filter="*">View All</a></li>
+                        </ul>
+                    </div>
+                    <div className="product-wrapper row cols-lg-5 cols-md-4 cols-sm-2 cols-2">
                         <div className="product-wrap">
                             <div className="product text-center">
                                 <figure className="product-media">
@@ -538,7 +548,7 @@ export default function Main(){
                                     </div>
                                     <div className="product-pa-wrapper">
                                         <div className="product-price">
-                                            $220.00 - $230.00
+                                            $220.00
                                         </div>
                                     </div>
                                 </div>
@@ -715,7 +725,7 @@ export default function Main(){
                                     </div>
                                     <div className="product-pa-wrapper">
                                         <div className="product-price">
-                                            $220.00 - $230.00
+                                            $220.00
                                         </div>
                                     </div>
                                 </div>
@@ -770,6 +780,88 @@ export default function Main(){
                                             <del
                                                 className="old-price">$60.00
                                             </del>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="product-wrap">
+                            <div className="product text-center">
+                                <figure className="product-media">
+                                    <a href="product-default.html">
+                                        <img src="assets/images/shop/3.jpg" alt="Product" width="300"
+                                             height="338"/>
+                                    </a>
+                                    <div className="product-action-horizontal">
+                                        <a href="#" className="btn-product-icon btn-cart w-icon-cart"
+                                           title="Add to cart"></a>
+                                        <a href="#" className="btn-product-icon btn-wishlist w-icon-heart"
+                                           title="Wishlist"></a>
+                                        <a href="#" className="btn-product-icon btn-compare w-icon-compare"
+                                           title="Compare"></a>
+                                        <a href="#" className="btn-product-icon btn-quickview w-icon-search"
+                                           title="Quick View"></a>
+                                    </div>
+                                </figure>
+                                <div className="product-details">
+                                    <div className="product-cat">
+                                        <a href="shop-banner-sidebar.html">Electronics</a>
+                                    </div>
+                                    <h3 className="product-name">
+                                        <a href="product-default.html">Apple Laptop</a>
+                                    </h3>
+                                    <div className="ratings-container">
+                                        <div className="ratings-full">
+                                            <span className="ratings" style={{width: '80%'}}></span>
+                                            <span className="tooltiptext tooltip-top"></span>
+                                        </div>
+                                        <a href="product-default.html" className="rating-reviews">(5
+                                            reviews)</a>
+                                    </div>
+                                    <div className="product-pa-wrapper">
+                                        <div className="product-price">
+                                            $1,000.00
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="product-wrap">
+                            <div className="product text-center">
+                                <figure className="product-media">
+                                    <a href="product-default.html">
+                                        <img src="assets/images/shop/4.jpg" alt="Product" width="300"
+                                             height="338"/>
+                                    </a>
+                                    <div className="product-action-horizontal">
+                                        <a href="#" className="btn-product-icon btn-cart w-icon-cart"
+                                           title="Add to cart"></a>
+                                        <a href="#" className="btn-product-icon btn-wishlist w-icon-heart"
+                                           title="Wishlist"></a>
+                                        <a href="#" className="btn-product-icon btn-compare w-icon-compare"
+                                           title="Compare"></a>
+                                        <a href="#" className="btn-product-icon btn-quickview w-icon-search"
+                                           title="Quick View"></a>
+                                    </div>
+                                </figure>
+                                <div className="product-details">
+                                    <div className="product-cat">
+                                        <a href="shop-banner-sidebar.html">Electronics</a>
+                                    </div>
+                                    <h3 className="product-name">
+                                        <a href="product-default.html">Attachable Charge Alarm</a>
+                                    </h3>
+                                    <div className="ratings-container">
+                                        <div className="ratings-full">
+                                            <span className="ratings" style={{width: '60%'}}></span>
+                                            <span className="tooltiptext tooltip-top"></span>
+                                        </div>
+                                        <a href="product-default.html" className="rating-reviews">(7
+                                            reviews)</a>
+                                    </div>
+                                    <div className="product-pa-wrapper">
+                                        <div className="product-price">
+                                            $15.00
                                         </div>
                                     </div>
                                 </div>

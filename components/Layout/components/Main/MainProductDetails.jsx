@@ -322,7 +322,7 @@ export default function MainProductDetails(){
 
                             <div className="ratings-container">
                                 <div className="ratings-full">
-                                    <span className="ratings" style={{width: '80%'}}></span>
+                                    <span className="ratings" style={{width:'80%'}}></span>
                                     <span className="tooltiptext tooltip-top"></span>
                                 </div>
                                 <a href="#" className="rating-reviews">(3 Reviews)</a>
@@ -337,30 +337,31 @@ export default function MainProductDetails(){
                             </div>
 
                             <hr className="product-divider"/>
-
                             <div className="product-form product-variation-form product-color-swatch">
-                                <label>Color:</label>
-                                <div className="d-flex align-items-center product-variations">
-                                    <a href="#" className="color" style={{backgroundColor: '#ffcc01'}}></a>
-                                    <a href="#" className="color" style={{backgroundColor: '#ca6d00'}}></a>
-                                    <a href="#" className="color" style={{backgroundColor: '#1c93cb'}}></a>
-                                    <a href="#" className="color" style={{backgroundColor: '#ccc'}}></a>
-                                    <a href="#" className="color" style={{backgroundColor: '#333'}}></a>
+                                <div>
+                                    <div>
+                                        <div  id="product-tab-specification">
+                                            <ul className="list-none">
+                                                <li>
+                                                    <label>Model</label>
+                                                    <p>Skysuite 320</p>
+                                                </li>
+                                                <li>
+                                                    <label>Color</label>
+                                                    <p>Black</p>
+                                                </li>
+                                                <li>
+                                                    <label>Size</label>
+                                                    <p>Large, Small</p>
+                                                </li>
+                                                <li>
+                                                    <label>Guarantee Time</label>
+                                                    <p>3 Months</p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div className="product-form product-variation-form product-size-swatch">
-                                <label className="mb-1">Size:</label>
-                                <div className="flex-wrap d-flex align-items-center product-variations">
-                                    <a href="#" className="size">Small</a>
-                                    <a href="#" className="size">Medium</a>
-                                    <a href="#" className="size">Large</a>
-                                    <a href="#" className="size">Extra Large</a>
-                                </div>
-                                <a href="#" className="product-variation-clean">Clean All</a>
-                            </div>
-
-                            <div className="product-variation-price">
-                                <span></span>
                             </div>
 
                             <div className="product-form">
@@ -380,12 +381,16 @@ export default function MainProductDetails(){
 
                             <div className="social-links-wrapper">
                                 <div className="social-links">
-                                    <div className="social-icons social-no-color border-thin">
-                                        <a href="#" className="social-icon social-facebook w-icon-facebook"></a>
-                                        <a href="#" className="social-icon social-twitter w-icon-twitter"></a>
+                                    <div
+                                        className="social-icons social-no-color border-thin">
                                         <a href="#"
-                                           className="social-icon social-pinterest fab fa-pinterest-p"></a>
-                                        <a href="#" className="social-icon social-whatsapp fab fa-whatsapp"></a>
+                                           className="social-icon social-facebook w-icon-facebook"></a>
+                                        <a href="#"
+                                           className="social-icon social-instagram fab fa-instagram"></a>
+                                        <a href="#"
+                                           className="social-icon social-twitter fab fa-telegram"></a>
+                                        <a href="#"
+                                           className="social-icon social-whatsapp fab fa-whatsapp"></a>
                                         <a href="#"
                                            className="social-icon social-youtube fab fa-linkedin-in"></a>
                                     </div>

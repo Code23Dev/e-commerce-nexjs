@@ -9,6 +9,7 @@ export default function MyAccountVendorDetails(){
     const [selectedFile3, setSelectedFile3] = useState(null);
     const [selectedFile4, setSelectedFile4] = useState(null);
     const [selectedFile5, setSelectedFile5] = useState(null);
+    const [selectedFile6, setSelectedFile6] = useState(null);
     return (
         <div>
             <style jsx>{`
@@ -141,38 +142,17 @@ export default function MyAccountVendorDetails(){
                                             </div>
                                             <div className="col-md-6 mb-6 mb-md-8">
                                                 <div className="product-details" data-sticky-options="{'minWidth': 767}">
-                                                    <h1 className="product-title">Bodycare Smooth Powder</h1>
-                                                    <div className="product-bm-wrapper">
-                                                        <figure className="brand">
-                                                            <img src="assets/images/products/brand/brand-5.jpg" alt="Brand"
-                                                                 width="106" height="48"/>
-                                                        </figure>
-                                                        <div className="product-meta">
-                                                            <div className="product-categories">
-                                                                Category:
-                                                                <span className="product-category"><a
-                                                                    href="#">Beauty</a></span>
-                                                            </div>
-                                                            <div className="product-sku">
-                                                                SKU: <span>MS46891390</span>
-                                                            </div>
-                                                        </div>
+                                                    <div className="form-group mb-3">
+                                                        <h4 className="product-title">Shop name</h4>
+                                                        <input type="text" id="display-name"
+                                                               placeholder="Shop name"
+                                                               className="form-control form-control-md mb-0"/>
                                                     </div>
-
-                                                    <hr className="product-divider"/>
 
                                                     <div className="product-price">
                                                         <ins className="new-price">$25.00</ins>
                                                     </div>
 
-                                                    <div className="ratings-container">
-                                                        <div className="ratings-full">
-                                                            <span className="ratings" style={{width: '80%'}}></span>
-                                                            <span className="tooltiptext tooltip-top"></span>
-                                                        </div>
-                                                        <a href="#product-tab-reviews" className="rating-reviews">(3
-                                                            Reviews)</a>
-                                                    </div>
 
                                                     <div className="product-short-desc">
                                                         <ul className="list-type-check list-style-none">
@@ -182,53 +162,198 @@ export default function MyAccountVendorDetails(){
                                                         </ul>
                                                     </div>
 
-                                                    <hr className="product-divider"/>
-
+                                                    <h4 className="product-title">Description</h4>
+                                                    <textarea className="form-control form-control-md mb-4"
+                                                              name="w3review" rows="4" cols="50">
+                                                    </textarea>
+                                                    <div className="row">
+                                                        <div className="form-group col-md-6 mb-3">
+                                                            <label htmlFor="display-name">Title</label>
+                                                            <select className="form-control form-control-md mb-0">
+                                                                <option value="Afghanistan">Afghanistan</option>
+                                                                <option value="Åland Islands">Åland Islands</option>
+                                                                <option value="Albania">Albania</option>
+                                                                <option value="Algeria">Algeria</option>
+                                                                <option value="American Samoa">American Samoa</option>
+                                                                <option value="Andorra">Andorra</option>
+                                                                <option value="Angola">Angola</option>
+                                                                <option value="Anguilla">Anguilla</option>
+                                                                <option value="Antarctica">Antarctica</option>
+                                                                <option value="Antigua and Barbuda">Antigua and Barbuda</option>
+                                                                <option value="Argentina">Argentina</option>
+                                                                <option value="Armenia">Armenia</option>
+                                                                <option value="Aruba">Aruba</option>
+                                                                <option value="Australia">Australia</option>
+                                                                <option value="Austria">Austria</option>
+                                                                <option value="Azerbaijan">Azerbaijan</option>
+                                                                <option value="Bahamas">Bahamas</option>
+                                                                <option value="Bahrain">Bahrain</option>
+                                                                <option value="Bangladesh">Bangladesh</option>
+                                                                <option value="Barbados">Barbados</option>
+                                                                <option value="Belarus">Belarus</option>
+                                                                <option value="Belgium">Belgium</option>
+                                                                <option value="Belize">Belize</option>
+                                                                <option value="Benin">Benin</option>
+                                                                <option value="Bermuda">Bermuda</option>
+                                                                <option value="Bhutan">Bhutan</option>
+                                                                <option value="Bolivia">Bolivia</option>
+                                                                <option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
+                                                                <option value="Botswana">Botswana</option>
+                                                                <option value="Bouvet Island">Bouvet Island</option>
+                                                                <option value="Brazil">Brazil</option>
+                                                                <option value="British Indian Ocean Territory">British Indian Ocean Territory</option>
+                                                                <option value="Brunei Darussalam">Brunei Darussalam</option>
+                                                                <option value="Bulgaria">Bulgaria</option>
+                                                                <option value="Burkina Faso">Burkina Faso</option>
+                                                                <option value="Burundi">Burundi</option>
+                                                                <option value="Cambodia">Cambodia</option>
+                                                            </select>
+                                                        </div>
+                                                        <div className="form-group col-md-6 mb-3">
+                                                            <label htmlFor="email_1">Title</label>
+                                                            <input type="text" id="email_1" name="email_1"
+                                                                   className="form-control form-control-md"/>
+                                                        </div>
+                                                        <div className="form-group col-md-6 mb-3">
+                                                            <label htmlFor="display-name">Title</label>
+                                                            <select className="form-control form-control-md mb-0">
+                                                                <option value="Afghanistan">Afghanistan</option>
+                                                                <option value="Åland Islands">Åland Islands</option>
+                                                                <option value="Albania">Albania</option>
+                                                                <option value="Algeria">Algeria</option>
+                                                                <option value="American Samoa">American Samoa</option>
+                                                                <option value="Andorra">Andorra</option>
+                                                                <option value="Angola">Angola</option>
+                                                                <option value="Anguilla">Anguilla</option>
+                                                                <option value="Antarctica">Antarctica</option>
+                                                                <option value="Antigua and Barbuda">Antigua and Barbuda</option>
+                                                                <option value="Argentina">Argentina</option>
+                                                                <option value="Armenia">Armenia</option>
+                                                                <option value="Aruba">Aruba</option>
+                                                                <option value="Australia">Australia</option>
+                                                                <option value="Austria">Austria</option>
+                                                                <option value="Azerbaijan">Azerbaijan</option>
+                                                                <option value="Bahamas">Bahamas</option>
+                                                                <option value="Bahrain">Bahrain</option>
+                                                                <option value="Bangladesh">Bangladesh</option>
+                                                                <option value="Barbados">Barbados</option>
+                                                                <option value="Belarus">Belarus</option>
+                                                                <option value="Belgium">Belgium</option>
+                                                                <option value="Belize">Belize</option>
+                                                                <option value="Benin">Benin</option>
+                                                                <option value="Bermuda">Bermuda</option>
+                                                                <option value="Bhutan">Bhutan</option>
+                                                                <option value="Bolivia">Bolivia</option>
+                                                                <option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
+                                                                <option value="Botswana">Botswana</option>
+                                                                <option value="Bouvet Island">Bouvet Island</option>
+                                                                <option value="Brazil">Brazil</option>
+                                                                <option value="British Indian Ocean Territory">British Indian Ocean Territory</option>
+                                                                <option value="Brunei Darussalam">Brunei Darussalam</option>
+                                                                <option value="Bulgaria">Bulgaria</option>
+                                                                <option value="Burkina Faso">Burkina Faso</option>
+                                                                <option value="Burundi">Burundi</option>
+                                                                <option value="Cambodia">Cambodia</option>
+                                                            </select>
+                                                        </div>
+                                                        <div className="form-group col-md-6 mb-3">
+                                                            <label htmlFor="email_1">Title</label>
+                                                            <input type="text" id="email_1" name="email_1"
+                                                                   className="form-control form-control-md"/>
+                                                        </div>
+                                                        <div className="form-group col-md-6 mb-3">
+                                                            <label htmlFor="display-name">Title</label>
+                                                            <select className="form-control form-control-md mb-0">
+                                                                <option value="Afghanistan">Afghanistan</option>
+                                                                <option value="Åland Islands">Åland Islands</option>
+                                                                <option value="Albania">Albania</option>
+                                                                <option value="Algeria">Algeria</option>
+                                                                <option value="American Samoa">American Samoa</option>
+                                                                <option value="Andorra">Andorra</option>
+                                                                <option value="Angola">Angola</option>
+                                                                <option value="Anguilla">Anguilla</option>
+                                                                <option value="Antarctica">Antarctica</option>
+                                                                <option value="Antigua and Barbuda">Antigua and Barbuda</option>
+                                                                <option value="Argentina">Argentina</option>
+                                                                <option value="Armenia">Armenia</option>
+                                                                <option value="Aruba">Aruba</option>
+                                                                <option value="Australia">Australia</option>
+                                                                <option value="Austria">Austria</option>
+                                                                <option value="Azerbaijan">Azerbaijan</option>
+                                                                <option value="Bahamas">Bahamas</option>
+                                                                <option value="Bahrain">Bahrain</option>
+                                                                <option value="Bangladesh">Bangladesh</option>
+                                                                <option value="Barbados">Barbados</option>
+                                                                <option value="Belarus">Belarus</option>
+                                                                <option value="Belgium">Belgium</option>
+                                                                <option value="Belize">Belize</option>
+                                                                <option value="Benin">Benin</option>
+                                                                <option value="Bermuda">Bermuda</option>
+                                                                <option value="Bhutan">Bhutan</option>
+                                                                <option value="Bolivia">Bolivia</option>
+                                                                <option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
+                                                                <option value="Botswana">Botswana</option>
+                                                                <option value="Bouvet Island">Bouvet Island</option>
+                                                                <option value="Brazil">Brazil</option>
+                                                                <option value="British Indian Ocean Territory">British Indian Ocean Territory</option>
+                                                                <option value="Brunei Darussalam">Brunei Darussalam</option>
+                                                                <option value="Bulgaria">Bulgaria</option>
+                                                                <option value="Burkina Faso">Burkina Faso</option>
+                                                                <option value="Burundi">Burundi</option>
+                                                                <option value="Cambodia">Cambodia</option>
+                                                            </select>
+                                                        </div>
+                                                        <div className="form-group col-md-6 mb-3">
+                                                            <label htmlFor="display-name">Title</label>
+                                                            <input type="text" id="email_1" name="email_1"
+                                                                   className="form-control form-control-md"/>
+                                                        </div>
+                                                    </div>
+                                                    <div className="row mb-4">
+                                                        <div className="col-md-6">
+                                                            <figure className="product-image">
+                                                                <div>
+                                                                    <form>
+                                                                        <input type="file"
+                                                                               accept=".jpg, .jpeg, .png"
+                                                                               name="file09" id="file09"
+                                                                               className="inputFile"
+                                                                               onChange={(event) => setSelectedFile5(window.URL.createObjectURL(event.target.files[0]))}/>
+                                                                        <label htmlFor="file09" style={{width:"200px", height:"100px"}}>
+                                                                            <img src={selectedFile5}  data-zoom-image={selectedFile5}/>
+                                                                        </label>
+                                                                    </form>
+                                                                </div>
+                                                            </figure>
+                                                        </div>
+                                                        <div className="col-md-6">
+                                                            <figure className="product-image">
+                                                                <div>
+                                                                    <form>
+                                                                        <input type="file"
+                                                                               accept=".jpg, .jpeg, .png"
+                                                                               name="file05" id="file05"
+                                                                               className="inputFile"
+                                                                               onChange={(event) => setSelectedFile6(window.URL.createObjectURL(event.target.files[0]))}/>
+                                                                        <label htmlFor="file05" style={{width:"200px", height:"100px"}}>
+                                                                            <img src={selectedFile6}  data-zoom-image={selectedFile6}/>
+                                                                        </label>
+                                                                    </form>
+                                                                </div>
+                                                            </figure>
+                                                        </div>
+                                                    </div>
                                                     <div
                                                         className="fix-bottom product-sticky-content sticky-content">
                                                         <div className="product-form container">
-                                                            <div className="product-qty-form">
-                                                                <div className="input-group">
-                                                                    <input className="quantity form-control"
-                                                                           type="number" min="1"
-                                                                           max="10000000"/>
-                                                                    <button
-                                                                        className="quantity-plus w-icon-plus"></button>
-                                                                    <button
-                                                                        className="quantity-minus w-icon-minus"></button>
-                                                                </div>
-                                                            </div>
                                                             <button className="btn btn-primary btn-cart">
                                                                 <i className="w-icon-cart"></i>
-                                                                <span>Add to Cart</span>
+                                                                <span>Add to Shop</span>
                                                             </button>
                                                         </div>
                                                     </div>
 
-                                                    <div className="social-links-wrapper">
-                                                        <div className="social-links">
-                                                            <div
-                                                                className="social-icons social-no-color border-thin">
-                                                                <a href="#"
-                                                                   className="social-icon social-facebook w-icon-facebook"></a>
-                                                                <a href="#"
-                                                                   className="social-icon social-twitter w-icon-twitter"></a>
-                                                                <a href="#"
-                                                                   className="social-icon social-pinterest fab fa-pinterest-p"></a>
-                                                                <a href="#"
-                                                                   className="social-icon social-whatsapp fab fa-whatsapp"></a>
-                                                                <a href="#"
-                                                                   className="social-icon social-youtube fab fa-linkedin-in"></a>
-                                                            </div>
-                                                        </div>
-                                                        <span className="divider d-xs-show"></span>
-                                                        <div className="product-link-wrapper d-flex">
-                                                            <a href="#"
-                                                               className="btn-product-icon btn-wishlist w-icon-heart"><span></span></a>
-                                                            <a href="#"
-                                                               className="btn-product-icon btn-compare btn-icon-left w-icon-compare"><span></span></a>
-                                                        </div>
-                                                    </div>
+
                                                 </div>
                                             </div>
                                         </div>

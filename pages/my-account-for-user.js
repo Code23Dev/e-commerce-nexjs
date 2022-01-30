@@ -6,7 +6,6 @@ export default function myAccountForUser() {
     return (
         <div>
             <HeaderTop2/>
-
             <MyAccount/>
         </div>
     )

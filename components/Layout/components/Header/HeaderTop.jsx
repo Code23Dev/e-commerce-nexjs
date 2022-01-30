@@ -31,7 +31,6 @@ export default function HeaderTop(){
                         </div>
                         <div className="header-right">
                             <span className="divider d-lg-show"></span>
-                            <a href="blog.html" className="d-lg-show">Blog</a>
                             <a href="/contact-us" className="d-lg-show">Contact Us</a>
                             <a href="/my-account-for-user" className="d-lg-show">My Account</a>
                             <a href="assets/ajax/login.html" className="d-lg-show login sign-in"><i
