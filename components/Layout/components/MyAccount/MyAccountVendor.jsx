@@ -1,7 +1,9 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Link from 'next/link'
 import MyAccountVendorDetails from "./MyAccountVendorDetails";
 export default function MyAccountVendor(){
+const [selectedFile1, setSelectedFile1] = useState(null);
+const [selectedFile2, setSelectedFile2] = useState(null);
     return (
         <div>
             <style jsx>{`
@@ -9,6 +11,19 @@ export default function MyAccountVendor(){
                    color: #1914fe !important;
                    cursor: pointer;
                   }
+                   .inputFile {
+                width: 0.1px !important;
+                height: 0.1px !important;
+                opacity: 0 !important;
+                overflow: hidden !important;
+                position: absolute !important;
+                z-index: -1 !important;
+              }
+
+              .inputFile + label {
+                background-color: #989494;
+                display: inline-block;
+              }
             `}
             </style>
             <div>
@@ -22,7 +37,7 @@ export default function MyAccountVendor(){
                         <nav className="breadcrumb-nav">
                             <div className="container">
                                 <ul className="breadcrumb">
-                                    <li><a href="demo1.html">Home</a></li>
+                                    <li><a href="/home">Home</a></li>
                                     <li>My account For Vendor</li>
                                 </ul>
                             </div>
@@ -43,11 +58,8 @@ export default function MyAccountVendor(){
                                             <a href="#account-downloads" className="nav-link">Məhsul əlavə et</a>
                                         </li>
                                         <hr className="product-divider"/>
-                                        <li className="link-item">
-                                            <Link href="/shop">
-                                                <span  className="nav-link span-link">Bütün məhsullar</span>
-                                            </Link>
-
+                                        <li className="nav-item">
+                                            <a href="#account-orders2" className="nav-link">Bütün məhsullar</a>
                                         </li>
                                         <hr className="product-divider"/>
                                         <li className="nav-item">
@@ -228,61 +240,531 @@ export default function MyAccountVendor(){
                                                className="btn btn-dark btn-rounded btn-icon-right">Go
                                                 Shop<i className="w-icon-long-arrow-right"></i></a>
                                         </div>
+                                        <div className="tab-pane mb-4" id="account-orders2">
+                                            <table className="shop-table account-orders-table mb-6">
+                                                <thead>
+                                                <tr>
+                                                        <th className="order-id">N</th>
+                                                    <th className="order-date">Tarix</th>
+                                                    <th className="order-status">Məhsulun kodu</th>
+                                                    <th className="order-total">Məhsulun adı</th>
+                                                    <th className="order-actions">Sub-sub kateqoriyası</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr>
+                                                    <td className="order-id">#2321</td>
+                                                    <td className="order-date">August 20, 2021</td>
+                                                    <td className="order-status">Processing</td>
+                                                    <td className="order-status">Processing</td>
+                                                    <td className="order-total">
+                                                        <span className="order-price">$121.00</span> for
+                                                        <span className="order-quantity"> 1</span> item
+                                                    </td>
+                                                    <td className="order-action">
+                                                        <a href="#"
+                                                           className="btn btn-outline btn-default btn-block btn-sm btn-rounded">Dəyiş</a>
+                                                    </td>
+                                                    <td className="order-action">
+                                                        <a href="#"
+                                                           className="btn btn-outline btn-default btn-block btn-sm btn-rounded" >Sil</a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td className="order-id">#2321</td>
+                                                    <td className="order-date">August 20, 2021</td>
+                                                    <td className="order-status">Processing</td>
+                                                    <td className="order-status">Processing</td>
+                                                    <td className="order-total">
+                                                        <span className="order-price">$121.00</span> for
+                                                        <span className="order-quantity"> 1</span> item
+                                                    </td>
+                                                    <td className="order-action">
+                                                        <a href="#"
+                                                           className="btn btn-outline btn-default btn-block btn-sm btn-rounded">Dəyiş</a>
+                                                    </td>
+                                                    <td className="order-action">
+                                                        <a href="#"
+                                                           className="btn btn-outline btn-default btn-block btn-sm btn-rounded" >Sil</a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td className="order-id">#2321</td>
+                                                    <td className="order-date">August 20, 2021</td>
+                                                    <td className="order-status">Processing</td>
+                                                    <td className="order-status">Processing</td>
+                                                    <td className="order-total">
+                                                        <span className="order-price">$121.00</span> for
+                                                        <span className="order-quantity"> 1</span> item
+                                                    </td>
+                                                    <td className="order-action">
+                                                        <a href="#"
+                                                           className="btn btn-outline btn-default btn-block btn-sm btn-rounded">Dəyiş</a>
+                                                    </td>
+                                                    <td className="order-action">
+                                                        <a href="#"
+                                                           className="btn btn-outline btn-default btn-block btn-sm btn-rounded" >Sil</a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td className="order-id">#2321</td>
+                                                    <td className="order-date">August 20, 2021</td>
+                                                    <td className="order-status">Processing</td>
+                                                    <td className="order-status">Processing</td>
+                                                    <td className="order-total">
+                                                        <span className="order-price">$121.00</span> for
+                                                        <span className="order-quantity"> 1</span> item
+                                                    </td>
+                                                    <td className="order-action">
+                                                        <a href="#"
+                                                           className="btn btn-outline btn-default btn-block btn-sm btn-rounded">Dəyiş</a>
+                                                    </td>
+                                                    <td className="order-action">
+                                                        <a href="#"
+                                                           className="btn btn-outline btn-default btn-block btn-sm btn-rounded" >Sil</a>
+                                                    </td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+
+                                        </div>
 
                                         <div className="tab-pane" id="account-downloads">
-                                            {/*        <div className="icon-box icon-box-side icon-box-light">*/}
-                                            {/*<span className="icon-box-icon icon-downloads mr-2">*/}
-                                            {/*    <i className="w-icon-download"></i>*/}
-                                            {/*</span>*/}
-                                            {/*            <div className="icon-box-content">*/}
-                                            {/*                <h4 className="icon-box-title ls-normal">Məhsul əlavə et</h4>*/}
-                                            {/*            </div>*/}
-                                            {/*        </div>*/}
                                             <MyAccountVendorDetails/>
                                         </div>
 
                                         <div className="tab-pane" id="account-details">
-                                            {/*        <div className="icon-box icon-box-side icon-box-light">*/}
-                                            {/*<span className="icon-box-icon icon-account mr-2">*/}
-                                            {/*    <i className="w-icon-user"></i>*/}
-                                            {/*</span>*/}
-                                            {/*            <div className="icon-box-content">*/}
-                                            {/*                <h4 className="icon-box-title mb-0 ls-normal">Account Details</h4>*/}
-                                            {/*            </div>*/}
-                                            {/*        </div>*/}
                                             <form className="form account-details-form" action="#" method="post">
                                                 <div className="row">
-                                                    <div className="col-md-6">
+                                                    <div className="col-md-12">
                                                         <div className="form-group">
-                                                            <label htmlFor="firstname">First name *</label>
+                                                            <label htmlFor="firstname">Məhsulun adı</label>
                                                             <input type="text" id="firstname" name="firstname"
-                                                                   placeholder="John"
                                                                    className="form-control form-control-md"/>
                                                         </div>
                                                     </div>
-                                                    <div className="col-md-6">
+
+                                                </div>
+                                                <div className="row mt-2">
+                                                    <label htmlFor="display-name">Ünvan</label>
+                                                    <div className="col-md-3">
                                                         <div className="form-group">
-                                                            <label htmlFor="lastname">Last name *</label>
-                                                            <input type="text" id="lastname" name="lastname"
-                                                                   placeholder="Doe"
-                                                                   className="form-control form-control-md"/>
+                                                            <select className="form-control form-control-md mb-0">
+                                                                <option value="Afghanistan">Afghanistan</option>
+                                                                <option value="Åland Islands">Åland Islands</option>
+                                                                <option value="Albania">Albania</option>
+                                                                <option value="Algeria">Algeria</option>
+                                                                <option value="American Samoa">American Samoa</option>
+                                                                <option value="Andorra">Andorra</option>
+                                                                <option value="Angola">Angola</option>
+                                                                <option value="Anguilla">Anguilla</option>
+                                                                <option value="Antarctica">Antarctica</option>
+                                                                <option value="Antigua and Barbuda">Antigua and Barbuda</option>
+                                                                <option value="Argentina">Argentina</option>
+                                                                <option value="Armenia">Armenia</option>
+                                                                <option value="Aruba">Aruba</option>
+                                                                <option value="Australia">Australia</option>
+                                                                <option value="Austria">Austria</option>
+                                                                <option value="Azerbaijan">Azerbaijan</option>
+                                                                <option value="Bahamas">Bahamas</option>
+                                                                <option value="Bahrain">Bahrain</option>
+                                                                <option value="Bangladesh">Bangladesh</option>
+                                                                <option value="Barbados">Barbados</option>
+                                                                <option value="Belarus">Belarus</option>
+                                                                <option value="Belgium">Belgium</option>
+                                                                <option value="Belize">Belize</option>
+                                                                <option value="Benin">Benin</option>
+                                                                <option value="Bermuda">Bermuda</option>
+                                                                <option value="Bhutan">Bhutan</option>
+                                                                <option value="Bolivia">Bolivia</option>
+                                                                <option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
+                                                                <option value="Botswana">Botswana</option>
+                                                                <option value="Bouvet Island">Bouvet Island</option>
+                                                                <option value="Brazil">Brazil</option>
+                                                                <option value="British Indian Ocean Territory">British Indian Ocean Territory</option>
+                                                                <option value="Brunei Darussalam">Brunei Darussalam</option>
+                                                                <option value="Bulgaria">Bulgaria</option>
+                                                                <option value="Burkina Faso">Burkina Faso</option>
+                                                                <option value="Burundi">Burundi</option>
+                                                                <option value="Cambodia">Cambodia</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div className="col-md-3">
+                                                        <div className="form-group">
+                                                            <select className="form-control form-control-md mb-0">
+                                                                <option value="Afghanistan">Afghanistan</option>
+                                                                <option value="Åland Islands">Åland Islands</option>
+                                                                <option value="Albania">Albania</option>
+                                                                <option value="Algeria">Algeria</option>
+                                                                <option value="American Samoa">American Samoa</option>
+                                                                <option value="Andorra">Andorra</option>
+                                                                <option value="Angola">Angola</option>
+                                                                <option value="Anguilla">Anguilla</option>
+                                                                <option value="Antarctica">Antarctica</option>
+                                                                <option value="Antigua and Barbuda">Antigua and Barbuda</option>
+                                                                <option value="Argentina">Argentina</option>
+                                                                <option value="Armenia">Armenia</option>
+                                                                <option value="Aruba">Aruba</option>
+                                                                <option value="Australia">Australia</option>
+                                                                <option value="Austria">Austria</option>
+                                                                <option value="Azerbaijan">Azerbaijan</option>
+                                                                <option value="Bahamas">Bahamas</option>
+                                                                <option value="Bahrain">Bahrain</option>
+                                                                <option value="Bangladesh">Bangladesh</option>
+                                                                <option value="Barbados">Barbados</option>
+                                                                <option value="Belarus">Belarus</option>
+                                                                <option value="Belgium">Belgium</option>
+                                                                <option value="Belize">Belize</option>
+                                                                <option value="Benin">Benin</option>
+                                                                <option value="Bermuda">Bermuda</option>
+                                                                <option value="Bhutan">Bhutan</option>
+                                                                <option value="Bolivia">Bolivia</option>
+                                                                <option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
+                                                                <option value="Botswana">Botswana</option>
+                                                                <option value="Bouvet Island">Bouvet Island</option>
+                                                                <option value="Brazil">Brazil</option>
+                                                                <option value="British Indian Ocean Territory">British Indian Ocean Territory</option>
+                                                                <option value="Brunei Darussalam">Brunei Darussalam</option>
+                                                                <option value="Bulgaria">Bulgaria</option>
+                                                                <option value="Burkina Faso">Burkina Faso</option>
+                                                                <option value="Burundi">Burundi</option>
+                                                                <option value="Cambodia">Cambodia</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div className="col-md-3">
+                                                        <div className="form-group">
+                                                            <select className="form-control form-control-md mb-0">
+                                                                <option value="Afghanistan">Afghanistan</option>
+                                                                <option value="Åland Islands">Åland Islands</option>
+                                                                <option value="Albania">Albania</option>
+                                                                <option value="Algeria">Algeria</option>
+                                                                <option value="American Samoa">American Samoa</option>
+                                                                <option value="Andorra">Andorra</option>
+                                                                <option value="Angola">Angola</option>
+                                                                <option value="Anguilla">Anguilla</option>
+                                                                <option value="Antarctica">Antarctica</option>
+                                                                <option value="Antigua and Barbuda">Antigua and Barbuda</option>
+                                                                <option value="Argentina">Argentina</option>
+                                                                <option value="Armenia">Armenia</option>
+                                                                <option value="Aruba">Aruba</option>
+                                                                <option value="Australia">Australia</option>
+                                                                <option value="Austria">Austria</option>
+                                                                <option value="Azerbaijan">Azerbaijan</option>
+                                                                <option value="Bahamas">Bahamas</option>
+                                                                <option value="Bahrain">Bahrain</option>
+                                                                <option value="Bangladesh">Bangladesh</option>
+                                                                <option value="Barbados">Barbados</option>
+                                                                <option value="Belarus">Belarus</option>
+                                                                <option value="Belgium">Belgium</option>
+                                                                <option value="Belize">Belize</option>
+                                                                <option value="Benin">Benin</option>
+                                                                <option value="Bermuda">Bermuda</option>
+                                                                <option value="Bhutan">Bhutan</option>
+                                                                <option value="Bolivia">Bolivia</option>
+                                                                <option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
+                                                                <option value="Botswana">Botswana</option>
+                                                                <option value="Bouvet Island">Bouvet Island</option>
+                                                                <option value="Brazil">Brazil</option>
+                                                                <option value="British Indian Ocean Territory">British Indian Ocean Territory</option>
+                                                                <option value="Brunei Darussalam">Brunei Darussalam</option>
+                                                                <option value="Bulgaria">Bulgaria</option>
+                                                                <option value="Burkina Faso">Burkina Faso</option>
+                                                                <option value="Burundi">Burundi</option>
+                                                                <option value="Cambodia">Cambodia</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div className="col-md-3">
+                                                        <div className="form-group">
+                                                            <select className="form-control form-control-md mb-0">
+                                                                <option value="Afghanistan">Afghanistan</option>
+                                                                <option value="Åland Islands">Åland Islands</option>
+                                                                <option value="Albania">Albania</option>
+                                                                <option value="Algeria">Algeria</option>
+                                                                <option value="American Samoa">American Samoa</option>
+                                                                <option value="Andorra">Andorra</option>
+                                                                <option value="Angola">Angola</option>
+                                                                <option value="Anguilla">Anguilla</option>
+                                                                <option value="Antarctica">Antarctica</option>
+                                                                <option value="Antigua and Barbuda">Antigua and Barbuda</option>
+                                                                <option value="Argentina">Argentina</option>
+                                                                <option value="Armenia">Armenia</option>
+                                                                <option value="Aruba">Aruba</option>
+                                                                <option value="Australia">Australia</option>
+                                                                <option value="Austria">Austria</option>
+                                                                <option value="Azerbaijan">Azerbaijan</option>
+                                                                <option value="Bahamas">Bahamas</option>
+                                                                <option value="Bahrain">Bahrain</option>
+                                                                <option value="Bangladesh">Bangladesh</option>
+                                                                <option value="Barbados">Barbados</option>
+                                                                <option value="Belarus">Belarus</option>
+                                                                <option value="Belgium">Belgium</option>
+                                                                <option value="Belize">Belize</option>
+                                                                <option value="Benin">Benin</option>
+                                                                <option value="Bermuda">Bermuda</option>
+                                                                <option value="Bhutan">Bhutan</option>
+                                                                <option value="Bolivia">Bolivia</option>
+                                                                <option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
+                                                                <option value="Botswana">Botswana</option>
+                                                                <option value="Bouvet Island">Bouvet Island</option>
+                                                                <option value="Brazil">Brazil</option>
+                                                                <option value="British Indian Ocean Territory">British Indian Ocean Territory</option>
+                                                                <option value="Brunei Darussalam">Brunei Darussalam</option>
+                                                                <option value="Bulgaria">Bulgaria</option>
+                                                                <option value="Burkina Faso">Burkina Faso</option>
+                                                                <option value="Burundi">Burundi</option>
+                                                                <option value="Cambodia">Cambodia</option>
+                                                            </select>
                                                         </div>
                                                     </div>
                                                 </div>
-
-                                                <div className="form-group mb-3">
-                                                    <label htmlFor="display-name">Display name *</label>
-                                                    <input type="text" id="display-name" name="display_name"
-                                                           placeholder="John Doe"
-                                                           className="form-control form-control-md mb-0"/>
-                                                    <p>This will be how your name will be displayed in the account
-                                                        section and in reviews</p>
+                                                <div className="row mb-3 mt-2">
+                                                    <label htmlFor="display-name">Digəri</label>
+                                                    <div className="col-md-12">
+                                                        <div className="form-group">
+                                                            <input type="text" id="display-name" name="display_name"
+                                                                   className="form-control form-control-md mb-0"/>
+                                                        </div>
+                                                    </div>
                                                 </div>
-
-                                                <div className="form-group mb-6">
-                                                    <label htmlFor="email_1">Email address *</label>
-                                                    <input type="email" id="email_1" name="email_1"
-                                                           className="form-control form-control-md"/>
+                                                <div className="form-group mb-3 mt-3">
+                                                    <label htmlFor="display-name">Əlaqə nömrəsı</label>
+                                                    <input type="tel" id="display-name" name="display_name"
+                                                           className="form-control form-control-md mb-0"/>
+                                                </div>
+                                                <div className="row mb-3">
+                                                    <label htmlFor="display-name">Kateqoriya</label>
+                                                    <div className="col-md-3">
+                                                        <div className="form-group">
+                                                            <select className="form-control form-control-md mb-0">
+                                                                <option value="Afghanistan">Afghanistan</option>
+                                                                <option value="Åland Islands">Åland Islands</option>
+                                                                <option value="Albania">Albania</option>
+                                                                <option value="Algeria">Algeria</option>
+                                                                <option value="American Samoa">American Samoa</option>
+                                                                <option value="Andorra">Andorra</option>
+                                                                <option value="Angola">Angola</option>
+                                                                <option value="Anguilla">Anguilla</option>
+                                                                <option value="Antarctica">Antarctica</option>
+                                                                <option value="Antigua and Barbuda">Antigua and Barbuda</option>
+                                                                <option value="Argentina">Argentina</option>
+                                                                <option value="Armenia">Armenia</option>
+                                                                <option value="Aruba">Aruba</option>
+                                                                <option value="Australia">Australia</option>
+                                                                <option value="Austria">Austria</option>
+                                                                <option value="Azerbaijan">Azerbaijan</option>
+                                                                <option value="Bahamas">Bahamas</option>
+                                                                <option value="Bahrain">Bahrain</option>
+                                                                <option value="Bangladesh">Bangladesh</option>
+                                                                <option value="Barbados">Barbados</option>
+                                                                <option value="Belarus">Belarus</option>
+                                                                <option value="Belgium">Belgium</option>
+                                                                <option value="Belize">Belize</option>
+                                                                <option value="Benin">Benin</option>
+                                                                <option value="Bermuda">Bermuda</option>
+                                                                <option value="Bhutan">Bhutan</option>
+                                                                <option value="Bolivia">Bolivia</option>
+                                                                <option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
+                                                                <option value="Botswana">Botswana</option>
+                                                                <option value="Bouvet Island">Bouvet Island</option>
+                                                                <option value="Brazil">Brazil</option>
+                                                                <option value="British Indian Ocean Territory">British Indian Ocean Territory</option>
+                                                                <option value="Brunei Darussalam">Brunei Darussalam</option>
+                                                                <option value="Bulgaria">Bulgaria</option>
+                                                                <option value="Burkina Faso">Burkina Faso</option>
+                                                                <option value="Burundi">Burundi</option>
+                                                                <option value="Cambodia">Cambodia</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div className="col-md-3">
+                                                        <div className="form-group">
+                                                            <select className="form-control form-control-md mb-0">
+                                                                <option value="Afghanistan">Afghanistan</option>
+                                                                <option value="Åland Islands">Åland Islands</option>
+                                                                <option value="Albania">Albania</option>
+                                                                <option value="Algeria">Algeria</option>
+                                                                <option value="American Samoa">American Samoa</option>
+                                                                <option value="Andorra">Andorra</option>
+                                                                <option value="Angola">Angola</option>
+                                                                <option value="Anguilla">Anguilla</option>
+                                                                <option value="Antarctica">Antarctica</option>
+                                                                <option value="Antigua and Barbuda">Antigua and Barbuda</option>
+                                                                <option value="Argentina">Argentina</option>
+                                                                <option value="Armenia">Armenia</option>
+                                                                <option value="Aruba">Aruba</option>
+                                                                <option value="Australia">Australia</option>
+                                                                <option value="Austria">Austria</option>
+                                                                <option value="Azerbaijan">Azerbaijan</option>
+                                                                <option value="Bahamas">Bahamas</option>
+                                                                <option value="Bahrain">Bahrain</option>
+                                                                <option value="Bangladesh">Bangladesh</option>
+                                                                <option value="Barbados">Barbados</option>
+                                                                <option value="Belarus">Belarus</option>
+                                                                <option value="Belgium">Belgium</option>
+                                                                <option value="Belize">Belize</option>
+                                                                <option value="Benin">Benin</option>
+                                                                <option value="Bermuda">Bermuda</option>
+                                                                <option value="Bhutan">Bhutan</option>
+                                                                <option value="Bolivia">Bolivia</option>
+                                                                <option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
+                                                                <option value="Botswana">Botswana</option>
+                                                                <option value="Bouvet Island">Bouvet Island</option>
+                                                                <option value="Brazil">Brazil</option>
+                                                                <option value="British Indian Ocean Territory">British Indian Ocean Territory</option>
+                                                                <option value="Brunei Darussalam">Brunei Darussalam</option>
+                                                                <option value="Bulgaria">Bulgaria</option>
+                                                                <option value="Burkina Faso">Burkina Faso</option>
+                                                                <option value="Burundi">Burundi</option>
+                                                                <option value="Cambodia">Cambodia</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div className="col-md-3">
+                                                        <div className="form-group">
+                                                            <select className="form-control form-control-md mb-0">
+                                                                <option value="Afghanistan">Afghanistan</option>
+                                                                <option value="Åland Islands">Åland Islands</option>
+                                                                <option value="Albania">Albania</option>
+                                                                <option value="Algeria">Algeria</option>
+                                                                <option value="American Samoa">American Samoa</option>
+                                                                <option value="Andorra">Andorra</option>
+                                                                <option value="Angola">Angola</option>
+                                                                <option value="Anguilla">Anguilla</option>
+                                                                <option value="Antarctica">Antarctica</option>
+                                                                <option value="Antigua and Barbuda">Antigua and Barbuda</option>
+                                                                <option value="Argentina">Argentina</option>
+                                                                <option value="Armenia">Armenia</option>
+                                                                <option value="Aruba">Aruba</option>
+                                                                <option value="Australia">Australia</option>
+                                                                <option value="Austria">Austria</option>
+                                                                <option value="Azerbaijan">Azerbaijan</option>
+                                                                <option value="Bahamas">Bahamas</option>
+                                                                <option value="Bahrain">Bahrain</option>
+                                                                <option value="Bangladesh">Bangladesh</option>
+                                                                <option value="Barbados">Barbados</option>
+                                                                <option value="Belarus">Belarus</option>
+                                                                <option value="Belgium">Belgium</option>
+                                                                <option value="Belize">Belize</option>
+                                                                <option value="Benin">Benin</option>
+                                                                <option value="Bermuda">Bermuda</option>
+                                                                <option value="Bhutan">Bhutan</option>
+                                                                <option value="Bolivia">Bolivia</option>
+                                                                <option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
+                                                                <option value="Botswana">Botswana</option>
+                                                                <option value="Bouvet Island">Bouvet Island</option>
+                                                                <option value="Brazil">Brazil</option>
+                                                                <option value="British Indian Ocean Territory">British Indian Ocean Territory</option>
+                                                                <option value="Brunei Darussalam">Brunei Darussalam</option>
+                                                                <option value="Bulgaria">Bulgaria</option>
+                                                                <option value="Burkina Faso">Burkina Faso</option>
+                                                                <option value="Burundi">Burundi</option>
+                                                                <option value="Cambodia">Cambodia</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div className="col-md-3">
+                                                        <div className="form-group">
+                                                            <select className="form-control form-control-md mb-0">
+                                                                <option value="Afghanistan">Afghanistan</option>
+                                                                <option value="Åland Islands">Åland Islands</option>
+                                                                <option value="Albania">Albania</option>
+                                                                <option value="Algeria">Algeria</option>
+                                                                <option value="American Samoa">American Samoa</option>
+                                                                <option value="Andorra">Andorra</option>
+                                                                <option value="Angola">Angola</option>
+                                                                <option value="Anguilla">Anguilla</option>
+                                                                <option value="Antarctica">Antarctica</option>
+                                                                <option value="Antigua and Barbuda">Antigua and Barbuda</option>
+                                                                <option value="Argentina">Argentina</option>
+                                                                <option value="Armenia">Armenia</option>
+                                                                <option value="Aruba">Aruba</option>
+                                                                <option value="Australia">Australia</option>
+                                                                <option value="Austria">Austria</option>
+                                                                <option value="Azerbaijan">Azerbaijan</option>
+                                                                <option value="Bahamas">Bahamas</option>
+                                                                <option value="Bahrain">Bahrain</option>
+                                                                <option value="Bangladesh">Bangladesh</option>
+                                                                <option value="Barbados">Barbados</option>
+                                                                <option value="Belarus">Belarus</option>
+                                                                <option value="Belgium">Belgium</option>
+                                                                <option value="Belize">Belize</option>
+                                                                <option value="Benin">Benin</option>
+                                                                <option value="Bermuda">Bermuda</option>
+                                                                <option value="Bhutan">Bhutan</option>
+                                                                <option value="Bolivia">Bolivia</option>
+                                                                <option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
+                                                                <option value="Botswana">Botswana</option>
+                                                                <option value="Bouvet Island">Bouvet Island</option>
+                                                                <option value="Brazil">Brazil</option>
+                                                                <option value="British Indian Ocean Territory">British Indian Ocean Territory</option>
+                                                                <option value="Brunei Darussalam">Brunei Darussalam</option>
+                                                                <option value="Bulgaria">Bulgaria</option>
+                                                                <option value="Burkina Faso">Burkina Faso</option>
+                                                                <option value="Burundi">Burundi</option>
+                                                                <option value="Cambodia">Cambodia</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div className="row mb-3">
+                                                    <label htmlFor="display-name">Social Icons</label>
+                                                    <div className="row">
+                                                        <div className="col-md-1">
+                                                            <div className="form-group pt-1">
+                                                               <div style={{textAlign:'center',fontSize:'20px'}}> <i className="fas fa-plus"></i></div>
+                                                            </div>
+                                                        </div>
+                                                        <div className="col-md-2">
+                                                            <div className="form-group">
+                                                                <select className="form-control form-control-md mb-0">
+                                                                    <option value="Facebook">Facebook</option>
+                                                                    <option value="Instagram">Instagram</option>
+                                                                    <option value="Telegram">Telegram</option>
+                                                                    <option value="Whatsapp">Whatsapp</option>
+                                                                    <option value="Linkedin">Linkedin</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div className="col-md-9">
+                                                            <div className="form-group">
+                                                                <input type="text" id="display-name" name="display_name"
+                                                                       className="form-control form-control-md mb-0"/>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div className="form-group mb-3" >
+                                                    <div className="row">
+                                                        <div className="col-md-8">
+                                                            <label htmlFor="display-name">Cover Photo</label>
+                                                            <form style={{backgroundColor:"red"}}>
+                                                                <input type="file"
+                                                                       accept=".jpg, .jpeg, .png"
+                                                                       name="frr" id="frr"
+                                                                       className="inputFile"
+                                                                       onChange={(event) => setSelectedFile1(window.URL.createObjectURL(event.target.files[0]))}/>
+                                                                <label htmlFor="frr" >
+                                                                    <img src={selectedFile1 } id="frr"  style={{width:'600px', height:'200px'}}/>
+                                                                </label>
+                                                            </form>
+                                                        </div>
+                                                        <div className="col-md-4">
+                                                            <label htmlFor="display-name">Logo</label>
+                                                            <form>
+                                                                <input type="file"
+                                                                       accept=".jpg, .jpeg, .png"
+                                                                       name="frr2" id="frr2"
+                                                                       className="inputFile"
+                                                                       onChange={(event) => setSelectedFile2(window.URL.createObjectURL(event.target.files[0]))}/>
+                                                                <label htmlFor="frr2" >
+                                                                    <img src={selectedFile2 } id="frr2"  style={{width:'300px', height:'200px'}}/>
+                                                                </label>
+                                                            </form>
+                                                        </div>
+                                                    </div>
                                                 </div>
 
                                                 <h4 className="title title-password ls-25 font-weight-bold">Password
@@ -308,6 +790,7 @@ export default function MyAccountVendor(){
                                                 <button type="submit"
                                                         className="btn btn-dark btn-rounded btn-sm mb-4">Save Changes
                                                 </button>
+                                               <div> <label htmlFor="display-name">Açilma tarixi: 1/31/2022</label></div>
                                             </form>
                                         </div>
                                     </div>
