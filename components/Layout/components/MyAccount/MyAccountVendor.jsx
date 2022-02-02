@@ -7,6 +7,7 @@ const [selectedFile2, setSelectedFile2] = useState(null);
     return (
         <div>
             <style jsx>{`
+           
                 .span-link:hover {
                    color: #1914fe !important;
                    cursor: pointer;
@@ -267,7 +268,7 @@ const [selectedFile2, setSelectedFile2] = useState(null);
                                                     </td>
                                                     <td className="order-action">
                                                         <a href="#"
-                                                           className="btn btn-outline btn-default btn-block btn-sm btn-rounded" >Sil</a>
+                                                           className="btn btn-outline btn-default btn-block btn-sm btn-rounded redColor" >Sil</a>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -285,7 +286,7 @@ const [selectedFile2, setSelectedFile2] = useState(null);
                                                     </td>
                                                     <td className="order-action">
                                                         <a href="#"
-                                                           className="btn btn-outline btn-default btn-block btn-sm btn-rounded" >Sil</a>
+                                                           className="btn btn-outline btn-default btn-block btn-sm btn-rounded redColor" >Sil</a>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -303,7 +304,7 @@ const [selectedFile2, setSelectedFile2] = useState(null);
                                                     </td>
                                                     <td className="order-action">
                                                         <a href="#"
-                                                           className="btn btn-outline btn-default btn-block btn-sm btn-rounded" >Sil</a>
+                                                           className="btn btn-outline btn-default btn-block btn-sm btn-rounded redColor " >Sil</a>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -321,7 +322,7 @@ const [selectedFile2, setSelectedFile2] = useState(null);
                                                     </td>
                                                     <td className="order-action">
                                                         <a href="#"
-                                                           className="btn btn-outline btn-default btn-block btn-sm btn-rounded" >Sil</a>
+                                                           className="btn btn-outline btn-default btn-block btn-sm btn-rounded redColor" >Sil</a>
                                                     </td>
                                                 </tr>
                                                 </tbody>
@@ -345,10 +346,11 @@ const [selectedFile2, setSelectedFile2] = useState(null);
                                                     </div>
 
                                                 </div>
-                                                <div className="row mt-2">
+                                                <div className="row mt-2 mb-2">
                                                     <label htmlFor="display-name">Ünvan</label>
                                                     <div className="col-md-3">
                                                         <div className="form-group">
+                                                            <label htmlFor="display-name">Səhər</label>
                                                             <select className="form-control form-control-md mb-0">
                                                                 <option value="Afghanistan">Afghanistan</option>
                                                                 <option value="Åland Islands">Åland Islands</option>
@@ -392,6 +394,7 @@ const [selectedFile2, setSelectedFile2] = useState(null);
                                                     </div>
                                                     <div className="col-md-3">
                                                         <div className="form-group">
+                                                            <label htmlFor="display-name">Rayon</label>
                                                             <select className="form-control form-control-md mb-0">
                                                                 <option value="Afghanistan">Afghanistan</option>
                                                                 <option value="Åland Islands">Åland Islands</option>
@@ -435,6 +438,7 @@ const [selectedFile2, setSelectedFile2] = useState(null);
                                                     </div>
                                                     <div className="col-md-3">
                                                         <div className="form-group">
+                                                            <label htmlFor="display-name">Qəsəbə</label>
                                                             <select className="form-control form-control-md mb-0">
                                                                 <option value="Afghanistan">Afghanistan</option>
                                                                 <option value="Åland Islands">Åland Islands</option>
@@ -478,6 +482,7 @@ const [selectedFile2, setSelectedFile2] = useState(null);
                                                     </div>
                                                     <div className="col-md-3">
                                                         <div className="form-group">
+                                                            <label htmlFor="display-name">Küçə</label>
                                                             <select className="form-control form-control-md mb-0">
                                                                 <option value="Afghanistan">Afghanistan</option>
                                                                 <option value="Åland Islands">Åland Islands</option>

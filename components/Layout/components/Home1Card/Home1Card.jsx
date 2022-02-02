@@ -6,6 +6,11 @@ export default function Home1Card(){
               <div className="page-wrapper mt-5">
                   <div className="container pb-5">
                       <style jsx>{`
+                        @media only screen and (min-width: 769px) {
+                                                    .product-list {
+                        
+                                                width:700px!important;
+                                             } }
                         .icon-box-wrapper {
                             border: 1px solid white; 
                             padding: 0px;

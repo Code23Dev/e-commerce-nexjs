@@ -4,6 +4,12 @@ export default function Compare(){
     return (
         <div>
             <style jsx>{`
+          .member-name{
+                margin-bottom:1rem!important;
+            }
+            .member-info{
+                padding-top:1rem!important;
+            } 
             .overlayYuxari{
               position: absolute !important;
               top: 0 !important;

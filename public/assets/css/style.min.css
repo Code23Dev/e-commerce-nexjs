@@ -10434,7 +10434,23 @@ body .product-popup {
   margin: 0 0.8rem 0 0;
   font-size: 1.7rem;
 }
+.fa-google {
+    padding: 8px!important;
+}
+.qizili:hover{
+    background-color: #ed711b!important;
+    border-color: #ed711b!important;
 
+}
+.redColor{
+    border-color: red !important;
+    color:red;
+}
+.redColor:hover{
+    color:white;
+    background-color: red;
+    border-color: red !important;
+}
 .product-absolute::before {
   content: "";
   position: absolute;

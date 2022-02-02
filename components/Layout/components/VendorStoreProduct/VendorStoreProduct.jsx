@@ -829,7 +829,7 @@ export default function VendorStoreProduct() {
                                                 vitae semper quis lectus. Aliquam id diam maecenas ultricies…
                                             </div>
                                             <div className="product-action">
-                                                <a href="product-default.html" className="btn-product btn-cart"
+                                                <a href="product-default.html" className="btn-product btn-cart qizili"
                                                    title="Add to Cart"><i className="w-icon-cart"></i>Select Options</a>
                                                 <a href="#" className="btn-product-icon btn-wishlist w-icon-heart"
                                                    title="Add to wishlist"></a>
@@ -884,7 +884,7 @@ export default function VendorStoreProduct() {
                                                 vitae semper quis lectus. Aliquam id diam maecenas ultricies…
                                             </div>
                                             <div className="product-action">
-                                                <a href="#" className="btn-product btn-cart" title="Add to Cart"><i
+                                                <a href="#" className="btn-product btn-cart qizili" title="Add to Cart"><i
                                                     className="w-icon-cart"></i> Add To Cart</a>
                                                 <a href="#" className="btn-product-icon btn-wishlist w-icon-heart"
                                                    title="Add to wishlist"></a>
@@ -926,7 +926,7 @@ export default function VendorStoreProduct() {
                                                 vitae semper quis lectus. Aliquam id diam maecenas ultricies…
                                             </div>
                                             <div className="product-action">
-                                                <a href="#" className="btn-product btn-cart" title="Add to Cart"><i
+                                                <a href="#" className="btn-product btn-cart qizili" title="Add to Cart"><i
                                                     className="w-icon-cart"></i> Add To Cart</a>
                                                 <a href="#" className="btn-product-icon btn-wishlist w-icon-heart"
                                                    title="Add to wishlist"></a>
@@ -968,7 +968,7 @@ export default function VendorStoreProduct() {
                                                 vitae semper quis lectus. Aliquam id diam maecenas ultricies…
                                             </div>
                                             <div className="product-action">
-                                                <a href="#" className="btn-product btn-cart" title="Add to Cart"><i
+                                                <a href="#" className="btn-product btn-cart qizili" title="Add to Cart"><i
                                                     className="w-icon-cart"></i> Add To Cart</a>
                                                 <a href="#" className="btn-product-icon btn-wishlist w-icon-heart"
                                                    title="Add to wishlist"></a>
@@ -1010,7 +1010,7 @@ export default function VendorStoreProduct() {
                                                 vitae semper quis lectus. Aliquam id diam maecenas ultricies…
                                             </div>
                                             <div className="product-action">
-                                                <a href="#" className="btn-product btn-cart" title="Add to Cart"><i
+                                                <a href="#" className="btn-product btn-cart qizili" title="Add to Cart"><i
                                                     className="w-icon-cart"></i> Add To Cart</a>
                                                 <a href="#" className="btn-product-icon btn-wishlist w-icon-heart"
                                                    title="Add to wishlist"></a>
@@ -1052,7 +1052,7 @@ export default function VendorStoreProduct() {
                                                 vitae semper quis lectus. Aliquam id diam maecenas ultricies…
                                             </div>
                                             <div className="product-action">
-                                                <a href="#" className="btn-product btn-cart" title="Add to Cart"><i
+                                                <a href="#" className="btn-product btn-cart qizili" title="Add to Cart"><i
                                                     className="w-icon-cart"></i> Add To Cart</a>
                                                 <a href="#" className="btn-product-icon btn-wishlist w-icon-heart"
                                                    title="Add to wishlist"></a>
@@ -1096,7 +1096,7 @@ export default function VendorStoreProduct() {
                                                 vitae semper quis lectus. Aliquam id diam maecenas ultricies…
                                             </div>
                                             <div className="product-action">
-                                                <a href="#" className="btn-product btn-cart" title="Add to Cart"><i
+                                                <a href="#" className="btn-product btn-cart qizili" title="Add to Cart"><i
                                                     className="w-icon-cart"></i> Add To Cart</a>
                                                 <a href="#" className="btn-product-icon btn-wishlist w-icon-heart"
                                                    title="Add to wishlist"></a>
@@ -1138,7 +1138,7 @@ export default function VendorStoreProduct() {
                                                 vitae semper quis lectus. Aliquam id diam maecenas ultricies…
                                             </div>
                                             <div className="product-action">
-                                                <a href="#" className="btn-product btn-cart" title="Add to Cart"><i
+                                                <a href="#" className="btn-product btn-cart qizili" title="Add to Cart"><i
                                                     className="w-icon-cart"></i> Add To Cart</a>
                                                 <a href="#" className="btn-product-icon btn-wishlist w-icon-heart"
                                                    title="Add to wishlist"></a>
@@ -1909,7 +1909,7 @@ export default function VendorStoreProduct() {
                                         <button className="quantity-minus w-icon-minus"></button>
                                     </div>
                                 </div>
-                                <button className="btn btn-primary btn-cart">
+                                <button className="btn btn-primary btn-cart qizili">
                                     <i className="w-icon-cart"></i>
                                     <span>Add to Cart</span>
                                 </button>

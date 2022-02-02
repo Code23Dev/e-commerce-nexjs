@@ -264,6 +264,7 @@ export default function MyAccount(){
                                                     <label htmlFor="display-name">Ünvan</label>
                                                     <div className="col-md-3">
                                                         <div className="form-group">
+                                                            <label htmlFor="display-name">Səhər</label>
                                                             <select className="form-control form-control-md mb-0">
                                                                 <option value="Afghanistan">Afghanistan</option>
                                                                 <option value="Åland Islands">Åland Islands</option>
@@ -307,6 +308,7 @@ export default function MyAccount(){
                                                     </div>
                                                     <div className="col-md-3">
                                                         <div className="form-group">
+                                                            <label htmlFor="display-name">Rayon</label>
                                                             <select className="form-control form-control-md mb-0">
                                                                 <option value="Afghanistan">Afghanistan</option>
                                                                 <option value="Åland Islands">Åland Islands</option>
@@ -350,6 +352,7 @@ export default function MyAccount(){
                                                     </div>
                                                     <div className="col-md-3">
                                                         <div className="form-group">
+                                                            <label htmlFor="display-name">Qəsəbə</label>
                                                             <select className="form-control form-control-md mb-0">
                                                                 <option value="Afghanistan">Afghanistan</option>
                                                                 <option value="Åland Islands">Åland Islands</option>
@@ -393,6 +396,7 @@ export default function MyAccount(){
                                                     </div>
                                                     <div className="col-md-3">
                                                         <div className="form-group">
+                                                            <label htmlFor="display-name">Küçə</label>
                                                             <select className="form-control form-control-md mb-0">
                                                                 <option value="Afghanistan">Afghanistan</option>
                                                                 <option value="Åland Islands">Åland Islands</option>
@@ -468,6 +472,7 @@ export default function MyAccount(){
                                             <button type="submit" className="btn btn-dark btn-rounded btn-sm mb-4">Save
                                                 Changes
                                             </button>
+                                            <div> <label htmlFor="display-name">Yaranma tarixi: 1/31/2022</label></div>
                                         </form>
                                     </div>
                                 </div>
