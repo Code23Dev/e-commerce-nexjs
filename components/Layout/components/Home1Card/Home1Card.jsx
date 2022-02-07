@@ -284,7 +284,7 @@ export default function Home1Card(){
                                   </div>
                               </div>
 
-                              <div className="swiper-slide icon-box icon-box-side text-dark icon-box-money">
+                              <div className="swiper-slide icon-box icon-box-side text-dark ">
                                   <div className="product product-list br-xs mb-0">
                                       <figure className="product-media">
                                           <a href="product-default.html">
@@ -333,7 +333,7 @@ export default function Home1Card(){
                                       </div>
                                   </div>
                               </div>
-                              <div className="swiper-slide icon-box icon-box-side text-dark icon-box-chat">
+                              <div className="swiper-slide icon-box icon-box-side text-dark ">
                                   <div className="product product-list br-xs mb-0">
                                       <figure className="product-media">
                                           <a href="product-default.html">

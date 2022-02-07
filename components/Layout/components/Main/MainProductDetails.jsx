@@ -3,6 +3,7 @@ import React from "react";
 export default function MainProductDetails(){
     return (
         <div>
+
             <div className="product-details" data-sticky-options="{'minWidth': 767}">
                 <h1 className="product-title">Bodycare Smooth Powder</h1>
                 <div className="product-bm-wrapper">

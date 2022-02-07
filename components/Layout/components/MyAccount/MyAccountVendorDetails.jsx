@@ -14,6 +14,21 @@ export default function MyAccountVendorDetails(){
     return (
         <div>
             <style jsx>{`
+                .list-type-check-new-price li {
+                    position: relative;
+                    padding-left: 2rem;
+                    line-height: 2;
+                }
+                .list-type-check-new-price li::before {
+                    position: absolute;
+                    display: block;
+                    left: 0;
+                    top: 3px;
+                    content: "$";
+                    font-family: "wolmart";
+                    font-weight: 600;
+                    font-size: 1.3rem;
+                }
               .inputFile {
                 width: 0.1px !important;
                 height: 0.1px !important;
@@ -145,18 +160,16 @@ export default function MyAccountVendorDetails(){
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div className="col-md-6 mb-6 mb-md-8">
+                                            <div className="col-md-6 mb-6 mt-4 mb-md-8">
                                                 <div className="product-details" data-sticky-options="{'minWidth': 767}">
                                                     <div className="form-group mb-3">
-                                                        <h4 className="product-title">Shop name</h4>
                                                         <input type="text" id="display-name"
                                                                placeholder="Shop name"
                                                                className="form-control form-control-md mb-0"/>
                                                     </div>
                                                     <div className="form-group mb-3">
-                                                        <h4 className="product-title">Kateqoriya (subsub)</h4>
                                                         <select className="form-control form-control-md mb-0">
-                                                            <option value="Afghanistan">Afghanistan</option>
+                                                            <option value="Afghanistan">Kateqoriya (subsub)</option>
                                                             <option value="Åland Islands">Åland Islands</option>
                                                             <option value="Albania">Albania</option>
                                                             <option value="Algeria">Algeria</option>
@@ -198,9 +211,10 @@ export default function MyAccountVendorDetails(){
 
                                                     <div className="product-price">
                                                         <ins className="new-price">
-                                                            <div className="row">
-                                                                <div className="col-md-1">$</div>
-                                                                <div className="col-md-11"><input type="text" id="email_1" name="email_1" className="form-control form-control-md"/></div>
+                                                            <div className="product-short-desc">
+                                                                <ul className="list-type-check-new-price list-style-none">
+                                                                    <li><input type="text" id="email_1" name="email_1" className="form-control form-control-md"/></li>
+                                                                </ul>
                                                             </div>
                                                         </ins>
                                                     </div>
@@ -216,27 +230,26 @@ export default function MyAccountVendorDetails(){
                                                         </ul>
                                                     </div>
 
-                                                    <h4 className="product-title">Description</h4>
-                                                    <textarea className="form-control form-control-md mb-4"
+                                                    <textarea className="form-control form-control-md mb-4" placeholder="Description"
                                                               name="w3review" rows="4" cols="50">
                                                     </textarea>
                                                     <div className="row">
-                                                        <div className="form-group col-md-3 mb-8">
-                                                            <label htmlFor="display-name" style={{fontSize:"20px",paddingTop:'16px',textAlign:"center"}}>Model</label>
+                                                        <div className="form-group col-md-3 mb-8 pt-2">
+                                                            <label htmlFor="display-name" style={{fontSize:"15px",paddingTop:'34px',textAlign:"center"}}>Model</label>
                                                         </div>
                                                         <div className="form-group col-md-9 mb-3">
                                                             <input type="text" id="email_1" name="email_1"
                                                                    className="form-control form-control-md"/>
                                                         </div>
-                                                        <div className="form-group col-md-3 mb-3">
-                                                            <label htmlFor="display-name" style={{fontSize:"20px",paddingTop:'16px',textAlign:"center"}}>Color</label>
+                                                        <div className="form-group col-md-3 mb-8 pt-2">
+                                                            <label htmlFor="display-name" style={{fontSize:"15px",paddingTop:'34px',textAlign:"center"}}>Color</label>
                                                         </div>
                                                         <div className="form-group col-md-9 mb-3">
                                                             <input type="text" id="email_1" name="email_1"
                                                                    className="form-control form-control-md"/>
                                                         </div>
-                                                        <div className="form-group col-md-3 mb-3">
-                                                            <label htmlFor="display-name" style={{fontSize:"20px",paddingTop:'16px',textAlign:"center"}}>Size</label>
+                                                        <div className="form-group col-md-3 mb-8 pt-2">
+                                                            <label htmlFor="display-name" style={{fontSize:"15px",paddingTop:'34px',textAlign:"center"}}>Size</label>
                                                         </div>
                                                         <div className="form-group col-md-9 mb-3">
                                                             <input type="text" id="email_1" name="email_1"
@@ -264,13 +277,12 @@ export default function MyAccountVendorDetails(){
                                                         </div>
                                                         <div className="col-md-6">
                                                             <div>
-                                                                <h4> Tags Əlavə Et</h4>
                                                                 <pre>{JSON.stringify(selected)}</pre>
                                                                 <TagsInput
                                                                     value={selected}
                                                                     onChange={setSelected}
                                                                     name="tags"
-                                                                    placeHolder="tags"
+                                                                    placeHolder="Tags Əlavə Et"
                                                                 />
                                                             </div>
                                                         </div>

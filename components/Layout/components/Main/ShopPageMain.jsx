@@ -136,11 +136,12 @@ export default function ShopPageMain(){
                                             <label>Sort By :</label>
                                             <select name="orderby" className="form-control">
                                                 <option value="default" selected="selected">Default sorting</option>
-                                                <option value="popularity">Sort by popularity</option>
-                                                <option value="rating">Sort by average rating</option>
-                                                <option value="date">Sort by latest</option>
-                                                <option value="price-low">Sort by pric: low to high</option>
-                                                <option value="price-high">Sort by price: high to low</option>
+                                                <option value="popularity">A-Z</option>
+                                                <option value="rating">Z-A</option>
+                                                <option value="date">Yeni-Köhnə</option>
+                                                <option value="date">Köhnə-Yeni</option>
+                                                <option value="price-low">Ucuz-Baha</option>
+                                                <option value="price-high">Baha-Ucuz</option>
                                             </select>
                                         </div>
                                     </div>
@@ -709,9 +710,13 @@ export default function ShopPageMain(){
                                             </div>
                                             <div className="product-price">$220.00</div>
                                             <div className="product-desc">
-                                                Ultrices eros in cursus turpis massa cursus mattis. Volutpat ac
-                                                tincidunt
-                                                vitae semper quis lectus. Aliquam id diam maecenas ultricies…
+                                                <div className="product-short-desc">
+                                                    <ul className="list-type-check list-style-none">
+                                                        <li>Ultrices eros in cursus turpis massa cursus mattis.</li>
+                                                        <li>Volutpat ac tincidunt vitae semper quis lectus.</li>
+                                                        <li>Aliquam id diam maecenas ultricies mi eget mauris.</li>
+                                                    </ul>
+                                                </div>
                                             </div>
                                             <div className="product-action">
                                                 <a href="product-default.html" className="btn-product btn-cart"
@@ -764,9 +769,13 @@ export default function ShopPageMain(){
                                                 <del className="old-price">$60.00</del>
                                             </div>
                                             <div className="product-desc">
-                                                Ultrices eros in cursus turpis massa cursus mattis. Volutpat ac
-                                                tincidunt
-                                                vitae semper quis lectus. Aliquam id diam maecenas ultricies…
+                                                <div className="product-short-desc">
+                                                    <ul className="list-type-check list-style-none">
+                                                        <li>Ultrices eros in cursus turpis massa cursus mattis.</li>
+                                                        <li>Volutpat ac tincidunt vitae semper quis lectus.</li>
+                                                        <li>Aliquam id diam maecenas ultricies mi eget mauris.</li>
+                                                    </ul>
+                                                </div>
                                             </div>
                                             <div className="product-action">
                                                 <a href="#" className="btn-product btn-cart" title="Add to Cart"><i
@@ -806,9 +815,13 @@ export default function ShopPageMain(){
                                             </div>
                                             <div className="product-price">$1,800.00</div>
                                             <div className="product-desc">
-                                                Ultrices eros in cursus turpis massa cursus mattis. Volutpat ac
-                                                tincidunt
-                                                vitae semper quis lectus. Aliquam id diam maecenas ultricies…
+                                                <div className="product-short-desc">
+                                                    <ul className="list-type-check list-style-none">
+                                                        <li>Ultrices eros in cursus turpis massa cursus mattis.</li>
+                                                        <li>Volutpat ac tincidunt vitae semper quis lectus.</li>
+                                                        <li>Aliquam id diam maecenas ultricies mi eget mauris.</li>
+                                                    </ul>
+                                                </div>
                                             </div>
                                             <div className="product-action">
                                                 <a href="#" className="btn-product btn-cart" title="Add to Cart"><i
@@ -848,9 +861,13 @@ export default function ShopPageMain(){
                                             </div>
                                             <div className="product-price">$15.00</div>
                                             <div className="product-desc">
-                                                Ultrices eros in cursus turpis massa cursus mattis. Volutpat ac
-                                                tincidunt
-                                                vitae semper quis lectus. Aliquam id diam maecenas ultricies…
+                                                <div className="product-short-desc">
+                                                    <ul className="list-type-check list-style-none">
+                                                        <li>Ultrices eros in cursus turpis massa cursus mattis.</li>
+                                                        <li>Volutpat ac tincidunt vitae semper quis lectus.</li>
+                                                        <li>Aliquam id diam maecenas ultricies mi eget mauris.</li>
+                                                    </ul>
+                                                </div>
                                             </div>
                                             <div className="product-action">
                                                 <a href="#" className="btn-product btn-cart" title="Add to Cart"><i
@@ -890,9 +907,13 @@ export default function ShopPageMain(){
                                             </div>
                                             <div className="product-price">$83.00</div>
                                             <div className="product-desc">
-                                                Ultrices eros in cursus turpis massa cursus mattis. Volutpat ac
-                                                tincidunt
-                                                vitae semper quis lectus. Aliquam id diam maecenas ultricies…
+                                                <div className="product-short-desc">
+                                                    <ul className="list-type-check list-style-none">
+                                                        <li>Ultrices eros in cursus turpis massa cursus mattis.</li>
+                                                        <li>Volutpat ac tincidunt vitae semper quis lectus.</li>
+                                                        <li>Aliquam id diam maecenas ultricies mi eget mauris.</li>
+                                                    </ul>
+                                                </div>
                                             </div>
                                             <div className="product-action">
                                                 <a href="#" className="btn-product btn-cart" title="Add to Cart"><i
@@ -932,9 +953,13 @@ export default function ShopPageMain(){
                                             </div>
                                             <div className="product-price">$374.00</div>
                                             <div className="product-desc">
-                                                Ultrices eros in cursus turpis massa cursus mattis. Volutpat ac
-                                                tincidunt
-                                                vitae semper quis lectus. Aliquam id diam maecenas ultricies…
+                                                <div className="product-short-desc">
+                                                    <ul className="list-type-check list-style-none">
+                                                        <li>Ultrices eros in cursus turpis massa cursus mattis.</li>
+                                                        <li>Volutpat ac tincidunt vitae semper quis lectus.</li>
+                                                        <li>Aliquam id diam maecenas ultricies mi eget mauris.</li>
+                                                    </ul>
+                                                </div>
                                             </div>
                                             <div className="product-action">
                                                 <a href="#" className="btn-product btn-cart" title="Add to Cart"><i
@@ -976,9 +1001,13 @@ export default function ShopPageMain(){
                                             </div>
                                             <div className="product-price">$85.00</div>
                                             <div className="product-desc">
-                                                Ultrices eros in cursus turpis massa cursus mattis. Volutpat ac
-                                                tincidunt
-                                                vitae semper quis lectus. Aliquam id diam maecenas ultricies…
+                                                <div className="product-short-desc">
+                                                    <ul className="list-type-check list-style-none">
+                                                        <li>Ultrices eros in cursus turpis massa cursus mattis.</li>
+                                                        <li>Volutpat ac tincidunt vitae semper quis lectus.</li>
+                                                        <li>Aliquam id diam maecenas ultricies mi eget mauris.</li>
+                                                    </ul>
+                                                </div>
                                             </div>
                                             <div className="product-action">
                                                 <a href="#" className="btn-product btn-cart" title="Add to Cart"><i
@@ -1018,9 +1047,13 @@ export default function ShopPageMain(){
                                             </div>
                                             <div className="product-price">$25.00</div>
                                             <div className="product-desc">
-                                                Ultrices eros in cursus turpis massa cursus mattis. Volutpat ac
-                                                tincidunt
-                                                vitae semper quis lectus. Aliquam id diam maecenas ultricies…
+                                                <div className="product-short-desc">
+                                                    <ul className="list-type-check list-style-none">
+                                                        <li>Ultrices eros in cursus turpis massa cursus mattis.</li>
+                                                        <li>Volutpat ac tincidunt vitae semper quis lectus.</li>
+                                                        <li>Aliquam id diam maecenas ultricies mi eget mauris.</li>
+                                                    </ul>
+                                                </div>
                                             </div>
                                             <div className="product-action">
                                                 <a href="#" className="btn-product btn-cart" title="Add to Cart"><i

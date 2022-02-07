@@ -251,11 +251,12 @@ export default function VendorStoreProduct() {
                                             <label>Sort By :</label>
                                             <select name="orderby" className="form-control">
                                                 <option value="default" selected="selected">Default sorting</option>
-                                                <option value="popularity">Sort by popularity</option>
-                                                <option value="rating">Sort by average rating</option>
-                                                <option value="date">Sort by latest</option>
-                                                <option value="price-low">Sort by pric: low to high</option>
-                                                <option value="price-high">Sort by price: high to low</option>
+                                                <option value="popularity">A-Z</option>
+                                                <option value="rating">Z-A</option>
+                                                <option value="date">Yeni-Köhnə</option>
+                                                <option value="date">Köhnə-Yeni</option>
+                                                <option value="price-low">Ucuz-Baha</option>
+                                                <option value="price-high">Baha-Ucuz</option>
                                             </select>
                                         </div>
                                     </div>

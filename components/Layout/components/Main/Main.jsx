@@ -317,6 +317,7 @@ export default function Main(){
                                                     <span className="tooltiptext tooltip-top"></span>
                                                 </div>
                                             </div>
+                                            <span className="vendor-product-count">category</span>
                                         </div>
                                     </div>
                                     <div className="vendor-products row cols-3 gutter-sm">
@@ -367,6 +368,7 @@ export default function Main(){
                                                     <span className="tooltiptext tooltip-top"></span>
                                                 </div>
                                             </div>
+                                            <span className="vendor-product-count">category</span>
                                         </div>
                                     </div>
                                     <div className="vendor-products row cols-3 gutter-sm">
@@ -417,6 +419,7 @@ export default function Main(){
                                                     <span className="tooltiptext tooltip-top"></span>
                                                 </div>
                                             </div>
+                                            <span className="vendor-product-count">category</span>
                                         </div>
                                     </div>
                                     <div className="vendor-products row cols-3 gutter-sm">
@@ -467,6 +470,7 @@ export default function Main(){
                                                     <span className="tooltiptext tooltip-top"></span>
                                                 </div>
                                             </div>
+                                            <span className="vendor-product-count">category</span>
                                         </div>
                                     </div>
                                     <div className="vendor-products row cols-3 gutter-sm">

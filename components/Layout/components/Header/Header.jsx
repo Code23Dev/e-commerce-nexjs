@@ -4,6 +4,13 @@ import HeaderTop from "./HeaderTop";
 export default function Header(){
     return (
         <div>
+            <style jsx>{`
+            .category-dropdown > a::after {
+                    font-family: "wolmart";
+                    content: "";
+                    font-weight: 600;
+                    font-size: 0.9rem;
+                }`} </style>
             <header className="header">
                 <div className="container d-lg-show mb-1">
                     <div className="inner-wrap">
