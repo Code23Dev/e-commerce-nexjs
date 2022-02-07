@@ -4,7 +4,6 @@ import { TagsInput } from "react-tag-input-component";
 export default function MyAccountVendorDetails(){
     const [selected, setSelected] = useState(["gfg"]);
     const [name, setName] = useState("");
-    let imgUrl = 'http://qnimate.com/wp-content/uploads/2014/03/images2.jpg'
     const [selectedFile1, setSelectedFile1] = useState(null);
     const [selectedFile2, setSelectedFile2] = useState(null);
     const [selectedFile3, setSelectedFile3] = useState(null);
@@ -141,11 +140,11 @@ export default function MyAccountVendorDetails(){
                                         }">
                                                         <div className="product-thumbs swiper-wrapper row cols-4 gutter-sm">
                                                             <div className="product-thumb swiper-slide">
-                                                                <figure className="product-image" style={{backgroundColor: '#989494'}}>
+                                                                <figure className="product-image" style={{backgroundColor: '#989494', width:"100px", height:"100px"}}>
                                                                    <img src={selectedFile1}   data-zoom-image={selectedFile1}/>
                                                                 </figure>
                                                             </div>
-                                                            <div className="product-thumb swiper-slide" style={{backgroundColor: '#989494'}}>
+                                                            <div className="product-thumb swiper-slide" style={{backgroundColor: '#989494', width:"100px", height:"100px"}}>
                                                                 <img src={selectedFile2}  data-zoom-image={selectedFile2}/>
                                                             </div>
                                                             <div className="product-thumb swiper-slide" style={{backgroundColor: '#989494'}}>
@@ -259,7 +258,7 @@ export default function MyAccountVendorDetails(){
 
                                                     <div className="row mb-4 mt-3">
                                                         <div className="col-md-6">
-                                                            <h4> Vido Əlavə Et</h4>
+                                                            {/*<h4> Vido Əlavə Et</h4>*/}
                                                             <figure className="product-image">
                                                                 <div>
                                                                     <form>
