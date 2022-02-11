@@ -337,18 +337,26 @@ const [selectedFile2, setSelectedFile2] = useState(null);
                                         <div className="tab-pane" id="account-details">
                                             <form className="form account-details-form" action="#" method="post">
                                                 <div className="row">
-                                                    <div className="col-md-12">
+                                                    <div className="col-md-6">
                                                         <div className="form-group">
-                                                            <label htmlFor="firstname">Məhsulun adı</label>
+                                                            <label htmlFor="firstname">Mağaza adı</label>
                                                             <input type="text" id="firstname" name="firstname"
                                                                    className="form-control form-control-md"/>
                                                         </div>
                                                     </div>
-
+                                                    <div className="col-md-6">
+                                                        <label htmlFor="display-name">Əlaqə nömrəsı</label>
+                                                        <div>
+                                                            <div className="form-group">
+                                                                <input type="tel" id="display-name" name="display_name"
+                                                                       className="form-control form-control-md mb-0"/>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                                 <div className="row mt-2 mb-2">
                                                     <label htmlFor="display-name">Ünvan</label>
-                                                    <div className="col-md-3">
+                                                    <div className="col-md-2">
                                                         <div className="form-group">
                                                             <label htmlFor="display-name">Şəhər</label>
                                                             <select className="form-control form-control-md mb-0">
@@ -392,7 +400,7 @@ const [selectedFile2, setSelectedFile2] = useState(null);
                                                             </select>
                                                         </div>
                                                     </div>
-                                                    <div className="col-md-3">
+                                                    <div className="col-md-2">
                                                         <div className="form-group">
                                                             <label htmlFor="display-name">Rayon</label>
                                                             <select className="form-control form-control-md mb-0">
@@ -436,7 +444,7 @@ const [selectedFile2, setSelectedFile2] = useState(null);
                                                             </select>
                                                         </div>
                                                     </div>
-                                                    <div className="col-md-3">
+                                                    <div className="col-md-2">
                                                         <div className="form-group">
                                                             <label htmlFor="display-name">Qəsəbə</label>
                                                             <select className="form-control form-control-md mb-0">
@@ -480,7 +488,7 @@ const [selectedFile2, setSelectedFile2] = useState(null);
                                                             </select>
                                                         </div>
                                                     </div>
-                                                    <div className="col-md-3">
+                                                    <div className="col-md-2">
                                                         <div className="form-group">
                                                             <label htmlFor="display-name">Küçə</label>
                                                             <select className="form-control form-control-md mb-0">
@@ -524,22 +532,13 @@ const [selectedFile2, setSelectedFile2] = useState(null);
                                                             </select>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div className="row mb-3 mt-2">
-                                                    <label htmlFor="display-name">Digəri</label>
-                                                    <div className="col-md-6">
-                                                        <div className="form-group">
-                                                            <input type="text" id="display-name" name="display_name"
-                                                                   className="form-control form-control-md mb-0"/>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="row mb-3 mt-2">
-                                                    <label htmlFor="display-name">Əlaqə nömrəsı</label>
-                                                    <div className="col-md-6">
-                                                        <div className="form-group">
-                                                            <input type="tel" id="display-name" name="display_name"
-                                                                   className="form-control form-control-md mb-0"/>
+                                                    <div className="col-md-4">
+                                                        <label htmlFor="display-name">Digəri</label>
+                                                        <div>
+                                                            <div className="form-group">
+                                                                <input type="text" id="display-name" name="display_name"
+                                                                       className="form-control form-control-md mb-0"/>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>

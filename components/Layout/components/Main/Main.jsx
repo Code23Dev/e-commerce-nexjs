@@ -280,7 +280,7 @@ export default function Main(){
 
                 </div>
                 <div className="container mt-1 pt-2">
-                    <h2 className="title title-underline mb-4 appear-animate">Top Weekly Vendors</h2>
+                    <h2 className="title title-underline mb-4 appear-animate">Ən yeni Mağazalar</h2>
                     <div className="swiper-container swiper-theme mb-10 pb-2 appear-animate" data-swiper-options="{
                     'spaceBetween': 20,
                     'slidesPerView': 1,
@@ -508,7 +508,7 @@ export default function Main(){
                 <Home1Card/>
                 <div className="container mt-1 pt-2">
                     <div className="filter-with-title appear-animate">
-                        <h2 className="title">Clothing &amp; Apparel</h2>
+                        <h2 className="title">Bütün məhsullar</h2>
                         <ul className="nav-filters filter-boxed" data-target="#products-1">
                             <li><a href="#" className="nav-filter active" data-filter=".1-1">New Arrivals</a></li>
                             <li><a href="#" className="nav-filter" data-filter=".1-2">Best Seller</a></li>
@@ -532,7 +532,7 @@ export default function Main(){
                                         <a href="#" className="btn-product-icon btn-compare w-icon-compare"
                                            title="Compare"></a>
                                         <a href="#" className="btn-product-icon btn-quickview w-icon-search"
-                                           title="Quick View"></a>
+                                           title="CƏLD BAXIŞ"></a>
                                     </div>
                                 </figure>
                                 <div className="product-details">
@@ -583,7 +583,7 @@ export default function Main(){
                                         <a href="#" className="btn-product-icon btn-compare w-icon-compare"
                                            title="Compare"></a>
                                         <a href="#" className="btn-product-icon btn-quickview w-icon-search"
-                                           title="Quick View"></a>
+                                           title="CƏLD BAXIŞ"></a>
                                     </div>
                                 </figure>
                                 <div className="product-details">
@@ -627,7 +627,7 @@ export default function Main(){
                                         <a href="#" className="btn-product-icon btn-compare w-icon-compare"
                                            title="Compare"></a>
                                         <a href="#" className="btn-product-icon btn-quickview w-icon-search"
-                                           title="Quick View"></a>
+                                           title="CƏLD BAXIŞ"></a>
                                     </div>
                                 </figure>
                                 <div className="product-details">
@@ -668,7 +668,7 @@ export default function Main(){
                                         <a href="#" className="btn-product-icon btn-compare w-icon-compare"
                                            title="Compare"></a>
                                         <a href="#" className="btn-product-icon btn-quickview w-icon-search"
-                                           title="Quick View"></a>
+                                           title="CƏLD BAXIŞ"></a>
                                     </div>
                                 </figure>
                                 <div className="product-details">
@@ -709,7 +709,7 @@ export default function Main(){
                                         <a href="#" className="btn-product-icon btn-compare w-icon-compare"
                                            title="Compare"></a>
                                         <a href="#" className="btn-product-icon btn-quickview w-icon-search"
-                                           title="Quick View"></a>
+                                           title="CƏLD BAXIŞ"></a>
                                     </div>
                                 </figure>
                                 <div className="product-details">
@@ -760,7 +760,7 @@ export default function Main(){
                                         <a href="#" className="btn-product-icon btn-compare w-icon-compare"
                                            title="Compare"></a>
                                         <a href="#" className="btn-product-icon btn-quickview w-icon-search"
-                                           title="Quick View"></a>
+                                           title="CƏLD BAXIŞ"></a>
                                     </div>
                                 </figure>
                                 <div className="product-details">
@@ -804,7 +804,7 @@ export default function Main(){
                                         <a href="#" className="btn-product-icon btn-compare w-icon-compare"
                                            title="Compare"></a>
                                         <a href="#" className="btn-product-icon btn-quickview w-icon-search"
-                                           title="Quick View"></a>
+                                           title="CƏLD BAXIŞ"></a>
                                     </div>
                                 </figure>
                                 <div className="product-details">
@@ -845,7 +845,7 @@ export default function Main(){
                                         <a href="#" className="btn-product-icon btn-compare w-icon-compare"
                                            title="Compare"></a>
                                         <a href="#" className="btn-product-icon btn-quickview w-icon-search"
-                                           title="Quick View"></a>
+                                           title="CƏLD BAXIŞ"></a>
                                     </div>
                                 </figure>
                                 <div className="product-details">
@@ -886,7 +886,7 @@ export default function Main(){
                                         <a href="#" className="btn-product-icon btn-compare w-icon-compare"
                                            title="Compare"></a>
                                         <a href="#" className="btn-product-icon btn-quickview w-icon-search"
-                                           title="Quick View"></a>
+                                           title="CƏLD BAXIŞ"></a>
                                     </div>
                                 </figure>
                                 <div className="product-details">
@@ -927,7 +927,7 @@ export default function Main(){
                                         <a href="#" className="btn-product-icon btn-compare w-icon-compare"
                                            title="Compare"></a>
                                         <a href="#" className="btn-product-icon btn-quickview w-icon-search"
-                                           title="Quick View"></a>
+                                           title="CƏLD BAXIŞ"></a>
                                     </div>
                                 </figure>
                                 <div className="product-details">
@@ -980,7 +980,7 @@ export default function Main(){
                 </div>
                 <section className="grey-section pt-10">
                     <div className="container mt-3 mb-1">
-                        <h2 className="title text-left mb-5 appear-animate">Our Clients</h2>
+                        <h2 className="title text-left mb-5 appear-animate">Bizim Partnyorlar</h2>
                         <div className="swiper-container swiper-theme brands-wrapper mb-10 bg-white appear-animate"
                              data-swiper-options="{
                         'slidesPerView': 1,
@@ -1045,7 +1045,7 @@ export default function Main(){
                 </section>
                 <div className="container pt-10">
                     <div className="title-link-wrapper title-recent mb-6 after-none appear-animate">
-                        <h2 className="title mb-0 ls-normal appear-animate pb-1">Your Recently Viewed Products</h2>
+                        <h2 className="title mb-0 ls-normal appear-animate pb-1">Ən son baxdığınız məhsullar</h2>
                     </div>
                     <div className="swiper-container swiper-theme recent-view shadow-swiper appear-animate mb-8 pb-2"
                          data-swiper-options="{
@@ -1186,7 +1186,7 @@ export default function Main(){
                 </div>
                 <section className="grey-section pt-10">
                     <div className="container mt-3 mb-1">
-                        <h2 className="title text-left pt-1 mb-5 appear-animate">Our Instagram</h2>
+                        <h2 className="title text-left pt-1 mb-5 appear-animate">İnstagramda Biz</h2>
                         <div className="swiper-container swiper-theme appear-animate" data-swiper-options="{
                         'spaceBetween': 20,
                         'slidesPerView': 2,

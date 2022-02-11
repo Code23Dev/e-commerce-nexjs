@@ -906,7 +906,7 @@ export default function ProductPageMain(){
                                                             </a>
                                                             <div className="product-action-horizontal">
                                                                 <a href="#" className="btn-product-icon btn-cart w-icon-cart"
-                                                                   title="Add to cart"></a>
+                                                                   title="SƏBƏTƏ ƏLAVƏ ET"></a>
                                                                 <a href="#" className="btn-product-icon btn-wishlist w-icon-heart"
                                                                    title="Wishlist"></a>
                                                                 <a href="#" className="btn-product-icon btn-compare w-icon-compare"
@@ -957,7 +957,7 @@ export default function ProductPageMain(){
                                                             </div>
                                                             <div className="product-action-horizontal">
                                                                 <a href="#" className="btn-product-icon btn-cart w-icon-cart"
-                                                                   title="Add to cart"></a>
+                                                                   title="SƏBƏTƏ ƏLAVƏ ET"></a>
                                                                 <a href="#" className="btn-product-icon btn-wishlist w-icon-heart"
                                                                    title="Wishlist"></a>
                                                                 <a href="#" className="btn-product-icon btn-compare w-icon-compare"
@@ -1001,7 +1001,7 @@ export default function ProductPageMain(){
                                                             </a>
                                                             <div className="product-action-horizontal">
                                                                 <a href="#" className="btn-product-icon btn-cart w-icon-cart"
-                                                                   title="Add to cart"></a>
+                                                                   title="SƏBƏTƏ ƏLAVƏ ET"></a>
                                                                 <a href="#" className="btn-product-icon btn-wishlist w-icon-heart"
                                                                    title="Wishlist"></a>
                                                                 <a href="#" className="btn-product-icon btn-compare w-icon-compare"
@@ -1042,7 +1042,7 @@ export default function ProductPageMain(){
                                                             </a>
                                                             <div className="product-action-horizontal">
                                                                 <a href="#" className="btn-product-icon btn-cart w-icon-cart"
-                                                                   title="Add to cart"></a>
+                                                                   title="SƏBƏTƏ ƏLAVƏ ET"></a>
                                                                 <a href="#" className="btn-product-icon btn-wishlist w-icon-heart"
                                                                    title="Wishlist"></a>
                                                                 <a href="#" className="btn-product-icon btn-compare w-icon-compare"
@@ -1083,7 +1083,7 @@ export default function ProductPageMain(){
                                                             </a>
                                                             <div className="product-action-horizontal">
                                                                 <a href="#" className="btn-product-icon btn-cart w-icon-cart"
-                                                                   title="Add to cart"></a>
+                                                                   title="SƏBƏTƏ ƏLAVƏ ET"></a>
                                                                 <a href="#" className="btn-product-icon btn-wishlist w-icon-heart"
                                                                    title="Wishlist"></a>
                                                                 <a href="#" className="btn-product-icon btn-compare w-icon-compare"
@@ -1134,7 +1134,7 @@ export default function ProductPageMain(){
                                                             </div>
                                                             <div className="product-action-horizontal">
                                                                 <a href="#" className="btn-product-icon btn-cart w-icon-cart"
-                                                                   title="Add to cart"></a>
+                                                                   title="SƏBƏTƏ ƏLAVƏ ET"></a>
                                                                 <a href="#" className="btn-product-icon btn-wishlist w-icon-heart"
                                                                    title="Wishlist"></a>
                                                                 <a href="#" className="btn-product-icon btn-compare w-icon-compare"
@@ -1178,7 +1178,7 @@ export default function ProductPageMain(){
                                                             </a>
                                                             <div className="product-action-horizontal">
                                                                 <a href="#" className="btn-product-icon btn-cart w-icon-cart"
-                                                                   title="Add to cart"></a>
+                                                                   title="SƏBƏTƏ ƏLAVƏ ET"></a>
                                                                 <a href="#" className="btn-product-icon btn-wishlist w-icon-heart"
                                                                    title="Wishlist"></a>
                                                                 <a href="#" className="btn-product-icon btn-compare w-icon-compare"
@@ -1219,7 +1219,7 @@ export default function ProductPageMain(){
                                                             </a>
                                                             <div className="product-action-horizontal">
                                                                 <a href="#" className="btn-product-icon btn-cart w-icon-cart"
-                                                                   title="Add to cart"></a>
+                                                                   title="SƏBƏTƏ ƏLAVƏ ET"></a>
                                                                 <a href="#" className="btn-product-icon btn-wishlist w-icon-heart"
                                                                    title="Wishlist"></a>
                                                                 <a href="#" className="btn-product-icon btn-compare w-icon-compare"
@@ -1271,7 +1271,7 @@ export default function ProductPageMain(){
                                                             </a>
                                                             <div className="product-action-horizontal">
                                                                 <a href="#" className="btn-product-icon btn-cart w-icon-cart"
-                                                                   title="Add to cart"></a>
+                                                                   title="SƏBƏTƏ ƏLAVƏ ET"></a>
                                                                 <a href="#" className="btn-product-icon btn-wishlist w-icon-heart"
                                                                    title="Wishlist"></a>
                                                                 <a href="#" className="btn-product-icon btn-compare w-icon-compare"
@@ -1322,7 +1322,7 @@ export default function ProductPageMain(){
                                                             </div>
                                                             <div className="product-action-horizontal">
                                                                 <a href="#" className="btn-product-icon btn-cart w-icon-cart"
-                                                                   title="Add to cart"></a>
+                                                                   title="SƏBƏTƏ ƏLAVƏ ET"></a>
                                                                 <a href="#" className="btn-product-icon btn-wishlist w-icon-heart"
                                                                    title="Wishlist"></a>
                                                                 <a href="#" className="btn-product-icon btn-compare w-icon-compare"
@@ -1366,7 +1366,7 @@ export default function ProductPageMain(){
                                                             </a>
                                                             <div className="product-action-horizontal">
                                                                 <a href="#" className="btn-product-icon btn-cart w-icon-cart"
-                                                                   title="Add to cart"></a>
+                                                                   title="SƏBƏTƏ ƏLAVƏ ET"></a>
                                                                 <a href="#" className="btn-product-icon btn-wishlist w-icon-heart"
                                                                    title="Wishlist"></a>
                                                                 <a href="#" className="btn-product-icon btn-compare w-icon-compare"
@@ -1407,7 +1407,7 @@ export default function ProductPageMain(){
                                                             </a>
                                                             <div className="product-action-horizontal">
                                                                 <a href="#" className="btn-product-icon btn-cart w-icon-cart"
-                                                                   title="Add to cart"></a>
+                                                                   title="SƏBƏTƏ ƏLAVƏ ET"></a>
                                                                 <a href="#" className="btn-product-icon btn-wishlist w-icon-heart"
                                                                    title="Wishlist"></a>
                                                                 <a href="#" className="btn-product-icon btn-compare w-icon-compare"
@@ -1448,7 +1448,7 @@ export default function ProductPageMain(){
                                                             </a>
                                                             <div className="product-action-horizontal">
                                                                 <a href="#" className="btn-product-icon btn-cart w-icon-cart"
-                                                                   title="Add to cart"></a>
+                                                                   title="SƏBƏTƏ ƏLAVƏ ET"></a>
                                                                 <a href="#" className="btn-product-icon btn-wishlist w-icon-heart"
                                                                    title="Wishlist"></a>
                                                                 <a href="#" className="btn-product-icon btn-compare w-icon-compare"

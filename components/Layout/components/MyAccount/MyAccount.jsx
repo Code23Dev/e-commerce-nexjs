@@ -450,7 +450,7 @@ export default function MyAccount(){
                                                        className="form-control form-control-md"/>
                                             </div>
 
-                                            <h4 className="title title-password ls-25 font-weight-bold">Password change</h4>
+                                            <h4 className="title title-password ls-25 font-weight-bold">Şifrə dəyişmək</h4>
                                             <div className="form-group">
                                                 <label className="text-dark" htmlFor="cur-password">Current Password leave
                                                     blank to leave unchanged</label>

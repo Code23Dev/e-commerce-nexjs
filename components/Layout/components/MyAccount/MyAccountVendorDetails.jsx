@@ -1,7 +1,33 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 import { TagsInput } from "react-tag-input-component";
+import {subSubCategories} from "../../../../services/subSubCategories";
+import {filtersBySubsub} from "../../../../services/filtersBySubsub";
+import Select from "react-select";
 
 export default function MyAccountVendorDetails(){
+    let options = []
+    useEffect(() => {
+        let mounted = true;
+        subSubCategories()
+            .then(items => {
+                if(mounted) {
+                    const data = items.data.map(e=>{
+                        options.push({value:e['id'], label:e['title']})
+                    })
+                }
+            })
+        return () => mounted = false;
+    }, [])
+    let handleChange = (selectedOptions) => {
+        sendDataUrl(selectedOptions)
+    }
+    let sendDataUrl = (selectedOptions) => {
+        filtersBySubsub(selectedOptions.label).then(items => {
+            if(items) {
+                console.log(items)
+            }
+        })
+    }
     const [selected, setSelected] = useState(["gfg"]);
     const [name, setName] = useState("");
     const [selectedFile1, setSelectedFile1] = useState(null);
@@ -167,45 +193,14 @@ export default function MyAccountVendorDetails(){
                                                                className="form-control form-control-md mb-0"/>
                                                     </div>
                                                     <div className="form-group mb-3">
-                                                        <select className="form-control form-control-md mb-0">
-                                                            <option value="Afghanistan">Kateqoriya (subsub)</option>
-                                                            <option value="Åland Islands">Åland Islands</option>
-                                                            <option value="Albania">Albania</option>
-                                                            <option value="Algeria">Algeria</option>
-                                                            <option value="American Samoa">American Samoa</option>
-                                                            <option value="Andorra">Andorra</option>
-                                                            <option value="Angola">Angola</option>
-                                                            <option value="Anguilla">Anguilla</option>
-                                                            <option value="Antarctica">Antarctica</option>
-                                                            <option value="Antigua and Barbuda">Antigua and Barbuda</option>
-                                                            <option value="Argentina">Argentina</option>
-                                                            <option value="Armenia">Armenia</option>
-                                                            <option value="Aruba">Aruba</option>
-                                                            <option value="Australia">Australia</option>
-                                                            <option value="Austria">Austria</option>
-                                                            <option value="Azerbaijan">Azerbaijan</option>
-                                                            <option value="Bahamas">Bahamas</option>
-                                                            <option value="Bahrain">Bahrain</option>
-                                                            <option value="Bangladesh">Bangladesh</option>
-                                                            <option value="Barbados">Barbados</option>
-                                                            <option value="Belarus">Belarus</option>
-                                                            <option value="Belgium">Belgium</option>
-                                                            <option value="Belize">Belize</option>
-                                                            <option value="Benin">Benin</option>
-                                                            <option value="Bermuda">Bermuda</option>
-                                                            <option value="Bhutan">Bhutan</option>
-                                                            <option value="Bolivia">Bolivia</option>
-                                                            <option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
-                                                            <option value="Botswana">Botswana</option>
-                                                            <option value="Bouvet Island">Bouvet Island</option>
-                                                            <option value="Brazil">Brazil</option>
-                                                            <option value="British Indian Ocean Territory">British Indian Ocean Territory</option>
-                                                            <option value="Brunei Darussalam">Brunei Darussalam</option>
-                                                            <option value="Bulgaria">Bulgaria</option>
-                                                            <option value="Burkina Faso">Burkina Faso</option>
-                                                            <option value="Burundi">Burundi</option>
-                                                            <option value="Cambodia">Cambodia</option>
-                                                        </select>
+                                                        <Select
+                                                            name="colors"
+                                                            options={options}
+                                                            className="basic-multi-select"
+                                                            placeholder={"kateqoriya seç"}
+                                                            classNamePrefix="select"
+                                                            onChange={handleChange}
+                                                        />
                                                     </div>
 
                                                     <div className="product-price">

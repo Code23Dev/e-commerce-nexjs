@@ -45,7 +45,7 @@ export default function Login(){
                                                            id="username" required/>
                                                 </div>
                                                 <div className="form-group mb-0">
-                                                    <label>Password *</label>
+                                                    <label>Şifrə *</label>
                                                     <input type="text" className="form-control" name="password"
                                                            id="password" required/>
                                                 </div>

@@ -1,6 +1,24 @@
 import React from 'react'
+import axios from "axios";
+const logoURL = "http://34.125.190.3/api/logo/";
+const headerTextURL = "http://34.125.190.3/api/header-text/";
 
 export default function HeaderTop(){
+    //logo
+    const [logoPost, setLogoPost] = React.useState(null);
+    React.useEffect(() => {
+        axios.get(`${logoURL}`).then((response) => {
+            setLogoPost(response.data.image);
+        });
+    }, []);
+    //header-text
+    const [headerText, setHeaderTextURL] = React.useState(null);
+    React.useEffect(() => {
+        axios.get(`${headerTextURL}`).then((response) => {
+            setHeaderTextURL(response.data.content);
+        });
+    }, []);
+
     return (
         <div>
             <style jsx>{`
@@ -27,16 +45,16 @@ export default function HeaderTop(){
                 <div className="header-top">
                     <div className="container">
                         <div className="header-left">
-                            <p className="welcome-msg">Welcome to Wolmart Store message or remove it!</p>
+                            <p className="welcome-msg">{headerText}</p>
                         </div>
                         <div className="header-right">
                             <span className="divider d-lg-show"></span>
-                            <a href="/contact-us" className="d-lg-show">Contact Us</a>
-                            <a href="/my-account-for-user" className="d-lg-show">My Account</a>
+                            <a href="/contact-us" className="d-lg-show">Bizimlə Əlaqə</a>
+                            <a href="/my-account-for-user" className="d-lg-show">Hesabım</a>
                             <a href="assets/ajax/login.html" className="d-lg-show login sign-in"><i
-                                className="w-icon-account"></i>Sign In</a>
+                                className="w-icon-account"></i>Daxil ol</a>
                             <span className="delimiter d-lg-show">/</span>
-                            <a href="assets/ajax/login.html" className="ml-0 d-lg-show login register">Register</a>
+                            <a href="assets/ajax/login.html" className="ml-0 d-lg-show login register">Qeydiyyat</a>
                         </div>
                     </div>
                 </div>
@@ -45,8 +63,8 @@ export default function HeaderTop(){
                         <div className="header-left mr-md-4">
                             <a href="#" className="mobile-menu-toggle text-white w-icon-hamburger" aria-label="menu-toggle">
                             </a>
-                            <a href="home.html" className="logo ml-lg-0">
-                                <img src="assets/images/demos/demo8/header-logo.png" alt="lo\go" width="144" height="45"/>
+                            <a href="/home" className="logo ml-lg-0">
+                                <img src={logoPost} alt="logo" width="144" height="45"/>
                             </a>
                             <form method="get" action="#"
                                   className="input-wrapper header-search hs-expanded hs-round d-none d-md-flex">
@@ -65,7 +83,7 @@ export default function HeaderTop(){
                                     </select>
                                 </div>
                                 <input type="text" className="form-control bg-white" name="search" id="search"
-                                       placeholder="Search in..." required/>
+                                       placeholder="Axtarın..." required/>
                                 <button className="btn btn-search" type="submit"><i className="w-icon-search"></i>
                                 </button>
                             </form>
@@ -75,17 +93,17 @@ export default function HeaderTop(){
                                 <a href="tel:#" className="w-icon-call text-white"></a>
                                 <div className="call-info d-lg-show">
                                     <h4 className="chat font-weight-normal font-size-md text-normal ls-normal text-white mb-0">
-                                        <a href="mailto:#" className="text-capitalize text-white">Live Chat</a> or :</h4>
+                                        <a href="mailto:#" className="text-capitalize text-white">Bizə zəng</a> </h4>
                                     <a href="tel:#" className="phone-number font-weight-bolder text-white ls-50">0(800)123-456</a>
                                 </div>
                             </div>
                             <a className="wishlist label-down link d-xs-show" href="wishlist.html">
                                 <i className="w-icon-heart"></i>
-                                <span className="wishlist-label d-lg-show">Wishlist</span>
+                                <span className="wishlist-label d-lg-show">Bəyəndiklərim</span>
                             </a>
                             <a className="compare label-down link d-xs-show" href="compare.html">
                                 <i className="w-icon-compare"></i>
-                                <span className="compare-label d-lg-show">Compare</span>
+                                <span className="compare-label d-lg-show">Müqayisə</span>
                             </a>
                             <div className="dropdown cart-dropdown cart-offcanvas mr-0 mr-lg-2">
                                 <div className="cart-overlay"></div>
@@ -93,11 +111,11 @@ export default function HeaderTop(){
                                     <i className="w-icon-cart">
                                         <span className="cart-count">2</span>
                                     </i>
-                                    <span className="cart-label">Cart</span>
+                                    <span className="cart-label">Səbət</span>
                                 </a>
                                 <div className="dropdown-box">
                                     <div className="cart-header">
-                                        <span>Shopping Cart</span>
+                                        <span>Alış-veriş səbəti</span>
                                         <a href="#" className="btn-close">Close<i className="w-icon-long-arrow-right"></i></a>
                                     </div>
 
@@ -151,7 +169,7 @@ export default function HeaderTop(){
                                     </div>
 
                                     <div className="cart-action">
-                                        <a href="cart.html" className="btn btn-dark btn-outline btn-rounded">View Cart</a>
+                                        <a href="cart.html" className="btn btn-dark btn-outline btn-rounded">Bizə zəng</a>
                                         <a href="checkout.html" className="btn btn-primary  btn-rounded">Checkout</a>
                                     </div>
                                 </div>

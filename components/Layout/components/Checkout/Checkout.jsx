@@ -32,7 +32,7 @@ export default function Compare(){
                                 </div>
                                 <div className="col-xs-6">
                                     <div className="form-group">
-                                        <label>Password *</label>
+                                        <label>Şifrə *</label>
                                         <input type="text" className="form-control form-control-md" name="password"
                                                required/>
                                     </div>
