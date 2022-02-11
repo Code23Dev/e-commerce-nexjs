@@ -5,16 +5,19 @@ import {filtersBySubsub} from "../../../../services/filtersBySubsub";
 import Select from "react-select";
 
 export default function MyAccountVendorDetails(callbackfn, thisArg){
-    let options = []
+
     const [test, testData] = useState([]);
+    const [optionsTitle, optionsData] = useState([]);
     useEffect(() => {
         let mounted = true;
+        let options = []
         subSubCategories()
             .then(items => {
                 if(mounted) {
                     const data = items.data.map(e=>{
                         options.push({value:e['id'], label:e['title']})
                     })
+                    optionsData(options)
                 }
             })
         return () => mounted = false;
@@ -24,8 +27,10 @@ export default function MyAccountVendorDetails(callbackfn, thisArg){
     }
     let sendDataUrl = (selectedOptions) => {
         filtersBySubsub(selectedOptions.value).then(items => {
+            let itemsData = []
             if(items) {
-                testData(items.data)
+               itemsData.push(items.data)
+                testData(...itemsData)
             }
         })
     }
@@ -196,7 +201,7 @@ export default function MyAccountVendorDetails(callbackfn, thisArg){
                                                     <div className="form-group mb-3">
                                                         <Select
                                                             name="colors"
-                                                            options={options}
+                                                            options={optionsTitle}
                                                             className="basic-multi-select"
                                                             placeholder={"kateqoriya seç"}
                                                             classNamePrefix="select"
