@@ -4,8 +4,9 @@ import {subSubCategories} from "../../../../services/subSubCategories";
 import {filtersBySubsub} from "../../../../services/filtersBySubsub";
 import Select from "react-select";
 
-export default function MyAccountVendorDetails(){
+export default function MyAccountVendorDetails(callbackfn, thisArg){
     let options = []
+    const [test, testData] = useState([]);
     useEffect(() => {
         let mounted = true;
         subSubCategories()
@@ -22,9 +23,9 @@ export default function MyAccountVendorDetails(){
         sendDataUrl(selectedOptions)
     }
     let sendDataUrl = (selectedOptions) => {
-        filtersBySubsub(selectedOptions.label).then(items => {
+        filtersBySubsub(selectedOptions.value).then(items => {
             if(items) {
-                console.log(items)
+                testData(items.data)
             }
         })
     }
@@ -227,28 +228,33 @@ export default function MyAccountVendorDetails(){
                                                     <textarea className="form-control form-control-md mb-4" placeholder="Description"
                                                               name="w3review" rows="4" cols="50">
                                                     </textarea>
-                                                    <div className="row">
-                                                        <div className="form-group col-md-3 mb-8 pt-2">
-                                                            <label htmlFor="display-name" style={{fontSize:"15px",paddingTop:'34px',textAlign:"center"}}>Model</label>
-                                                        </div>
-                                                        <div className="form-group col-md-9 mb-3">
-                                                            <input type="text" id="email_1" name="email_1"
-                                                                   className="form-control form-control-md"/>
-                                                        </div>
-                                                        <div className="form-group col-md-3 mb-8 pt-2">
-                                                            <label htmlFor="display-name" style={{fontSize:"15px",paddingTop:'34px',textAlign:"center"}}>Color</label>
-                                                        </div>
-                                                        <div className="form-group col-md-9 mb-3">
-                                                            <input type="text" id="email_1" name="email_1"
-                                                                   className="form-control form-control-md"/>
-                                                        </div>
-                                                        <div className="form-group col-md-3 mb-8 pt-2">
-                                                            <label htmlFor="display-name" style={{fontSize:"15px",paddingTop:'34px',textAlign:"center"}}>Size</label>
-                                                        </div>
-                                                        <div className="form-group col-md-9 mb-3">
-                                                            <input type="text" id="email_1" name="email_1"
-                                                                   className="form-control form-control-md"/>
-                                                        </div>
+                                                    <div>
+                                                        {test.map(e=>(
+                                                            <div className="row">
+                                                                <div className="form-group col-md-3 mb-8 pt-2">
+                                                                    <label htmlFor="display-name" style={{fontSize:"15px",paddingTop:'34px',textAlign:"center"}}>{e.title}</label>
+                                                                </div>
+                                                                <div className="form-group col-md-9 mb-3">
+                                                                    <input type="text" id="email_1" name="email_1"
+                                                                           className="form-control form-control-md"/>
+                                                                </div>
+                                                            </div>
+                                                        ))}
+
+                                                        {/*<div className="form-group col-md-3 mb-8 pt-2">*/}
+                                                        {/*    <label htmlFor="display-name" style={{fontSize:"15px",paddingTop:'34px',textAlign:"center"}}>Color</label>*/}
+                                                        {/*</div>*/}
+                                                        {/*<div className="form-group col-md-9 mb-3">*/}
+                                                        {/*    <input type="text" id="email_1" name="email_1"*/}
+                                                        {/*           className="form-control form-control-md"/>*/}
+                                                        {/*</div>*/}
+                                                        {/*<div className="form-group col-md-3 mb-8 pt-2">*/}
+                                                        {/*    <label htmlFor="display-name" style={{fontSize:"15px",paddingTop:'34px',textAlign:"center"}}>Size</label>*/}
+                                                        {/*</div>*/}
+                                                        {/*<div className="form-group col-md-9 mb-3">*/}
+                                                        {/*    <input type="text" id="email_1" name="email_1"*/}
+                                                        {/*           className="form-control form-control-md"/>*/}
+                                                        {/*</div>*/}
                                                     </div>
 
                                                     <div className="row mb-4 mt-3">
