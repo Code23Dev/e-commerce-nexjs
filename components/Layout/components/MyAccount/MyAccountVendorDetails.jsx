@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from "react";
 import { TagsInput } from "react-tag-input-component";
 import {subSubCategories} from "../../../../services/subSubCategories";
-import {filtersBySubsub} from "../../../../services/filtersBySubsub";
 import Select from "react-select";
+import axios from "axios";
 
 export default function MyAccountVendorDetails(callbackfn, thisArg){
 
@@ -26,13 +26,17 @@ export default function MyAccountVendorDetails(callbackfn, thisArg){
         sendDataUrl(selectedOptions)
     }
     let sendDataUrl = (selectedOptions) => {
-        filtersBySubsub(selectedOptions.value).then(items => {
-            let itemsData = []
-            if(items) {
-               itemsData.push(items.data)
-                testData(...itemsData)
-            }
-        })
+        if (selectedOptions.value){
+            axios.get(`http://34.125.190.3/api/filters-by-subsub/${selectedOptions.value}`)
+                .then((response) => response)
+                .then(items => {
+                let itemsData = []
+                if(items) {
+                    itemsData.push(items.data)
+                    testData(...itemsData)
+                }
+            })
+        }
     }
     const [selected, setSelected] = useState(["gfg"]);
     const [name, setName] = useState("");

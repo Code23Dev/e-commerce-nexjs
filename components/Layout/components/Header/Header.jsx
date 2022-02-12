@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react'
 import HeaderTop from "./HeaderTop";
 import {allCategories} from "../../../../services/allCategories";
+import {categoryLine} from "../../../../services/categoryLine";
 
 export default function Header(){
     const [logoPost, setLogoPost] = React.useState([]);
@@ -10,6 +11,17 @@ export default function Header(){
             .then(items => {
                 if(mounted) {
                     setLogoPost(items.data)
+                }
+            })
+        return () => mounted = false;
+    }, [])
+    const [categoryLineData, setCategoryLine] = React.useState([]);
+    useEffect(() => {
+        let mounted = true;
+        categoryLine()
+            .then(items => {
+                if(mounted) {
+                    setCategoryLine(items.data)
                 }
             })
         return () => mounted = false;
@@ -87,7 +99,7 @@ export default function Header(){
                         {/*    </li>*/}
                         {/*</ul>*/}
                         <ul className="menu horizontal-menu category-menu">
-                            {logoPost.map(item => (
+                            {categoryLineData.map(item => (
                                 <li>
                                 <a href="demo9-shop.html">
                                 <img src={item.icon}/>{item.title}
