@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import Home1Card from "../Home1Card/Home1Card";
 import {sliders} from "../../../../services/sliders";
 import {displayedCategories} from "../../../../services/displayedCategories";
+import {benefits} from "../../../../services/benefits";
 
 export default function Main(){
     const [optionsTitle, optionsData] = useState([]);
@@ -22,6 +23,17 @@ export default function Main(){
             .then(items => {
                 if(mounted) {
                     displayedCategoriesData(items.data)
+                }
+            })
+        return () => mounted = false;
+    }, [])
+    const [displayedBenefits, displayedBenefitsData] = useState([]);
+    useEffect(() => {
+        let mounted = true;
+        benefits()
+            .then(items => {
+                if(mounted) {
+                    displayedBenefitsData(items.data)
                 }
             })
         return () => mounted = false;
@@ -66,7 +78,10 @@ export default function Main(){
                         </div>
                     </div>
                 </div>
+
+
                 <div className="container mb-10 pb-2">
+
                     <div className="swiper-container swiper-theme icon-box-wrapper appear-animate br-sm bg-white"
                          style={{padding:'11px'}}
                          data-swiper-options="{
@@ -84,27 +99,24 @@ export default function Main(){
                             'slidesPerView': 3
                         },
                         '992': {
-                            'slidesPerView': 3,
-                            'spaceBetween': 20
+                            'slidesPerView': 3
                         },
                         '1200': {
-                            'slidesPerView': 4,
-                            'spaceBetween': 20
+                            'slidesPerView': 4
                         }
                     }
                 }">
-                        <div className="swiper-wrapper row cols-md-4 cols-sm-3 mt-3 cols-1">
-                            {/*{displayedCategoriesTitle.map(e=>(*/}
-                            {/*    <div className="swiper-slide icon-box icon-box-side text-dark">*/}
-                            {/*  <span className="icon-box-icon icon-shipping">*/}
-                            {/*    <img src={}/>*/}
-                            {/*  </span>*/}
-                            {/*        <div className="icon-box-content">*/}
-                            {/*            <h4 className="icon-box-title font-weight-bolder ls-normal">Free Shipping & Returns</h4>*/}
-                            {/*            <p className="text-default">For all orders over $99</p>*/}
-                            {/*        </div>*/}
-                            {/*    </div>*/}
-                            {/*))}*/}
+                        <div className="swiper-wrapper row cols-md-4 cols-sm-3 cols-1">
+                            {displayedBenefits.map(e=>(<div className="swiper-slide icon-box icon-box-side text-dark">
+                            <span className="icon-box-icon icon-shipping">
+                                <img src={e.icon} style={{width:"30px"}}/>
+                            </span>
+                                <div className="icon-box-content">
+                                    <h4 className="icon-box-title">{e.title}</h4>
+                                    <p className="text-default">{e.description}</p>
+                                </div>
+                            </div>))}
+
                         </div>
                     </div>
                     <div className="row category-wrapper cols-lg-3 cols-sm-2 mt-3 appear-animate ">
@@ -364,10 +376,10 @@ export default function Main(){
                     <div className="filter-with-title appear-animate">
                         <h2 className="title">Bütün məhsullar</h2>
                         <ul className="nav-filters filter-boxed" data-target="#products-1">
-                            <li><a href="#" className="nav-filter active" data-filter=".1-1">New Arrivals</a></li>
-                            <li><a href="#" className="nav-filter" data-filter=".1-2">Best Seller</a></li>
-                            <li><a href="#" className="nav-filter" data-filter=".1-3">Most Popular</a></li>
-                            <li><a href="#" className="nav-filter" data-filter="*">View All</a></li>
+                            <li><a href="#" className="nav-filter active" data-filter=".1-1">YENİ MƏHSULLAR</a></li>
+                            <li><a href="#" className="nav-filter" data-filter=".1-2">ÇOX SATILAN</a></li>
+                            <li><a href="#" className="nav-filter" data-filter=".1-3">ƏN POPULYAR</a></li>
+                            <li><a href="#" className="nav-filter" data-filter="*">HAMISINA BAX</a></li>
                         </ul>
                     </div>
                     <div className="product-wrapper row cols-lg-5 cols-md-4 cols-sm-2 cols-2">
@@ -1120,5 +1132,6 @@ export default function Main(){
                     </div>
                 </section>
             </main>
+
         </div>
     )}

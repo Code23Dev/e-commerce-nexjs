@@ -8,8 +8,8 @@ export default function NewsletterPopup() {
                     <div className="page-content">
                         <div className="container">
                             <div className="title-link-wrapper title-deals appear-animate">
-                                <h2 className="title">Deals Hot Of The Day</h2>
-                                <a href="shop-boxed-banner.html" className="font-weight-bold ls-25">More Products<i
+                                <h2 className="title">Günün endirimləri</h2>
+                                <a href="shop-boxed-banner.html" className="font-weight-bold ls-25">Daha çox məhsul<i
                                     className="w-icon-long-arrow-right"></i></a>
                             </div>
                             <div className="row appear-animate">

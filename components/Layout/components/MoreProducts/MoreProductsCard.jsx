@@ -148,7 +148,7 @@ export default function MyAccount(){
                     <div className="page-content">
                         <div className="container">
                             <div className="title-link-wrapper title-deals appear-animate">
-                                <h2 className="title">Deals Hot Of The Day</h2>
+                                <h2 className="title">Günün endirimləri</h2>
                             </div>
                             <div className="row appear-animate">
                                 <div className="col-lg-6 mb-4">

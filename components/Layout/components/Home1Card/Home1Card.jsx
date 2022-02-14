@@ -152,10 +152,10 @@ export default function Home1Card(){
                       `}
                       </style>
                       <div className="title-link-wrapper title-deals appear-animate">
-                          <h2 className="title">Deals Hot Of The Day</h2>
+                          <h2 className="title">Günün endirimləri</h2>
                           <a href="/more-products"
                              className="font-weight-bold ls-25">
-                              More Products
+                              Daha çox məhsul
                               <i className="w-icon-long-arrow-right"></i></a>
                       </div>
                       <div className="swiper-container swiper-theme icon-box-wrapper appear-animate br-sm bg-white"
@@ -224,8 +224,8 @@ export default function Home1Card(){
                                               <li>Ultrices eros in cursus turpis massa.</li>
                                           </ul>
                                           <div className="product-action">
-                                              <a href="#" className="btn-product btn-cart" title="Add to Cart"><i
-                                                  className="w-icon-cart"></i> Add To Cart</a>
+                                              <a href="#" className="btn-product btn-cart" title="Səbətə əlavə et"><i
+                                                  className="w-icon-cart"></i> Səbətə əlavə et</a>
                                               <a href="#" className="btn-product-icon btn-wishlist w-icon-heart"
                                                  title="Add to wishlist"></a>
                                               <a href="#" className="btn-product-icon btn-compare w-icon-compare"
@@ -273,8 +273,8 @@ export default function Home1Card(){
                                               <li>Ultrices eros in cursus turpis massa.</li>
                                           </ul>
                                           <div className="product-action">
-                                              <a href="#" className="btn-product btn-cart" title="Add to Cart"><i
-                                                  className="w-icon-cart"></i> Add To Cart</a>
+                                              <a href="#" className="btn-product btn-cart" title="Səbətə əlavə et"><i
+                                                  className="w-icon-cart"></i> Səbətə əlavə et</a>
                                               <a href="#" className="btn-product-icon btn-wishlist w-icon-heart"
                                                  title="Add to wishlist"></a>
                                               <a href="#" className="btn-product-icon btn-compare w-icon-compare"
@@ -323,8 +323,8 @@ export default function Home1Card(){
                                               <li>Ultrices eros in cursus turpis massa.</li>
                                           </ul>
                                           <div className="product-action">
-                                              <a href="#" className="btn-product btn-cart" title="Add to Cart"><i
-                                                  className="w-icon-cart"></i> Add To Cart</a>
+                                              <a href="#" className="btn-product btn-cart" title="Səbətə əlavə et"><i
+                                                  className="w-icon-cart"></i> Səbətə əlavə et</a>
                                               <a href="#" className="btn-product-icon btn-wishlist w-icon-heart"
                                                  title="Add to wishlist"></a>
                                               <a href="#" className="btn-product-icon btn-compare w-icon-compare"
@@ -372,8 +372,8 @@ export default function Home1Card(){
                                               <li>Ultrices eros in cursus turpis massa.</li>
                                           </ul>
                                           <div className="product-action">
-                                              <a href="#" className="btn-product btn-cart" title="Add to Cart"><i
-                                                  className="w-icon-cart"></i> Add To Cart</a>
+                                              <a href="#" className="btn-product btn-cart" title="Səbətə əlavə et"><i
+                                                  className="w-icon-cart"></i> Səbətə əlavə et</a>
                                               <a href="#" className="btn-product-icon btn-wishlist w-icon-heart"
                                                  title="Add to wishlist"></a>
                                               <a href="#" className="btn-product-icon btn-compare w-icon-compare"
@@ -668,7 +668,7 @@ export default function Home1Card(){
                                   </div>
                                   <button className="btn btn-primary btn-cart">
                                       <i className="w-icon-cart"></i>
-                                      <span>Add to Cart</span>
+                                      <span>Səbətə əlavə et</span>
                                   </button>
                               </div>
 
