@@ -233,7 +233,7 @@ export default function ShopPageMain(){
                                         <div className="product-wrap">
                                             <div className="product text-center">
                                                 <figure className="product-media">
-                                                    <a href="product-default.html">
+                                                    <a href={`/${e.id}`}>
                                                         <img src={e.images[0]} alt="Product" width="300"
                                                              height="338"/>
                                                     </a>
@@ -279,7 +279,7 @@ export default function ShopPageMain(){
                                     {allProductsTitle.map(e=>(
                                         <div className="product product-list">
                                             <figure className="product-media">
-                                                <a href="product-default.html">
+                                                <a href={`/${e.id}`}>
                                                     <img src={e.images[0]} alt="Product" width="300"
                                                          height="338"/>
                                                 </a>

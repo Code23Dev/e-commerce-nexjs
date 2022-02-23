@@ -1,12 +1,57 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import Link from 'next/link'
 import MyAccountVendorDetails from "./MyAccountVendorDetails";
+import {userProducts} from "../../../../services/myAccount/userProducts";
+import {deleteProduct} from "../../../../services/products/deleteProduct";
+
+function deleteUserProduct(id){
+    swal({
+        title: "Əminsinizmi?!",
+        icon: "warning",
+        buttons: ["Bağla", "Sil"],
+        dangerMode: true,
+    })
+        .then((willDelete) => {
+            if (willDelete) {
+                deleteProduct(id)
+                    .then(items => {
+                        swal("Silindi!", {
+                            icon: "success",
+                            button: ["Bağla"],
+                        });
+                    }).catch((e)=>{
+                    console.log(e)
+                })
+
+            } else {
+                swal("Silinmədi");
+            }
+        });
+}
 export default function MyAccountVendor(){
 const [selectedFile1, setSelectedFile1] = useState(null);
 const [selectedFile2, setSelectedFile2] = useState(null);
+    const [userProductsTitle, userProductsData] = useState([]);
+    useEffect(() => {
+        let mounted = true;
+        userProducts()
+            .then(items => {
+                if(mounted) {
+                    userProductsData(items.data)
+                }
+
+            }).catch((e)=>{
+            console.log(e)
+        })
+        return () => mounted = false;
+    }, [])
+
     return (
         <div>
             <style jsx>{`
+                    .shop-table tbody td:not(:first-child), .shop-table thead th:not(:first-child) {
+                        padding-left: 4rem !important;
+                    }
                 .span-link:hover {
                    color: #1914fe !important;
                    cursor: pointer;
@@ -233,91 +278,44 @@ const [selectedFile2, setSelectedFile2] = useState(null);
                                                 Shop<i className="w-icon-long-arrow-right"></i></a>
                                         </div>
                                         <div className="tab-pane mb-4" id="account-orders2">
-                                            {/*<table className="shop-table account-orders-table mb-6">*/}
-                                            {/*    <thead>*/}
-                                            {/*    <tr>*/}
-                                            {/*            <th className="order-id">N</th>*/}
-                                            {/*        <th className="order-date">Tarix</th>*/}
-                                            {/*        <th className="order-status">Məhsulun kodu</th>*/}
-                                            {/*        <th className="order-total">Məhsulun adı</th>*/}
-                                            {/*        <th className="order-actions">Sub-sub kateqoriyası</th>*/}
-                                            {/*    </tr>*/}
-                                            {/*    </thead>*/}
-                                            {/*    <tbody>*/}
-                                            {/*    <tr>*/}
-                                            {/*        <td className="order-id">#2321</td>*/}
-                                            {/*        <td className="order-date">August 20, 2021</td>*/}
-                                            {/*        <td className="order-status">Processing</td>*/}
-                                            {/*        <td className="order-status">Processing</td>*/}
-                                            {/*        <td className="order-total">*/}
-                                            {/*            <span className="order-price">$121.00</span> for*/}
-                                            {/*            <span className="order-quantity"> 1</span> item*/}
-                                            {/*        </td>*/}
-                                            {/*        <td className="order-action">*/}
-                                            {/*            <a href="#"*/}
-                                            {/*               className="btn btn-outline btn-default btn-block btn-sm btn-rounded">Dəyiş</a>*/}
-                                            {/*        </td>*/}
-                                            {/*        <td className="order-action">*/}
-                                            {/*            <a href="#"*/}
-                                            {/*               className="btn btn-outline btn-default btn-block btn-sm btn-rounded redColor" >Sil</a>*/}
-                                            {/*        </td>*/}
-                                            {/*    </tr>*/}
-                                            {/*    <tr>*/}
-                                            {/*        <td className="order-id">#2321</td>*/}
-                                            {/*        <td className="order-date">August 20, 2021</td>*/}
-                                            {/*        <td className="order-status">Processing</td>*/}
-                                            {/*        <td className="order-status">Processing</td>*/}
-                                            {/*        <td className="order-total">*/}
-                                            {/*            <span className="order-price">$121.00</span> for*/}
-                                            {/*            <span className="order-quantity"> 1</span> item*/}
-                                            {/*        </td>*/}
-                                            {/*        <td className="order-action">*/}
-                                            {/*            <a href="#"*/}
-                                            {/*               className="btn btn-outline btn-default btn-block btn-sm btn-rounded">Dəyiş</a>*/}
-                                            {/*        </td>*/}
-                                            {/*        <td className="order-action">*/}
-                                            {/*            <a href="#"*/}
-                                            {/*               className="btn btn-outline btn-default btn-block btn-sm btn-rounded redColor" >Sil</a>*/}
-                                            {/*        </td>*/}
-                                            {/*    </tr>*/}
-                                            {/*    <tr>*/}
-                                            {/*        <td className="order-id">#2321</td>*/}
-                                            {/*        <td className="order-date">August 20, 2021</td>*/}
-                                            {/*        <td className="order-status">Processing</td>*/}
-                                            {/*        <td className="order-status">Processing</td>*/}
-                                            {/*        <td className="order-total">*/}
-                                            {/*            <span className="order-price">$121.00</span> for*/}
-                                            {/*            <span className="order-quantity"> 1</span> item*/}
-                                            {/*        </td>*/}
-                                            {/*        <td className="order-action">*/}
-                                            {/*            <a href="#"*/}
-                                            {/*               className="btn btn-outline btn-default btn-block btn-sm btn-rounded">Dəyiş</a>*/}
-                                            {/*        </td>*/}
-                                            {/*        <td className="order-action">*/}
-                                            {/*            <a href="#"*/}
-                                            {/*               className="btn btn-outline btn-default btn-block btn-sm btn-rounded redColor " >Sil</a>*/}
-                                            {/*        </td>*/}
-                                            {/*    </tr>*/}
-                                            {/*    <tr>*/}
-                                            {/*        <td className="order-id">#2321</td>*/}
-                                            {/*        <td className="order-date">August 20, 2021</td>*/}
-                                            {/*        <td className="order-status">Processing</td>*/}
-                                            {/*        <td className="order-status">Processing</td>*/}
-                                            {/*        <td className="order-total">*/}
-                                            {/*            <span className="order-price">$121.00</span> for*/}
-                                            {/*            <span className="order-quantity"> 1</span> item*/}
-                                            {/*        </td>*/}
-                                            {/*        <td className="order-action">*/}
-                                            {/*            <a href="#"*/}
-                                            {/*               className="btn btn-outline btn-default btn-block btn-sm btn-rounded">Dəyiş</a>*/}
-                                            {/*        </td>*/}
-                                            {/*        <td className="order-action">*/}
-                                            {/*            <a href="#"*/}
-                                            {/*               className="btn btn-outline btn-default btn-block btn-sm btn-rounded redColor" >Sil</a>*/}
-                                            {/*        </td>*/}
-                                            {/*    </tr>*/}
-                                            {/*    </tbody>*/}
-                                            {/*</table>*/}
+
+                                            <table className="shop-table account-orders-table mb-6">
+                                                <thead>
+                                                <tr>
+                                                    <th className="order-id">N</th>
+                                                    <th className="order-date">Məhsulun Tarix</th>
+                                                    <th className="order-status">Məhsulun kodu</th>
+                                                    <th className="order-total">Məhsulun adı</th>
+                                                    <th className="order-actions">Kateqoriyası</th>
+                                                    <th className="order-actions">Qiymət</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                {userProductsTitle.map(e=>(
+                                                    <tr>
+                                                    <td className="order-id">{e.id}</td>
+                                                    <td className="order-date pr-3">{e.created_at.slice(1,10)}</td>
+                                                    <td className="order-status pr-3">bos</td>
+                                                    <td className="order-status pr-3">{e.title}</td>
+                                                    <td className="order-status pr-3">bos</td>
+                                                        <td className="order-status pr-3">{e.price}</td>
+                                                    {/*<td className="order-total">*/}
+                                                    {/*    */}
+                                                    {/*    <span className="order-price">$121.00</span> for*/}
+                                                    {/*    <span className="order-quantity"> 1</span> item*/}
+                                                    {/*</td>*/}
+                                                    <td className="order-action">
+                                                        <a href="#"
+                                                           className="btn btn-outline btn-default btn-block btn-sm btn-rounded">Dəyiş</a>
+                                                    </td>
+                                                    <td className="order-action">
+                                                        <a href="#"
+                                                           className="btn btn-outline btn-default btn-block btn-sm btn-rounded redColor"  onClick={()=>{deleteUserProduct(e.id)}}>Sil</a>
+                                                    </td>
+                                                </tr>
+                                                ))}
+                                                </tbody>
+                                            </table>
 
                                         </div>
 

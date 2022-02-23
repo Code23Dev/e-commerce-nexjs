@@ -43,9 +43,10 @@ export default function HeaderTop(){
             password:passwordLogin}
         login(data)
             .then(items => {
-                if(mounted) {
+                    console.log(items)
+                    localStorage.setItem('username', items.data.access);
+                    localStorage.setItem('token', items.data.refresh)
                     setLoginPost(items.data)
-                }
             })
             .catch(e=>console.log(e))
         console.log(data)
@@ -194,11 +195,14 @@ export default function HeaderTop(){
                                     <div className="tab-pane active" id="sign-in">
                                         <div className="form-group">
                                             <label>Nömrənizi daxil edin *</label>
-                                            <PhoneInput
-                                                country={'az'}
-                                                value={phone}
-                                                onChange={e=>setNumberLogin(e.target.value)}
-                                            />
+                                            {/*<PhoneInput*/}
+                                            {/*    country={'az'}*/}
+                                            {/*    value={phone}*/}
+                                            {/*    onChange={e=>setNumberLogin(e.target.value)}*/}
+                                            {/*/>*/}
+
+                                            <input type="text" onChange={e=>setNumberLogin(e.target.value)} className="form-control" name="password_1" id="password_1"
+                                                   required/>
                                         </div>
                                         <div className="form-group mb-5">
                                             <label>Şifrənizi daxil edin *</label>
@@ -219,10 +223,8 @@ export default function HeaderTop(){
                                     <div className="tab-pane" id="sign-up">
                                         <div className="form-group">
                                             <label>Nömrənizi daxil edin *</label>
-                                            <PhoneInput
-                                                country={'az'}
-                                                onChange={e=>setNumber(e.target.value)}
-                                            />
+                                            <input type="text" onChange={e=>setNumber(e.target.value)} className="form-control" name="password_1" id="password_1"
+                                                   required/>
                                         </div>
                                         <div className="form-group mb-5">
                                             <label>Şifrənizi daxil edin *</label>

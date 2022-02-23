@@ -102,7 +102,7 @@ export default function Header(){
                             {categoryLineData.map(item => (
                                 <li>
                                 <a href="demo9-shop.html">
-                                <img src={item.icon}/>{item.title}
+                                <img src={item.category.icon} width="50" height="68"/>{item.category.title}
                                 </a>
                                 </li>))}
                         </ul>

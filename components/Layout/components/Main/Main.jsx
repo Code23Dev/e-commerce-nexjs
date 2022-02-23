@@ -700,8 +700,7 @@ export default function Main(){
                             <div className="product text-center">
                                 <figure className="product-media">
                                     <a href="product-default.html">
-                                        <img src="assets/images/shop/4.jpg" alt="Product" width="300"
-                                             height="338"/>
+                                        <img src="assets/images/shop/4.jpg" alt="Product" width="300" height="338"/>
                                     </a>
                                     <div className="product-action-horizontal">
                                         <a href="#" className="btn-product-icon btn-cart w-icon-cart"
