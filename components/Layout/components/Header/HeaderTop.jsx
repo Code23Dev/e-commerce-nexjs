@@ -17,23 +17,7 @@ export default function HeaderTop(){
     const [isVendor, setIsVendor] = React.useState(false);
     const [isStore, setIsStore] = React.useState(false);
     const [registerPost, setRegisterPost] = React.useState([]);
-    const handleRegisterInput = () =>{
-        let data = {number:number,
-            password:password,
-            password2:password2,
-            is_vendor:isVendor,
-            is_store:isStore,
-        }
-        register(data)
-            .then(items => {
-                if(mounted) {
-                    setRegisterPost(items.data)
-                }
-            }).catch(e =>{
-            console.log(e)
-            })
-        console.log(data)
-    }
+
 
     const [numberLogin, setNumberLogin] = React.useState("");
     const [passwordLogin, setPasswordLogin] = React.useState("");
@@ -76,6 +60,35 @@ export default function HeaderTop(){
         }
 
 
+    }
+
+    const [showMeNumber, setShowMeNumber] = useState("none");
+    function showMeNumberFunc(){
+        if (showMeNumber== 'none'){
+            setShowMeNumber("block");
+        }else{
+            setShowMeNumber("none");
+        }
+
+
+    }
+    const handleRegisterInput = () =>{
+        let data = {number:number,
+            password:password,
+            password2:password2,
+            is_vendor:isVendor,
+            is_store:isStore,
+        }
+        register(data)
+            .then(items => {
+                showMeFunc()
+                showMeNumberFunc()
+
+
+            }).catch(e =>{
+            console.log(e)
+        })
+        console.log(data)
     }
     return (
         <div>
@@ -258,6 +271,25 @@ export default function HeaderTop(){
                                     <a href="#" className="social-icon social-google fab fa-google"></a>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div id="myModal" className="modal" style={{display:showMeNumber}}>
+                    <div className="modal-content">
+                        <span className="close" onClick={showMeNumberFunc}>&times;</span>
+                        <div className="login-popup">
+                                    <div className="tab-content">
+                                        <h4>Codu daxil edin</h4>
+                                            <div className="form-group">
+                                                <label>Codu daxil edin *</label>
+                                                <input type="text" onChange={e=>setNumberLogin(e.target.value)} className="form-control" name="password_1" id="password_1"
+                                                       required/>
+                                        </div>
+
+                                    </div>
+
                         </div>
                     </div>
                 </div>
