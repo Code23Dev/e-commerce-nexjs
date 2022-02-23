@@ -1,9 +1,57 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import axios from "axios";
+import {register} from "../../../../services/auth/register";
+import {login} from "../../../../services/auth/login";
 const logoURL = "http://34.125.190.3/api/logo/";
 const headerTextURL = "http://34.125.190.3/api/header-text/";
-
+import PhoneInput from 'react-phone-input-2'
+import 'react-phone-input-2/lib/style.css'
 export default function HeaderTop(){
+    function phoneInputData(e){
+        console.log(e)
+    }
+    let phone = null
+    const [number, setNumber] = React.useState("");
+    const [password, setPassword] = React.useState("");
+    const [password2, setPassword2] = React.useState("");
+    const [isVendor, setIsVendor] = React.useState(false);
+    const [isStore, setIsStore] = React.useState(false);
+    const [registerPost, setRegisterPost] = React.useState([]);
+    const handleRegisterInput = () =>{
+        let data = {number:number,
+            password:password,
+            password2:password2,
+            is_vendor:isVendor,
+            is_store:isStore,
+        }
+        register(data)
+            .then(items => {
+                if(mounted) {
+                    setRegisterPost(items.data)
+                }
+            }).catch(e =>{
+            console.log(e)
+            })
+        console.log(data)
+    }
+
+    const [numberLogin, setNumberLogin] = React.useState("");
+    const [passwordLogin, setPasswordLogin] = React.useState("");
+    const [loginPost, setLoginPost] = React.useState([]);
+    const handleLoginInput = () =>{
+        let data = {number:numberLogin,
+            password:passwordLogin}
+        login(data)
+            .then(items => {
+                if(mounted) {
+                    setLoginPost(items.data)
+                }
+            })
+            .catch(e=>console.log(e))
+        console.log(data)
+    }
+
+
     //logo
     const [logoPost, setLogoPost] = React.useState(null);
     React.useEffect(() => {
@@ -18,10 +66,35 @@ export default function HeaderTop(){
             setHeaderTextURL(response.data.content);
         });
     }, []);
+    const [showMe, setShowMe] = useState("none");
+    function showMeFunc(){
+        if (showMe== 'none'){
+            setShowMe("block");
+        }else{
+            setShowMe("none");
+        }
 
+
+    }
     return (
         <div>
             <style jsx>{`
+                    .react-tel-input .form-control {
+                        position: relative;
+                        font-size: 14px;
+                        letter-spacing: .01rem;
+                        margin-top: 0 !important;
+                        margin-bottom: 0 !important;
+                        padding-left: 48px;
+                        margin-left: 0;
+                        background: #FFFFFF;
+                        border: 1px solid #CACACA;
+                        border-radius: 5px;
+                        line-height: 25px;
+                        height: 35px;
+                        width: 100% !important;
+                        outline: none;
+                    }
                 .header-top {
                     background: #0088dd;
                     font-size: 1.1rem;
@@ -39,6 +112,51 @@ export default function HeaderTop(){
                     font-size: 1.2rem;
                     border-bottom: 0;
                 }
+                .modal {
+                  display: block; 
+                  position: fixed; 
+                  z-index: 9999; 
+                  padding-top: 30px;
+                  left: 0;
+                  top: 0;
+                  min-width: 100%;
+                  height: 100%; 
+                  overflow: auto;
+                  background-color: rgb(0,0,0);
+                  background-color: rgba(0,0,0,0.4);
+                }
+                .modal-content {
+                  background-color: #fefefe;
+                  margin: auto;
+                  padding: 10px;
+                  border: 1px solid #888;
+                  width: 30%;
+                }
+
+                .close {
+                  color: #aaaaaa;
+                  float: right;
+                  font-size: 28px;
+                  font-weight: bold;
+                   padding-left: 20px;
+                }
+                
+                .close:hover,
+                .close:focus {
+                  color: #000;
+                  text-decoration: none;
+                  cursor: pointer;
+                  padding-left: 20px;
+                }
+                @media only screen and (max-width: 1000px) {
+                  .modal-content {
+                    background-color: #fefefe;
+                    margin: auto;
+                    padding: 10px;
+                    border: 1px solid #888;
+                    width: 85%;
+                  }
+                }
             `}
             </style>
             <header className="header">
@@ -49,22 +167,107 @@ export default function HeaderTop(){
                         </div>
                         <div className="header-right">
                             <span className="divider d-lg-show"></span>
-                            <a href="/contact-us" className="d-lg-show">Bizimlə Əlaqə</a>
-                            <a href="/my-account-for-user" className="d-lg-show">Hesabım</a>
-                            <a href="assets/ajax/login.html" className="d-lg-show login sign-in"><i
-                                className="w-icon-account"></i>Daxil ol</a>
+                            <a href="/contact-us" style={{color:"white", cursor:"pointer"}} className="d-lg-show" >Bizimlə Əlaqə</a>
+                            <a href="/my-account-for-user" style={{color:"white", cursor:"pointer"}} className="d-lg-show">Hesabım</a>
+                            <a onClick={showMeFunc} style={{color:"white", cursor:"pointer"}}>
+                                <i className="w-icon-account"></i>Daxil ol</a>
                             <span className="delimiter d-lg-show">/</span>
-                            <a href="assets/ajax/login.html" className="ml-0 d-lg-show login register">Qeydiyyat</a>
+                            <a  onClick={showMeFunc} className="delimiter" style={{color:"white", cursor:"pointer"}}>Qeydiyyat</a>
                         </div>
                     </div>
                 </div>
+
+                <div id="myModal" className="modal" style={{display:showMe}}>
+                    <div className="modal-content">
+                        <span className="close" onClick={showMeFunc}>&times;</span>
+                        <div className="login-popup">
+                            <div className="tab tab-nav-boxed tab-nav-center tab-nav-underline">
+                                <ul className="nav nav-tabs text-uppercase" role="tablist">
+                                    <li className="nav-item">
+                                        <a href="#sign-in" className="nav-link active">Daxil ol</a>
+                                    </li>
+                                    <li className="nav-item">
+                                        <a href="#sign-up" className="nav-link">Qeydiyyat</a>
+                                    </li>
+                                </ul>
+                                <div className="tab-content">
+                                    <div className="tab-pane active" id="sign-in">
+                                        <div className="form-group">
+                                            <label>Nömrənizi daxil edin *</label>
+                                            <PhoneInput
+                                                country={'az'}
+                                                value={phone}
+                                                onChange={e=>setNumberLogin(e.target.value)}
+                                            />
+                                        </div>
+                                        <div className="form-group mb-5">
+                                            <label>Şifrənizi daxil edin *</label>
+                                            <input type="text" onChange={e=>setPasswordLogin(e.target.value)} className="form-control" name="password_1" id="password_1"
+                                                   required/>
+                                        </div>
+                                        <div className="form-checkbox d-flex align-items-center justify-content-between">
+                                            <input type="checkbox" className="custom-checkbox" id="remember" name="remember"
+                                                   required=""/>
+                                            <label htmlFor="remember">Məni xatırla</label>
+                                            <a href="#">Parolu unutdunuz?</a>
+                                        </div>
+
+
+                                        <a href="#" className="btn btn-primary" onClick={()=> handleLoginInput()}>Daxil ol</a>
+                                    </div>
+
+                                    <div className="tab-pane" id="sign-up">
+                                        <div className="form-group">
+                                            <label>Nömrənizi daxil edin *</label>
+                                            <PhoneInput
+                                                country={'az'}
+                                                onChange={e=>setNumber(e.target.value)}
+                                            />
+                                        </div>
+                                        <div className="form-group mb-5">
+                                            <label>Şifrənizi daxil edin *</label>
+                                            <input type="text" onChange={e=>setPassword(e.target.value)} className="form-control" name="password_1" id="password_1"
+                                                   required/>
+                                        </div>
+                                        <div className="form-group mb-5">
+                                            <label>Şifrəni təkrar daxil edin *</label>
+                                            <input type="text" onChange={e=>setPassword2(e.target.value)} className="form-control" name="password_1" id="password_1"
+                                                   required/>
+                                        </div>
+                                        <p>Şəxsi məlumatlarınız bu veb-saytda təcrübənizi dəstəkləmək, hesabınıza girişi idarə etmək və məxfilik siyasətimizdə təsvir olunan digər məqsədlər üçün istifadə olunacaq.</p>
+
+                                        <div className="form-checkbox d-flex align-items-center justify-content-between">
+                                            <input type="checkbox" className="custom-checkbox" id="remember2" name="remember" onChange={e=>setIsStore(e.target.checked)}
+                                                   required=""/>
+                                            <label htmlFor="remember">Mağaza</label>
+                                        </div>
+                                        <div className="form-checkbox d-flex align-items-center justify-content-between">
+                                            <input type="checkbox" className="custom-checkbox" id="remember3" onChange={e=>setIsVendor(e.target.checked)} name="remember"
+                                                   required=""/>
+                                            <label htmlFor="remember">Satıcı</label>
+                                        </div>
+                                        <a href="#" className="btn btn-primary" onClick={handleRegisterInput}>Qeydiyyatdan keç</a>
+                                    </div>
+                                </div>
+                                <p className="text-center">Sosial hesabla qeydiyyatdan keçin</p>
+                                <div className="social-icons social-icon-border-color d-flex justify-content-center">
+                                    <a href="#" className="social-icon social-facebook w-icon-facebook"></a>
+                                    <a href="#" className="social-icon social-twitter w-icon-twitter"></a>
+                                    <a href="#" className="social-icon social-google fab fa-google"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
                 <div className="header-middle">
                     <div className="container">
                         <div className="header-left mr-md-4">
                             <a href="#" className="mobile-menu-toggle text-white w-icon-hamburger" aria-label="menu-toggle">
                             </a>
                             <a href="/home" className="logo ml-lg-0">
-                                <img src={logoPost} alt="logo" width="144" height="45"/>
+                                <img src={'http://34.125.190.3'+logoPost} alt="logo" width="144" height="45"/>
                             </a>
                             <form method="get" action="#"
                                   className="input-wrapper header-search hs-expanded hs-round d-none d-md-flex">

@@ -3,8 +3,12 @@ import { TagsInput } from "react-tag-input-component";
 import {subSubCategories} from "../../../../services/subSubCategories";
 import Select from "react-select";
 import axios from "axios";
+import "../../../../node_modules/video-react/dist/video-react.css";
+import ReactPlayer from 'react-player'
+import {createProduct} from "../../../../services/products/createProduct";
 
-export default function MyAccountVendorDetails(callbackfn, thisArg){
+
+export default function MyAccountVendorDetails(){
 
     const [test, testData] = useState([]);
     const [optionsTitle, optionsData] = useState([]);
@@ -38,7 +42,7 @@ export default function MyAccountVendorDetails(callbackfn, thisArg){
             })
         }
     }
-    const [selected, setSelected] = useState(["gfg"]);
+    const [selected, setSelected] = useState([]);
     const [name, setName] = useState("");
     const [selectedFile1, setSelectedFile1] = useState(null);
     const [selectedFile2, setSelectedFile2] = useState(null);
@@ -46,6 +50,122 @@ export default function MyAccountVendorDetails(callbackfn, thisArg){
     const [selectedFile4, setSelectedFile4] = useState(null);
     const [selectedFile5, setSelectedFile5] = useState(null);
     const [selectedFile6, setSelectedFile6] = useState(null);
+    const [productNameTitle, setProductName] = useState(null);
+    const [descriptionTitle, setDescription] = useState(null);
+    const [priceTitle, setPrice] = useState(null);
+    const [shortDesc1Title, setShortDesc1] = useState(null);
+    const [shortDesc2Title, setShortDesc2] = useState(null);
+    const [shortDesc3Title, setShortDesc3] = useState(null);
+    const [postImageFile1, setPostImageFile1] = useState({
+        image: "",
+    });
+    const [postImageFile2, setPostImageFile2] = useState({
+        image: "",
+    });
+    const [postImageFile3, setPostImageFile3] = useState({
+        image: "",
+    });
+    const [postImageFile4, setPostImageFile4] = useState({
+        image: "",
+    });
+    const [videoFilePathEEE, setVideoFilePathEEE] = useState(null);
+    const handleVideoUpload = (event) => {
+        const [file] = event.target.files;
+        setVideoFilePathEEE(URL.createObjectURL(file));
+    };
+    let dataSet = []
+    let car_array = []
+    let endArray = []
+    let setFormGroup = (e) =>{
+        dataSet.push(e)
+         car_array = dataSet.reduce((prev, t, index, arr) => {
+            if (typeof prev[t.the_filter] === 'undefined') {
+                prev[t.the_filter] = [];
+            }
+            prev[t.the_filter].push(t);
+            return prev;
+        }, {});
+        Object.keys(car_array).forEach(i => {
+            let array_of_cars_with_same_id = car_array[i];
+        });
+
+    }
+    const convertToBase64 = (file) => {
+        return new Promise((resolve, reject) => {
+            const fileReader = new FileReader();
+            fileReader.readAsDataURL(file);
+            fileReader.onload = () => {
+                resolve(fileReader.result);
+            };
+            fileReader.onerror = (error) => {
+                reject(error);
+            };
+        });
+    };
+    const handleFileUploadFile1 = async (e) => {
+        setSelectedFile1(window.URL.createObjectURL(e.target.files[0]))
+        const file = e.target.files[0];
+        const base64 = await convertToBase64(file);
+        setPostImageFile1({ ...postImageFile1, image: base64 });
+    };
+    const handleFileUploadFile2 = async (e) => {
+        setSelectedFile2(window.URL.createObjectURL(e.target.files[0]))
+        const file = e.target.files[0];
+        const base64 = await convertToBase64(file);
+        setPostImageFile2({ ...postImageFile2, image: base64 });
+    };
+    const handleFileUploadFile3 = async (e) => {
+        setSelectedFile3(window.URL.createObjectURL(e.target.files[0]))
+        const file = e.target.files[0];
+        const base64 = await convertToBase64(file);
+        setPostImageFile3({ ...postImageFile3, image: base64 });
+    };
+    const handleFileUploadFile4 = async (e) => {
+        setSelectedFile4(window.URL.createObjectURL(e.target.files[0]))
+        const file = e.target.files[0];
+        const base64 = await convertToBase64(file);
+        setPostImageFile4({ ...postImageFile4, image: base64 });
+    };
+    let handleAddInput = ()=>{
+        let tagsKeyValue = []
+        selected.map(r=>{tagsKeyValue.push({title: r})})
+        Object.keys(car_array).forEach(i => {
+            let array_of_cars_with_same_id = car_array[i];
+            console.log(i)
+            endArray.push(car_array[i][car_array[i].length-1])
+        });
+        let data = {
+            title: productNameTitle,
+            description: descriptionTitle,
+            price: priceTitle,
+            short_desc1: shortDesc1Title,
+            short_desc2: shortDesc2Title,
+            short_desc3: shortDesc3Title,
+            video: videoFilePathEEE,
+            images: [
+                {
+                    image: postImageFile1.image
+                },
+                {
+                    image: postImageFile2.image
+                },
+                {
+                    image: postImageFile3.image
+                },
+                {
+                    image: postImageFile4.image ? postImageFile4.image : null
+                },
+            ],
+            filter_values: endArray,
+            tag: tagsKeyValue
+        }
+
+        createProduct(data)
+            .then(items => {
+                console.log(items)
+            })
+            .catch(e=>console.log(e))
+    }
     return (
         <div>
             <style jsx>{`
@@ -74,7 +194,7 @@ export default function MyAccountVendorDetails(callbackfn, thisArg){
               }
 
               .inputFile + label {
-                background-color: #989494;
+                background-color: #f5f5f5;
                 display: inline-block;
               }
 
@@ -83,6 +203,7 @@ export default function MyAccountVendorDetails(callbackfn, thisArg){
             <div>
                 <div className="page-wrapper">
                     <main className="main mb-10 pb-1">
+
                         <div className="page-content">
                             <div className="container">
                                 <div className="row gutter-lg">
@@ -93,11 +214,11 @@ export default function MyAccountVendorDetails(callbackfn, thisArg){
                                                     <div
                                                         className="swiper-container product-single-swiper swiper-theme nav-inner"
                                                         data-swiper-options="{
-                                            'navigation': {
-                                                'nextEl': '.swiper-button-next',
-                                                'prevEl': '.swiper-button-prev'
-                                            }
-                                        }">
+                                                            'navigation': {
+                                                                'nextEl': '.swiper-button-next',
+                                                                'prevEl': '.swiper-button-prev'
+                                                            }
+                                                        }">
                                                         <div className="swiper-wrapper row cols-1 gutter-no">
                                                             <div className="swiper-slide">
                                                                 <figure className="product-image">
@@ -107,9 +228,9 @@ export default function MyAccountVendorDetails(callbackfn, thisArg){
                                                                                    accept=".jpg, .jpeg, .png"
                                                                                    name="file1" id="file1"
                                                                                    className="inputFile"
-                                                                                   onChange={(event) => console.log(setSelectedFile1(window.URL.createObjectURL(event.target.files[0])))}/>
+                                                                                   onChange={(e) => handleFileUploadFile1(e)}/>
                                                                             <label htmlFor="file1" style={{width:'800px', height:'490px'}}>
-                                                                                <img src={selectedFile1 } id="file1" data-zoom-image={selectedFile1}/>
+                                                                                <img src={selectedFile1} id="file1" data-zoom-image={selectedFile1}/>
                                                                             </label>
                                                                         </form>
                                                                     </div>
@@ -122,12 +243,8 @@ export default function MyAccountVendorDetails(callbackfn, thisArg){
                                                                                accept=".jpg, .jpeg, .png"
                                                                                name="file2" id="file2"
                                                                                className="inputFile"
-                                                                               onChange={(event) => setSelectedFile2(window.URL.createObjectURL(event.target.files[0]))}/>
+                                                                               onChange={(e) => handleFileUploadFile2(e)}/>
                                                                         <label htmlFor="file2" style={{width:"800px", height:"490px"}}>
-                                                                            <img
-                                                                                src="assets/images/products/video-banner-610x300.jpg"
-                                                                                alt="banner" width="610" height="300"
-                                                                                style={{backgroundColor: '#bebebe'}}/>
                                                                             <img src={selectedFile2}  data-zoom-image={selectedFile2}/>
                                                                         </label>
                                                                     </form>
@@ -140,7 +257,7 @@ export default function MyAccountVendorDetails(callbackfn, thisArg){
                                                                                    accept=".jpg, .jpeg, .png"
                                                                                    name="file4" id="file4"
                                                                                    className="inputFile"
-                                                                                   onChange={(event) => setSelectedFile3(window.URL.createObjectURL(event.target.files[0]))}/>
+                                                                                   onChange={(e) => handleFileUploadFile3(e)}/>
                                                                             <label htmlFor="file4" style={{width:"800px", height:"490px"}}>
                                                                                 <img src={selectedFile3}  data-zoom-image={selectedFile3}/>
                                                                             </label>
@@ -154,7 +271,7 @@ export default function MyAccountVendorDetails(callbackfn, thisArg){
                                                                                accept=".jpg, .jpeg, .png"
                                                                                name="file3" id="file3"
                                                                                className="inputFile"
-                                                                               onChange={(event) => setSelectedFile4(window.URL.createObjectURL(event.target.files[0]))}/>
+                                                                               onChange={(e) => handleFileUploadFile4(e)}/>
                                                                         <label htmlFor="file3" style={{width:"800px", height:"490px"}}>
                                                                             <img src={selectedFile4}  data-zoom-image={selectedFile4}/>
                                                                         </label>
@@ -169,24 +286,24 @@ export default function MyAccountVendorDetails(callbackfn, thisArg){
                                                     </div>
                                                     <div className="product-thumbs-wrap swiper-container"
                                                          data-swiper-options="{
-                                            'navigation': {
-                                                'nextEl': '.swiper-button-next',
-                                                'prevEl': '.swiper-button-prev'
-                                            }
-                                        }">
+                                                            'navigation': {
+                                                                'nextEl': '.swiper-button-next',
+                                                                'prevEl': '.swiper-button-prev'
+                                                            }
+                                                        }">
                                                         <div className="product-thumbs swiper-wrapper row cols-4 gutter-sm">
                                                             <div className="product-thumb swiper-slide">
-                                                                <figure className="product-image" style={{backgroundColor: '#989494', width:"100px", height:"100px"}}>
+                                                                <figure className="product-image" style={{backgroundColor: '#f5f5f5', width:"100px", height:"100px"}}>
                                                                    <img src={selectedFile1}   data-zoom-image={selectedFile1}/>
                                                                 </figure>
                                                             </div>
-                                                            <div className="product-thumb swiper-slide" style={{backgroundColor: '#989494', width:"100px", height:"100px"}}>
+                                                            <div className="product-thumb swiper-slide" style={{backgroundColor: '#f5f5f5', width:"100px", height:"100px"}}>
                                                                 <img src={selectedFile2}  data-zoom-image={selectedFile2}/>
                                                             </div>
-                                                            <div className="product-thumb swiper-slide" style={{backgroundColor: '#989494'}}>
+                                                            <div className="product-thumb swiper-slide" style={{backgroundColor: '#f5f5f5'}}>
                                                                 <img src={selectedFile3}  data-zoom-image={selectedFile3}/>
                                                             </div>
-                                                            <div className="product-thumb swiper-slide" style={{backgroundColor: '#989494'}}>
+                                                            <div className="product-thumb swiper-slide" style={{backgroundColor: '#f5f5f5'}}>
                                                                 <img src={selectedFile4}  data-zoom-image={selectedFile4}/>
                                                             </div>
                                                         </div>
@@ -199,7 +316,8 @@ export default function MyAccountVendorDetails(callbackfn, thisArg){
                                                 <div className="product-details" data-sticky-options="{'minWidth': 767}">
                                                     <div className="form-group mb-3">
                                                         <input type="text" id="display-name"
-                                                               placeholder="Shop name"
+                                                               placeholder="Məhsulun adı"
+                                                               onChange={e=>setProductName(e.target.value)}
                                                                className="form-control form-control-md mb-0"/>
                                                     </div>
                                                     <div className="form-group mb-3">
@@ -217,7 +335,12 @@ export default function MyAccountVendorDetails(callbackfn, thisArg){
                                                         <ins className="new-price">
                                                             <div className="product-short-desc">
                                                                 <ul className="list-type-check-new-price list-style-none">
-                                                                    <li><input type="text" id="email_1" name="email_1" className="form-control form-control-md"/></li>
+                                                                    <li><input
+                                                                        type="text"
+                                                                        id="email_1"
+                                                                        name="email_1"
+                                                                        onChange={e=>setPrice(e.target.value)}
+                                                                        className="form-control form-control-md"/></li>
                                                                 </ul>
                                                             </div>
                                                         </ins>
@@ -226,15 +349,15 @@ export default function MyAccountVendorDetails(callbackfn, thisArg){
 
                                                     <div className="product-short-desc">
                                                         <ul className="list-type-check list-style-none">
-                                                            <li><input type="text" id="email_1" name="email_1" className="form-control form-control-md"/></li>
+                                                            <li><input type="text" onChange={e=>setShortDesc1(e.target.value)} id="email_1" name="email_1" className="form-control form-control-md"/></li>
                                                             <br/>
-                                                            <li><input type="text" id="email_1" name="email_1" className="form-control form-control-md"/></li>
+                                                            <li><input type="text" onChange={e=>setShortDesc2(e.target.value)} id="email_1" name="email_1" className="form-control form-control-md"/></li>
                                                             <br/>
-                                                            <li><input type="text" id="email_1" name="email_1" className="form-control form-control-md"/></li>
+                                                            <li><input type="text" onChange={e=>setShortDesc3(e.target.value)} id="email_1" name="email_1" className="form-control form-control-md"/></li>
                                                         </ul>
                                                     </div>
 
-                                                    <textarea className="form-control form-control-md mb-4" placeholder="Description"
+                                                    <textarea onChange={e=>setDescription(e.target.value)} className="form-control form-control-md mb-4" placeholder="Təsvir"
                                                               name="w3review" rows="4" cols="50">
                                                     </textarea>
                                                     <div>
@@ -245,40 +368,24 @@ export default function MyAccountVendorDetails(callbackfn, thisArg){
                                                                 </div>
                                                                 <div className="form-group col-md-9 mb-3">
                                                                     <input type="text" id="email_1" name="email_1"
+                                                                           onChange={m=>setFormGroup({"the_filter": e.id, "value": m.target.value})}
                                                                            className="form-control form-control-md"/>
                                                                 </div>
                                                             </div>
                                                         ))}
-
-                                                        {/*<div className="form-group col-md-3 mb-8 pt-2">*/}
-                                                        {/*    <label htmlFor="display-name" style={{fontSize:"15px",paddingTop:'34px',textAlign:"center"}}>Color</label>*/}
-                                                        {/*</div>*/}
-                                                        {/*<div className="form-group col-md-9 mb-3">*/}
-                                                        {/*    <input type="text" id="email_1" name="email_1"*/}
-                                                        {/*           className="form-control form-control-md"/>*/}
-                                                        {/*</div>*/}
-                                                        {/*<div className="form-group col-md-3 mb-8 pt-2">*/}
-                                                        {/*    <label htmlFor="display-name" style={{fontSize:"15px",paddingTop:'34px',textAlign:"center"}}>Size</label>*/}
-                                                        {/*</div>*/}
-                                                        {/*<div className="form-group col-md-9 mb-3">*/}
-                                                        {/*    <input type="text" id="email_1" name="email_1"*/}
-                                                        {/*           className="form-control form-control-md"/>*/}
-                                                        {/*</div>*/}
                                                     </div>
 
                                                     <div className="row mb-4 mt-3">
                                                         <div className="col-md-6">
-                                                            {/*<h4> Vido Əlavə Et</h4>*/}
                                                             <figure className="product-image">
                                                                 <div>
                                                                     <form>
                                                                         <input type="file"
-                                                                               accept=".jpg, .jpeg, .png"
-                                                                               name="file09" id="file09"
                                                                                className="inputFile"
-                                                                               onChange={(event) => setSelectedFile5(window.URL.createObjectURL(event.target.files[0]))}/>
+                                                                               name="file09" id="file09"
+                                                                               onChange={handleVideoUpload} />
                                                                         <label htmlFor="file09" style={{width:"200px", height:"100px"}}>
-                                                                            <img src={selectedFile5}  data-zoom-image={selectedFile5}/>
+                                                                            <ReactPlayer url={videoFilePathEEE} width="100%" height="100%" controls />
                                                                         </label>
                                                                     </form>
                                                                 </div>
@@ -299,9 +406,9 @@ export default function MyAccountVendorDetails(callbackfn, thisArg){
                                                     <div
                                                         className="fix-bottom product-sticky-content sticky-content">
                                                         <div className="product-form container">
-                                                            <button className="btn btn-primary btn-cart">
+                                                            <button className="btn btn-primary btn-cart" onClick={handleAddInput}>
                                                                 <i className="w-icon-cart"></i>
-                                                                <span>Add to Shop</span>
+                                                                <span>Məhsul elavə et</span>
                                                             </button>
                                                         </div>
                                                     </div>

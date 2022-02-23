@@ -7,7 +7,6 @@ const [selectedFile2, setSelectedFile2] = useState(null);
     return (
         <div>
             <style jsx>{`
-           
                 .span-link:hover {
                    color: #1914fe !important;
                    cursor: pointer;
@@ -22,7 +21,7 @@ const [selectedFile2, setSelectedFile2] = useState(null);
               }
 
               .inputFile + label {
-                background-color: #989494;
+                background-color: #f5f5f5;
                 display: inline-block;
               }
             `}
@@ -32,14 +31,14 @@ const [selectedFile2, setSelectedFile2] = useState(null);
                     <main className="main">
                         <div className="page-header">
                             <div className="container">
-                                <h1 className="page-title mb-0">My Account For Vendor</h1>
+                                <h1 className="page-title mb-0">Satıcı üçün Hesab</h1>
                             </div>
                         </div>
                         <nav className="breadcrumb-nav">
                             <div className="container">
                                 <ul className="breadcrumb">
-                                    <li><a href="/home">Home</a></li>
-                                    <li>My account For Vendor</li>
+                                    <li><a href="/home">Ana Səhifə</a></li>
+                                    <li>Satıcı üçün hesab</li>
                                 </ul>
                             </div>
                         </nav>
@@ -77,24 +76,16 @@ const [selectedFile2, setSelectedFile2] = useState(null);
                                     <div className="tab-content mb-6">
                                         <div className="tab-pane active in" id="account-dashboard">
                                             <p className="greeting">
-                                                Hello
+                                                Salam
                                                 <span className="text-dark font-weight-bold">John Doe</span>
-                                                (not
+                                                (
                                                 <span className="text-dark font-weight-bold">John Doe</span>?
-                                                <a href="#" className="text-primary">Log out</a>)
+                                                <a href="#" className="text-primary">ÇIXIŞ</a>)
                                             </p>
 
                                             <p className="mb-4">
-                                                From your account dashboard you can view your <a href="#account-orders"
-                                                                                                 className="text-primary link-to-tab">recent
-                                                orders</a>,
-                                                manage your <a href="#account-addresses"
-                                                               className="text-primary link-to-tab">shipping
-                                                and billing
-                                                addresses</a>, and
-                                                <a href="#account-details" className="text-primary link-to-tab">edit
-                                                    your password and
-                                                    account details.</a>
+                                                Hesabınızın idarə panelindən <a href="#account-orders" className="text-primary link-to-tab">son sifarişlərinizə</a>  baxa, göndərmə və faktura ünvanlarınızı idarə edə,  <a href="#account-details" className="text-primary link-to-tab">Şifrə və hesab məlumatlarınızı </a> redaktə edə bilərsiniz.
+
                                             </p>
 
                                             <div className="row">
@@ -242,91 +233,91 @@ const [selectedFile2, setSelectedFile2] = useState(null);
                                                 Shop<i className="w-icon-long-arrow-right"></i></a>
                                         </div>
                                         <div className="tab-pane mb-4" id="account-orders2">
-                                            <table className="shop-table account-orders-table mb-6">
-                                                <thead>
-                                                <tr>
-                                                        <th className="order-id">N</th>
-                                                    <th className="order-date">Tarix</th>
-                                                    <th className="order-status">Məhsulun kodu</th>
-                                                    <th className="order-total">Məhsulun adı</th>
-                                                    <th className="order-actions">Sub-sub kateqoriyası</th>
-                                                </tr>
-                                                </thead>
-                                                <tbody>
-                                                <tr>
-                                                    <td className="order-id">#2321</td>
-                                                    <td className="order-date">August 20, 2021</td>
-                                                    <td className="order-status">Processing</td>
-                                                    <td className="order-status">Processing</td>
-                                                    <td className="order-total">
-                                                        <span className="order-price">$121.00</span> for
-                                                        <span className="order-quantity"> 1</span> item
-                                                    </td>
-                                                    <td className="order-action">
-                                                        <a href="#"
-                                                           className="btn btn-outline btn-default btn-block btn-sm btn-rounded">Dəyiş</a>
-                                                    </td>
-                                                    <td className="order-action">
-                                                        <a href="#"
-                                                           className="btn btn-outline btn-default btn-block btn-sm btn-rounded redColor" >Sil</a>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td className="order-id">#2321</td>
-                                                    <td className="order-date">August 20, 2021</td>
-                                                    <td className="order-status">Processing</td>
-                                                    <td className="order-status">Processing</td>
-                                                    <td className="order-total">
-                                                        <span className="order-price">$121.00</span> for
-                                                        <span className="order-quantity"> 1</span> item
-                                                    </td>
-                                                    <td className="order-action">
-                                                        <a href="#"
-                                                           className="btn btn-outline btn-default btn-block btn-sm btn-rounded">Dəyiş</a>
-                                                    </td>
-                                                    <td className="order-action">
-                                                        <a href="#"
-                                                           className="btn btn-outline btn-default btn-block btn-sm btn-rounded redColor" >Sil</a>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td className="order-id">#2321</td>
-                                                    <td className="order-date">August 20, 2021</td>
-                                                    <td className="order-status">Processing</td>
-                                                    <td className="order-status">Processing</td>
-                                                    <td className="order-total">
-                                                        <span className="order-price">$121.00</span> for
-                                                        <span className="order-quantity"> 1</span> item
-                                                    </td>
-                                                    <td className="order-action">
-                                                        <a href="#"
-                                                           className="btn btn-outline btn-default btn-block btn-sm btn-rounded">Dəyiş</a>
-                                                    </td>
-                                                    <td className="order-action">
-                                                        <a href="#"
-                                                           className="btn btn-outline btn-default btn-block btn-sm btn-rounded redColor " >Sil</a>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td className="order-id">#2321</td>
-                                                    <td className="order-date">August 20, 2021</td>
-                                                    <td className="order-status">Processing</td>
-                                                    <td className="order-status">Processing</td>
-                                                    <td className="order-total">
-                                                        <span className="order-price">$121.00</span> for
-                                                        <span className="order-quantity"> 1</span> item
-                                                    </td>
-                                                    <td className="order-action">
-                                                        <a href="#"
-                                                           className="btn btn-outline btn-default btn-block btn-sm btn-rounded">Dəyiş</a>
-                                                    </td>
-                                                    <td className="order-action">
-                                                        <a href="#"
-                                                           className="btn btn-outline btn-default btn-block btn-sm btn-rounded redColor" >Sil</a>
-                                                    </td>
-                                                </tr>
-                                                </tbody>
-                                            </table>
+                                            {/*<table className="shop-table account-orders-table mb-6">*/}
+                                            {/*    <thead>*/}
+                                            {/*    <tr>*/}
+                                            {/*            <th className="order-id">N</th>*/}
+                                            {/*        <th className="order-date">Tarix</th>*/}
+                                            {/*        <th className="order-status">Məhsulun kodu</th>*/}
+                                            {/*        <th className="order-total">Məhsulun adı</th>*/}
+                                            {/*        <th className="order-actions">Sub-sub kateqoriyası</th>*/}
+                                            {/*    </tr>*/}
+                                            {/*    </thead>*/}
+                                            {/*    <tbody>*/}
+                                            {/*    <tr>*/}
+                                            {/*        <td className="order-id">#2321</td>*/}
+                                            {/*        <td className="order-date">August 20, 2021</td>*/}
+                                            {/*        <td className="order-status">Processing</td>*/}
+                                            {/*        <td className="order-status">Processing</td>*/}
+                                            {/*        <td className="order-total">*/}
+                                            {/*            <span className="order-price">$121.00</span> for*/}
+                                            {/*            <span className="order-quantity"> 1</span> item*/}
+                                            {/*        </td>*/}
+                                            {/*        <td className="order-action">*/}
+                                            {/*            <a href="#"*/}
+                                            {/*               className="btn btn-outline btn-default btn-block btn-sm btn-rounded">Dəyiş</a>*/}
+                                            {/*        </td>*/}
+                                            {/*        <td className="order-action">*/}
+                                            {/*            <a href="#"*/}
+                                            {/*               className="btn btn-outline btn-default btn-block btn-sm btn-rounded redColor" >Sil</a>*/}
+                                            {/*        </td>*/}
+                                            {/*    </tr>*/}
+                                            {/*    <tr>*/}
+                                            {/*        <td className="order-id">#2321</td>*/}
+                                            {/*        <td className="order-date">August 20, 2021</td>*/}
+                                            {/*        <td className="order-status">Processing</td>*/}
+                                            {/*        <td className="order-status">Processing</td>*/}
+                                            {/*        <td className="order-total">*/}
+                                            {/*            <span className="order-price">$121.00</span> for*/}
+                                            {/*            <span className="order-quantity"> 1</span> item*/}
+                                            {/*        </td>*/}
+                                            {/*        <td className="order-action">*/}
+                                            {/*            <a href="#"*/}
+                                            {/*               className="btn btn-outline btn-default btn-block btn-sm btn-rounded">Dəyiş</a>*/}
+                                            {/*        </td>*/}
+                                            {/*        <td className="order-action">*/}
+                                            {/*            <a href="#"*/}
+                                            {/*               className="btn btn-outline btn-default btn-block btn-sm btn-rounded redColor" >Sil</a>*/}
+                                            {/*        </td>*/}
+                                            {/*    </tr>*/}
+                                            {/*    <tr>*/}
+                                            {/*        <td className="order-id">#2321</td>*/}
+                                            {/*        <td className="order-date">August 20, 2021</td>*/}
+                                            {/*        <td className="order-status">Processing</td>*/}
+                                            {/*        <td className="order-status">Processing</td>*/}
+                                            {/*        <td className="order-total">*/}
+                                            {/*            <span className="order-price">$121.00</span> for*/}
+                                            {/*            <span className="order-quantity"> 1</span> item*/}
+                                            {/*        </td>*/}
+                                            {/*        <td className="order-action">*/}
+                                            {/*            <a href="#"*/}
+                                            {/*               className="btn btn-outline btn-default btn-block btn-sm btn-rounded">Dəyiş</a>*/}
+                                            {/*        </td>*/}
+                                            {/*        <td className="order-action">*/}
+                                            {/*            <a href="#"*/}
+                                            {/*               className="btn btn-outline btn-default btn-block btn-sm btn-rounded redColor " >Sil</a>*/}
+                                            {/*        </td>*/}
+                                            {/*    </tr>*/}
+                                            {/*    <tr>*/}
+                                            {/*        <td className="order-id">#2321</td>*/}
+                                            {/*        <td className="order-date">August 20, 2021</td>*/}
+                                            {/*        <td className="order-status">Processing</td>*/}
+                                            {/*        <td className="order-status">Processing</td>*/}
+                                            {/*        <td className="order-total">*/}
+                                            {/*            <span className="order-price">$121.00</span> for*/}
+                                            {/*            <span className="order-quantity"> 1</span> item*/}
+                                            {/*        </td>*/}
+                                            {/*        <td className="order-action">*/}
+                                            {/*            <a href="#"*/}
+                                            {/*               className="btn btn-outline btn-default btn-block btn-sm btn-rounded">Dəyiş</a>*/}
+                                            {/*        </td>*/}
+                                            {/*        <td className="order-action">*/}
+                                            {/*            <a href="#"*/}
+                                            {/*               className="btn btn-outline btn-default btn-block btn-sm btn-rounded redColor" >Sil</a>*/}
+                                            {/*        </td>*/}
+                                            {/*    </tr>*/}
+                                            {/*    </tbody>*/}
+                                            {/*</table>*/}
 
                                         </div>
 
@@ -336,213 +327,212 @@ const [selectedFile2, setSelectedFile2] = useState(null);
 
                                         <div className="tab-pane" id="account-details">
                                             <form className="form account-details-form" action="#" method="post">
-                                                <div className="row">
-                                                    <div className="col-md-6">
-                                                        <div className="form-group">
+                                               <div className="row " style={{margin:"1px"}}>
+                                                    <div className="col-md-6 mt-2">
+                                                        <div className="form-group" style={{backgroundColor:"#f5f5f5", borderRadius:"2rem", padding:"7px"}}>
                                                             <label htmlFor="firstname">Mağaza adı</label>
                                                             <input type="text" id="firstname" name="firstname"
                                                                    className="form-control form-control-md"/>
                                                         </div>
                                                     </div>
-                                                    <div className="col-md-6">
-                                                        <label htmlFor="display-name">Əlaqə nömrəsı</label>
-                                                        <div>
-                                                            <div className="form-group">
+                                                    <div className="col-md-6 mt-2">
+                                                            <div className="form-group" style={{backgroundColor:"#f5f5f5", borderRadius:"2rem", padding:"7px"}}>
+                                                                <label htmlFor="display-name">Əlaqə nömrəsı</label>
                                                                 <input type="tel" id="display-name" name="display_name"
-                                                                       className="form-control form-control-md mb-0"/>
+                                                                       className="form-control form-control-md"/>
                                                             </div>
-                                                        </div>
                                                     </div>
                                                 </div>
-                                                <div className="row mt-2 mb-2">
-                                                    <label htmlFor="display-name">Ünvan</label>
-                                                    <div className="col-md-2">
-                                                        <div className="form-group">
-                                                            <label htmlFor="display-name">Şəhər</label>
-                                                            <select className="form-control form-control-md mb-0">
-                                                                <option value="Afghanistan">Afghanistan</option>
-                                                                <option value="Åland Islands">Åland Islands</option>
-                                                                <option value="Albania">Albania</option>
-                                                                <option value="Algeria">Algeria</option>
-                                                                <option value="American Samoa">American Samoa</option>
-                                                                <option value="Andorra">Andorra</option>
-                                                                <option value="Angola">Angola</option>
-                                                                <option value="Anguilla">Anguilla</option>
-                                                                <option value="Antarctica">Antarctica</option>
-                                                                <option value="Antigua and Barbuda">Antigua and Barbuda</option>
-                                                                <option value="Argentina">Argentina</option>
-                                                                <option value="Armenia">Armenia</option>
-                                                                <option value="Aruba">Aruba</option>
-                                                                <option value="Australia">Australia</option>
-                                                                <option value="Austria">Austria</option>
-                                                                <option value="Azerbaijan">Azerbaijan</option>
-                                                                <option value="Bahamas">Bahamas</option>
-                                                                <option value="Bahrain">Bahrain</option>
-                                                                <option value="Bangladesh">Bangladesh</option>
-                                                                <option value="Barbados">Barbados</option>
-                                                                <option value="Belarus">Belarus</option>
-                                                                <option value="Belgium">Belgium</option>
-                                                                <option value="Belize">Belize</option>
-                                                                <option value="Benin">Benin</option>
-                                                                <option value="Bermuda">Bermuda</option>
-                                                                <option value="Bhutan">Bhutan</option>
-                                                                <option value="Bolivia">Bolivia</option>
-                                                                <option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
-                                                                <option value="Botswana">Botswana</option>
-                                                                <option value="Bouvet Island">Bouvet Island</option>
-                                                                <option value="Brazil">Brazil</option>
-                                                                <option value="British Indian Ocean Territory">British Indian Ocean Territory</option>
-                                                                <option value="Brunei Darussalam">Brunei Darussalam</option>
-                                                                <option value="Bulgaria">Bulgaria</option>
-                                                                <option value="Burkina Faso">Burkina Faso</option>
-                                                                <option value="Burundi">Burundi</option>
-                                                                <option value="Cambodia">Cambodia</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <div className="col-md-2">
-                                                        <div className="form-group">
-                                                            <label htmlFor="display-name">Rayon</label>
-                                                            <select className="form-control form-control-md mb-0">
-                                                                <option value="Afghanistan">Afghanistan</option>
-                                                                <option value="Åland Islands">Åland Islands</option>
-                                                                <option value="Albania">Albania</option>
-                                                                <option value="Algeria">Algeria</option>
-                                                                <option value="American Samoa">American Samoa</option>
-                                                                <option value="Andorra">Andorra</option>
-                                                                <option value="Angola">Angola</option>
-                                                                <option value="Anguilla">Anguilla</option>
-                                                                <option value="Antarctica">Antarctica</option>
-                                                                <option value="Antigua and Barbuda">Antigua and Barbuda</option>
-                                                                <option value="Argentina">Argentina</option>
-                                                                <option value="Armenia">Armenia</option>
-                                                                <option value="Aruba">Aruba</option>
-                                                                <option value="Australia">Australia</option>
-                                                                <option value="Austria">Austria</option>
-                                                                <option value="Azerbaijan">Azerbaijan</option>
-                                                                <option value="Bahamas">Bahamas</option>
-                                                                <option value="Bahrain">Bahrain</option>
-                                                                <option value="Bangladesh">Bangladesh</option>
-                                                                <option value="Barbados">Barbados</option>
-                                                                <option value="Belarus">Belarus</option>
-                                                                <option value="Belgium">Belgium</option>
-                                                                <option value="Belize">Belize</option>
-                                                                <option value="Benin">Benin</option>
-                                                                <option value="Bermuda">Bermuda</option>
-                                                                <option value="Bhutan">Bhutan</option>
-                                                                <option value="Bolivia">Bolivia</option>
-                                                                <option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
-                                                                <option value="Botswana">Botswana</option>
-                                                                <option value="Bouvet Island">Bouvet Island</option>
-                                                                <option value="Brazil">Brazil</option>
-                                                                <option value="British Indian Ocean Territory">British Indian Ocean Territory</option>
-                                                                <option value="Brunei Darussalam">Brunei Darussalam</option>
-                                                                <option value="Bulgaria">Bulgaria</option>
-                                                                <option value="Burkina Faso">Burkina Faso</option>
-                                                                <option value="Burundi">Burundi</option>
-                                                                <option value="Cambodia">Cambodia</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <div className="col-md-2">
-                                                        <div className="form-group">
-                                                            <label htmlFor="display-name">Qəsəbə</label>
-                                                            <select className="form-control form-control-md mb-0">
-                                                                <option value="Afghanistan">Afghanistan</option>
-                                                                <option value="Åland Islands">Åland Islands</option>
-                                                                <option value="Albania">Albania</option>
-                                                                <option value="Algeria">Algeria</option>
-                                                                <option value="American Samoa">American Samoa</option>
-                                                                <option value="Andorra">Andorra</option>
-                                                                <option value="Angola">Angola</option>
-                                                                <option value="Anguilla">Anguilla</option>
-                                                                <option value="Antarctica">Antarctica</option>
-                                                                <option value="Antigua and Barbuda">Antigua and Barbuda</option>
-                                                                <option value="Argentina">Argentina</option>
-                                                                <option value="Armenia">Armenia</option>
-                                                                <option value="Aruba">Aruba</option>
-                                                                <option value="Australia">Australia</option>
-                                                                <option value="Austria">Austria</option>
-                                                                <option value="Azerbaijan">Azerbaijan</option>
-                                                                <option value="Bahamas">Bahamas</option>
-                                                                <option value="Bahrain">Bahrain</option>
-                                                                <option value="Bangladesh">Bangladesh</option>
-                                                                <option value="Barbados">Barbados</option>
-                                                                <option value="Belarus">Belarus</option>
-                                                                <option value="Belgium">Belgium</option>
-                                                                <option value="Belize">Belize</option>
-                                                                <option value="Benin">Benin</option>
-                                                                <option value="Bermuda">Bermuda</option>
-                                                                <option value="Bhutan">Bhutan</option>
-                                                                <option value="Bolivia">Bolivia</option>
-                                                                <option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
-                                                                <option value="Botswana">Botswana</option>
-                                                                <option value="Bouvet Island">Bouvet Island</option>
-                                                                <option value="Brazil">Brazil</option>
-                                                                <option value="British Indian Ocean Territory">British Indian Ocean Territory</option>
-                                                                <option value="Brunei Darussalam">Brunei Darussalam</option>
-                                                                <option value="Bulgaria">Bulgaria</option>
-                                                                <option value="Burkina Faso">Burkina Faso</option>
-                                                                <option value="Burundi">Burundi</option>
-                                                                <option value="Cambodia">Cambodia</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <div className="col-md-2">
-                                                        <div className="form-group">
-                                                            <label htmlFor="display-name">Küçə</label>
-                                                            <select className="form-control form-control-md mb-0">
-                                                                <option value="Afghanistan">Afghanistan</option>
-                                                                <option value="Åland Islands">Åland Islands</option>
-                                                                <option value="Albania">Albania</option>
-                                                                <option value="Algeria">Algeria</option>
-                                                                <option value="American Samoa">American Samoa</option>
-                                                                <option value="Andorra">Andorra</option>
-                                                                <option value="Angola">Angola</option>
-                                                                <option value="Anguilla">Anguilla</option>
-                                                                <option value="Antarctica">Antarctica</option>
-                                                                <option value="Antigua and Barbuda">Antigua and Barbuda</option>
-                                                                <option value="Argentina">Argentina</option>
-                                                                <option value="Armenia">Armenia</option>
-                                                                <option value="Aruba">Aruba</option>
-                                                                <option value="Australia">Australia</option>
-                                                                <option value="Austria">Austria</option>
-                                                                <option value="Azerbaijan">Azerbaijan</option>
-                                                                <option value="Bahamas">Bahamas</option>
-                                                                <option value="Bahrain">Bahrain</option>
-                                                                <option value="Bangladesh">Bangladesh</option>
-                                                                <option value="Barbados">Barbados</option>
-                                                                <option value="Belarus">Belarus</option>
-                                                                <option value="Belgium">Belgium</option>
-                                                                <option value="Belize">Belize</option>
-                                                                <option value="Benin">Benin</option>
-                                                                <option value="Bermuda">Bermuda</option>
-                                                                <option value="Bhutan">Bhutan</option>
-                                                                <option value="Bolivia">Bolivia</option>
-                                                                <option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
-                                                                <option value="Botswana">Botswana</option>
-                                                                <option value="Bouvet Island">Bouvet Island</option>
-                                                                <option value="Brazil">Brazil</option>
-                                                                <option value="British Indian Ocean Territory">British Indian Ocean Territory</option>
-                                                                <option value="Brunei Darussalam">Brunei Darussalam</option>
-                                                                <option value="Bulgaria">Bulgaria</option>
-                                                                <option value="Burkina Faso">Burkina Faso</option>
-                                                                <option value="Burundi">Burundi</option>
-                                                                <option value="Cambodia">Cambodia</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <div className="col-md-4">
-                                                        <label htmlFor="display-name">Digəri</label>
-                                                        <div>
+                                                <div className="row mt-4 mb-5 ml-2 mr-2 pb-3" style={{backgroundColor:"#f5f5f5", borderRadius:"2rem", padding:"7px",margin:"5px"}}>
+                                                        <label htmlFor="display-name">Ünvan</label>
+                                                        <div className="col-md-2">
                                                             <div className="form-group">
-                                                                <input type="text" id="display-name" name="display_name"
-                                                                       className="form-control form-control-md mb-0"/>
+                                                                <label htmlFor="display-name">Şəhər</label>
+                                                                <select className="form-control form-control-md mb-0">
+                                                                    <option value="Afghanistan">Afghanistan</option>
+                                                                    <option value="Åland Islands">Åland Islands</option>
+                                                                    <option value="Albania">Albania</option>
+                                                                    <option value="Algeria">Algeria</option>
+                                                                    <option value="American Samoa">American Samoa</option>
+                                                                    <option value="Andorra">Andorra</option>
+                                                                    <option value="Angola">Angola</option>
+                                                                    <option value="Anguilla">Anguilla</option>
+                                                                    <option value="Antarctica">Antarctica</option>
+                                                                    <option value="Antigua and Barbuda">Antigua and Barbuda</option>
+                                                                    <option value="Argentina">Argentina</option>
+                                                                    <option value="Armenia">Armenia</option>
+                                                                    <option value="Aruba">Aruba</option>
+                                                                    <option value="Australia">Australia</option>
+                                                                    <option value="Austria">Austria</option>
+                                                                    <option value="Azerbaijan">Azerbaijan</option>
+                                                                    <option value="Bahamas">Bahamas</option>
+                                                                    <option value="Bahrain">Bahrain</option>
+                                                                    <option value="Bangladesh">Bangladesh</option>
+                                                                    <option value="Barbados">Barbados</option>
+                                                                    <option value="Belarus">Belarus</option>
+                                                                    <option value="Belgium">Belgium</option>
+                                                                    <option value="Belize">Belize</option>
+                                                                    <option value="Benin">Benin</option>
+                                                                    <option value="Bermuda">Bermuda</option>
+                                                                    <option value="Bhutan">Bhutan</option>
+                                                                    <option value="Bolivia">Bolivia</option>
+                                                                    <option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
+                                                                    <option value="Botswana">Botswana</option>
+                                                                    <option value="Bouvet Island">Bouvet Island</option>
+                                                                    <option value="Brazil">Brazil</option>
+                                                                    <option value="British Indian Ocean Territory">British Indian Ocean Territory</option>
+                                                                    <option value="Brunei Darussalam">Brunei Darussalam</option>
+                                                                    <option value="Bulgaria">Bulgaria</option>
+                                                                    <option value="Burkina Faso">Burkina Faso</option>
+                                                                    <option value="Burundi">Burundi</option>
+                                                                    <option value="Cambodia">Cambodia</option>
+                                                                </select>
                                                             </div>
                                                         </div>
-                                                    </div>
+                                                        <div className="col-md-2">
+                                                            <div className="form-group">
+                                                                <label htmlFor="display-name">Rayon</label>
+                                                                <select className="form-control form-control-md mb-0">
+                                                                    <option value="Afghanistan">Afghanistan</option>
+                                                                    <option value="Åland Islands">Åland Islands</option>
+                                                                    <option value="Albania">Albania</option>
+                                                                    <option value="Algeria">Algeria</option>
+                                                                    <option value="American Samoa">American Samoa</option>
+                                                                    <option value="Andorra">Andorra</option>
+                                                                    <option value="Angola">Angola</option>
+                                                                    <option value="Anguilla">Anguilla</option>
+                                                                    <option value="Antarctica">Antarctica</option>
+                                                                    <option value="Antigua and Barbuda">Antigua and Barbuda</option>
+                                                                    <option value="Argentina">Argentina</option>
+                                                                    <option value="Armenia">Armenia</option>
+                                                                    <option value="Aruba">Aruba</option>
+                                                                    <option value="Australia">Australia</option>
+                                                                    <option value="Austria">Austria</option>
+                                                                    <option value="Azerbaijan">Azerbaijan</option>
+                                                                    <option value="Bahamas">Bahamas</option>
+                                                                    <option value="Bahrain">Bahrain</option>
+                                                                    <option value="Bangladesh">Bangladesh</option>
+                                                                    <option value="Barbados">Barbados</option>
+                                                                    <option value="Belarus">Belarus</option>
+                                                                    <option value="Belgium">Belgium</option>
+                                                                    <option value="Belize">Belize</option>
+                                                                    <option value="Benin">Benin</option>
+                                                                    <option value="Bermuda">Bermuda</option>
+                                                                    <option value="Bhutan">Bhutan</option>
+                                                                    <option value="Bolivia">Bolivia</option>
+                                                                    <option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
+                                                                    <option value="Botswana">Botswana</option>
+                                                                    <option value="Bouvet Island">Bouvet Island</option>
+                                                                    <option value="Brazil">Brazil</option>
+                                                                    <option value="British Indian Ocean Territory">British Indian Ocean Territory</option>
+                                                                    <option value="Brunei Darussalam">Brunei Darussalam</option>
+                                                                    <option value="Bulgaria">Bulgaria</option>
+                                                                    <option value="Burkina Faso">Burkina Faso</option>
+                                                                    <option value="Burundi">Burundi</option>
+                                                                    <option value="Cambodia">Cambodia</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div className="col-md-2">
+                                                            <div className="form-group">
+                                                                <label htmlFor="display-name">Qəsəbə</label>
+                                                                <select className="form-control form-control-md mb-0">
+                                                                    <option value="Afghanistan">Afghanistan</option>
+                                                                    <option value="Åland Islands">Åland Islands</option>
+                                                                    <option value="Albania">Albania</option>
+                                                                    <option value="Algeria">Algeria</option>
+                                                                    <option value="American Samoa">American Samoa</option>
+                                                                    <option value="Andorra">Andorra</option>
+                                                                    <option value="Angola">Angola</option>
+                                                                    <option value="Anguilla">Anguilla</option>
+                                                                    <option value="Antarctica">Antarctica</option>
+                                                                    <option value="Antigua and Barbuda">Antigua and Barbuda</option>
+                                                                    <option value="Argentina">Argentina</option>
+                                                                    <option value="Armenia">Armenia</option>
+                                                                    <option value="Aruba">Aruba</option>
+                                                                    <option value="Australia">Australia</option>
+                                                                    <option value="Austria">Austria</option>
+                                                                    <option value="Azerbaijan">Azerbaijan</option>
+                                                                    <option value="Bahamas">Bahamas</option>
+                                                                    <option value="Bahrain">Bahrain</option>
+                                                                    <option value="Bangladesh">Bangladesh</option>
+                                                                    <option value="Barbados">Barbados</option>
+                                                                    <option value="Belarus">Belarus</option>
+                                                                    <option value="Belgium">Belgium</option>
+                                                                    <option value="Belize">Belize</option>
+                                                                    <option value="Benin">Benin</option>
+                                                                    <option value="Bermuda">Bermuda</option>
+                                                                    <option value="Bhutan">Bhutan</option>
+                                                                    <option value="Bolivia">Bolivia</option>
+                                                                    <option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
+                                                                    <option value="Botswana">Botswana</option>
+                                                                    <option value="Bouvet Island">Bouvet Island</option>
+                                                                    <option value="Brazil">Brazil</option>
+                                                                    <option value="British Indian Ocean Territory">British Indian Ocean Territory</option>
+                                                                    <option value="Brunei Darussalam">Brunei Darussalam</option>
+                                                                    <option value="Bulgaria">Bulgaria</option>
+                                                                    <option value="Burkina Faso">Burkina Faso</option>
+                                                                    <option value="Burundi">Burundi</option>
+                                                                    <option value="Cambodia">Cambodia</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div className="col-md-2">
+                                                            <div className="form-group">
+                                                                <label htmlFor="display-name">Küçə</label>
+                                                                <select className="form-control form-control-md mb-0">
+                                                                    <option value="Afghanistan">Afghanistan</option>
+                                                                    <option value="Åland Islands">Åland Islands</option>
+                                                                    <option value="Albania">Albania</option>
+                                                                    <option value="Algeria">Algeria</option>
+                                                                    <option value="American Samoa">American Samoa</option>
+                                                                    <option value="Andorra">Andorra</option>
+                                                                    <option value="Angola">Angola</option>
+                                                                    <option value="Anguilla">Anguilla</option>
+                                                                    <option value="Antarctica">Antarctica</option>
+                                                                    <option value="Antigua and Barbuda">Antigua and Barbuda</option>
+                                                                    <option value="Argentina">Argentina</option>
+                                                                    <option value="Armenia">Armenia</option>
+                                                                    <option value="Aruba">Aruba</option>
+                                                                    <option value="Australia">Australia</option>
+                                                                    <option value="Austria">Austria</option>
+                                                                    <option value="Azerbaijan">Azerbaijan</option>
+                                                                    <option value="Bahamas">Bahamas</option>
+                                                                    <option value="Bahrain">Bahrain</option>
+                                                                    <option value="Bangladesh">Bangladesh</option>
+                                                                    <option value="Barbados">Barbados</option>
+                                                                    <option value="Belarus">Belarus</option>
+                                                                    <option value="Belgium">Belgium</option>
+                                                                    <option value="Belize">Belize</option>
+                                                                    <option value="Benin">Benin</option>
+                                                                    <option value="Bermuda">Bermuda</option>
+                                                                    <option value="Bhutan">Bhutan</option>
+                                                                    <option value="Bolivia">Bolivia</option>
+                                                                    <option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
+                                                                    <option value="Botswana">Botswana</option>
+                                                                    <option value="Bouvet Island">Bouvet Island</option>
+                                                                    <option value="Brazil">Brazil</option>
+                                                                    <option value="British Indian Ocean Territory">British Indian Ocean Territory</option>
+                                                                    <option value="Brunei Darussalam">Brunei Darussalam</option>
+                                                                    <option value="Bulgaria">Bulgaria</option>
+                                                                    <option value="Burkina Faso">Burkina Faso</option>
+                                                                    <option value="Burundi">Burundi</option>
+                                                                    <option value="Cambodia">Cambodia</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div className="col-md-4">
+                                                            <label htmlFor="display-name">Digəri</label>
+                                                            <div>
+                                                                <div className="form-group">
+                                                                    <input type="text" id="display-name" name="display_name"
+                                                                           className="form-control form-control-md mb-0"/>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
                                                 </div>
-                                                <div className="row mt-3 mb-3">
+                                                <div className="row mt-4 mb-5 ml-2 mr-2 pb-3" style={{backgroundColor:"#f5f5f5", borderRadius:"2rem", padding:"7px",margin:"5px"}}>
                                                     <label htmlFor="display-name">Kateqoriya</label>
                                                     <div className="col-md-3">
                                                         <div className="form-group">
@@ -677,15 +667,15 @@ const [selectedFile2, setSelectedFile2] = useState(null);
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div className="row mb-3">
+                                                <div className="row mt-4 mb-5 ml-2 mr-2 pb-3" style={{backgroundColor:"#f5f5f5", borderRadius:"2rem", padding:"7px",margin:"5px"}}>
                                                     <label htmlFor="display-name">Social Icons</label>
                                                     <div className="row">
-                                                        <div className="col-md-1">
+                                                        <div className="col-1">
                                                             <div className="form-group pt-1">
                                                                <div style={{textAlign:'center',fontSize:'20px'}}> <i className="fas fa-plus"></i></div>
                                                             </div>
                                                         </div>
-                                                        <div className="col-md-2">
+                                                        <div className="col-2">
                                                             <div className="form-group">
                                                                 <select className="form-control form-control-md mb-0">
                                                                     <option value="Facebook">Facebook</option>
@@ -696,7 +686,7 @@ const [selectedFile2, setSelectedFile2] = useState(null);
                                                                 </select>
                                                             </div>
                                                         </div>
-                                                        <div className="col-md-9">
+                                                        <div className="col-9">
                                                             <div className="form-group">
                                                                 <input type="text" id="display-name" name="display_name"
                                                                        className="form-control form-control-md mb-0"/>
@@ -706,9 +696,9 @@ const [selectedFile2, setSelectedFile2] = useState(null);
                                                 </div>
                                                 <div className="form-group mb-3" >
                                                     <div className="row">
-                                                        <div className="col-md-8">
-                                                            <label htmlFor="display-name">Cover Photo</label>
-                                                            <form style={{backgroundColor:"red"}}>
+                                                        <div className="col-8">
+                                                            <span style={{justifyContent:"center", display:"flex",position:"relative", top:"110px", fontSize:"20px"}}>Cover Photo</span>
+                                                            <form >
                                                                 <input type="file"
                                                                        accept=".jpg, .jpeg, .png"
                                                                        name="frr" id="frr"
@@ -719,8 +709,8 @@ const [selectedFile2, setSelectedFile2] = useState(null);
                                                                 </label>
                                                             </form>
                                                         </div>
-                                                        <div className="col-md-4">
-                                                            <label htmlFor="display-name">Logo</label>
+                                                        <div className="col-4">
+                                                            <span  style={{justifyContent:"center", display:"flex",position:"relative", top:"110px",  fontSize:"20px"}}>Logo</span>
                                                             <form>
                                                                 <input type="file"
                                                                        accept=".jpg, .jpeg, .png"
@@ -735,28 +725,26 @@ const [selectedFile2, setSelectedFile2] = useState(null);
                                                     </div>
                                                 </div>
 
-                                                <h4 className="title title-password ls-25 font-weight-bold">Password
-                                                    change</h4>
-                                                <div className="form-group">
-                                                    <label className="text-dark" htmlFor="cur-password">Current Password
-                                                        leave blank to leave unchanged</label>
-                                                    <input type="password" className="form-control form-control-md"
-                                                           id="cur-password" name="cur_password"/>
-                                                </div>
-                                                <div className="form-group">
-                                                    <label className="text-dark" htmlFor="new-password">New Password
-                                                        leave blank to leave unchanged</label>
-                                                    <input type="password" className="form-control form-control-md"
-                                                           id="new-password" name="new_password"/>
-                                                </div>
-                                                <div className="form-group mb-10">
-                                                    <label className="text-dark" htmlFor="conf-password">Confirm
-                                                        Password</label>
-                                                    <input type="password" className="form-control form-control-md"
-                                                           id="conf-password" name="conf_password"/>
+                                                <div className="mt-5">
+                                                    <h4 className="title title-password ls-25 font-weight-bold">Şifrə dəyişikliyi</h4>
+                                                    <div className="form-group mb-5" style={{backgroundColor:"#f5f5f5", borderRadius:"2rem",padding:"7px",margin:"5px"}}>
+                                                        <label className="text-dark" htmlFor="cur-password">Cari Şifrə</label>
+                                                        <input type="password" className="form-control form-control-md"
+                                                               id="cur-password" name="cur_password"/>
+                                                    </div>
+                                                    <div className="form-group mb-5" style={{backgroundColor:"#f5f5f5", borderRadius:"2rem",padding:"7px",margin:"5px"}}>
+                                                        <label className="text-dark" htmlFor="new-password">Yeni Şifrəni Əlavə Edin</label>
+                                                        <input type="password" className="form-control form-control-md"
+                                                               id="new-password" name="new_password"/>
+                                                    </div>
+                                                    <div className="form-group mb-5" style={{backgroundColor:"#f5f5f5", borderRadius:"2rem",padding:"7px",margin:"5px"}}>
+                                                        <label className="text-dark" htmlFor="conf-password">Şifrəni təsdiqləyin</label>
+                                                        <input type="password" className="form-control form-control-md"
+                                                               id="conf-password" name="conf_password"/>
+                                                    </div>
                                                 </div>
                                                 <button type="submit"
-                                                        className="btn btn-dark btn-rounded btn-sm mb-4">Save Changes
+                                                        className="btn btn-dark btn-rounded btn-sm mb-4">Dəyişiklikləri yadda saxla
                                                 </button>
                                                <div> <label htmlFor="display-name">Açilma tarixi: 1/31/2022</label></div>
                                             </form>

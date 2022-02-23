@@ -1,28 +1,45 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
+import {createUserMessage} from "../../../../services/contact-us/createUserMessage";
 
 export default function ContactUs(){
+    const [createUserMessageTitle, createUserMessagePost] = React.useState([]);
+    const [nameTitle, namePost] = React.useState([]);
+    const [emailTitle, emailPost] = React.useState([]);
+    const [messageTitle, messagePost] = React.useState([]);
+    const handleCreateUserMessageInput = () =>{
+        let data = {
+            name:nameTitle,
+            email:emailTitle,
+            message:messageTitle
+        }
+        createUserMessage(data)
+            .then(items => {
+                    createUserMessagePost(items.data)
+            }).catch(e =>{
+            console.log(e)
+        })
+        console.log(data)
+    }
     return (
         <div>
             <main className="main">
                 <div className="page-header">
                     <div className="container">
-                        <h1 className="page-title mb-0">Contact Us</h1>
+                        <h1 className="page-title mb-0">Əlaqə</h1>
                     </div>
                 </div>
                 <nav className="breadcrumb-nav mb-10 pb-1">
                     <div className="container">
                         <ul className="breadcrumb">
-                            <li><a href="demo1.html">Home</a></li>
-                            <li>Contact Us</li>
+                            <li><a href="/home">Ana Səhifə</a></li>
+                            <li>Əlaqə</li>
                         </ul>
                     </div>
                 </nav>
                 <div className="page-content contact-us">
                     <div className="container">
                         <section className="content-title-section mb-10">
-                            <h3 className="title title-center mb-3">Contact
-                                Information
-                            </h3>
+                            <h3 className="title title-center mb-3">Əlaqə məlumatı</h3>
                             <p className="text-center">Lorem ipsum dolor sit amet,
                                 consectetur
                                 adipiscing elit, sed do eiusmod tempor incididunt ut</p>
@@ -174,24 +191,24 @@ export default function ContactUs(){
                                         </div>
                                     </div>
                                     <div className="col-lg-6 mb-8">
-                                        <h4 className="title mb-3">Send Us a Message</h4>
+                                        <h4 className="title mb-3">Bizə Mesaj Göndərin</h4>
                                         <form className="form contact-us-form" action="#" method="post">
                                             <div className="form-group">
-                                                <label htmlFor="username">Your Name</label>
-                                                <input type="text" id="username" name="username"
+                                                <label htmlFor="username">Adınız</label>
+                                                <input type="text" onChange={e=>namePost(e.target.value)} id="username" name="username"
                                                        className="form-control"/>
                                             </div>
                                             <div className="form-group">
-                                                <label htmlFor="email_1">Your Email</label>
-                                                <input type="email" id="email_1" name="email_1"
+                                                <label htmlFor="email_1">E-poçtunuz</label>
+                                                <input type="email" onChange={e=>emailPost(e.target.value)} id="email_1" name="email_1"
                                                        className="form-control"/>
                                             </div>
                                             <div className="form-group">
-                                                <label htmlFor="message">Your Message</label>
-                                                <textarea id="message" name="message" cols="30" rows="5"
+                                                <label htmlFor="message">Mesajınız</label>
+                                                <textarea id="message" onChange={e=>messagePost(e.target.value)} name="message" cols="30" rows="5"
                                                           className="form-control"></textarea>
                                             </div>
-                                            <button type="submit" className="btn btn-dark btn-rounded">Send Now</button>
+                                            <button type="button" onClick={handleCreateUserMessageInput} className="btn btn-dark btn-rounded">İNDİ GÖNDƏR</button>
                                         </form>
                                     </div>
                                 </div>

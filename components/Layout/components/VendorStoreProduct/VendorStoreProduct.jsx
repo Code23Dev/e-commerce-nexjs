@@ -250,7 +250,6 @@ export default function VendorStoreProduct() {
                                         <div className="toolbox-item toolbox-sort select-box text-dark">
                                             <label>Sort By :</label>
                                             <select name="orderby" className="form-control">
-                                                <option value="default" selected="selected">Default sorting</option>
                                                 <option value="popularity">A-Z</option>
                                                 <option value="rating">Z-A</option>
                                                 <option value="date">Yeni-Köhnə</option>
