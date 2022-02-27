@@ -91,11 +91,76 @@ export default function ShopPageMain(){
             })
     }
 
+
+        const defaultData = [
+            { id: 1, name: "apple", isChecked: false },
+            { id: 2, name: "banana", isChecked: false },
+            { id: 3, name: "mango", isChecked: false },
+            { id: 4, name: "grape", isChecked: false },
+            { id: 5, name: "carrot", isChecked: false }
+        ];
+        // const [data, setData] = useState(defaultData);
+        //
+        // function handleChange(e) {
+        //     const value = e.target.value;
+        //     const modifiedData = [...filtersBySubsubTitle];
+        //     modifiedData.map((item) => {
+        //         item.isChecked = item.id === +value;
+        //         return item;
+        //     });
+        //     filtersBySubsubData(modifiedData);
+        // }
+
+        const handleChangeSubCategories = (e) =>{
+            let value = null
+            if( e == "CleanAll" ){
+                value = null
+            } else {
+                value = e.target.value;
+            }
+            const modifiedData = [...subCategoriesTitle];
+            modifiedData.map((item) => {
+                item.isChecked = item.id === +value;
+                return item;
+            });
+            subCategoriesData(modifiedData);
+        }
+
+        const handleChangeAllCategories = (e) => {
+            let value = null
+            if( e == "CleanAll" ){
+                value = null
+            } else {
+                value = e.target.value;
+            }
+            const modifiedData = [...optionsTitle];
+            modifiedData.map((item) => {
+                item.isChecked = item.id === +value;
+                return item;
+            });
+            optionsData(modifiedData);
+        }
+
+        function handleChangeSubSubCategories(e) {
+            console.log(e)
+            // const value = e.target.value;
+            // const modifiedData = [...optionsTitle];
+            // modifiedData.map((item) => {
+            //     item.isChecked = item.id === +value;
+            //     return item;
+            // });
+            // optionsData(modifiedData);
+        }
+        const handleChangeCleanAll = () =>{
+            handleChangeAllCategories("CleanAll")
+            handleChangeSubCategories("CleanAll")
+        }
     return (
         <div>
             <main className="main">
                 <nav className="breadcrumb-nav">
                     <style jsx>{`
+
                         .product-action .btn-product:hover {
                                          background-color: #ed711b !important;
                                          color: #fff !important;
@@ -112,10 +177,11 @@ export default function ShopPageMain(){
                         </ul>
                     </div>
                 </nav>
+
                 <div className="page-content">
                     <div className="container">
                         <div className="shop-default-banner banner d-flex align-items-center mb-5 br-xs"
-                             style={{backgroundImage: 'url(assets/images/shop/banner1.jpg)', backgroundColor: '#FFC74E'}}>
+                             style={{backgroundImage: 'url(assets/images/shopShop/banner1.jpg)', backgroundColor: '#FFC74E'}}>
                             <div className="banner-content">
                                 <h4 className="banner-subtitle font-weight-bold">Accessories Collection</h4>
                                 <h3 className="banner-title text-white text-uppercase font-weight-bolder ls-normal">Smart
@@ -133,29 +199,68 @@ export default function ShopPageMain(){
                                     <div className="sticky-sidebar">
                                         <div className="filter-actions">
                                             <label>Filter :</label>
-                                            <a href="#" className="btn btn-dark btn-link filter-clean">Clean All</a>
+                                            <a href="#" className="btn btn-dark btn-link filter-clean" onClick={() => handleChangeCleanAll()}>Hamısını təmizləyin</a>
                                         </div>
                                         <div className="widget widget-collapsible">
                                             <h3 className="widget-title"><span>Bütün Kateqoriyalar</span></h3>
                                             <ul className="widget-body filter-items item-check mt-1">
-                                                {optionsTitle.map(e=>(<li onClick={() => testTitle(e)}>
-                                                     <a href="#">{e.title}</a></li>))}
+                                                {optionsTitle.map((item, index) => (
+                                                    <div  onChange={(e) => handleChangeAllCategories(e)}>
+                                                        <div key={item.id} className="mt-2">
+                                                            <input
+                                                                type="checkbox"
+                                                                value={item.id}
+                                                                style={{width:' 20px', height: '24px'}}
+                                                                checked={item.isChecked}
+                                                                id={`options` + item.id}
+                                                            />
+                                                            <label htmlFor={`options` + item.id} className="ml-2" style={{position:"relative", top:'-5px',cursor:"pointer"}}>{item.title}</label>
+                                                            <br />
+                                                        </div>
+                                                    </div>
+                                                ))}
                                             </ul>
                                         </div>
                                         <div className="widget widget-collapsible">
                                             <h3 className="widget-title"><span>Alt Kateqoriyalar</span></h3>
                                             <ul className="widget-body filter-items item-check mt-1">
-                                                {subCategoriesTitle.map(e=>(<li onClick={() => testTitle(e)}><a href="#">{e.title}</a></li>))}
+                                                {subCategoriesTitle.map((item, index) => (
+                                                    <div  onChange={(e) => handleChangeSubCategories(e)}>
+                                                        <div key={item.id} className="mt-2">
+                                                            <input
+                                                                type="checkbox"
+                                                                value={item.id}
+                                                                style={{width:' 20px', height: '24px'}}
+                                                                checked={item.isChecked}
+                                                                id={`sub` + item.id}
+                                                            />
+                                                            <label htmlFor={`sub` + item.id} className="ml-2" style={{position:"relative", top:'-5px',cursor:"pointer"}}>{item.title}</label>
+                                                            <br />
+                                                        </div>
+                                                    </div>
+                                                ))}
                                             </ul>
                                         </div>
                                         <div className="widget widget-collapsible">
                                             <h3 className="widget-title"><span>Sub Kateqoriyalar</span></h3>
                                             <ul className="widget-body filter-items item-check mt-1">
-                                                {subSubCategoriesTitle.map(e=>(<li class={dataClass} onClick={() => subId(e)}><a href="#">{e.title}</a></li>))}
+                                                {subSubCategoriesTitle.map((item, index) => (
+                                                    <div  onChange={(e) => handleChangeSubSubCategories(e)}>
+                                                        <div key={item.id} className="mt-2">
+                                                            <input
+                                                                type="checkbox"
+                                                                value={item.id}
+                                                                style={{width:' 20px', height: '24px'}}
+                                                                checked={item.isChecked}
+                                                                id={`subSub` + item.id}
+                                                            />
+                                                            <label htmlFor={`subSub` + item.id} className="ml-2" style={{position:"relative", top:'-5px',cursor:"pointer"}}>{item.title}</label>
+                                                            <br />
+                                                        </div>
+                                                    </div>
+                                                ))}
                                             </ul>
                                         </div>
-
-
                                         {filtersBySubsubTitle.map(e=>(
                                             <div className="widget widget-collapsible">
                                             <h3 className="widget-title"><span>{e.title}</span></h3>
@@ -194,7 +299,7 @@ export default function ShopPageMain(){
                                         btn-icon-left d-block d-lg-none"><i
                                             className="w-icon-category"></i><span>Filters</span></a>
                                         <div className="toolbox-item toolbox-sort select-box text-dark">
-                                            <label>Sort By :</label>
+                                            <label>Sırala :</label>
                                             <select name="orderby" className="form-control">
                                                 <option value="popularity">A-Z</option>
                                                 <option value="rating">Z-A</option>

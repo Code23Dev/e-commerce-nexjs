@@ -6,19 +6,44 @@ const logoURL = "http://34.125.190.3/api/logo/";
 const headerTextURL = "http://34.125.190.3/api/header-text/";
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
+import Select from "react-select";
+import {categories} from "../../../../services/categories";
 export default function HeaderTop(){
+    const style = {
+        control: base => ({
+            ...base,
+            border: 0,
+            boxShadow: 'none',
+            backgroundColor: 'white'
+        })
+    };
     function phoneInputData(e){
         console.log(e)
     }
-    let phone = null
     const [number, setNumber] = React.useState("");
     const [password, setPassword] = React.useState("");
     const [password2, setPassword2] = React.useState("");
     const [isVendor, setIsVendor] = React.useState(false);
     const [isStore, setIsStore] = React.useState(false);
     const [registerPost, setRegisterPost] = React.useState([]);
-
-
+    const [optionsTitle, optionsData] = useState([]);
+    useEffect(() => {
+        let mounted = true;
+        let options = [{value:-1, label:"Bütün Kateqoriyalar"}]
+        categories()
+            .then(items => {
+                if(mounted) {
+                    const data = items.data.map(e=>{
+                        options.push({value:e['id'], label:e['title']})
+                    })
+                    optionsData(options)
+                }
+            })
+        return () => mounted = false;
+    }, [])
+    let handleChange = (selectedOptions) => {
+        console.log(selectedOptions)
+    }
     const [numberLogin, setNumberLogin] = React.useState("");
     const [passwordLogin, setPasswordLogin] = React.useState("");
     const [loginPost, setLoginPost] = React.useState([]);
@@ -90,6 +115,11 @@ export default function HeaderTop(){
         })
         console.log(data)
     }
+
+    const [phone, setState] = useState("");
+  const handleOnChange = (value) => {
+        console.log(value);
+    };
     return (
         <div>
             <style jsx>{`
@@ -208,14 +238,14 @@ export default function HeaderTop(){
                                     <div className="tab-pane active" id="sign-in">
                                         <div className="form-group">
                                             <label>Nömrənizi daxil edin *</label>
-                                            {/*<PhoneInput*/}
-                                            {/*    country={'az'}*/}
-                                            {/*    value={phone}*/}
-                                            {/*    onChange={e=>setNumberLogin(e.target.value)}*/}
-                                            {/*/>*/}
+                                            <PhoneInput
+                                                country="az"
+                                                inputStyle={{width:"100%"}}
+                                                value={phone}
+                                                onChange={handleOnChange}/>
 
-                                            <input type="text" onChange={e=>setNumberLogin(e.target.value)} className="form-control" name="password_1" id="password_1"
-                                                   required/>
+                                            {/*<input type="text" onChange={e=>setNumberLogin(e.target.value)} className="form-control" name="password_1" id="password_1"*/}
+                                            {/*       required/>*/}
                                         </div>
                                         <div className="form-group mb-5">
                                             <label>Şifrənizi daxil edin *</label>
@@ -275,21 +305,64 @@ export default function HeaderTop(){
                     </div>
                 </div>
 
-
                 <div id="myModal" className="modal" style={{display:showMeNumber}}>
                     <div className="modal-content">
-                        <span className="close" onClick={showMeNumberFunc}>&times;</span>
+                        <span className="close" onClick={showMeFunc}>&times;</span>
                         <div className="login-popup">
-                                    <div className="tab-content">
-                                        <h4>Codu daxil edin</h4>
-                                            <div className="form-group">
-                                                <label>Codu daxil edin *</label>
-                                                <input type="text" onChange={e=>setNumberLogin(e.target.value)} className="form-control" name="password_1" id="password_1"
-                                                       required/>
+                            <div className="tab tab-nav-boxed tab-nav-center tab-nav-underline">
+                                <div className="tab-content">
+                                    <div className="tab-pane active" id="sign-in">
+                                        <div className="form-group mb-5">
+                                            <label>Codu daxil edin *</label>
+                                            <input type="text" onChange={e=>setNumberLogin(e.target.value)} className="form-control" name="password_1" id="password_1"
+                                                   required/>
                                         </div>
-
+                                        <a href="#" className="btn btn-primary" onClick={()=> handleLoginInput()}>Codu daxil edin</a>
                                     </div>
 
+                                    <div className="tab-pane" id="sign-up">
+                                        <div className="form-group">
+                                            <label>Nömrənizi daxil edin *</label>
+                                            <PhoneInput
+                                                country="az"
+                                                inputStyle={{width:"100%"}}
+                                                value={phone}
+                                                onChange={handleOnChange}/>
+                                            {/*<input type="text" onChange={e=>setNumber(e.target.value)} className="form-control" name="password_1" id="password_1"*/}
+                                            {/*       required/>*/}
+                                        </div>
+                                        <div className="form-group mb-5">
+                                            <label>Şifrənizi daxil edin *</label>
+                                            <input type="text" onChange={e=>setPassword(e.target.value)} className="form-control" name="password_1" id="password_1"
+                                                   required/>
+                                        </div>
+                                        <div className="form-group mb-5">
+                                            <label>Şifrəni təkrar daxil edin *</label>
+                                            <input type="text" onChange={e=>setPassword2(e.target.value)} className="form-control" name="password_1" id="password_1"
+                                                   required/>
+                                        </div>
+                                        <p>Şəxsi məlumatlarınız bu veb-saytda təcrübənizi dəstəkləmək, hesabınıza girişi idarə etmək və məxfilik siyasətimizdə təsvir olunan digər məqsədlər üçün istifadə olunacaq.</p>
+
+                                        <div className="form-checkbox d-flex align-items-center justify-content-between">
+                                            <input type="checkbox" className="custom-checkbox" id="remember2" name="remember" onChange={e=>setIsStore(e.target.checked)}
+                                                   required=""/>
+                                            <label htmlFor="remember">Mağaza</label>
+                                        </div>
+                                        <div className="form-checkbox d-flex align-items-center justify-content-between">
+                                            <input type="checkbox" className="custom-checkbox" id="remember3" onChange={e=>setIsVendor(e.target.checked)} name="remember"
+                                                   required=""/>
+                                            <label htmlFor="remember">Satıcı</label>
+                                        </div>
+                                        <a href="#" className="btn btn-primary" onClick={handleRegisterInput}>Qeydiyyatdan keç</a>
+                                    </div>
+                                </div>
+                                <p className="text-center">Sosial hesabla qeydiyyatdan keçin</p>
+                                <div className="social-icons social-icon-border-color d-flex justify-content-center">
+                                    <a href="#" className="social-icon social-facebook w-icon-facebook"></a>
+                                    <a href="#" className="social-icon social-twitter w-icon-twitter"></a>
+                                    <a href="#" className="social-icon social-google fab fa-google"></a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -306,18 +379,17 @@ export default function HeaderTop(){
                             <form method="get" action="#"
                                   className="input-wrapper header-search hs-expanded hs-round d-none d-md-flex">
                                 <div className="select-box bg-white">
-                                    <select id="category" name="category">
-                                        <option value="">All Categories</option>
-                                        <option value="4">Fashion</option>
-                                        <option value="5">Furniture</option>
-                                        <option value="6">Shoes</option>
-                                        <option value="7">Sports</option>
-                                        <option value="8">Games</option>
-                                        <option value="9">Computers</option>
-                                        <option value="10">Electronics</option>
-                                        <option value="11">Kitchen</option>
-                                        <option value="12">Clothing</option>
-                                    </select>
+                                    <Select
+                                        name="colors"
+                                        styles={style}
+                                        options={optionsTitle}
+                                        placeholder={"kateqoriya seç"}
+                                        classNamePrefix="select"
+                                        components={{
+                                            IndicatorSeparator: () => null
+                                        }}
+                                        onChange={handleChange}
+                                    />
                                 </div>
                                 <input type="text" className="form-control bg-white" name="search" id="search"
                                        placeholder="Axtarın..." required/>

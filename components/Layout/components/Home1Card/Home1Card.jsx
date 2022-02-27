@@ -1,6 +1,18 @@
-import React from "react";
-import styles from './styles/Home1card.module.css'
+import React, {useEffect, useState} from "react";
+import {allDiscount} from "../../../../services/discount/allDiscount";
 export default function Home1Card(){
+    const [allDiscountTitle, allDiscountData] = useState([]);
+    useEffect(() => {
+        if(localStorage.getItem('allDiscountTitle')){
+            allDiscountData(JSON.parse(localStorage.getItem('allDiscountTitle')))
+        }else{
+            allDiscount()
+                .then(items => {
+                    localStorage.setItem('allDiscountTitle',  JSON.stringify(items.data));
+                    JSON.parse(localStorage.getItem('allDiscountTitle')) ? allDiscountData(JSON.parse(localStorage.getItem('allDiscountTitle'))) : []
+                })
+        }
+    }, [])
     return (
           <div>
               <div className="page-wrapper mt-5">
@@ -184,204 +196,58 @@ export default function Home1Card(){
                     }
                 }">
                           <div className="swiper-wrapper row cols-md-1 cols-sm-1 mt-3 cols-1">
-
-                              <div className="swiper-slide icon-box icon-box-side text-dark">
-                                  <div className="product product-list br-xs mb-0">
-                                      <figure className="product-media">
-                                          <a href="product-default.html">
-                                              <img src="assets/images/demos/demo7/products/1-1.jpg" alt="Product"
-                                                   width="315"
-                                                   height="355"/>
-                                          </a>
-                                          <div className="product-action-vertical">
-                                              <a href="#" className="btn-product-icon btn-quickview w-icon-search"
-                                                 title="Quick View"></a>
-                                          </div>
-                                          <div className="product-countdown-container" style={{height: '35px'}}>
-                                              <div className="product-countdown countdown-compact" data-until="2021, 9, 9"
-                                                   data-format="DHMS" data-compact="false"
-                                                   style={{fontSize: '20px'}}
-                                                   data-labels-short="Days, Hours, Mins, Secs">
-                                                  00:00:00:00
+                              {allDiscountTitle.map(e=>(
+                                  <div className="swiper-slide icon-box icon-box-side text-dark">
+                                      <div className="product product-list br-xs mb-0">
+                                          <figure className="product-media">
+                                              <a href={`/moreProducts/${e.product.id}`}>
+                                                  <img src={e.product.main_image} alt="Product"
+                                                       width="315"
+                                                       height="355"/>
+                                              </a>
+                                              <div className="product-action-vertical">
+                                                  <a href="#" className="btn-product-icon btn-quickview w-icon-search"
+                                                     title="Quick View"></a>
                                               </div>
-                                          </div>
-                                      </figure>
-                                      <div className="product-details">
-                                          <h4 className="product-name">
-                                              <a href="product-default.html">Lorem ipsum dolor sit amet</a>
-                                          </h4>
-                                          <div className="ratings-container">
-                                              <div className="ratings-full">
-                                                  <span className="ratings" style={{width: '100%'}}></span>
-                                                  <span className="tooltiptext tooltip-top"></span>
+                                              <div className="product-countdown-container" style={{height: '35px'}}>
+                                                  <div className="product-countdown countdown-compact" data-until="2021, 9, 9"
+                                                       data-format="DHMS" data-compact="false"
+                                                       style={{fontSize: '20px'}}
+                                                       data-labels-short="Days, Hours, Mins, Secs">
+                                                      00:00:00:00
+                                                  </div>
                                               </div>
-                                              <a href="#" className="rating-reviews">(3 Reviews)</a>
-                                          </div>
-                                          <div className="product-price">$235.35 </div>
-                                          <ul className="product-desc">
-                                              <li>Aliquam id diam maecenas ultricies miile.</li>
-                                              <li>Volutpat ac tincidunt vitae semper quis le.</li>
-                                              <li>Ultrices eros in cursus turpis massa.</li>
-                                          </ul>
-                                          <div className="product-action">
-                                              <a href="#" className="btn-product btn-cart" title="Səbətə əlavə et"><i
-                                                  className="w-icon-cart"></i> Səbətə əlavə et</a>
-                                              <a href="#" className="btn-product-icon btn-wishlist w-icon-heart"
-                                                 title="Add to wishlist"></a>
-                                              <a href="#" className="btn-product-icon btn-compare w-icon-compare"
-                                                 title="Compare"></a>
+                                          </figure>
+                                          <div className="product-details">
+                                              <h4 className="product-name">
+                                                  <a href={`/moreProducts/${e.product.id}`}>{e.product.title}</a>
+                                              </h4>
+                                              <div className="ratings-container">
+                                                  <div className="ratings-full">
+                                                      <span className="ratings"  style={{width: `${(18 * e.product.rating)+'%'}` }}></span>
+                                                      <span className="tooltiptext tooltip-top"></span>
+                                                  </div>
+                                                  <a href={`/${e.product.id}`} className="rating-reviews">({e.product.rating}
+                                                      reviews)</a>
+                                              </div>
+                                              <div className="product-price">$235.35 </div>
+                                              <ul className="product-desc">
+                                                  <li>{e.product.short_desc1}</li>
+                                                  <li>{e.product.short_desc2}</li>
+                                                  <li>{e.product.short_desc3}</li>
+                                              </ul>
+                                              <div className="product-action">
+                                                  <a href="#" className="btn-product btn-cart" title="Səbətə əlavə et"><i
+                                                      className="w-icon-cart"></i> Səbətə əlavə et</a>
+                                                  <a href="#" className="btn-product-icon btn-wishlist w-icon-heart"
+                                                     title="Add to wishlist"></a>
+                                                  <a href="#" className="btn-product-icon btn-compare w-icon-compare"
+                                                     title="Compare"></a>
+                                              </div>
                                           </div>
                                       </div>
                                   </div>
-                              </div>
-                              <div className="swiper-slide icon-box icon-box-side text-dark">
-                                  <div className="product product-list br-xs mb-0">
-                                      <figure className="product-media">
-                                          <a href="product-default.html">
-                                              <img src="assets/images/demos/demo7/products/1-2.jpg" alt="Product"
-                                                   width="315"
-                                                   height="355"/>
-                                          </a>
-                                          <div className="product-action-vertical">
-                                              <a href="#" className="btn-product-icon btn-quickview w-icon-search"
-                                                 title="Quick View"></a>
-                                          </div>
-                                          <div className="product-countdown-container" style={{height: '35px'}}>
-                                              <div className="product-countdown countdown-compact" data-until="2021, 9, 9"
-                                                   data-format="DHMS" data-compact="false"
-                                                   style={{fontSize: '20px'}}
-                                                   data-labels-short="Days, Hours, Mins, Secs">
-                                                  00:00:00:00
-                                              </div>
-                                          </div>
-                                      </figure>
-                                      <div className="product-details">
-                                          <h4 className="product-name">
-                                              <a href="product-default.html">Lorem ipsum dolor sit amet</a>
-                                          </h4>
-                                          <div className="ratings-container">
-                                              <div className="ratings-full">
-                                                  <span className="ratings" style={{width: '100%'}}></span>
-                                                  <span className="tooltiptext tooltip-top"></span>
-                                              </div>
-                                              <a href="#" className="rating-reviews">(3 Reviews)</a>
-                                          </div>
-                                          <div className="product-price">$235.35 </div>
-                                          <ul className="product-desc">
-                                              <li>Aliquam id diam maecenas ultricies miile.</li>
-                                              <li>Volutpat ac tincidunt vitae semper quis le.</li>
-                                              <li>Ultrices eros in cursus turpis massa.</li>
-                                          </ul>
-                                          <div className="product-action">
-                                              <a href="#" className="btn-product btn-cart" title="Səbətə əlavə et"><i
-                                                  className="w-icon-cart"></i> Səbətə əlavə et</a>
-                                              <a href="#" className="btn-product-icon btn-wishlist w-icon-heart"
-                                                 title="Add to wishlist"></a>
-                                              <a href="#" className="btn-product-icon btn-compare w-icon-compare"
-                                                 title="Compare"></a>
-                                          </div>
-                                      </div>
-                                  </div>
-                              </div>
-
-                              <div className="swiper-slide icon-box icon-box-side text-dark ">
-                                  <div className="product product-list br-xs mb-0">
-                                      <figure className="product-media">
-                                          <a href="product-default.html">
-                                              <img src="assets/images/demos/demo7/products/1-1.jpg" alt="Product"
-                                                   width="315"
-                                                   height="355"/>
-                                          </a>
-                                          <div className="product-action-vertical">
-                                              <a href="#" className="btn-product-icon btn-quickview w-icon-search"
-                                                 title="Quick View"></a>
-                                          </div>
-                                          <div className="product-countdown-container" style={{height: '35px'}}>
-                                              <div className="product-countdown countdown-compact" data-until="2021, 9, 9"
-                                                   data-format="DHMS" data-compact="false"
-                                                   style={{fontSize: '20px'}}
-                                                   data-labels-short="Days, Hours, Mins, Secs">
-                                                  00:00:00:00
-                                              </div>
-                                          </div>
-                                      </figure>
-                                      <div className="product-details">
-                                          <h4 className="product-name">
-                                              <a href="product-default.html">Lorem ipsum dolor sit amet</a>
-                                          </h4>
-                                          <div className="ratings-container">
-                                              <div className="ratings-full">
-                                                  <span className="ratings" style={{width: '100%'}}></span>
-                                                  <span className="tooltiptext tooltip-top"></span>
-                                              </div>
-                                              <a href="#" className="rating-reviews">(3 Reviews)</a>
-                                          </div>
-                                          <div className="product-price">$235.35 </div>
-                                          <ul className="product-desc">
-                                              <li>Aliquam id diam maecenas ultricies miile.</li>
-                                              <li>Volutpat ac tincidunt vitae semper quis le.</li>
-                                              <li>Ultrices eros in cursus turpis massa.</li>
-                                          </ul>
-                                          <div className="product-action">
-                                              <a href="#" className="btn-product btn-cart" title="Səbətə əlavə et"><i
-                                                  className="w-icon-cart"></i> Səbətə əlavə et</a>
-                                              <a href="#" className="btn-product-icon btn-wishlist w-icon-heart"
-                                                 title="Add to wishlist"></a>
-                                              <a href="#" className="btn-product-icon btn-compare w-icon-compare"
-                                                 title="Compare"></a>
-                                          </div>
-                                      </div>
-                                  </div>
-                              </div>
-                              <div className="swiper-slide icon-box icon-box-side text-dark ">
-                                  <div className="product product-list br-xs mb-0">
-                                      <figure className="product-media">
-                                          <a href="product-default.html">
-                                              <img src="assets/images/demos/demo7/products/1-1.jpg" alt="Product"
-                                                   width="315"
-                                                   height="355"/>
-                                          </a>
-                                          <div className="product-action-vertical">
-                                              <a href="#" className="btn-product-icon btn-quickview w-icon-search"
-                                                 title="Quick View"></a>
-                                          </div>
-                                          <div className="product-countdown-container" style={{height: '35px'}}>
-                                              <div className="product-countdown countdown-compact" data-until="2021, 9, 9"
-                                                   data-format="DHMS" data-compact="false"
-                                                   style={{fontSize: '20px'}}
-                                                   data-labels-short="Days, Hours, Mins, Secs">
-                                                  00:00:00:00
-                                              </div>
-                                          </div>
-                                      </figure>
-                                      <div className="product-details">
-                                          <h4 className="product-name">
-                                              <a href="product-default.html">Lorem ipsum dolor sit amet</a>
-                                          </h4>
-                                          <div className="ratings-container">
-                                              <div className="ratings-full">
-                                                  <span className="ratings" style={{width: '100%'}}></span>
-                                                  <span className="tooltiptext tooltip-top"></span>
-                                              </div>
-                                              <a href="#" className="rating-reviews">(3 Reviews)</a>
-                                          </div>
-                                          <div className="product-price">$235.35 </div>
-                                          <ul className="product-desc">
-                                              <li>Aliquam id diam maecenas ultricies miile.</li>
-                                              <li>Volutpat ac tincidunt vitae semper quis le.</li>
-                                              <li>Ultrices eros in cursus turpis massa.</li>
-                                          </ul>
-                                          <div className="product-action">
-                                              <a href="#" className="btn-product btn-cart" title="Səbətə əlavə et"><i
-                                                  className="w-icon-cart"></i> Səbətə əlavə et</a>
-                                              <a href="#" className="btn-product-icon btn-wishlist w-icon-heart"
-                                                 title="Add to wishlist"></a>
-                                              <a href="#" className="btn-product-icon btn-compare w-icon-compare"
-                                                 title="Compare"></a>
-                                          </div>
-                                      </div>
-                                  </div>
-                              </div>
+                              ))}
                           </div>
                       </div>
                   </div>

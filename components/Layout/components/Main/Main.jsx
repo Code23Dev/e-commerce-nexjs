@@ -3,40 +3,74 @@ import Home1Card from "../Home1Card/Home1Card";
 import {sliders} from "../../../../services/sliders";
 import {displayedCategories} from "../../../../services/displayedCategories";
 import {benefits} from "../../../../services/benefits";
+import {allProducts} from "../../../../services/products/allProducts";
+import {partners} from "../../../../services/partners";
 
 export default function Main(){
     const [optionsTitle, optionsData] = useState([]);
     useEffect(() => {
-        let mounted = true;
-        sliders()
-            .then(items => {
-                if(mounted) {
-                    optionsData(items.data)
-                }
-            })
-        return () => mounted = false;
+        if (localStorage.getItem('optionsTitle')) {
+            optionsData(JSON.parse(localStorage.getItem('optionsTitle')))
+        } else {
+            sliders()
+                .then(items => {
+                    localStorage.setItem('optionsTitle',  JSON.stringify(items.data));
+                    JSON.parse(localStorage.getItem('optionsTitle')) ? optionsData(JSON.parse(localStorage.getItem('optionsTitle'))) : []
+                })
+        }
     }, [])
     const [displayedCategoriesTitle, displayedCategoriesData] = useState([]);
     useEffect(() => {
-        let mounted = true;
-        displayedCategories()
-            .then(items => {
-                if(mounted) {
-                    displayedCategoriesData(items.data)
-                }
-            })
-        return () => mounted = false;
+        if(localStorage.getItem('displayedCategoriesTitle')){
+            displayedCategoriesData(JSON.parse(localStorage.getItem('displayedCategoriesTitle')))
+        }else{
+            displayedCategories()
+                .then(items => {
+                    localStorage.setItem('displayedCategoriesTitle',  JSON.stringify(items.data));
+                    JSON.parse(localStorage.getItem('displayedCategoriesTitle')) ? displayedCategoriesData(JSON.parse(localStorage.getItem('displayedCategoriesTitle'))) : []
+                })
+        }
     }, [])
     const [displayedBenefits, displayedBenefitsData] = useState([]);
     useEffect(() => {
-        let mounted = true;
-        benefits()
-            .then(items => {
-                if(mounted) {
-                    displayedBenefitsData(items.data)
-                }
-            })
-        return () => mounted = false;
+        if(JSON.parse(localStorage.getItem('displayedBenefits'))){
+            displayedBenefitsData(JSON.parse(localStorage.getItem('displayedBenefits')))
+        }
+        else{
+            benefits()
+                .then(items => {
+                    localStorage.setItem('displayedBenefits',  JSON.stringify(items.data));
+                    JSON.parse(localStorage.getItem('displayedBenefits')) ? displayedBenefitsData(JSON.parse(localStorage.getItem('displayedBenefits'))) : []
+                })
+        }
+    }, [])
+
+    const [allProductsTitle, allProductsData] = useState([]);
+    useEffect(() => {
+      if(JSON.parse(localStorage.getItem('allProductsTitle'))){
+          allProductsData(JSON.parse(localStorage.getItem('allProductsTitle')))
+      }
+      else{
+          allProducts()
+              .then(items => {
+                  localStorage.setItem('allProductsTitle',  JSON.stringify(items.data));
+                  JSON.parse(localStorage.getItem('allProductsTitle')) ? allProductsData(JSON.parse(localStorage.getItem('allProductsTitle'))) : []
+              })
+      }
+    }, [])
+
+    const [partnersTitle, partnersData] = useState([]);
+    useEffect(() => {
+      if(JSON.parse(localStorage.getItem('partnersTitle'))){
+          partnersData(JSON.parse(localStorage.getItem('partnersTitle')))
+      }
+      else{
+          partners()
+              .then(items => {
+                  localStorage.setItem('partnersTitle',  JSON.stringify(items.data));
+                  JSON.parse(localStorage.getItem('partnersTitle')) ? partnersData(JSON.parse(localStorage.getItem('partnersTitle'))) : []
+              })
+      }
     }, [])
     return (
         <div>
@@ -81,7 +115,6 @@ export default function Main(){
 
 
                 <div className="container mb-10 pb-2">
-
                     <div className="swiper-container swiper-theme icon-box-wrapper appear-animate br-sm bg-white"
                          style={{padding:'11px'}}
                          data-swiper-options="{
@@ -163,210 +196,59 @@ export default function Main(){
                     }
                 }">
                         <div className="swiper-wrapper row cols-lg-4 cols-md-3 cols-sm-2 cols-1">
-                            <div className="swiper-slide vendor-widget mb-0">
-                                <div className="vendor-widget-2">
-                                    <div className="vendor-details">
-                                        <figure className="vendor-logo">
-                                            <a href="vendor-dokan-store.html">
-                                                <img src="assets/images/demos/demo9/vendor-logo/1.jpg" alt="Vendor Logo"
-                                                     width="70" height="70"/>
-                                            </a>
-                                        </figure>
-                                        <div className="vendor-personal">
-                                            <h4 className="vendor-name">
-                                                <a href="vendor-dokan-store.html">Vendor 1</a>
-                                            </h4>
-                                            <span className="vendor-product-count">(27 Products)</span>
-                                            <div className="ratings-container">
-                                                <div className="ratings-full">
-                                                    <span className="ratings" style={{width: '100%'}}></span>
-                                                    <span className="tooltiptext tooltip-top"></span>
+                            {allProductsTitle.map(e=>(
+                                <div className="swiper-slide vendor-widget mb-0">
+                                    <div className="vendor-widget-2">
+                                        <div className="vendor-details">
+                                            <figure className="vendor-logo">
+                                                <a href="vendor-dokan-store.html">
+                                                    <img src={e.main_image} alt="Vendor Logo"
+                                                         width="70" height="70"/>
+                                                </a>
+                                            </figure>
+                                            <div className="vendor-personal">
+                                                <h4 className="vendor-name">
+                                                    <a href="vendor-dokan-store.html">{e.title}</a>
+                                                </h4>
+                                                {/*<span className="vendor-product-count">(27 Products)</span>*/}
+                                                <div className="ratings-container">
+                                                    <div className="ratings-full">
+                                                        <span className="ratings"  style={{width: `${(18 * e.rating)+'%'}` }}></span>
+                                                        <span className="tooltiptext tooltip-top"></span>
+                                                    </div>
                                                 </div>
+                                                <span className="vendor-product-count">category</span>
                                             </div>
-                                            <span className="vendor-product-count">category</span>
                                         </div>
-                                    </div>
-                                    <div className="vendor-products row cols-3 gutter-sm">
-                                        <div className="vendor-product">
-                                            <figure className="product-media">
-                                                <a href="product-default.html">
-                                                    <img src="assets/images/demos/demo9/product/4-1.jpg"
-                                                         alt="Vendor Product" width="100" height="113"/>
-                                                </a>
-                                            </figure>
-                                        </div>
-                                        <div className="vendor-product">
-                                            <figure className="product-media">
-                                                <a href="product-default.html">
-                                                    <img src="assets/images/demos/demo9/product/4-2.jpg"
-                                                         alt="Vendor Product" width="100" height="113"/>
-                                                </a>
-                                            </figure>
-                                        </div>
-                                        <div className="vendor-product">
-                                            <figure className="product-media">
-                                                <a href="product-default.html">
-                                                    <img src="assets/images/demos/demo9/product/4-3.jpg"
-                                                         alt="Vendor Product" width="100" height="113"/>
-                                                </a>
-                                            </figure>
+                                        <div className="vendor-products row cols-3 gutter-sm">
+                                            <div className="vendor-product">
+                                                <figure className="product-media">
+                                                    <a href="product-default.html">
+                                                        <img src={e.images[0]}
+                                                             alt="Vendor Product" width="100" height="113"/>
+                                                    </a>
+                                                </figure>
+                                            </div>
+                                            <div className="vendor-product">
+                                                <figure className="product-media">
+                                                    <a href="product-default.html">
+                                                        <img src={e.images[1]}
+                                                             alt="Vendor Product" width="100" height="113"/>
+                                                    </a>
+                                                </figure>
+                                            </div>
+                                            <div className="vendor-product">
+                                                <figure className="product-media">
+                                                    <a href="product-default.html">
+                                                        <img src={e.images[2]}
+                                                             alt="Vendor Product" width="100" height="113"/>
+                                                    </a>
+                                                </figure>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div className="swiper-slide vendor-widget mb-0">
-                                <div className="vendor-widget-2">
-                                    <div className="vendor-details">
-                                        <figure className="vendor-logo">
-                                            <a href="vendor-dokan-store.html">
-                                                <img src="assets/images/demos/demo9/vendor-logo/2.jpg" alt="Vendor Logo"
-                                                     width="70" height="70"/>
-                                            </a>
-                                        </figure>
-                                        <div className="vendor-personal">
-                                            <h4 className="vendor-name">
-                                                <a href="vendor-dokan-store.html">Vendor 2</a>
-                                            </h4>
-                                            <span className="vendor-product-count">(20 Products)</span>
-                                            <div className="ratings-container">
-                                                <div className="ratings-full">
-                                                    <span className="ratings" style={{width: '100%'}}></span>
-                                                    <span className="tooltiptext tooltip-top"></span>
-                                                </div>
-                                            </div>
-                                            <span className="vendor-product-count">category</span>
-                                        </div>
-                                    </div>
-                                    <div className="vendor-products row cols-3 gutter-sm">
-                                        <div className="vendor-product">
-                                            <figure className="product-media">
-                                                <a href="product-default.html">
-                                                    <img src="assets/images/demos/demo9/product/4-4.jpg"
-                                                         alt="Vendor Product" width="100" height="113"/>
-                                                </a>
-                                            </figure>
-                                        </div>
-                                        <div className="vendor-product">
-                                            <figure className="product-media">
-                                                <a href="product-default.html">
-                                                    <img src="assets/images/demos/demo9/product/4-5.jpg"
-                                                         alt="Vendor Product" width="100" height="113"/>
-                                                </a>
-                                            </figure>
-                                        </div>
-                                        <div className="vendor-product">
-                                            <figure className="product-media">
-                                                <a href="product-default.html">
-                                                    <img src="assets/images/demos/demo9/product/4-6.jpg"
-                                                         alt="Vendor Product" width="100" height="113"/>
-                                                </a>
-                                            </figure>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="swiper-slide vendor-widget mb-0">
-                                <div className="vendor-widget-2">
-                                    <div className="vendor-details">
-                                        <figure className="vendor-logo">
-                                            <a href="vendor-dokan-store.html">
-                                                <img src="assets/images/demos/demo9/vendor-logo/3.jpg" alt="Vendor Logo"
-                                                     width="70" height="70"/>
-                                            </a>
-                                        </figure>
-                                        <div className="vendor-personal">
-                                            <h4 className="vendor-name">
-                                                <a href="vendor-dokan-store.html">Vendor 3</a>
-                                            </h4>
-                                            <span className="vendor-product-count">(30 Products)</span>
-                                            <div className="ratings-container">
-                                                <div className="ratings-full">
-                                                    <span className="ratings" style={{width: '100%'}}></span>
-                                                    <span className="tooltiptext tooltip-top"></span>
-                                                </div>
-                                            </div>
-                                            <span className="vendor-product-count">category</span>
-                                        </div>
-                                    </div>
-                                    <div className="vendor-products row cols-3 gutter-sm">
-                                        <div className="vendor-product">
-                                            <figure className="product-media">
-                                                <a href="product-default.html">
-                                                    <img src="assets/images/demos/demo9/product/4-7.jpg"
-                                                         alt="Vendor Product" width="100" height="113"/>
-                                                </a>
-                                            </figure>
-                                        </div>
-                                        <div className="vendor-product">
-                                            <figure className="product-media">
-                                                <a href="product-default.html">
-                                                    <img src="assets/images/demos/demo9/product/4-8.jpg"
-                                                         alt="Vendor Product" width="100" height="113"/>
-                                                </a>
-                                            </figure>
-                                        </div>
-                                        <div className="vendor-product">
-                                            <figure className="product-media">
-                                                <a href="product-default.html">
-                                                    <img src="assets/images/demos/demo9/product/4-9.jpg"
-                                                         alt="Vendor Product" width="100" height="113"/>
-                                                </a>
-                                            </figure>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="swiper-slide vendor-widget mb-0">
-                                <div className="vendor-widget-2">
-                                    <div className="vendor-details">
-                                        <figure className="vendor-logo">
-                                            <a href="vendor-dokan-store.html">
-                                                <img src="assets/images/demos/demo9/vendor-logo/4.jpg" alt="Vendor Logo"
-                                                     width="70" height="70"/>
-                                            </a>
-                                        </figure>
-                                        <div className="vendor-personal">
-                                            <h4 className="vendor-name">
-                                                <a href="vendor-dokan-store.html">Vendor 4</a>
-                                            </h4>
-                                            <span className="vendor-product-count">(17 Products)</span>
-                                            <div className="ratings-container">
-                                                <div className="ratings-full">
-                                                    <span className="ratings" style={{width: '100%'}}></span>
-                                                    <span className="tooltiptext tooltip-top"></span>
-                                                </div>
-                                            </div>
-                                            <span className="vendor-product-count">category</span>
-                                        </div>
-                                    </div>
-                                    <div className="vendor-products row cols-3 gutter-sm">
-                                        <div className="vendor-product">
-                                            <figure className="product-media">
-                                                <a href="product-default.html">
-                                                    <img src="assets/images/demos/demo9/product/4-10.jpg"
-                                                         alt="Vendor Product" width="100" height="113"/>
-                                                </a>
-                                            </figure>
-                                        </div>
-                                        <div className="vendor-product">
-                                            <figure className="product-media">
-                                                <a href="product-default.html">
-                                                    <img src="assets/images/demos/demo9/product/4-11.jpg"
-                                                         alt="Vendor Product" width="100" height="113"/>
-                                                </a>
-                                            </figure>
-                                        </div>
-                                        <div className="vendor-product">
-                                            <figure className="product-media">
-                                                <a href="product-default.html">
-                                                    <img src="assets/images/demos/demo9/product/4-12.jpg"
-                                                         alt="Vendor Product" width="100" height="113"/>
-                                                </a>
-                                            </figure>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            ))}
                         </div>
                         <div className="swiper-pagination"></div>
                     </div>
@@ -383,441 +265,49 @@ export default function Main(){
                         </ul>
                     </div>
                     <div className="product-wrapper row cols-lg-5 cols-md-4 cols-sm-2 cols-2">
-                        <div className="product-wrap">
-                            <div className="product text-center">
-                                <figure className="product-media">
-                                    <a href="product-default.html">
-                                        <img src="assets/images/shop/1.jpg" alt="Product" width="300"
-                                             height="338"/>
-                                    </a>
-                                    <div className="product-action-horizontal">
-                                        <a href="#" className="btn-product-icon btn-cart w-icon-cart"
-                                           title="Add to cart"></a>
-                                        <a href="#" className="btn-product-icon btn-wishlist w-icon-heart"
-                                           title="Wishlist"></a>
-                                        <a href="#" className="btn-product-icon btn-compare w-icon-compare"
-                                           title="Compare"></a>
-                                        <a href="#" className="btn-product-icon btn-quickview w-icon-search"
-                                           title="CƏLD BAXIŞ"></a>
-                                    </div>
-                                </figure>
-                                <div className="product-details">
-                                    <div className="product-cat">
-                                        <a href="shop-banner-sidebar.html">Electronics</a>
-                                    </div>
-                                    <h3 className="product-name">
-                                        <a href="product-default.html">3D Television</a>
-                                    </h3>
-                                    <div className="ratings-container">
-                                        <div className="ratings-full">
-                                            <span className="ratings" style={{width: '100%'}}></span>
+                        {allProductsTitle.map(e=>(
+                            <div className="product-wrap">
+                                <div className="product text-center">
+                                    <figure className="product-media">
+                                        <a href={`/${e.id}`}>
+                                            <img src={e.main_image} alt="Product" width="300"
+                                                 height="338"/>
+                                        </a>
+                                        <div className="product-action-horizontal">
+                                            <a href="#" className="btn-product-icon btn-cart w-icon-cart"
+                                               title="Add to cart"></a>
+                                            <a href="#" className="btn-product-icon btn-wishlist w-icon-heart"
+                                               title="Wishlist"></a>
+                                            <a href="#" className="btn-product-icon btn-compare w-icon-compare"
+                                               title="Compare"></a>
+                                            <a href="#" className="btn-product-icon btn-quickview w-icon-search"
+                                               title="CƏLD BAXIŞ"></a>
+                                        </div>
+                                    </figure>
+                                    <div className="product-details">
+                                        <div className="product-cat">
+                                            <a href="shop-banner-sidebar.html">{e.title}</a>
+                                        </div>
+                                        <h3 className="product-name">
+                                            <a href="product-default.html">3D Television</a>
+                                        </h3>
+                                        <div className="ratings-container">
+                                            <div className="ratings-full">
+                                            <span className="ratings"  style={{width: `${(18 * e.rating)+'%'}` }}></span>
                                             <span className="tooltiptext tooltip-top"></span>
                                         </div>
-                                        <a href="product-default.html" className="rating-reviews">(3
+                                        <a href="product-default.html" className="rating-reviews">({e.rating}
                                             reviews)</a>
-                                    </div>
-                                    <div className="product-pa-wrapper">
-                                        <div className="product-price">
-                                            $220.00
+                                        </div>
+                                        <div className="product-pa-wrapper">
+                                            <div className="product-price">
+                                                $220.00
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div className="product-wrap">
-                            <div className="product text-center">
-                                <figure className="product-media">
-                                    <a href="product-default.html">
-                                        <img src="assets/images/shop/2-1.jpg" alt="Product" width="300"
-                                             height="338"/>
-                                        <img src="assets/images/shop/2-2.jpg" alt="Product" width="300"
-                                             height="338"/>
-                                    </a>
-                                    <div className="product-countdown-container" style={{height: '35px'}}>
-                                        <div className="product-countdown countdown-compact" data-until="2021, 9, 9"
-                                             data-format="DHMS" data-compact="false"
-                                             style={{fontSize: '20px'}}
-                                             data-labels-short="Days, Hours, Mins, Secs">
-                                            00:00:00:00
-                                        </div>
-                                    </div>
-                                    <div className="product-action-horizontal">
-                                        <a href="#" className="btn-product-icon btn-cart w-icon-cart"
-                                           title="Add to cart"></a>
-                                        <a href="#" className="btn-product-icon btn-wishlist w-icon-heart"
-                                           title="Wishlist"></a>
-                                        <a href="#" className="btn-product-icon btn-compare w-icon-compare"
-                                           title="Compare"></a>
-                                        <a href="#" className="btn-product-icon btn-quickview w-icon-search"
-                                           title="CƏLD BAXIŞ"></a>
-                                    </div>
-                                </figure>
-                                <div className="product-details">
-                                    <div className="product-cat">
-                                        <a href="shop-banner-sidebar.html">Electronics</a>
-                                    </div>
-                                    <h3 className="product-name">
-                                        <a href="product-default.html">Alarm Clock With Lamp</a>
-                                    </h3>
-                                    <div className="ratings-container">
-                                        <div className="ratings-full">
-                                            <span className="ratings" style={{width: '100%'}}></span>
-                                            <span className="tooltiptext tooltip-top"></span>
-                                        </div>
-                                        <a href="product-default.html" className="rating-reviews">(10
-                                            reviews)</a>
-                                    </div>
-                                    <div className="product-pa-wrapper">
-                                        <div className="product-price">
-                                            <ins className="new-price">$30.00</ins>
-                                            <del
-                                                className="old-price">$60.00
-                                            </del>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="product-wrap">
-                            <div className="product text-center">
-                                <figure className="product-media">
-                                    <a href="product-default.html">
-                                        <img src="assets/images/shop/3.jpg" alt="Product" width="300"
-                                             height="338"/>
-                                    </a>
-                                    <div className="product-action-horizontal">
-                                        <a href="#" className="btn-product-icon btn-cart w-icon-cart"
-                                           title="Add to cart"></a>
-                                        <a href="#" className="btn-product-icon btn-wishlist w-icon-heart"
-                                           title="Wishlist"></a>
-                                        <a href="#" className="btn-product-icon btn-compare w-icon-compare"
-                                           title="Compare"></a>
-                                        <a href="#" className="btn-product-icon btn-quickview w-icon-search"
-                                           title="CƏLD BAXIŞ"></a>
-                                    </div>
-                                </figure>
-                                <div className="product-details">
-                                    <div className="product-cat">
-                                        <a href="shop-banner-sidebar.html">Electronics</a>
-                                    </div>
-                                    <h3 className="product-name">
-                                        <a href="product-default.html">Apple Laptop</a>
-                                    </h3>
-                                    <div className="ratings-container">
-                                        <div className="ratings-full">
-                                            <span className="ratings" style={{width: '80%'}}></span>
-                                            <span className="tooltiptext tooltip-top"></span>
-                                        </div>
-                                        <a href="product-default.html" className="rating-reviews">(5
-                                            reviews)</a>
-                                    </div>
-                                    <div className="product-pa-wrapper">
-                                        <div className="product-price">
-                                            $1,000.00
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="product-wrap">
-                            <div className="product text-center">
-                                <figure className="product-media">
-                                    <a href="product-default.html">
-                                        <img src="assets/images/shop/4.jpg" alt="Product" width="300"
-                                             height="338"/>
-                                    </a>
-                                    <div className="product-action-horizontal">
-                                        <a href="#" className="btn-product-icon btn-cart w-icon-cart"
-                                           title="Add to cart"></a>
-                                        <a href="#" className="btn-product-icon btn-wishlist w-icon-heart"
-                                           title="Wishlist"></a>
-                                        <a href="#" className="btn-product-icon btn-compare w-icon-compare"
-                                           title="Compare"></a>
-                                        <a href="#" className="btn-product-icon btn-quickview w-icon-search"
-                                           title="CƏLD BAXIŞ"></a>
-                                    </div>
-                                </figure>
-                                <div className="product-details">
-                                    <div className="product-cat">
-                                        <a href="shop-banner-sidebar.html">Electronics</a>
-                                    </div>
-                                    <h3 className="product-name">
-                                        <a href="product-default.html">Attachable Charge Alarm</a>
-                                    </h3>
-                                    <div className="ratings-container">
-                                        <div className="ratings-full">
-                                            <span className="ratings" style={{width: '60%'}}></span>
-                                            <span className="tooltiptext tooltip-top"></span>
-                                        </div>
-                                        <a href="product-default.html" className="rating-reviews">(7
-                                            reviews)</a>
-                                    </div>
-                                    <div className="product-pa-wrapper">
-                                        <div className="product-price">
-                                            $15.00
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="product-wrap">
-                            <div className="product text-center">
-                                <figure className="product-media">
-                                    <a href="product-default.html">
-                                        <img src="assets/images/shop/1.jpg" alt="Product" width="300"
-                                             height="338"/>
-                                    </a>
-                                    <div className="product-action-horizontal">
-                                        <a href="#" className="btn-product-icon btn-cart w-icon-cart"
-                                           title="Add to cart"></a>
-                                        <a href="#" className="btn-product-icon btn-wishlist w-icon-heart"
-                                           title="Wishlist"></a>
-                                        <a href="#" className="btn-product-icon btn-compare w-icon-compare"
-                                           title="Compare"></a>
-                                        <a href="#" className="btn-product-icon btn-quickview w-icon-search"
-                                           title="CƏLD BAXIŞ"></a>
-                                    </div>
-                                </figure>
-                                <div className="product-details">
-                                    <div className="product-cat">
-                                        <a href="shop-banner-sidebar.html">Electronics</a>
-                                    </div>
-                                    <h3 className="product-name">
-                                        <a href="product-default.html">3D Television</a>
-                                    </h3>
-                                    <div className="ratings-container">
-                                        <div className="ratings-full">
-                                            <span className="ratings" style={{width: '100%'}}></span>
-                                            <span className="tooltiptext tooltip-top"></span>
-                                        </div>
-                                        <a href="product-default.html" className="rating-reviews">(3
-                                            reviews)</a>
-                                    </div>
-                                    <div className="product-pa-wrapper">
-                                        <div className="product-price">
-                                            $220.00
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="product-wrap">
-                            <div className="product text-center">
-                                <figure className="product-media">
-                                    <a href="product-default.html">
-                                        <img src="assets/images/shop/2-1.jpg" alt="Product" width="300"
-                                             height="338"/>
-                                        <img src="assets/images/shop/2-2.jpg" alt="Product" width="300"
-                                             height="338"/>
-                                    </a>
-                                    <div className="product-countdown-container" style={{height: '35px'}}>
-                                        <div className="product-countdown countdown-compact" data-until="2021, 9, 9"
-                                             data-format="DHMS" data-compact="false"
-                                             style={{fontSize: '20px'}}
-                                             data-labels-short="Days, Hours, Mins, Secs">
-                                            00:00:00:00
-                                        </div>
-                                    </div>
-                                    <div className="product-action-horizontal">
-                                        <a href="#" className="btn-product-icon btn-cart w-icon-cart"
-                                           title="Add to cart"></a>
-                                        <a href="#" className="btn-product-icon btn-wishlist w-icon-heart"
-                                           title="Wishlist"></a>
-                                        <a href="#" className="btn-product-icon btn-compare w-icon-compare"
-                                           title="Compare"></a>
-                                        <a href="#" className="btn-product-icon btn-quickview w-icon-search"
-                                           title="CƏLD BAXIŞ"></a>
-                                    </div>
-                                </figure>
-                                <div className="product-details">
-                                    <div className="product-cat">
-                                        <a href="shop-banner-sidebar.html">Electronics</a>
-                                    </div>
-                                    <h3 className="product-name">
-                                        <a href="product-default.html">Alarm Clock With Lamp</a>
-                                    </h3>
-                                    <div className="ratings-container">
-                                        <div className="ratings-full">
-                                            <span className="ratings" style={{width: '100%'}}></span>
-                                            <span className="tooltiptext tooltip-top"></span>
-                                        </div>
-                                        <a href="product-default.html" className="rating-reviews">(10
-                                            reviews)</a>
-                                    </div>
-                                    <div className="product-pa-wrapper">
-                                        <div className="product-price">
-                                            <ins className="new-price">$30.00</ins>
-                                            <del
-                                                className="old-price">$60.00
-                                            </del>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="product-wrap">
-                            <div className="product text-center">
-                                <figure className="product-media">
-                                    <a href="product-default.html">
-                                        <img src="assets/images/shop/3.jpg" alt="Product" width="300"
-                                             height="338"/>
-                                    </a>
-                                    <div className="product-action-horizontal">
-                                        <a href="#" className="btn-product-icon btn-cart w-icon-cart"
-                                           title="Add to cart"></a>
-                                        <a href="#" className="btn-product-icon btn-wishlist w-icon-heart"
-                                           title="Wishlist"></a>
-                                        <a href="#" className="btn-product-icon btn-compare w-icon-compare"
-                                           title="Compare"></a>
-                                        <a href="#" className="btn-product-icon btn-quickview w-icon-search"
-                                           title="CƏLD BAXIŞ"></a>
-                                    </div>
-                                </figure>
-                                <div className="product-details">
-                                    <div className="product-cat">
-                                        <a href="shop-banner-sidebar.html">Electronics</a>
-                                    </div>
-                                    <h3 className="product-name">
-                                        <a href="product-default.html">Apple Laptop</a>
-                                    </h3>
-                                    <div className="ratings-container">
-                                        <div className="ratings-full">
-                                            <span className="ratings" style={{width: '80%'}}></span>
-                                            <span className="tooltiptext tooltip-top"></span>
-                                        </div>
-                                        <a href="product-default.html" className="rating-reviews">(5
-                                            reviews)</a>
-                                    </div>
-                                    <div className="product-pa-wrapper">
-                                        <div className="product-price">
-                                            $1,000.00
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="product-wrap">
-                            <div className="product text-center">
-                                <figure className="product-media">
-                                    <a href="product-default.html">
-                                        <img src="assets/images/shop/4.jpg" alt="Product" width="300" height="338"/>
-                                    </a>
-                                    <div className="product-action-horizontal">
-                                        <a href="#" className="btn-product-icon btn-cart w-icon-cart"
-                                           title="Add to cart"></a>
-                                        <a href="#" className="btn-product-icon btn-wishlist w-icon-heart"
-                                           title="Wishlist"></a>
-                                        <a href="#" className="btn-product-icon btn-compare w-icon-compare"
-                                           title="Compare"></a>
-                                        <a href="#" className="btn-product-icon btn-quickview w-icon-search"
-                                           title="CƏLD BAXIŞ"></a>
-                                    </div>
-                                </figure>
-                                <div className="product-details">
-                                    <div className="product-cat">
-                                        <a href="shop-banner-sidebar.html">Electronics</a>
-                                    </div>
-                                    <h3 className="product-name">
-                                        <a href="product-default.html">Attachable Charge Alarm</a>
-                                    </h3>
-                                    <div className="ratings-container">
-                                        <div className="ratings-full">
-                                            <span className="ratings" style={{width: '60%'}}></span>
-                                            <span className="tooltiptext tooltip-top"></span>
-                                        </div>
-                                        <a href="product-default.html" className="rating-reviews">(7
-                                            reviews)</a>
-                                    </div>
-                                    <div className="product-pa-wrapper">
-                                        <div className="product-price">
-                                            $15.00
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="product-wrap">
-                            <div className="product text-center">
-                                <figure className="product-media">
-                                    <a href="product-default.html">
-                                        <img src="assets/images/shop/3.jpg" alt="Product" width="300"
-                                             height="338"/>
-                                    </a>
-                                    <div className="product-action-horizontal">
-                                        <a href="#" className="btn-product-icon btn-cart w-icon-cart"
-                                           title="Add to cart"></a>
-                                        <a href="#" className="btn-product-icon btn-wishlist w-icon-heart"
-                                           title="Wishlist"></a>
-                                        <a href="#" className="btn-product-icon btn-compare w-icon-compare"
-                                           title="Compare"></a>
-                                        <a href="#" className="btn-product-icon btn-quickview w-icon-search"
-                                           title="CƏLD BAXIŞ"></a>
-                                    </div>
-                                </figure>
-                                <div className="product-details">
-                                    <div className="product-cat">
-                                        <a href="shop-banner-sidebar.html">Electronics</a>
-                                    </div>
-                                    <h3 className="product-name">
-                                        <a href="product-default.html">Apple Laptop</a>
-                                    </h3>
-                                    <div className="ratings-container">
-                                        <div className="ratings-full">
-                                            <span className="ratings" style={{width: '80%'}}></span>
-                                            <span className="tooltiptext tooltip-top"></span>
-                                        </div>
-                                        <a href="product-default.html" className="rating-reviews">(5
-                                            reviews)</a>
-                                    </div>
-                                    <div className="product-pa-wrapper">
-                                        <div className="product-price">
-                                            $1,000.00
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="product-wrap">
-                            <div className="product text-center">
-                                <figure className="product-media">
-                                    <a href="product-default.html">
-                                        <img src="assets/images/shop/4.jpg" alt="Product" width="300"
-                                             height="338"/>
-                                    </a>
-                                    <div className="product-action-horizontal">
-                                        <a href="#" className="btn-product-icon btn-cart w-icon-cart"
-                                           title="Add to cart"></a>
-                                        <a href="#" className="btn-product-icon btn-wishlist w-icon-heart"
-                                           title="Wishlist"></a>
-                                        <a href="#" className="btn-product-icon btn-compare w-icon-compare"
-                                           title="Compare"></a>
-                                        <a href="#" className="btn-product-icon btn-quickview w-icon-search"
-                                           title="CƏLD BAXIŞ"></a>
-                                    </div>
-                                </figure>
-                                <div className="product-details">
-                                    <div className="product-cat">
-                                        <a href="shop-banner-sidebar.html">Electronics</a>
-                                    </div>
-                                    <h3 className="product-name">
-                                        <a href="product-default.html">Attachable Charge Alarm</a>
-                                    </h3>
-                                    <div className="ratings-container">
-                                        <div className="ratings-full">
-                                            <span className="ratings" style={{width: '60%'}}></span>
-                                            <span className="tooltiptext tooltip-top"></span>
-                                        </div>
-                                        <a href="product-default.html" className="rating-reviews">(7
-                                            reviews)</a>
-                                    </div>
-                                    <div className="product-pa-wrapper">
-                                        <div className="product-price">
-                                            $15.00
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        ))}
                     </div>
                     {/*<div className="toolbox toolbox-pagination justify-content-between">*/}
                     {/*    <p className="showing-info mb-2 mb-sm-0">*/}
@@ -862,46 +352,15 @@ export default function Main(){
                         }
                     }">
                             <div className="swiper-wrapper row gutter-no cols-lg-5 cols-md-4 cols-sm-3 cols-2">
-                                <div className="swiper-slide brand-col">
-                                    <figure className="brand-wrapper">
-                                        <img src="assets/images/demos/demo3/brand/1.png" alt="Brand" width="247" height="94"/>
-                                    </figure>
-                                    <figure className="brand-wrapper">
-                                        <img src="assets/images/demos/demo3/brand/2.png" alt="Brand" width="247" height="94"/>
-                                    </figure>
-                                </div>
-                                <div className="swiper-slide brand-col">
-                                    <figure className="brand-wrapper">
-                                        <img src="assets/images/demos/demo3/brand/3.png" alt="Brand" width="247" height="94"/>
-                                    </figure>
-                                    <figure className="brand-wrapper">
-                                        <img src="assets/images/demos/demo3/brand/4.png" alt="Brand" width="247" height="94"/>
-                                    </figure>
-                                </div>
-                                <div className="swiper-slide brand-col">
-                                    <figure className="brand-wrapper">
-                                        <img src="assets/images/demos/demo3/brand/5.png" alt="Brand" width="247" height="94"/>
-                                    </figure>
-                                    <figure className="brand-wrapper">
-                                        <img src="assets/images/demos/demo3/brand/6.png" alt="Brand" width="247" height="94"/>
-                                    </figure>
-                                </div>
-                                <div className="swiper-slide brand-col">
-                                    <figure className="brand-wrapper">
-                                        <img src="assets/images/demos/demo3/brand/7.png" alt="Brand" width="247" height="94"/>
-                                    </figure>
-                                    <figure className="brand-wrapper">
-                                        <img src="assets/images/demos/demo3/brand/8.png" alt="Brand" width="247" height="94"/>
-                                    </figure>
-                                </div>
-                                <div className="swiper-slide brand-col">
-                                    <figure className="brand-wrapper">
-                                        <img src="assets/images/demos/demo3/brand/9.png" alt="Brand" width="247" height="94"/>
-                                    </figure>
-                                    <figure className="brand-wrapper">
-                                        <img src="assets/images/demos/demo3/brand/10.png" alt="Brand" width="247" height="94"/>
-                                    </figure>
-                                </div>
+                                {partnersTitle.map(e=>(
+                                    <div className="swiper-slide brand-col">
+                                        <div style={{width:"80%", position:"relative" , left:"40px"}} >
+                                            <figure className="brand-wrapper" style={{display:'flex',justifyContent:'center'}}>
+                                                <img src={e.logo} alt="Brand" style={{display:'flex',justifyContent:'center'}}/>
+                                            </figure>
+                                        </div>
+                                    </div>
+                                ))}
                             </div>
                         </div>
 

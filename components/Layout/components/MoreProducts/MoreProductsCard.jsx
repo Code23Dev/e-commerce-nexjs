@@ -1,5 +1,18 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
+import {allDiscount} from "../../../../services/discount/allDiscount";
 export default function MyAccount(){
+    const [allDiscountTitle, allDiscountData] = useState([]);
+    const [quickViewTitle, quickViewData] = useState(null);
+    useEffect(() => {
+        allDiscount()
+            .then(items => {
+                allDiscountData(items.data)
+            })
+    }, [])
+   function quickViewFunc(id){
+       quickViewData(allDiscountTitle.find(r=>r.product == id ? r : []))
+    }
+    console.log(quickViewTitle,"dd")
     return (
         <div>
             <style jsx>{`
@@ -151,306 +164,59 @@ export default function MyAccount(){
                                 <h2 className="title">Günün endirimləri</h2>
                             </div>
                             <div className="row appear-animate">
-                                <div className="col-lg-6 mb-4">
-                                    <div className="product product-list br-xs mb-0">
-                                        <figure className="product-media">
-                                            <a href="product-default.html">
-                                                <img src="assets/images/demos/demo7/products/1-1.jpg" alt="Product"
-                                                     width="315"
-                                                     height="355"/>
-                                            </a>
-                                            <div className="product-action-vertical">
-                                                <a href="#" className="btn-product-icon btn-quickview w-icon-search"
-                                                   title="Quick View"></a>
-                                            </div>
-                                            <div className="product-countdown-container" style={{height: '35px'}}>
-                                                <div className="product-countdown countdown-compact" data-until="2021, 9, 9"
-                                                     data-format="DHMS" data-compact="false"
-                                                     style={{fontSize: '20px'}}
-                                                     data-labels-short="Days, Hours, Mins, Secs">
-                                                    00:00:00:00
+                                {allDiscountTitle.map(e=>(
+                                    <div className="col-lg-6 mb-4">
+                                        <div className="product product-list br-xs mb-0">
+                                            <figure className="product-media">
+                                                <a href={`/${e.product.id}`}>
+                                                    <img src={e.product.main_image} alt="Product"
+                                                         width="315"
+                                                         height="355"/>
+                                                </a>
+                                                <div className="product-action-vertical">
+                                                    <a href="#" className="btn-product-icon btn-quickview w-icon-search"
+                                                       title="Quick View" onClick={()=>{quickViewFunc(e.product.id)}}></a>
                                                 </div>
-                                            </div>
-                                        </figure>
-                                        <div className="product-details">
-                                            <h4 className="product-name">
-                                                <a href="product-default.html">Lorem ipsum dolor sit amet</a>
-                                            </h4>
-                                            <div className="ratings-container">
-                                                <div className="ratings-full">
-                                                    <span className="ratings" style={{width:'100%'}}></span>
-                                                    <span className="tooltiptext tooltip-top"></span>
+                                                <div className="product-countdown-container" style={{height: '35px'}}>
+                                                    <div className="product-countdown countdown-compact" data-until="2021, 9, 9"
+                                                         data-format="DHMS" data-compact="false"
+                                                         style={{fontSize: '20px'}}
+                                                         data-labels-short="Days, Hours, Mins, Secs">
+                                                        00:00:00:00
+                                                    </div>
                                                 </div>
-                                                <a href="#" className="rating-reviews">(3 Reviews)</a>
-                                            </div>
-                                            <div className="product-price">$235.35 </div>
-                                            <ul className="product-desc">
-                                                <li>Aliquam id diam maecenas ultricies miile.</li>
-                                                <li>Volutpat ac tincidunt vitae semper quis le.</li>
-                                                <li>Ultrices eros in cursus turpis massa.</li>
-                                            </ul>
-                                            <div className="product-action">
-                                                <a href="#" className="btn-product btn-cart" title="Add to Cart"><i
-                                                    className="w-icon-cart"></i> Add To Cart</a>
-                                                <a href="#" className="btn-product-icon btn-wishlist w-icon-heart"
-                                                   title="Add to wishlist"></a>
-                                                <a href="#" className="btn-product-icon btn-compare w-icon-compare"
-                                                   title="Compare"></a>
+                                            </figure>
+                                            <div className="product-details">
+                                                <h4 className="product-name">
+                                                    <a href={`/${e.product.id}`}>{e.product.title}</a>
+                                                </h4>
+                                                <div className="ratings-container">
+                                                    <div className="ratings-full">
+                                                        <span className="ratings"  style={{width: `${(18 * e.product.rating)+'%'}` }}></span>
+                                                        <span className="tooltiptext tooltip-top"></span>
+                                                    </div>
+                                                    <a href={`/${e.product.id}`} className="rating-reviews">({e.product.rating}
+                                                        reviews)</a>
+                                                </div>
+                                                <div className="product-price">{e.discount_price}</div>
+                                                <ul className="product-desc">
+                                                    <li>{e.product.short_desc1}</li>
+                                                    <li>{e.product.short_desc2}</li>
+                                                    <li>{e.product.short_desc3}</li>
+                                                </ul>
+                                                <div className="product-action">
+                                                    <a href="#" className="btn-product btn-cart" title="Add to Cart"><i
+                                                        className="w-icon-cart"></i>Səbətə əlavə et</a>
+                                                    <a href="#" className="btn-product-icon btn-wishlist w-icon-heart"
+                                                       title="Add to wishlist"></a>
+                                                    <a href="#" className="btn-product-icon btn-compare w-icon-compare"
+                                                       title="Compare"></a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div className="col-lg-6 mb-4">
-                                    <div className="product product-list br-xs mb-0">
-                                        <figure className="product-media">
-                                            <a href="product-default.html">
-                                                <img src="assets/images/demos/demo7/products/1-2.jpg" alt="Product"
-                                                     width="315"
-                                                     height="355"/>
-                                            </a>
-                                            <div className="product-action-vertical">
-                                                <a href="#" className="btn-product-icon btn-quickview w-icon-search"
-                                                   title="Quick View"></a>
-                                            </div>
-                                            <div className="product-countdown-container" style={{height: '35px'}}>
-                                                <div className="product-countdown countdown-compact" data-until="2021, 9, 9"
-                                                     data-format="DHMS" data-compact="false"
-                                                     style={{fontSize: '20px'}}
-                                                     data-labels-short="Days, Hours, Mins, Secs">
-                                                    00:00:00:00
-                                                </div>
-                                            </div>
-                                        </figure>
-                                        <div className="product-details">
-                                            <h4 className="product-name">
-                                                <a href="product-default.html">Lorem ipsum dolor sit amet</a>
-                                            </h4>
-                                            <div className="ratings-container">
-                                                <div className="ratings-full">
-                                                    <span className="ratings" style={{width:'100%'}}></span>
-                                                    <span className="tooltiptext tooltip-top"></span>
-                                                </div>
-                                                <a href="#" className="rating-reviews">(3 Reviews)</a>
-                                            </div>
-                                            <div className="product-price">$235.35 </div>
-                                            <ul className="product-desc">
-                                                <li>Aliquam id diam maecenas ultricies miile.</li>
-                                                <li>Volutpat ac tincidunt vitae semper quis le.</li>
-                                                <li>Ultrices eros in cursus turpis massa.</li>
-                                            </ul>
-                                            <div className="product-action">
-                                                <a href="#" className="btn-product btn-cart" title="Add to Cart"><i
-                                                    className="w-icon-cart"></i> Add To Cart</a>
-                                                <a href="#" className="btn-product-icon btn-wishlist w-icon-heart"
-                                                   title="Add to wishlist"></a>
-                                                <a href="#" className="btn-product-icon btn-compare w-icon-compare"
-                                                   title="Compare"></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                ))}
                             </div>
-                            <div className="row appear-animate">
-                                <div className="col-lg-6 mb-4">
-                                    <div className="product product-list br-xs mb-0">
-                                        <figure className="product-media">
-                                            <a href="product-default.html">
-                                                <img src="assets/images/demos/demo7/products/1-1.jpg" alt="Product"
-                                                     width="315"
-                                                     height="355"/>
-                                            </a>
-                                            <div className="product-action-vertical">
-                                                <a href="#" className="btn-product-icon btn-quickview w-icon-search"
-                                                   title="Quick View"></a>
-                                            </div>
-                                            <div className="product-countdown-container" style={{height: '35px'}}>
-                                                <div className="product-countdown countdown-compact" data-until="2021, 9, 9"
-                                                     data-format="DHMS" data-compact="false"
-                                                     style={{fontSize: '20px'}}
-                                                     data-labels-short="Days, Hours, Mins, Secs">
-                                                    00:00:00:00
-                                                </div>
-                                            </div>
-                                        </figure>
-                                        <div className="product-details">
-                                            <h4 className="product-name">
-                                                <a href="product-default.html">Lorem ipsum dolor sit amet</a>
-                                            </h4>
-                                            <div className="ratings-container">
-                                                <div className="ratings-full">
-                                                    <span className="ratings" style={{width:'100%'}}></span>
-                                                    <span className="tooltiptext tooltip-top"></span>
-                                                </div>
-                                                <a href="#" className="rating-reviews">(3 Reviews)</a>
-                                            </div>
-                                            <div className="product-price">$235.35 </div>
-                                            <ul className="product-desc">
-                                                <li>Aliquam id diam maecenas ultricies miile.</li>
-                                                <li>Volutpat ac tincidunt vitae semper quis le.</li>
-                                                <li>Ultrices eros in cursus turpis massa.</li>
-                                            </ul>
-                                            <div className="product-action">
-                                                <a href="#" className="btn-product btn-cart" title="Add to Cart"><i
-                                                    className="w-icon-cart"></i> Add To Cart</a>
-                                                <a href="#" className="btn-product-icon btn-wishlist w-icon-heart"
-                                                   title="Add to wishlist"></a>
-                                                <a href="#" className="btn-product-icon btn-compare w-icon-compare"
-                                                   title="Compare"></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-lg-6 mb-4">
-                                    <div className="product product-list br-xs mb-0">
-                                        <figure className="product-media">
-                                            <a href="product-default.html">
-                                                <img src="assets/images/demos/demo7/products/1-2.jpg" alt="Product"
-                                                     width="315"
-                                                     height="355"/>
-                                            </a>
-                                            <div className="product-action-vertical">
-                                                <a href="#" className="btn-product-icon btn-quickview w-icon-search"
-                                                   title="Quick View"></a>
-                                            </div>
-                                            <div className="product-countdown-container" style={{height: '35px'}}>
-                                                <div className="product-countdown countdown-compact" data-until="2021, 9, 9"
-                                                     data-format="DHMS" data-compact="false"
-                                                     style={{fontSize: '20px'}}
-                                                     data-labels-short="Days, Hours, Mins, Secs">
-                                                    00:00:00:00
-                                                </div>
-                                            </div>
-                                        </figure>
-                                        <div className="product-details">
-                                            <h4 className="product-name">
-                                                <a href="product-default.html">Lorem ipsum dolor sit amet</a>
-                                            </h4>
-                                            <div className="ratings-container">
-                                                <div className="ratings-full">
-                                                    <span className="ratings" style={{width:'100%'}}></span>
-                                                    <span className="tooltiptext tooltip-top"></span>
-                                                </div>
-                                                <a href="#" className="rating-reviews">(3 Reviews)</a>
-                                            </div>
-                                            <div className="product-price">$235.35 </div>
-                                            <ul className="product-desc">
-                                                <li>Aliquam id diam maecenas ultricies miile.</li>
-                                                <li>Volutpat ac tincidunt vitae semper quis le.</li>
-                                                <li>Ultrices eros in cursus turpis massa.</li>
-                                            </ul>
-                                            <div className="product-action">
-                                                <a href="#" className="btn-product btn-cart" title="Add to Cart"><i
-                                                    className="w-icon-cart"></i> Add To Cart</a>
-                                                <a href="#" className="btn-product-icon btn-wishlist w-icon-heart"
-                                                   title="Add to wishlist"></a>
-                                                <a href="#" className="btn-product-icon btn-compare w-icon-compare"
-                                                   title="Compare"></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="row appear-animate">
-                                <div className="col-lg-6 mb-4">
-                                    <div className="product product-list br-xs mb-0">
-                                        <figure className="product-media">
-                                            <a href="product-default.html">
-                                                <img src="assets/images/demos/demo7/products/1-1.jpg" alt="Product"
-                                                     width="315"
-                                                     height="355"/>
-                                            </a>
-                                            <div className="product-action-vertical">
-                                                <a href="#" className="btn-product-icon btn-quickview w-icon-search"
-                                                   title="Quick View"></a>
-                                            </div>
-                                            <div className="product-countdown-container" style={{height: '35px'}}>
-                                                <div className="product-countdown countdown-compact" data-until="2021, 9, 9"
-                                                     data-format="DHMS" data-compact="false"
-                                                     style={{fontSize: '20px'}}
-                                                     data-labels-short="Days, Hours, Mins, Secs">
-                                                    00:00:00:00
-                                                </div>
-                                            </div>
-                                        </figure>
-                                        <div className="product-details">
-                                            <h4 className="product-name">
-                                                <a href="product-default.html">Lorem ipsum dolor sit amet</a>
-                                            </h4>
-                                            <div className="ratings-container">
-                                                <div className="ratings-full">
-                                                    <span className="ratings" style={{width:'100%'}}></span>
-                                                    <span className="tooltiptext tooltip-top"></span>
-                                                </div>
-                                                <a href="#" className="rating-reviews">(3 Reviews)</a>
-                                            </div>
-                                            <div className="product-price">$235.35 </div>
-                                            <ul className="product-desc">
-                                                <li>Aliquam id diam maecenas ultricies miile.</li>
-                                                <li>Volutpat ac tincidunt vitae semper quis le.</li>
-                                                <li>Ultrices eros in cursus turpis massa.</li>
-                                            </ul>
-                                            <div className="product-action">
-                                                <a href="#" className="btn-product btn-cart" title="Add to Cart"><i
-                                                    className="w-icon-cart"></i> Add To Cart</a>
-                                                <a href="#" className="btn-product-icon btn-wishlist w-icon-heart"
-                                                   title="Add to wishlist"></a>
-                                                <a href="#" className="btn-product-icon btn-compare w-icon-compare"
-                                                   title="Compare"></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-lg-6 mb-4">
-                                    <div className="product product-list br-xs mb-0">
-                                        <figure className="product-media">
-                                            <a href="product-default.html">
-                                                <img src="assets/images/demos/demo7/products/1-2.jpg" alt="Product"
-                                                     width="315"
-                                                     height="355"/>
-                                            </a>
-                                            <div className="product-action-vertical">
-                                                <a href="#" className="btn-product-icon btn-quickview w-icon-search"
-                                                   title="Quick View"></a>
-                                            </div>
-                                            <div className="product-countdown-container" style={{height: '35px'}}>
-                                                <div className="product-countdown countdown-compact" data-until="2021, 9, 9"
-                                                     data-format="DHMS" data-compact="false"
-                                                     style={{fontSize: '20px'}}
-                                                     data-labels-short="Days, Hours, Mins, Secs">
-                                                    00:00:00:00
-                                                </div>
-                                            </div>
-                                        </figure>
-                                        <div className="product-details">
-                                            <h4 className="product-name">
-                                                <a href="product-default.html">Lorem ipsum dolor sit amet</a>
-                                            </h4>
-                                            <div className="ratings-container">
-                                                <div className="ratings-full">
-                                                    <span className="ratings" style={{width:'100%'}}></span>
-                                                    <span className="tooltiptext tooltip-top"></span>
-                                                </div>
-                                                <a href="#" className="rating-reviews">(3 Reviews)</a>
-                                            </div>
-                                            <div className="product-price">$235.35 </div>
-                                            <ul className="product-desc">
-                                                <li>Aliquam id diam maecenas ultricies miile.</li>
-                                                <li>Volutpat ac tincidunt vitae semper quis le.</li>
-                                                <li>Ultrices eros in cursus turpis massa.</li>
-                                            </ul>
-                                            <div className="product-action">
-                                                <a href="#" className="btn-product btn-cart" title="Add to Cart"><i
-                                                    className="w-icon-cart"></i> Add To Cart</a>
-                                                <a href="#" className="btn-product-icon btn-wishlist w-icon-heart"
-                                                   title="Add to wishlist"></a>
-                                                <a href="#" className="btn-product-icon btn-compare w-icon-compare"
-                                                   title="Compare"></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
                         </div>
                     </div>
                 </main>
@@ -1035,97 +801,99 @@ export default function MyAccount(){
                     </div>
                 </div>
             </div>
+
             <div className="product product-single product-popup">
-                <div className="row gutter-lg">
-                    <div className="col-md-6 mb-4 mb-md-0">
-                        <div className="product-gallery product-gallery-sticky">
-                            <div className="swiper-container product-single-swiper swiper-theme nav-inner">
-                                <div className="swiper-wrapper row cols-1 gutter-no">
-                                    <div className="swiper-slide">
-                                        <figure className="product-image">
-                                            <img src="assets/images/products/popup/1-440x494.jpg"
-                                                 data-zoom-image="assets/images/products/popup/1-800x900.jpg"
-                                                 alt="Water Boil Black Utensil" width="800" height="900"/>
-                                        </figure>
+                {allDiscountTitle.map(e=>(
+                    <div className="row gutter-lg">
+                        <div className="col-md-6 mb-4 mb-md-0">
+                            <div className="product-gallery product-gallery-sticky">
+                                <div className="swiper-container product-single-swiper swiper-theme nav-inner">
+                                    <div className="swiper-wrapper row cols-1 gutter-no">
+                                        <div className="swiper-slide">
+                                            <figure className="product-image">
+                                                <img src="assets/images/products/popup/1-440x494.jpg"
+                                                     data-zoom-image="assets/images/products/popup/1-800x900.jpg"
+                                                     alt="Water Boil Black Utensil" width="800" height="900"/>
+                                            </figure>
+                                        </div>
+                                        <div className="swiper-slide">
+                                            <figure className="product-image">
+                                                <img src="assets/images/products/popup/2-440x494.jpg"
+                                                     data-zoom-image="assets/images/products/popup/2-800x900.jpg"
+                                                     alt="Water Boil Black Utensil" width="800" height="900"/>
+                                            </figure>
+                                        </div>
+                                        <div className="swiper-slide">
+                                            <figure className="product-image">
+                                                <img src="assets/images/products/popup/3-440x494.jpg"
+                                                     data-zoom-image="assets/images/products/popup/3-800x900.jpg"
+                                                     alt="Water Boil Black Utensil" width="800" height="900"/>
+                                            </figure>
+                                        </div>
+                                        <div className="swiper-slide">
+                                            <figure className="product-image">
+                                                <img src="assets/images/products/popup/4-440x494.jpg"
+                                                     data-zoom-image="assets/images/products/popup/4-800x900.jpg"
+                                                     alt="Water Boil Black Utensil" width="800" height="900"/>
+                                            </figure>
+                                        </div>
                                     </div>
-                                    <div className="swiper-slide">
-                                        <figure className="product-image">
-                                            <img src="assets/images/products/popup/2-440x494.jpg"
-                                                 data-zoom-image="assets/images/products/popup/2-800x900.jpg"
-                                                 alt="Water Boil Black Utensil" width="800" height="900"/>
-                                        </figure>
-                                    </div>
-                                    <div className="swiper-slide">
-                                        <figure className="product-image">
-                                            <img src="assets/images/products/popup/3-440x494.jpg"
-                                                 data-zoom-image="assets/images/products/popup/3-800x900.jpg"
-                                                 alt="Water Boil Black Utensil" width="800" height="900"/>
-                                        </figure>
-                                    </div>
-                                    <div className="swiper-slide">
-                                        <figure className="product-image">
-                                            <img src="assets/images/products/popup/4-440x494.jpg"
-                                                 data-zoom-image="assets/images/products/popup/4-800x900.jpg"
-                                                 alt="Water Boil Black Utensil" width="800" height="900"/>
-                                        </figure>
-                                    </div>
+                                    <button className="swiper-button-next"></button>
+                                    <button className="swiper-button-prev"></button>
                                 </div>
-                                <button className="swiper-button-next"></button>
-                                <button className="swiper-button-prev"></button>
-                            </div>
-                            <div className="product-thumbs-wrap swiper-container" data-swiper-options="{
+                                <div className="product-thumbs-wrap swiper-container" data-swiper-options="{
                         'navigation': {
                             'nextEl': '.swiper-button-next',
                             'prevEl': '.swiper-button-prev'
                         }
                     }">
-                                <div className="product-thumbs swiper-wrapper row cols-4 gutter-sm">
-                                    <div className="product-thumb swiper-slide">
-                                        <img src="assets/images/products/popup/1-103x116.jpg" alt="Product Thumb"
-                                             width="103"
-                                             height="116"/>
+                                    <div className="product-thumbs swiper-wrapper row cols-4 gutter-sm">
+                                        <div className="product-thumb swiper-slide">
+                                            <img src="assets/images/products/popup/1-103x116.jpg" alt="Product Thumb"
+                                                 width="103"
+                                                 height="116"/>
+                                        </div>
+                                        <div className="product-thumb swiper-slide">
+                                            <img src="assets/images/products/popup/2-103x116.jpg" alt="Product Thumb"
+                                                 width="103"
+                                                 height="116"/>
+                                        </div>
+                                        <div className="product-thumb swiper-slide">
+                                            <img src="assets/images/products/popup/3-103x116.jpg" alt="Product Thumb"
+                                                 width="103"
+                                                 height="116"/>
+                                        </div>
+                                        <div className="product-thumb swiper-slide">
+                                            <img src="assets/images/products/popup/4-103x116.jpg" alt="Product Thumb"
+                                                 width="103"
+                                                 height="116"/>
+                                        </div>
                                     </div>
-                                    <div className="product-thumb swiper-slide">
-                                        <img src="assets/images/products/popup/2-103x116.jpg" alt="Product Thumb"
-                                             width="103"
-                                             height="116"/>
-                                    </div>
-                                    <div className="product-thumb swiper-slide">
-                                        <img src="assets/images/products/popup/3-103x116.jpg" alt="Product Thumb"
-                                             width="103"
-                                             height="116"/>
-                                    </div>
-                                    <div className="product-thumb swiper-slide">
-                                        <img src="assets/images/products/popup/4-103x116.jpg" alt="Product Thumb"
-                                             width="103"
-                                             height="116"/>
-                                    </div>
+                                    <button className="swiper-button-next"></button>
+                                    <button className="swiper-button-prev"></button>
                                 </div>
-                                <button className="swiper-button-next"></button>
-                                <button className="swiper-button-prev"></button>
                             </div>
                         </div>
-                    </div>
-                    <div className="col-md-6 overflow-hidden p-relative">
-                        <div className="product-details scrollable pl-0">
-                            <h2 className="product-title">Electronics Black Wrist Watch</h2>
-                            <div className="product-bm-wrapper">
-                                <figure className="brand">
-                                    <img src="assets/images/products/brand/brand-1.jpg" alt="Brand" width="102"
-                                         height="48"/>
-                                </figure>
-                                <div className="product-meta">
-                                    <div className="product-categories">
-                                        Category:
-                                        <span className="product-category"><a href="#">Electronics</a></span>
-                                    </div>
-                                    <div className="product-sku">
-                                        SKU: <span>MS46891340</span>
+                        <div className="col-md-6 overflow-hidden p-relative">
+                            <div className="product-details scrollable pl-0">
+                                <h2 className="product-title">gg</h2>
+                                <div className="product-bm-wrapper">
+                                    <figure className="brand">
+                                        <img src="assets/images/products/brand/brand-1.jpg" alt="Brand" width="102"
+                                             height="48"/>
+                                    </figure>
+                                    <div className="product-meta">
+                                        <div className="product-categories">
+                                            Category:
+                                            <span className="product-category"><a href="#">Electronics</a></span>
+                                        </div>
+                                        <div className="product-sku">
+                                            SKU: <span>MS46891340</span>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
 
-                            <hr className="product-divider"/>
+                                <hr className="product-divider"/>
 
                                 <div className="product-price">$40.00</div>
 
@@ -1146,75 +914,76 @@ export default function MyAccount(){
                                 </div>
 
                                 <hr className="product-divider"/>
-                                    <div className="product-form product-variation-form product-color-swatch">
+                                <div className="product-form product-variation-form product-color-swatch">
+                                    <div>
                                         <div>
-                                            <div>
-                                                <div  id="product-tab-specification">
-                                                    <ul className="list-none">
-                                                        <li>
-                                                            <label>Model</label>
-                                                            <p>Skysuite 320</p>
-                                                        </li>
-                                                        <li>
-                                                            <label>Color</label>
-                                                            <p>Black</p>
-                                                        </li>
-                                                        <li>
-                                                            <label>Size</label>
-                                                            <p>Large, Small</p>
-                                                        </li>
-                                                        <li>
-                                                            <label>Guarantee Time</label>
-                                                            <p>3 Months</p>
-                                                        </li>
-                                                    </ul>
-                                                </div>
+                                            <div  id="product-tab-specification">
+                                                <ul className="list-none">
+                                                    <li>
+                                                        <label>Model</label>
+                                                        <p>Skysuite 320</p>
+                                                    </li>
+                                                    <li>
+                                                        <label>Color</label>
+                                                        <p>Black</p>
+                                                    </li>
+                                                    <li>
+                                                        <label>Size</label>
+                                                        <p>Large, Small</p>
+                                                    </li>
+                                                    <li>
+                                                        <label>Guarantee Time</label>
+                                                        <p>3 Months</p>
+                                                    </li>
+                                                </ul>
                                             </div>
                                         </div>
-                                    </div>
-
-                                    <div className="product-form">
-                                        <div className="product-qty-form">
-                                            <div className="input-group">
-                                                <input className="quantity form-control" type="number" min="1"
-                                                       max="10000000"/>
-                                                    <button className="quantity-plus w-icon-plus"></button>
-                                                    <button className="quantity-minus w-icon-minus"></button>
-                                            </div>
-                                        </div>
-                                        <button className="btn btn-primary btn-cart">
-                                            <i className="w-icon-cart"></i>
-                                            <span>Add to Cart</span>
-                                        </button>
-                                    </div>
-
-                            <div className="social-links-wrapper">
-                                <div className="social-links">
-                                    <div
-                                        className="social-icons social-no-color border-thin">
-                                        <a href="#"
-                                           className="social-icon social-facebook w-icon-facebook"></a>
-                                        <a href="#"
-                                           className="social-icon social-instagram fab fa-instagram"></a>
-                                        <a href="#"
-                                           className="social-icon social-twitter fab fa-telegram"></a>
-                                        <a href="#"
-                                           className="social-icon social-whatsapp fab fa-whatsapp"></a>
-                                        <a href="#"
-                                           className="social-icon social-youtube fab fa-linkedin-in"></a>
                                     </div>
                                 </div>
-                                <span className="divider d-xs-show"></span>
-                                <div className="product-link-wrapper d-flex">
-                                    <a href="#"
-                                       className="btn-product-icon btn-wishlist w-icon-heart"><span></span></a>
-                                    <a href="#"
-                                       className="btn-product-icon btn-compare btn-icon-left w-icon-compare"><span></span></a>
+
+                                <div className="product-form">
+                                    <div className="product-qty-form">
+                                        <div className="input-group">
+                                            <input className="quantity form-control" type="number" min="1"
+                                                   max="10000000"/>
+                                            <button className="quantity-plus w-icon-plus"></button>
+                                            <button className="quantity-minus w-icon-minus"></button>
+                                        </div>
+                                    </div>
+                                    <button className="btn btn-primary btn-cart">
+                                        <i className="w-icon-cart"></i>
+                                        <span>Add to Cart</span>
+                                    </button>
+                                </div>
+
+                                <div className="social-links-wrapper">
+                                    <div className="social-links">
+                                        <div
+                                            className="social-icons social-no-color border-thin">
+                                            <a href="#"
+                                               className="social-icon social-facebook w-icon-facebook"></a>
+                                            <a href="#"
+                                               className="social-icon social-instagram fab fa-instagram"></a>
+                                            <a href="#"
+                                               className="social-icon social-twitter fab fa-telegram"></a>
+                                            <a href="#"
+                                               className="social-icon social-whatsapp fab fa-whatsapp"></a>
+                                            <a href="#"
+                                               className="social-icon social-youtube fab fa-linkedin-in"></a>
+                                        </div>
+                                    </div>
+                                    <span className="divider d-xs-show"></span>
+                                    <div className="product-link-wrapper d-flex">
+                                        <a href="#"
+                                           className="btn-product-icon btn-wishlist w-icon-heart"><span></span></a>
+                                        <a href="#"
+                                           className="btn-product-icon btn-compare btn-icon-left w-icon-compare"><span></span></a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                ))}
             </div>
         </div>
     )}

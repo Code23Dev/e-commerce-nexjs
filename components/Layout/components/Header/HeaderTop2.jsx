@@ -102,7 +102,7 @@ export default function HeaderTop2() {
                                     {/*<div className="dropdown-box">*/}
                                     {/*    <ul className="menu vertical-menu category-menu">*/}
                                     {/*        <li>*/}
-                                    {/*            <a href="shop-fullwidth-banner.html">*/}
+                                    {/*            <a href="shopShop-fullwidth-banner.html">*/}
                                     {/*                <i className="w-icon-tshirt2"></i>Fashion*/}
                                     {/*            </a>*/}
                                     {/*            <ul className="megamenu">*/}
@@ -110,44 +110,44 @@ export default function HeaderTop2() {
                                     {/*                    <h4 className="menu-title">Women</h4>*/}
                                     {/*                    <hr className="divider"/>*/}
                                     {/*                        <ul>*/}
-                                    {/*                            <li><a href="shop-fullwidth-banner.html">New*/}
+                                    {/*                            <li><a href="shopShop-fullwidth-banner.html">New*/}
                                     {/*                                Arrivals</a>*/}
                                     {/*                            </li>*/}
-                                    {/*                            <li><a href="shop-fullwidth-banner.html">Best*/}
+                                    {/*                            <li><a href="shopShop-fullwidth-banner.html">Best*/}
                                     {/*                                Sellers</a>*/}
                                     {/*                            </li>*/}
-                                    {/*                            <li><a href="shop-fullwidth-banner.html">Trending</a>*/}
+                                    {/*                            <li><a href="shopShop-fullwidth-banner.html">Trending</a>*/}
                                     {/*                            </li>*/}
-                                    {/*                            <li><a href="shop-fullwidth-banner.html">Clothing</a>*/}
+                                    {/*                            <li><a href="shopShop-fullwidth-banner.html">Clothing</a>*/}
                                     {/*                            </li>*/}
-                                    {/*                            <li><a href="shop-fullwidth-banner.html">Shoes</a></li>*/}
-                                    {/*                            <li><a href="shop-fullwidth-banner.html">Bags</a></li>*/}
-                                    {/*                            <li><a href="shop-fullwidth-banner.html">Accessories</a>*/}
+                                    {/*                            <li><a href="shopShop-fullwidth-banner.html">Shoes</a></li>*/}
+                                    {/*                            <li><a href="shopShop-fullwidth-banner.html">Bags</a></li>*/}
+                                    {/*                            <li><a href="shopShop-fullwidth-banner.html">Accessories</a>*/}
                                     {/*                            </li>*/}
-                                    {/*                            <li><a href="shop-fullwidth-banner.html">Jewlery &*/}
+                                    {/*                            <li><a href="shopShop-fullwidth-banner.html">Jewlery &*/}
                                     {/*                                Watches</a></li>*/}
-                                    {/*                            <li><a href="shop-fullwidth-banner.html">Sale</a></li>*/}
+                                    {/*                            <li><a href="shopShop-fullwidth-banner.html">Sale</a></li>*/}
                                     {/*                        </ul>*/}
                                     {/*                </li>*/}
                                     {/*                <li>*/}
                                     {/*                    <h4 className="menu-title">Men</h4>*/}
                                     {/*                    <hr className="divider"/>*/}
                                     {/*                        <ul>*/}
-                                    {/*                            <li><a href="shop-fullwidth-banner.html">New*/}
+                                    {/*                            <li><a href="shopShop-fullwidth-banner.html">New*/}
                                     {/*                                Arrivals</a>*/}
                                     {/*                            </li>*/}
-                                    {/*                            <li><a href="shop-fullwidth-banner.html">Best*/}
+                                    {/*                            <li><a href="shopShop-fullwidth-banner.html">Best*/}
                                     {/*                                Sellers</a>*/}
                                     {/*                            </li>*/}
-                                    {/*                            <li><a href="shop-fullwidth-banner.html">Trending</a>*/}
+                                    {/*                            <li><a href="shopShop-fullwidth-banner.html">Trending</a>*/}
                                     {/*                            </li>*/}
-                                    {/*                            <li><a href="shop-fullwidth-banner.html">Clothing</a>*/}
+                                    {/*                            <li><a href="shopShop-fullwidth-banner.html">Clothing</a>*/}
                                     {/*                            </li>*/}
-                                    {/*                            <li><a href="shop-fullwidth-banner.html">Shoes</a></li>*/}
-                                    {/*                            <li><a href="shop-fullwidth-banner.html">Bags</a></li>*/}
-                                    {/*                            <li><a href="shop-fullwidth-banner.html">Accessories</a>*/}
+                                    {/*                            <li><a href="shopShop-fullwidth-banner.html">Shoes</a></li>*/}
+                                    {/*                            <li><a href="shopShop-fullwidth-banner.html">Bags</a></li>*/}
+                                    {/*                            <li><a href="shopShop-fullwidth-banner.html">Accessories</a>*/}
                                     {/*                            </li>*/}
-                                    {/*                            <li><a href="shop-fullwidth-banner.html">Jewlery &*/}
+                                    {/*                            <li><a href="shopShop-fullwidth-banner.html">Jewlery &*/}
                                     {/*                                Watches</a></li>*/}
                                     {/*                        </ul>*/}
                                     {/*                </li>*/}
@@ -165,7 +165,7 @@ export default function HeaderTop2() {
                                     {/*                                    className="text-primary text-uppercase">20%Off</strong>*/}
                                     {/*                            </div>*/}
                                     {/*                            <h3 className="banner-title ls-normal">Hot Sales</h3>*/}
-                                    {/*                            <a href="shop-banner-sidebar.html"*/}
+                                    {/*                            <a href="shopShop-banner-sidebar.html"*/}
                                     {/*                               className="btn btn-dark btn-sm btn-link btn-slide-right btn-icon-right">*/}
                                     {/*                                Shop Now<i className="w-icon-long-arrow-right"></i>*/}
                                     {/*                            </a>*/}
@@ -175,7 +175,7 @@ export default function HeaderTop2() {
                                     {/*            </ul>*/}
                                     {/*        </li>*/}
                                     {/*        <li>*/}
-                                    {/*            <a href="shop-fullwidth-banner.html">*/}
+                                    {/*            <a href="shopShop-fullwidth-banner.html">*/}
                                     {/*                <i className="w-icon-home"></i>Home & Garden*/}
                                     {/*            </a>*/}
                                     {/*            <ul className="megamenu">*/}
@@ -183,32 +183,32 @@ export default function HeaderTop2() {
                                     {/*                    <h4 className="menu-title">Bedroom</h4>*/}
                                     {/*                    <hr className="divider"/>*/}
                                     {/*                        <ul>*/}
-                                    {/*                            <li><a href="shop-fullwidth-banner.html">Beds, Frames &*/}
+                                    {/*                            <li><a href="shopShop-fullwidth-banner.html">Beds, Frames &*/}
                                     {/*                                Bases</a></li>*/}
-                                    {/*                            <li><a href="shop-fullwidth-banner.html">Dressers</a>*/}
+                                    {/*                            <li><a href="shopShop-fullwidth-banner.html">Dressers</a>*/}
                                     {/*                            </li>*/}
-                                    {/*                            <li><a href="shop-fullwidth-banner.html">Nightstands</a>*/}
+                                    {/*                            <li><a href="shopShop-fullwidth-banner.html">Nightstands</a>*/}
                                     {/*                            </li>*/}
-                                    {/*                            <li><a href="shop-fullwidth-banner.html">Kid's Beds &*/}
+                                    {/*                            <li><a href="shopShop-fullwidth-banner.html">Kid's Beds &*/}
                                     {/*                                Headboards</a></li>*/}
-                                    {/*                            <li><a href="shop-fullwidth-banner.html">Armoires</a>*/}
+                                    {/*                            <li><a href="shopShop-fullwidth-banner.html">Armoires</a>*/}
                                     {/*                            </li>*/}
                                     {/*                        </ul>*/}
 
                                     {/*                        <h4 className="menu-title mt-1">Living Room</h4>*/}
                                     {/*                        <hr className="divider"/>*/}
                                     {/*                            <ul>*/}
-                                    {/*                                <li><a href="shop-fullwidth-banner.html">Coffee*/}
+                                    {/*                                <li><a href="shopShop-fullwidth-banner.html">Coffee*/}
                                     {/*                                    Tables</a>*/}
                                     {/*                                </li>*/}
-                                    {/*                                <li><a href="shop-fullwidth-banner.html">Chairs</a>*/}
+                                    {/*                                <li><a href="shopShop-fullwidth-banner.html">Chairs</a>*/}
                                     {/*                                </li>*/}
-                                    {/*                                <li><a href="shop-fullwidth-banner.html">Tables</a>*/}
+                                    {/*                                <li><a href="shopShop-fullwidth-banner.html">Tables</a>*/}
                                     {/*                                </li>*/}
-                                    {/*                                <li><a href="shop-fullwidth-banner.html">Futons &*/}
+                                    {/*                                <li><a href="shopShop-fullwidth-banner.html">Futons &*/}
                                     {/*                                    Sofa*/}
                                     {/*                                    Beds</a></li>*/}
-                                    {/*                                <li><a href="shop-fullwidth-banner.html">Cabinets &*/}
+                                    {/*                                <li><a href="shopShop-fullwidth-banner.html">Cabinets &*/}
                                     {/*                                    Chests</a></li>*/}
                                     {/*                            </ul>*/}
                                     {/*                </li>*/}
@@ -216,37 +216,37 @@ export default function HeaderTop2() {
                                     {/*                    <h4 className="menu-title">Office</h4>*/}
                                     {/*                    <hr className="divider"/>*/}
                                     {/*                        <ul>*/}
-                                    {/*                            <li><a href="shop-fullwidth-banner.html">Office*/}
+                                    {/*                            <li><a href="shopShop-fullwidth-banner.html">Office*/}
                                     {/*                                Chairs</a>*/}
                                     {/*                            </li>*/}
-                                    {/*                            <li><a href="shop-fullwidth-banner.html">Desks</a></li>*/}
-                                    {/*                            <li><a href="shop-fullwidth-banner.html">Bookcases</a>*/}
+                                    {/*                            <li><a href="shopShop-fullwidth-banner.html">Desks</a></li>*/}
+                                    {/*                            <li><a href="shopShop-fullwidth-banner.html">Bookcases</a>*/}
                                     {/*                            </li>*/}
-                                    {/*                            <li><a href="shop-fullwidth-banner.html">File*/}
+                                    {/*                            <li><a href="shopShop-fullwidth-banner.html">File*/}
                                     {/*                                Cabinets</a>*/}
                                     {/*                            </li>*/}
-                                    {/*                            <li><a href="shop-fullwidth-banner.html">Breakroom*/}
+                                    {/*                            <li><a href="shopShop-fullwidth-banner.html">Breakroom*/}
                                     {/*                                Tables</a></li>*/}
                                     {/*                        </ul>*/}
 
                                     {/*                        <h4 className="menu-title mt-1">Kitchen & Dining</h4>*/}
                                     {/*                        <hr className="divider"/>*/}
                                     {/*                            <ul>*/}
-                                    {/*                                <li><a href="shop-fullwidth-banner.html">Dining*/}
+                                    {/*                                <li><a href="shopShop-fullwidth-banner.html">Dining*/}
                                     {/*                                    Sets</a>*/}
                                     {/*                                </li>*/}
-                                    {/*                                <li><a href="shop-fullwidth-banner.html">Kitchen*/}
+                                    {/*                                <li><a href="shopShop-fullwidth-banner.html">Kitchen*/}
                                     {/*                                    Storage*/}
                                     {/*                                    Cabinets</a></li>*/}
-                                    {/*                                <li><a href="shop-fullwidth-banner.html">Bashers*/}
+                                    {/*                                <li><a href="shopShop-fullwidth-banner.html">Bashers*/}
                                     {/*                                    Racks</a>*/}
                                     {/*                                </li>*/}
-                                    {/*                                <li><a href="shop-fullwidth-banner.html">Dining*/}
+                                    {/*                                <li><a href="shopShop-fullwidth-banner.html">Dining*/}
                                     {/*                                    Chairs</a>*/}
                                     {/*                                </li>*/}
-                                    {/*                                <li><a href="shop-fullwidth-banner.html">Dining Room*/}
+                                    {/*                                <li><a href="shopShop-fullwidth-banner.html">Dining Room*/}
                                     {/*                                    Tables</a></li>*/}
-                                    {/*                                <li><a href="shop-fullwidth-banner.html">Bar*/}
+                                    {/*                                <li><a href="shopShop-fullwidth-banner.html">Bar*/}
                                     {/*                                    Stools</a></li>*/}
                                     {/*                            </ul>*/}
                                     {/*                </li>*/}
@@ -269,7 +269,7 @@ export default function HeaderTop2() {
                                     {/*                                Up to <span*/}
                                     {/*                                className="text-secondary text-uppercase font-weight-bold">25%*/}
                                     {/*                                Off</span></div>*/}
-                                    {/*                            <a href="shop-banner-sidebar.html"*/}
+                                    {/*                            <a href="shopShop-banner-sidebar.html"*/}
                                     {/*                               className="btn btn-white btn-link btn-sm btn-slide-right btn-icon-right">*/}
                                     {/*                                Shop Now<i className="w-icon-long-arrow-right"></i>*/}
                                     {/*                            </a>*/}
@@ -279,7 +279,7 @@ export default function HeaderTop2() {
                                     {/*            </ul>*/}
                                     {/*        </li>*/}
                                     {/*        <li>*/}
-                                    {/*            <a href="shop-fullwidth-banner.html">*/}
+                                    {/*            <a href="shopShop-fullwidth-banner.html">*/}
                                     {/*                <i className="w-icon-electronics"></i>Electronics*/}
                                     {/*            </a>*/}
                                     {/*            <ul className="megamenu">*/}
@@ -287,30 +287,30 @@ export default function HeaderTop2() {
                                     {/*                    <h4 className="menu-title">Laptops &amp; Computers</h4>*/}
                                     {/*                    <hr className="divider"/>*/}
                                     {/*                        <ul>*/}
-                                    {/*                            <li><a href="shop-fullwidth-banner.html">Desktop*/}
+                                    {/*                            <li><a href="shopShop-fullwidth-banner.html">Desktop*/}
                                     {/*                                Computers</a></li>*/}
-                                    {/*                            <li><a href="shop-fullwidth-banner.html">Monitors</a>*/}
+                                    {/*                            <li><a href="shopShop-fullwidth-banner.html">Monitors</a>*/}
                                     {/*                            </li>*/}
-                                    {/*                            <li><a href="shop-fullwidth-banner.html">Laptops</a>*/}
+                                    {/*                            <li><a href="shopShop-fullwidth-banner.html">Laptops</a>*/}
                                     {/*                            </li>*/}
-                                    {/*                            <li><a href="shop-fullwidth-banner.html">Hard*/}
+                                    {/*                            <li><a href="shopShop-fullwidth-banner.html">Hard*/}
                                     {/*                                Drives &amp;*/}
                                     {/*                                Storage</a></li>*/}
-                                    {/*                            <li><a href="shop-fullwidth-banner.html">Computer*/}
+                                    {/*                            <li><a href="shopShop-fullwidth-banner.html">Computer*/}
                                     {/*                                Accessories</a></li>*/}
                                     {/*                        </ul>*/}
 
                                     {/*                        <h4 className="menu-title mt-1">TV &amp; Video</h4>*/}
                                     {/*                        <hr className="divider"/>*/}
                                     {/*                            <ul>*/}
-                                    {/*                                <li><a href="shop-fullwidth-banner.html">TVs</a>*/}
+                                    {/*                                <li><a href="shopShop-fullwidth-banner.html">TVs</a>*/}
                                     {/*                                </li>*/}
-                                    {/*                                <li><a href="shop-fullwidth-banner.html">Home Audio*/}
+                                    {/*                                <li><a href="shopShop-fullwidth-banner.html">Home Audio*/}
                                     {/*                                    Speakers</a></li>*/}
                                     {/*                                <li><a*/}
-                                    {/*                                    href="shop-fullwidth-banner.html">Projectors</a>*/}
+                                    {/*                                    href="shopShop-fullwidth-banner.html">Projectors</a>*/}
                                     {/*                                </li>*/}
-                                    {/*                                <li><a href="shop-fullwidth-banner.html">Media*/}
+                                    {/*                                <li><a href="shopShop-fullwidth-banner.html">Media*/}
                                     {/*                                    Streaming*/}
                                     {/*                                    Devices</a></li>*/}
                                     {/*                            </ul>*/}
@@ -319,33 +319,33 @@ export default function HeaderTop2() {
                                     {/*                    <h4 className="menu-title">Digital Cameras</h4>*/}
                                     {/*                    <hr className="divider"/>*/}
                                     {/*                        <ul>*/}
-                                    {/*                            <li><a href="shop-fullwidth-banner.html">Digital SLR*/}
+                                    {/*                            <li><a href="shopShop-fullwidth-banner.html">Digital SLR*/}
                                     {/*                                Cameras</a></li>*/}
-                                    {/*                            <li><a href="shop-fullwidth-banner.html">Sports & Action*/}
+                                    {/*                            <li><a href="shopShop-fullwidth-banner.html">Sports & Action*/}
                                     {/*                                Cameras</a></li>*/}
-                                    {/*                            <li><a href="shop-fullwidth-banner.html">Camera*/}
+                                    {/*                            <li><a href="shopShop-fullwidth-banner.html">Camera*/}
                                     {/*                                Lenses</a>*/}
                                     {/*                            </li>*/}
-                                    {/*                            <li><a href="shop-fullwidth-banner.html">Photo*/}
+                                    {/*                            <li><a href="shopShop-fullwidth-banner.html">Photo*/}
                                     {/*                                Printer</a>*/}
                                     {/*                            </li>*/}
-                                    {/*                            <li><a href="shop-fullwidth-banner.html">Digital Memory*/}
+                                    {/*                            <li><a href="shopShop-fullwidth-banner.html">Digital Memory*/}
                                     {/*                                Cards</a></li>*/}
                                     {/*                        </ul>*/}
 
                                     {/*                        <h4 className="menu-title mt-1">Cell Phones</h4>*/}
                                     {/*                        <hr className="divider"/>*/}
                                     {/*                            <ul>*/}
-                                    {/*                                <li><a href="shop-fullwidth-banner.html">Carrier*/}
+                                    {/*                                <li><a href="shopShop-fullwidth-banner.html">Carrier*/}
                                     {/*                                    Phones</a>*/}
                                     {/*                                </li>*/}
-                                    {/*                                <li><a href="shop-fullwidth-banner.html">Unlocked*/}
+                                    {/*                                <li><a href="shopShop-fullwidth-banner.html">Unlocked*/}
                                     {/*                                    Phones</a>*/}
                                     {/*                                </li>*/}
-                                    {/*                                <li><a href="shop-fullwidth-banner.html">Phone &*/}
+                                    {/*                                <li><a href="shopShop-fullwidth-banner.html">Phone &*/}
                                     {/*                                    Cellphone*/}
                                     {/*                                    Cases</a></li>*/}
-                                    {/*                                <li><a href="shop-fullwidth-banner.html">Cellphone*/}
+                                    {/*                                <li><a href="shopShop-fullwidth-banner.html">Cellphone*/}
                                     {/*                                    Chargers</a></li>*/}
                                     {/*                            </ul>*/}
                                     {/*                </li>*/}
@@ -367,7 +367,7 @@ export default function HeaderTop2() {
                                     {/*                                className="banner-price-info text-secondary font-weight-bolder text-uppercase text-secondary">*/}
                                     {/*                                20% Off*/}
                                     {/*                            </div>*/}
-                                    {/*                            <a href="shop-banner-sidebar.html"*/}
+                                    {/*                            <a href="shopShop-banner-sidebar.html"*/}
                                     {/*                               className="btn btn-white btn-outline btn-sm btn-rounded">Shop*/}
                                     {/*                                Now</a>*/}
                                     {/*                        </div>*/}
@@ -376,7 +376,7 @@ export default function HeaderTop2() {
                                     {/*            </ul>*/}
                                     {/*        </li>*/}
                                     {/*        <li>*/}
-                                    {/*            <a href="shop-fullwidth-banner.html">*/}
+                                    {/*            <a href="shopShop-fullwidth-banner.html">*/}
                                     {/*                <i className="w-icon-furniture"></i>Furniture*/}
                                     {/*            </a>*/}
                                     {/*            <ul className="megamenu type2">*/}
@@ -385,17 +385,17 @@ export default function HeaderTop2() {
                                     {/*                        <h4 className="menu-title">Furniture</h4>*/}
                                     {/*                        <hr className="divider"/>*/}
                                     {/*                        <ul>*/}
-                                    {/*                            <li><a href="shop-fullwidth-banner.html">Sofas &*/}
+                                    {/*                            <li><a href="shopShop-fullwidth-banner.html">Sofas &*/}
                                     {/*                                Couches</a>*/}
                                     {/*                            </li>*/}
-                                    {/*                            <li><a href="shop-fullwidth-banner.html">Armchairs</a>*/}
+                                    {/*                            <li><a href="shopShop-fullwidth-banner.html">Armchairs</a>*/}
                                     {/*                            </li>*/}
-                                    {/*                            <li><a href="shop-fullwidth-banner.html">Bed Frames</a>*/}
+                                    {/*                            <li><a href="shopShop-fullwidth-banner.html">Bed Frames</a>*/}
                                     {/*                            </li>*/}
-                                    {/*                            <li><a href="shop-fullwidth-banner.html">Beside*/}
+                                    {/*                            <li><a href="shopShop-fullwidth-banner.html">Beside*/}
                                     {/*                                Tables</a>*/}
                                     {/*                            </li>*/}
-                                    {/*                            <li><a href="shop-fullwidth-banner.html">Dressing*/}
+                                    {/*                            <li><a href="shopShop-fullwidth-banner.html">Dressing*/}
                                     {/*                                Tables</a>*/}
                                     {/*                            </li>*/}
                                     {/*                        </ul>*/}
@@ -404,15 +404,15 @@ export default function HeaderTop2() {
                                     {/*                        <h4 className="menu-title">Lighting</h4>*/}
                                     {/*                        <hr className="divider"/>*/}
                                     {/*                        <ul>*/}
-                                    {/*                            <li><a href="shop-fullwidth-banner.html">Light Bulbs</a>*/}
+                                    {/*                            <li><a href="shopShop-fullwidth-banner.html">Light Bulbs</a>*/}
                                     {/*                            </li>*/}
-                                    {/*                            <li><a href="shop-fullwidth-banner.html">Lamps</a></li>*/}
-                                    {/*                            <li><a href="shop-fullwidth-banner.html">Celling*/}
+                                    {/*                            <li><a href="shopShop-fullwidth-banner.html">Lamps</a></li>*/}
+                                    {/*                            <li><a href="shopShop-fullwidth-banner.html">Celling*/}
                                     {/*                                Lights</a>*/}
                                     {/*                            </li>*/}
-                                    {/*                            <li><a href="shop-fullwidth-banner.html">Wall Lights</a>*/}
+                                    {/*                            <li><a href="shopShop-fullwidth-banner.html">Wall Lights</a>*/}
                                     {/*                            </li>*/}
-                                    {/*                            <li><a href="shop-fullwidth-banner.html">Bathroom*/}
+                                    {/*                            <li><a href="shopShop-fullwidth-banner.html">Bathroom*/}
                                     {/*                                Lighting</a></li>*/}
                                     {/*                        </ul>*/}
                                     {/*                    </div>*/}
@@ -420,31 +420,31 @@ export default function HeaderTop2() {
                                     {/*                        <h4 className="menu-title">Home Accessories</h4>*/}
                                     {/*                        <hr className="divider"/>*/}
                                     {/*                        <ul>*/}
-                                    {/*                            <li><a href="shop-fullwidth-banner.html">Decorative*/}
+                                    {/*                            <li><a href="shopShop-fullwidth-banner.html">Decorative*/}
                                     {/*                                Accessories</a></li>*/}
-                                    {/*                            <li><a href="shop-fullwidth-banner.html">Candals &*/}
+                                    {/*                            <li><a href="shopShop-fullwidth-banner.html">Candals &*/}
                                     {/*                                Holders</a></li>*/}
-                                    {/*                            <li><a href="shop-fullwidth-banner.html">Home*/}
+                                    {/*                            <li><a href="shopShop-fullwidth-banner.html">Home*/}
                                     {/*                                Fragrance</a>*/}
                                     {/*                            </li>*/}
-                                    {/*                            <li><a href="shop-fullwidth-banner.html">Mirrors</a>*/}
+                                    {/*                            <li><a href="shopShop-fullwidth-banner.html">Mirrors</a>*/}
                                     {/*                            </li>*/}
-                                    {/*                            <li><a href="shop-fullwidth-banner.html">Clocks</a></li>*/}
+                                    {/*                            <li><a href="shopShop-fullwidth-banner.html">Clocks</a></li>*/}
                                     {/*                        </ul>*/}
                                     {/*                    </div>*/}
                                     {/*                    <div className="col-md-3 col-lg-3 col-6">*/}
                                     {/*                        <h4 className="menu-title">Garden & Outdoors</h4>*/}
                                     {/*                        <hr className="divider"/>*/}
                                     {/*                        <ul>*/}
-                                    {/*                            <li><a href="shop-fullwidth-banner.html">Garden*/}
+                                    {/*                            <li><a href="shopShop-fullwidth-banner.html">Garden*/}
                                     {/*                                Furniture</a></li>*/}
-                                    {/*                            <li><a href="shop-fullwidth-banner.html">Lawn Mowers</a>*/}
+                                    {/*                            <li><a href="shopShop-fullwidth-banner.html">Lawn Mowers</a>*/}
                                     {/*                            </li>*/}
-                                    {/*                            <li><a href="shop-fullwidth-banner.html">Pressure*/}
+                                    {/*                            <li><a href="shopShop-fullwidth-banner.html">Pressure*/}
                                     {/*                                Washers</a></li>*/}
-                                    {/*                            <li><a href="shop-fullwidth-banner.html">All Garden*/}
+                                    {/*                            <li><a href="shopShop-fullwidth-banner.html">All Garden*/}
                                     {/*                                Tools</a></li>*/}
-                                    {/*                            <li><a href="shop-fullwidth-banner.html">Outdoor*/}
+                                    {/*                            <li><a href="shopShop-fullwidth-banner.html">Outdoor*/}
                                     {/*                                Dining</a>*/}
                                     {/*                            </li>*/}
                                     {/*                        </ul>*/}
@@ -497,42 +497,42 @@ export default function HeaderTop2() {
                                     {/*            </ul>*/}
                                     {/*        </li>*/}
                                     {/*        <li>*/}
-                                    {/*            <a href="shop-fullwidth-banner.html">*/}
+                                    {/*            <a href="shopShop-fullwidth-banner.html">*/}
                                     {/*                <i className="w-icon-heartbeat"></i>Healthy & Beauty*/}
                                     {/*            </a>*/}
                                     {/*        </li>*/}
                                     {/*        <li>*/}
-                                    {/*            <a href="shop-fullwidth-banner.html">*/}
+                                    {/*            <a href="shopShop-fullwidth-banner.html">*/}
                                     {/*                <i className="w-icon-gift"></i>Gift Ideas*/}
                                     {/*            </a>*/}
                                     {/*        </li>*/}
                                     {/*        <li>*/}
-                                    {/*            <a href="shop-fullwidth-banner.html">*/}
+                                    {/*            <a href="shopShop-fullwidth-banner.html">*/}
                                     {/*                <i className="w-icon-gamepad"></i>Toy & Games*/}
                                     {/*            </a>*/}
                                     {/*        </li>*/}
                                     {/*        <li>*/}
-                                    {/*            <a href="shop-fullwidth-banner.html">*/}
+                                    {/*            <a href="shopShop-fullwidth-banner.html">*/}
                                     {/*                <i className="w-icon-ice-cream"></i>Cooking*/}
                                     {/*            </a>*/}
                                     {/*        </li>*/}
                                     {/*        <li>*/}
-                                    {/*            <a href="shop-fullwidth-banner.html">*/}
+                                    {/*            <a href="shopShop-fullwidth-banner.html">*/}
                                     {/*                <i className="w-icon-ios"></i>Smart Phones*/}
                                     {/*            </a>*/}
                                     {/*        </li>*/}
                                     {/*        <li>*/}
-                                    {/*            <a href="shop-fullwidth-banner.html">*/}
+                                    {/*            <a href="shopShop-fullwidth-banner.html">*/}
                                     {/*                <i className="w-icon-camera"></i>Cameras & Photo*/}
                                     {/*            </a>*/}
                                     {/*        </li>*/}
                                     {/*        <li>*/}
-                                    {/*            <a href="shop-fullwidth-banner.html">*/}
+                                    {/*            <a href="shopShop-fullwidth-banner.html">*/}
                                     {/*                <i className="w-icon-ruby"></i>Accessories*/}
                                     {/*            </a>*/}
                                     {/*        </li>*/}
                                     {/*        <li>*/}
-                                    {/*            <a href="shop-banner-sidebar.html"*/}
+                                    {/*            <a href="shopShop-banner-sidebar.html"*/}
                                     {/*               className="font-weight-bold text-primary text-uppercase ls-25">*/}
                                     {/*                View All Categories<i className="w-icon-angle-right"></i>*/}
                                     {/*            </a>*/}

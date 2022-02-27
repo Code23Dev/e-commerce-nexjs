@@ -214,7 +214,6 @@ export default function ContactUs(){
                                 </div>
                             </section>
                     </div>
-                    <div className="google-map contact-google-map" id="googlemaps"></div>
                 </div>
             </main>
         </div>

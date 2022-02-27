@@ -177,7 +177,7 @@ export default function Compare(){
                                         <div className="swiper-slide counter-wrap">
                                             <div className="counter text-center count-tos">
                                                 <span className="count-to" data-to="15">{k.amount}</span>
-                                                <span>M+</span>
+                                                <span>K+</span>
                                                 <h4 className="title title-center">{k.title}</h4>
                                                 <p>{k.description}</p>
                                             </div>

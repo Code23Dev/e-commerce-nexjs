@@ -49,7 +49,7 @@ const [selectedFile2, setSelectedFile2] = useState(null);
     return (
         <div>
             <style jsx>{`
-                    .shop-table tbody td:not(:first-child), .shop-table thead th:not(:first-child) {
+                    .shopShop-table tbody td:not(:first-child), .shopShop-table thead th:not(:first-child) {
                         padding-left: 4rem !important;
                     }
                 .span-link:hover {
