@@ -83,8 +83,6 @@ export default function HeaderTop(){
         }else{
             setShowMe("none");
         }
-
-
     }
 
     const [showMeNumber, setShowMeNumber] = useState("none");
@@ -478,8 +476,8 @@ export default function HeaderTop(){
                                     </div>
 
                                     <div className="cart-action">
-                                        <a href="cart.html" className="btn btn-dark btn-outline btn-rounded">Bizə zəng</a>
-                                        <a href="checkout.html" className="btn btn-primary  btn-rounded">Checkout</a>
+                                        <a href="/cart" className="btn btn-dark btn-outline btn-rounded">SƏBƏBƏTƏ BAXIN</a>
+                                        <a href="/checkout" className="btn btn-primary  btn-rounded">Yoxla</a>
                                     </div>
                                 </div>
                             </div>

@@ -1,10 +1,110 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import MainProductDetails from "./MainProductDetails";
-
+import {productById} from "../../../../services/products/productById";
+import PhoneInput from "react-phone-input-2";
 export default function ProductPageMain(){
+
+    const [productByIdTitle, productByIdData] = useState([]);
+    useEffect(() => {
+        let mounted = true;
+        //window.location.pathname
+        productByUser(window.location.href.split('/')[3])
+            .then(items => {
+                if(mounted) {
+                    productByIdData(items.data)
+                }
+            })
+        return () => mounted = false;
+    }, [])
+    const [showMe, setShowMe] = useState("none");
+    function showMeFunc(){
+        if (showMe== 'none'){
+            setShowMe("block");
+        }else{
+            setShowMe("none");
+        }
+    }
     return (
         <div>
             <style jsx>{`
+ .react-tel-input .form-control {
+                        position: relative;
+                        font-size: 14px;
+                        letter-spacing: .01rem;
+                        margin-top: 0 !important;
+                        margin-bottom: 0 !important;
+                        padding-left: 48px;
+                        margin-left: 0;
+                        background: #FFFFFF;
+                        border: 1px solid #CACACA;
+                        border-radius: 5px;
+                        line-height: 25px;
+                        height: 35px;
+                        width: 100% !important;
+                        outline: none;
+                    }
+                .header-top {
+                    background: #0088dd;
+                    font-size: 1.1rem;
+                    letter-spacing: -0.027em;
+                    text-transform: capitalize;
+                    color: #fff;
+                    border-bottom: 1px solid;
+                    border-color: rgba(238, 238, 238, 0.2);
+                }
+                .header-middle {
+                    padding-top: 3.2rem;
+                    padding-bottom: 3.2rem;
+                    color: #fff;
+                    background: #0088dd;
+                    font-size: 1.2rem;
+                    border-bottom: 0;
+                }
+                .modal {
+                  display: block; 
+                  position: fixed; 
+                  z-index: 9999; 
+                  padding-top: 30px;
+                  left: 0;
+                  top: 0;
+                  min-width: 100%;
+                  height: 100%; 
+                  overflow: auto;
+                  background-color: rgb(0,0,0);
+                  background-color: rgba(0,0,0,0.4);
+                }
+                .modal-content {
+                  background-color: #fefefe;
+                  margin: auto;
+                  padding: 10px;
+                  border: 1px solid #888;
+                  width: 57%;
+                }
+
+                .close {
+                  color: #aaaaaa;
+                  float: right;
+                  font-size: 28px;
+                  font-weight: bold;
+                   padding-left: 20px;
+                }
+                
+                .close:hover,
+                .close:focus {
+                  color: #000;
+                  text-decoration: none;
+                  cursor: pointer;
+                  padding-left: 20px;
+                }
+                @media only screen and (max-width: 1000px) {
+                  .modal-content {
+                    background-color: #fefefe;
+                    margin: auto;
+                    padding: 10px;
+                    border: 1px solid #888;
+                    width: 85%;
+                  }
+                }
             .header a:not(.btn):hover {
              color: #336699;
              }
@@ -15,13 +115,120 @@ export default function ProductPageMain(){
             }
             `}
             </style>
+            <div id="myModal" className="modal" style={{display:showMe}}>
+                <div className="modal-content">
+                    <span className="close" onClick={showMeFunc}>&times;</span>
+                    <div className="page-wrapper">
+                        <main className="main">
+                            <div className="page-content">
+                                <div>
+                                    <div className="row gutter-lg">
+                                        <div className="mt-5">
+                                            <div className="product product-single row">
+                                                <div className="product product-single row">
+                                                    <div className="col-md-6 mb-4 mb-md-8">
+                                                        <div className="product-gallery product-gallery-sticky">
+                                                            <div
+                                                                className="swiper-container product-single-swiper swiper-theme nav-inner"
+                                                                data-swiper-options="{
+                                            'navigation': {
+                                                'nextEl': '.swiper-button-next',
+                                                'prevEl': '.swiper-button-prev'
+                                            }
+                                        }">
+                                                                <div className="swiper-wrapper row cols-1 gutter-no">
+                                                                    <div className="swiper-slide">
+                                                                        <figure className="product-image">
+                                                                            <img
+                                                                                src="assets/images/products/accordion/1-800x900.jpg"
+                                                                                data-zoom-image="assets/images/products/accordion/1-800x900.jpg"
+                                                                                alt="Bodycare Smooth Powder" width="800"
+                                                                                height="900"/>
+                                                                        </figure>
+                                                                    </div>
+                                                                    <div className="swiper-slide">
+                                                                        <figure className="product-image">
+                                                                            <img
+                                                                                src="assets/images/products/accordion/2-800x900.jpg"
+                                                                                data-zoom-image="assets/images/products/accordion/2-800x900.jpg"
+                                                                                alt="Bodycare Smooth Powder" width="488"
+                                                                                height="549"/>
+                                                                        </figure>
+                                                                    </div>
+                                                                    <div className="swiper-slide">
+                                                                        <figure className="product-image">
+                                                                            <img
+                                                                                src="assets/images/products/accordion/3-800x900.jpg"
+                                                                                data-zoom-image="assets/images/products/accordion/3-800x900.jpg"
+                                                                                alt="Bodycare Smooth Powder" width="800"
+                                                                                height="900"/>
+                                                                        </figure>
+                                                                    </div>
+                                                                    <div className="swiper-slide">
+                                                                        <figure className="product-image">
+                                                                            <img
+                                                                                src="assets/images/products/accordion/4-800x900.jpg"
+                                                                                data-zoom-image="assets/images/products/accordion/4-800x900.jpg"
+                                                                                alt="Bodycare Smooth Powder" width="800"
+                                                                                height="900"/>
+                                                                        </figure>
+                                                                    </div>
+                                                                </div>
+                                                                <button className="swiper-button-next"></button>
+                                                                <button className="swiper-button-prev"></button>
+                                                                <a href="#" className="product-gallery-btn product-image-full"><i
+                                                                    className="w-icon-zoom"></i></a>
+                                                            </div>
 
+                                                            <div className="product-thumbs-wrap swiper-container"
+                                                                 data-swiper-options="{
+                                            'navigation': {
+                                                'nextEl': '.swiper-button-next',
+                                                'prevEl': '.swiper-button-prev'
+                                            }
+                                        }">
+                                                                <div className="product-thumbs swiper-wrapper row cols-4 gutter-sm">
+                                                                    <div className="product-thumb swiper-slide">
+                                                                        <img src="assets/images/products/accordion/1-800x900.jpg"
+                                                                             alt="Product Thumb" width="800" height="900"/>
+                                                                    </div>
+                                                                    <div className="product-thumb swiper-slide">
+                                                                        <img src="assets/images/products/accordion/2-800x900.jpg"
+                                                                             alt="Product Thumb" width="800" height="900"/>
+                                                                    </div>
+                                                                    <div className="product-thumb swiper-slide">
+                                                                        <img src="assets/images/products/accordion/3-800x900.jpg"
+                                                                             alt="Product Thumb" width="800" height="900"/>
+                                                                    </div>
+                                                                    <div className="product-thumb swiper-slide">
+                                                                        <img src="assets/images/products/accordion/4-800x900.jpg"
+                                                                             alt="Product Thumb" width="800" height="900"/>
+                                                                    </div>
+                                                                </div>
+                                                                <button className="swiper-button-next"></button>
+                                                                <button className="swiper-button-prev"></button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div className="col-md-6 mb-6 mb-md-8">
+                                                        <MainProductDetails/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </main>
+                    </div>
+                </div>
+            </div>
             <div className="page-wrapper">
                 <main className="main">
                     <nav className="breadcrumb-nav container">
                         <ul className="breadcrumb bb-no">
-                            <li><a href="demo1.html">Home</a></li>
-                            <li>Products</li>
+                            <li><a href="/home">Ana Səhifə</a></li>
+                            <li>Məhsullar</li>
                         </ul>
                     </nav>
                     <div className="page-content">

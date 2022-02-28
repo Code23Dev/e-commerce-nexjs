@@ -5657,7 +5657,7 @@ select:focus::-ms-value {
     overflow-y: auto;
 }
 body .product-popup {
-    display: none;
+    display: block;
 }
 .login-popup {
     max-width: 50rem;

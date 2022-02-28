@@ -7,7 +7,7 @@ export default function Layout({children}){
     return (
         <>
           <div className="page-wrapper">
-              <h1 className="d-none">Wolmart - Responsive Marketplace HTML Template</h1>
+              <h1 className="d-none">Wolmart</h1>
               <HeaderTop/>
               {children}
               <Mobile/>

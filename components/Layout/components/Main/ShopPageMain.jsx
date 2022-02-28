@@ -4,6 +4,10 @@ import {subCategories} from "../../../../services/subCategories";
 import {subSubCategories} from "../../../../services/subSubCategories";
 import {filtersBySubsub} from "../../../../services/filtersBySubsub";
 import {allProducts} from "../../../../services/products/allProducts";
+import {subByCategory} from "../../../../services/subByCategory";
+import {subBySubsub} from "../../../../services/subBySubsub";
+import {productFilter} from "../../../../services/productFilter";
+import {productsPost} from "../../../../services/productsPost";
 
 export default function ShopPageMain(){
     const [optionsTitle, optionsData] = useState([]);
@@ -53,12 +57,30 @@ export default function ShopPageMain(){
         return () => mounted = false;
     }, [])
     const [allProductsTitle, allProductsData] = useState([]);
+    const [paginationPrev, paginationPrevData] = useState([]);
+    const [paginationNext, paginationNextData] = useState([]);
+
+
+
+    const [page, setPage] = useState(null);
+    const [sizeForPage, setsizeForPage] = useState(null);
+    const [count, setCount] = useState([]);
+
+    const [sizeAllData, setSizeAllData] = useState([]);
     useEffect(() => {
         let mounted = true;
-        allProducts()
+        allProducts(page,sizeForPage)
             .then(items => {
                 if(mounted) {
-                    allProductsData(items.data)
+                    let sizeData =[]
+                    for (let i=0;i<= items.data.count;i++){
+                        if (i%12==0){
+                            sizeData.push({size:12})
+                        }
+                    }
+                    setSizeAllData(sizeData)
+                    setCount(items.data.count)
+                    allProductsData(items.data.results)
                 }
             })
         return () => mounted = false;
@@ -91,7 +113,8 @@ export default function ShopPageMain(){
             })
     }
 
-
+    let endData = []
+    let price = []
         const defaultData = [
             { id: 1, name: "apple", isChecked: false },
             { id: 2, name: "banana", isChecked: false },
@@ -111,7 +134,24 @@ export default function ShopPageMain(){
         //     filtersBySubsubData(modifiedData);
         // }
 
-        const handleChangeSubCategories = (e) =>{
+        const handleChangeSubCategories = (e,id,title) =>{
+            let data = {'sub_category': title}
+            productFilter(data)
+                .then((e)=>{
+                    let sizeData =[]
+                    for (let i=0;i<= e.data.count;i++){
+                        if (i%12==0){
+                            sizeData.push({size:12})
+                        }
+                    }
+                    setSizeAllData(sizeData)
+                    setCount(e.data.count)
+                    allProductsData(e.data.results)
+                })
+            subBySubsub(id)
+                .then((item)=>{
+                    subSubCategoriesData(item.data)
+                })
             let value = null
             if( e == "CleanAll" ){
                 value = null
@@ -126,7 +166,24 @@ export default function ShopPageMain(){
             subCategoriesData(modifiedData);
         }
 
-        const handleChangeAllCategories = (e) => {
+        const handleChangeAllCategories = (e,id,title) => {
+            let data = {'category': title}
+            productFilter(data)
+                .then((e)=>{
+                    let sizeData =[]
+                    for (let i=0;i<= e.data.count;i++){
+                        if (i%12==0){
+                            sizeData.push({size:12})
+                        }
+                    }
+                    setSizeAllData(sizeData)
+                    setCount(e.data.count)
+                    allProductsData(e.data.results)
+                })
+            subByCategory(id)
+                .then((item)=>{
+                    subCategoriesData(item.data)
+                })
             let value = null
             if( e == "CleanAll" ){
                 value = null
@@ -141,8 +198,20 @@ export default function ShopPageMain(){
             optionsData(modifiedData);
         }
 
-        function handleChangeSubSubCategories(e) {
-            console.log(e)
+        function handleChangeSubSubCategories(e,id,title) {
+            let data = {'sub_sub_category': title}
+            productFilter(data)
+                .then((e)=>{
+                    let sizeData =[]
+                    for (let i=0;i<= e.data.count;i++){
+                        if (i%12==0){
+                            sizeData.push({size:12})
+                        }
+                    }
+                    setSizeAllData(sizeData)
+                    setCount(e.data.count)
+                    allProductsData(e.data.results)
+                })
             // const value = e.target.value;
             // const modifiedData = [...optionsTitle];
             // modifiedData.map((item) => {
@@ -152,9 +221,58 @@ export default function ShopPageMain(){
             // optionsData(modifiedData);
         }
         const handleChangeCleanAll = () =>{
-            handleChangeAllCategories("CleanAll")
-            handleChangeSubCategories("CleanAll")
+            handleChangeAllCategories("CleanAll",null,null)
+            handleChangeSubCategories("CleanAll",null,null)
         }
+
+
+    const [minPrice, setMinPrice] = useState([]);
+    const [maxPrice, setMaxPrice] = useState([]);
+    const sentPrice = (e) => {
+        price.push(e)
+        let data = {'price': price}
+        productFilter(data)
+            .then((e)=>{
+                let sizeData =[]
+                for (let i=0;i<= e.data.count;i++){
+                    if (i%12==0){
+                        sizeData.push({size:12})
+                    }
+                }
+                setSizeAllData(sizeData)
+                setCount(e.data.count)
+                allProductsData(e.data.results)
+            })
+    }
+    const setAllPriceData = () =>{
+        price.push([ Number(minPrice),Number(maxPrice)])
+        let data = {'price': price}
+        productFilter(data)
+            .then((e)=>{
+                let sizeData =[]
+                for (let i=0;i<= e.data.count;i++){
+                    if (i%12==0){
+                        sizeData.push({size:12})
+                    }
+                }
+                setSizeAllData(sizeData)
+                setCount(e.data.count)
+                allProductsData(e.data.results)
+            })
+    }
+    const setPageFunc = (p,s) =>{
+        allProducts(p,s)
+            .then(items => {
+                    allProductsData(items.data.results)
+            })
+    }
+    const setPartnersPost = (sortByArray) =>{
+        let data = {[sortByArray] : [sortByArray]}
+        productsPost(data)
+            .then(items => {
+                allProductsData(items.data.results)
+            })
+    }
     return (
         <div>
             <main className="main">
@@ -172,8 +290,8 @@ export default function ShopPageMain(){
                     </style>
                     <div className="container">
                         <ul className="breadcrumb bb-no">
-                            <li><a href="demo1.html">Home</a></li>
-                            <li><a href="shop-banner-sidebar.html">Shop</a></li>
+                            <li><a href="/home">Ana Səhifə</a></li>
+                            <li><a href="#">Mağaza</a></li>
                         </ul>
                     </div>
                 </nav>
@@ -205,7 +323,7 @@ export default function ShopPageMain(){
                                             <h3 className="widget-title"><span>Bütün Kateqoriyalar</span></h3>
                                             <ul className="widget-body filter-items item-check mt-1">
                                                 {optionsTitle.map((item, index) => (
-                                                    <div  onChange={(e) => handleChangeAllCategories(e)}>
+                                                    <div  onChange={(e) => handleChangeAllCategories(e,item.id,item.title)}>
                                                         <div key={item.id} className="mt-2">
                                                             <input
                                                                 type="checkbox"
@@ -225,7 +343,7 @@ export default function ShopPageMain(){
                                             <h3 className="widget-title"><span>Alt Kateqoriyalar</span></h3>
                                             <ul className="widget-body filter-items item-check mt-1">
                                                 {subCategoriesTitle.map((item, index) => (
-                                                    <div  onChange={(e) => handleChangeSubCategories(e)}>
+                                                    <div  onChange={(e) => handleChangeSubCategories(e,item.id,item.title)}>
                                                         <div key={item.id} className="mt-2">
                                                             <input
                                                                 type="checkbox"
@@ -245,7 +363,7 @@ export default function ShopPageMain(){
                                             <h3 className="widget-title"><span>Sub Kateqoriyalar</span></h3>
                                             <ul className="widget-body filter-items item-check mt-1">
                                                 {subSubCategoriesTitle.map((item, index) => (
-                                                    <div  onChange={(e) => handleChangeSubSubCategories(e)}>
+                                                    <div  onChange={(e) => handleChangeSubSubCategories(e,item.id,item.title)}>
                                                         <div key={item.id} className="mt-2">
                                                             <input
                                                                 type="checkbox"
@@ -273,19 +391,16 @@ export default function ShopPageMain(){
                                             <h3 className="widget-title"><span>Qiymət</span></h3>
                                             <div className="widget-body">
                                                 <ul className="filter-items search-ul">
-                                                    <li><a href="#">$0.00 - $100.00</a></li>
-                                                    <li><a href="#">$100.00 - $200.00</a></li>
-                                                    <li><a href="#">$200.00 - $300.00</a></li>
-                                                    <li><a href="#">$300.00 - $500.00</a></li>
-                                                    <li><a href="#">$500.00+</a></li>
+                                                    <li><a href="javascript:void(0)" onClick={() =>sentPrice([0, 5])}>₼0.00 - ₼5.00</a></li>
+                                                    <li><a href="javascript:void(0)" onClick={() =>sentPrice([5, 10])}>₼5.00 - ₼10.00</a></li>
+                                                    <li><a href="javascript:void(0)" onClick={() =>sentPrice([15, 20])}>₼15.00 - ₼20.00</a></li>
+                                                    <li><a href="javascript:void(0)" onClick={() =>sentPrice([20, 100000])}>₼20.00+</a></li>
                                                 </ul>
                                                 <form className="price-range">
-                                                    <input type="number" name="min_price"
-                                                           className="min_price text-center"
-                                                           placeholder="$min"/><span className="delimiter">-</span><input
-                                                    type="number" name="max_price" className="max_price text-center"
-                                                    placeholder="$max"/><a href="#"
-                                                                           className="btn btn-primary btn-rounded">Go</a>
+                                                    <input type="number" name="min_price" onChange={e=>setMinPrice(e.target.value)}  className="min_price text-center" placeholder="₼min"/>
+                                                    <span className="delimiter">-</span>
+                                                    <input type="number" name="max_price" onChange={e=>setMaxPrice(e.target.value)}  className="max_price text-center" placeholder="₼max"/>
+                                                    <a href="javascript:void(0)" className="btn btn-primary btn-rounded" onClick={()=>setAllPriceData()}>Göndər</a>
                                                 </form>
                                             </div>
                                         </div>
@@ -300,19 +415,17 @@ export default function ShopPageMain(){
                                             className="w-icon-category"></i><span>Filters</span></a>
                                         <div className="toolbox-item toolbox-sort select-box text-dark">
                                             <label>Sırala :</label>
-                                            <select name="orderby" className="form-control">
-                                                <option value="popularity">A-Z</option>
-                                                <option value="rating">Z-A</option>
-                                                <option value="date">Yeni-Köhnə</option>
-                                                <option value="date">Köhnə-Yeni</option>
-                                                <option value="price-low">Ucuz-Baha</option>
-                                                <option value="price-high">Baha-Ucuz</option>
+                                            <select name="orderby" className="form-control"  onClick={(e)=> setPartnersPost(e.target.value)}>
+                                                <option value="az">A-Z</option>
+                                                <option value="za">Z-A</option>
+                                                <option value="cheap">Ucuz-Baha</option>
+                                                <option value="expensive">Baha-Ucuz</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div className="toolbox-right">
                                         <div className="toolbox-item toolbox-show select-box">
-                                            <select name="count" className="form-control">
+                                            <select name="count" className="form-control" onClick={(e)=> setPageFunc(1,e.target.value)}>
                                                 <option value="9">Show 9</option>
                                                 <option value="12" selected="selected">Show 12</option>
                                                 <option value="24">Show 24</option>
@@ -446,29 +559,28 @@ export default function ShopPageMain(){
 
 
 
-                                {/*<div className="toolbox toolbox-pagination justify-content-between">*/}
-                                {/*    <p className="showing-info mb-2 mb-sm-0">*/}
-                                {/*        Showing<span>1-12 of 60</span>Products*/}
-                                {/*    </p>*/}
-                                {/*    <ul className="pagination">*/}
-                                {/*        <li className="prev disabled">*/}
-                                {/*            <a href="#" aria-label="Previous" tabIndex="-1" aria-disabled="true">*/}
-                                {/*                <i className="w-icon-long-arrow-left"></i>Prev*/}
-                                {/*            </a>*/}
-                                {/*        </li>*/}
-                                {/*        <li className="page-item active">*/}
-                                {/*            <a className="page-link" href="#">1</a>*/}
-                                {/*        </li>*/}
-                                {/*        <li className="page-item">*/}
-                                {/*            <a className="page-link" href="#">2</a>*/}
-                                {/*        </li>*/}
-                                {/*        <li className="next">*/}
-                                {/*            <a href="#" aria-label="Next">*/}
-                                {/*                Next<i className="w-icon-long-arrow-right"></i>*/}
-                                {/*            </a>*/}
-                                {/*        </li>*/}
-                                {/*    </ul>*/}
-                                {/*</div>*/}
+                                <div className="toolbox toolbox-pagination justify-content-between">
+                                    {/*<p className="showing-info mb-2 mb-sm-0">*/}
+                                    {/*    Showing<span>1-12 of 60</span>Products*/}
+                                    {/*</p>*/}
+                                    <ul className="pagination">
+                                        <li className="prev disabled">
+                                            <a href={paginationPrev} aria-label="Previous" tabIndex="-1" aria-disabled="true">
+                                                <i className="w-icon-long-arrow-left"></i>Əvvəlki
+                                            </a>
+                                        </li>
+                                            {sizeAllData.map((e,i)=>(
+                                                <li className="page-item active">
+                                                <a className="page-link" href="#" onClick={()=>setPageFunc(i+1,e.size)}>{i+1}</a>
+                                                </li>
+                                            ))}
+                                        <li className="next">
+                                            <a href={paginationNext} aria-label="Next">
+                                                Sonrakı<i className="w-icon-long-arrow-right"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>

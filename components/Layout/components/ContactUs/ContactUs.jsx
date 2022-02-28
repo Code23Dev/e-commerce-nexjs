@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import {createUserMessage} from "../../../../services/contact-us/createUserMessage";
+import {faq} from "../../../../services/faq";
 
 export default function ContactUs(){
     const [createUserMessageTitle, createUserMessagePost] = React.useState([]);
@@ -20,6 +21,18 @@ export default function ContactUs(){
         })
         console.log(data)
     }
+
+    const [faqTitle, faqData] = useState(null);
+    const [faqsTitle, faqsData] = useState([]);
+    useEffect(() => {
+        faq()
+           .then(items => {
+               faqData(items.data[0].title)
+               faqsData(items.data[0].title)
+
+            })
+    }, [])
+    console.log(faqTitle)
     return (
         <div>
             <main className="main">
@@ -107,88 +120,25 @@ export default function ContactUs(){
                             <section className="contact-section">
                                 <div className="row gutter-lg pb-3">
                                     <div className="col-lg-6 mb-8">
-                                        <h4 className="title mb-3">People usually ask these</h4>
-                                        <div className="accordion accordion-bg accordion-gutter-md accordion-border">
-                                            <div className="card">
-                                                <div className="card-header">
-                                                    <a href="#collapse1" className="collapse">How can I cancel my
-                                                        order?</a>
-                                                </div>
-                                                <div id="collapse1" className="card-body expanded">
-                                                    <p className="mb-0">
-                                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                                        eiusmod temp orincid
-                                                        idunt ut labore et dolore magna aliqua. Venenatis tellus in
-                                                        metus vulp utate eu sceler
-                                                        isque felis. Vel pretium.
-                                                    </p>
-                                                </div>
-                                            </div>
-
-                                            <div className="card">
-                                                <div className="card-header">
-                                                    <a href="#collapse2" className="expand">Why is my registration
-                                                        delayed?</a>
-                                                </div>
-                                                <div id="collapse2" className="card-body collapsed">
-                                                    <p className="mb-0">
-                                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                                        eiusmod temp orincid
-                                                        idunt ut labore et dolore magna aliqua. Venenatis tellus in
-                                                        metus vulp utate eu sceler
-                                                        isque felis. Vel pretium.
-                                                    </p>
+                                            <div>
+                                                <h4 className="title mb-3">{faqTitle}</h4>
+                                                <div className="accordion accordion-bg accordion-gutter-md accordion-border">
+                                                        <div className="card">
+                                                            <div className="card-header">
+                                                                <a href="#collapse1" className="collapse"></a>
+                                                            </div>
+                                                            <div id="collapse1" className="card-body expanded">
+                                                                <p className="mb-0">
+                                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                                                                    eiusmod temp orincid
+                                                                    idunt ut labore et dolore magna aliqua. Venenatis tellus in
+                                                                    metus vulp utate eu sceler
+                                                                    isque felis. Vel pretium.
+                                                                </p>
+                                                            </div>
+                                                        </div>
                                                 </div>
                                             </div>
-
-                                            <div className="card">
-                                                <div className="card-header">
-                                                    <a href="#collapse3" className="expand">What do I need to buy
-                                                        products?</a>
-                                                </div>
-                                                <div id="collapse3" className="card-body collapsed">
-                                                    <p className="mb-0">
-                                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                                        eiusmod temp orincid
-                                                        idunt ut labore et dolore magna aliqua. Venenatis tellus in
-                                                        metus vulp utate eu sceler
-                                                        isque felis. Vel pretium.
-                                                    </p>
-                                                </div>
-                                            </div>
-
-                                            <div className="card">
-                                                <div className="card-header">
-                                                    <a href="#collapse4" className="expand">How can I track an
-                                                        order?</a>
-                                                </div>
-                                                <div id="collapse4" className="card-body collapsed">
-                                                    <p className="mb-0">
-                                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                                        eiusmod temp orincid
-                                                        idunt ut labore et dolore magna aliqua. Venenatis tellus in
-                                                        metus vulp utate eu sceler
-                                                        isque felis. Vel pretium.
-                                                    </p>
-                                                </div>
-                                            </div>
-
-                                            <div className="card">
-                                                <div className="card-header">
-                                                    <a href="#collapse5" className="expand">How can I get money
-                                                        back?</a>
-                                                </div>
-                                                <div id="collapse5" className="card-body collapsed">
-                                                    <p className="mb-0">
-                                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                                        eiusmod
-                                                        temp orincid idunt ut labore et dolore magna aliqua. Venenatis
-                                                        tellus in
-                                                        metus vulp utate eu sceler isque felis. Vel pretium.
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
                                     </div>
                                     <div className="col-lg-6 mb-8">
                                         <h4 className="title mb-3">Bizə Mesaj Göndərin</h4>

@@ -7,9 +7,9 @@ export default function Card(){
                 <nav className="breadcrumb-nav">
                     <div className="container">
                         <ul className="breadcrumb shop-breadcrumb bb-no">
-                            <li className="active"><a href="cart.html">Shopping Cart</a></li>
-                            <li><a href="checkout.html">Checkout</a></li>
-                            <li><a href="order.html">Order Complete</a></li>
+                            <li className="active"><a href="/cart">Shopping Cart</a></li>
+                            <li><a href="/checkout">Checkout</a></li>
+                            <li><a href="/order">Order Complete</a></li>
                         </ul>
                     </div>
                 </nav>
@@ -104,120 +104,7 @@ export default function Card(){
                                     </button>
                                 </div>
 
-                                <form className="coupon">
-                                    <h5 className="title coupon-title font-weight-bold text-uppercase">Coupon
-                                        Discount</h5>
-                                    <input type="text" className="form-control mb-4"
-                                           placeholder="Enter coupon code here..." required/>
-                                    <button className="btn btn-dark btn-outline btn-rounded">Apply Coupon</button>
-                                </form>
-                            </div>
-                            <div className="col-lg-4 sticky-sidebar-wrapper">
-                                <div className="sticky-sidebar">
-                                    <div className="cart-summary mb-4">
-                                        <h3 className="cart-title text-uppercase">Cart Totals</h3>
-                                        <div
-                                            className="cart-subtotal d-flex align-items-center justify-content-between">
-                                            <label className="ls-25">Subtotal</label>
-                                            <span>$100.00</span>
-                                        </div>
 
-                                        <hr className="divider"/>
-
-                                            <ul className="shipping-methods mb-2">
-                                                <li>
-                                                    <label
-                                                        className="shipping-title text-dark font-weight-bold">Shipping</label>
-                                                </li>
-                                                <li>
-                                                    <div className="custom-radio">
-                                                        <input type="radio" id="free-shipping"
-                                                               className="custom-control-input"
-                                                               name="shipping"/>
-                                                            <label htmlFor="free-shipping"
-                                                                   className="custom-control-label color-dark">Free
-                                                                Shipping</label>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div className="custom-radio">
-                                                        <input type="radio" id="local-pickup"
-                                                               className="custom-control-input"
-                                                               name="shipping"/>
-                                                            <label htmlFor="local-pickup"
-                                                                   className="custom-control-label color-dark">Local
-                                                                Pickup</label>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div className="custom-radio">
-                                                        <input type="radio" id="flat-rate"
-                                                               className="custom-control-input"
-                                                               name="shipping"/>
-                                                            <label htmlFor="flat-rate"
-                                                                   className="custom-control-label color-dark">Flat
-                                                                rate:
-                                                                $5.00</label>
-                                                    </div>
-                                                </li>
-                                            </ul>
-
-                                            <div className="shipping-calculator">
-                                                <p className="shipping-destination lh-1">Shipping to <strong>CA</strong>.
-                                                </p>
-
-                                                <form className="shipping-calculator-form">
-                                                    <div className="form-group">
-                                                        <div className="select-box">
-                                                            <select name="country"
-                                                                    className="form-control form-control-md">
-                                                                <option value="default" selected="selected">United
-                                                                    States
-                                                                    (US)
-                                                                </option>
-                                                                <option value="us">United States</option>
-                                                                <option value="uk">United Kingdom</option>
-                                                                <option value="fr">France</option>
-                                                                <option value="aus">Australia</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <div className="form-group">
-                                                        <div className="select-box">
-                                                            <select name="state"
-                                                                    className="form-control form-control-md">
-                                                                <option value="default" selected="selected">California
-                                                                </option>
-                                                                <option value="ohaio">Ohaio</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <div className="form-group">
-                                                        <input className="form-control form-control-md" type="text"
-                                                               name="town-city" placeholder="Town / City"/>
-                                                    </div>
-                                                    <div className="form-group">
-                                                        <input className="form-control form-control-md" type="text"
-                                                               name="zipcode" placeholder="ZIP"/>
-                                                    </div>
-                                                    <button type="submit"
-                                                            className="btn btn-dark btn-outline btn-rounded">Update
-                                                        Totals
-                                                    </button>
-                                                </form>
-                                            </div>
-
-                                            <hr className="divider mb-6"/>
-                                                <div
-                                                    className="order-total d-flex justify-content-between align-items-center">
-                                                    <label>Total</label>
-                                                    <span className="ls-50">$100.00</span>
-                                                </div>
-                                                <a href="#"
-                                                   className="btn btn-block btn-dark btn-icon-right btn-rounded  btn-checkout">
-                                                    Proceed to checkout<i className="w-icon-long-arrow-right"></i></a>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>

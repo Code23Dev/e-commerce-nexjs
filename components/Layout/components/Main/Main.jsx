@@ -5,6 +5,8 @@ import {displayedCategories} from "../../../../services/displayedCategories";
 import {benefits} from "../../../../services/benefits";
 import {allProducts} from "../../../../services/products/allProducts";
 import {partners} from "../../../../services/partners";
+import PhoneInput from "react-phone-input-2";
+import MainProductDetails from "./MainProductDetails";
 
 export default function Main(){
     const [optionsTitle, optionsData] = useState([]);
@@ -72,8 +74,100 @@ export default function Main(){
               })
       }
     }, [])
+
+
+
+    const [showMe, setShowMe] = useState("none");
+    const showMeFunc = () =>{
+        if (showMe== 'none'){
+            setShowMe("block");
+        }else{
+            setShowMe("none");
+        }
+    }
     return (
         <div>
+            <style jsx>{`
+                    .react-tel-input .form-control {
+                        position: relative;
+                        font-size: 14px;
+                        letter-spacing: .01rem;
+                        margin-top: 0 !important;
+                        margin-bottom: 0 !important;
+                        padding-left: 48px;
+                        margin-left: 0;
+                        background: #FFFFFF;
+                        border: 1px solid #CACACA;
+                        border-radius: 5px;
+                        line-height: 25px;
+                        height: 35px;
+                        width: 100% !important;
+                        outline: none;
+                    }
+                .header-top {
+                    background: #0088dd;
+                    font-size: 1.1rem;
+                    letter-spacing: -0.027em;
+                    text-transform: capitalize;
+                    color: #fff;
+                    border-bottom: 1px solid;
+                    border-color: rgba(238, 238, 238, 0.2);
+                }
+                .header-middle {
+                    padding-top: 3.2rem;
+                    padding-bottom: 3.2rem;
+                    color: #fff;
+                    background: #0088dd;
+                    font-size: 1.2rem;
+                    border-bottom: 0;
+                }
+                .modal {
+                  display: block; 
+                  position: fixed; 
+                  z-index: 9999; 
+                  padding-top: 30px;
+                  left: 0;
+                  top: 0;
+                  min-width: 100%;
+                  height: 100%; 
+                  overflow: auto;
+                  background-color: rgb(0,0,0);
+                  background-color: rgba(0,0,0,0.4);
+                }
+                .modal-content {
+                  background-color: #fefefe;
+                  margin: auto;
+                  padding: 10px;
+                  border: 1px solid #888;
+                  width: 57%;
+                }
+
+                .close {
+                  color: #aaaaaa;
+                  float: right;
+                  font-size: 28px;
+                  font-weight: bold;
+                   padding-left: 20px;
+                }
+                
+                .close:hover,
+                .close:focus {
+                  color: #000;
+                  text-decoration: none;
+                  cursor: pointer;
+                  padding-left: 20px;
+                }
+                @media only screen and (max-width: 1000px) {
+                  .modal-content {
+                    background-color: #fefefe;
+                    margin: auto;
+                    padding: 10px;
+                    border: 1px solid #888;
+                    width: 85%;
+                  }
+                }
+            `}
+            </style>
             <main className="main">
                 <div className="container pb-2">
                     <div className="intro-wrapper mt-4">
@@ -112,8 +206,6 @@ export default function Main(){
                         </div>
                     </div>
                 </div>
-
-
                 <div className="container mb-10 pb-2">
                     <div className="swiper-container swiper-theme icon-box-wrapper appear-animate br-sm bg-white"
                          style={{padding:'11px'}}
@@ -280,7 +372,7 @@ export default function Main(){
                                                title="Wishlist"></a>
                                             <a href="#" className="btn-product-icon btn-compare w-icon-compare"
                                                title="Compare"></a>
-                                            <a href="#" className="btn-product-icon btn-quickview w-icon-search"
+                                            <a href="#" onClick={showMeFunc} className="btn-product-icon w-icon-search"
                                                title="CƏLD BAXIŞ"></a>
                                         </div>
                                     </figure>
@@ -589,6 +681,116 @@ export default function Main(){
                         </div>
                     </div>
                 </section>
+
+
+                <div id="myModal" className="modal" style={{display:showMe}}>
+                    <div className="modal-content">
+                        <span className="close" onClick={showMeFunc}>&times;</span>
+                        <div className="page-wrapper">
+                            <main className="main">
+                                <div className="page-content">
+                                    <div>
+                                        <div className="row gutter-lg">
+                                            <div className="mt-5">
+                                                <div className="product product-single row">
+                                                    <div className="product product-single row">
+                                                        <div className="col-md-6 mb-4 mb-md-8">
+                                                            <div className="product-gallery product-gallery-sticky">
+                                                                <div
+                                                                    className="swiper-container product-single-swiper swiper-theme nav-inner"
+                                                                    data-swiper-options="{
+                                            'navigation': {
+                                                'nextEl': '.swiper-button-next',
+                                                'prevEl': '.swiper-button-prev'
+                                            }
+                                        }">
+                                                                    <div className="swiper-wrapper row cols-1 gutter-no">
+                                                                        <div className="swiper-slide">
+                                                                            <figure className="product-image">
+                                                                                <img
+                                                                                    src="assets/images/products/accordion/1-800x900.jpg"
+                                                                                    data-zoom-image="assets/images/products/accordion/1-800x900.jpg"
+                                                                                    alt="Bodycare Smooth Powder" width="800"
+                                                                                    height="900"/>
+                                                                            </figure>
+                                                                        </div>
+                                                                        <div className="swiper-slide">
+                                                                            <figure className="product-image">
+                                                                                <img
+                                                                                    src="assets/images/products/accordion/2-800x900.jpg"
+                                                                                    data-zoom-image="assets/images/products/accordion/2-800x900.jpg"
+                                                                                    alt="Bodycare Smooth Powder" width="488"
+                                                                                    height="549"/>
+                                                                            </figure>
+                                                                        </div>
+                                                                        <div className="swiper-slide">
+                                                                            <figure className="product-image">
+                                                                                <img
+                                                                                    src="assets/images/products/accordion/3-800x900.jpg"
+                                                                                    data-zoom-image="assets/images/products/accordion/3-800x900.jpg"
+                                                                                    alt="Bodycare Smooth Powder" width="800"
+                                                                                    height="900"/>
+                                                                            </figure>
+                                                                        </div>
+                                                                        <div className="swiper-slide">
+                                                                            <figure className="product-image">
+                                                                                <img
+                                                                                    src="assets/images/products/accordion/4-800x900.jpg"
+                                                                                    data-zoom-image="assets/images/products/accordion/4-800x900.jpg"
+                                                                                    alt="Bodycare Smooth Powder" width="800"
+                                                                                    height="900"/>
+                                                                            </figure>
+                                                                        </div>
+                                                                    </div>
+                                                                    <button className="swiper-button-next"></button>
+                                                                    <button className="swiper-button-prev"></button>
+                                                                    <a href="#" className="product-gallery-btn product-image-full"><i
+                                                                        className="w-icon-zoom"></i></a>
+                                                                </div>
+
+                                                                <div className="product-thumbs-wrap swiper-container"
+                                                                     data-swiper-options="{
+                                            'navigation': {
+                                                'nextEl': '.swiper-button-next',
+                                                'prevEl': '.swiper-button-prev'
+                                            }
+                                        }">
+                                                                    <div className="product-thumbs swiper-wrapper row cols-4 gutter-sm">
+                                                                        <div className="product-thumb swiper-slide">
+                                                                            <img src="assets/images/products/accordion/1-800x900.jpg"
+                                                                                 alt="Product Thumb" width="800" height="900"/>
+                                                                        </div>
+                                                                        <div className="product-thumb swiper-slide">
+                                                                            <img src="assets/images/products/accordion/2-800x900.jpg"
+                                                                                 alt="Product Thumb" width="800" height="900"/>
+                                                                        </div>
+                                                                        <div className="product-thumb swiper-slide">
+                                                                            <img src="assets/images/products/accordion/3-800x900.jpg"
+                                                                                 alt="Product Thumb" width="800" height="900"/>
+                                                                        </div>
+                                                                        <div className="product-thumb swiper-slide">
+                                                                            <img src="assets/images/products/accordion/4-800x900.jpg"
+                                                                                 alt="Product Thumb" width="800" height="900"/>
+                                                                        </div>
+                                                                    </div>
+                                                                    <button className="swiper-button-next"></button>
+                                                                    <button className="swiper-button-prev"></button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div className="col-md-6 mb-6 mb-md-8">
+                                                            <MainProductDetails/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </main>
+                        </div>
+                    </div>
+                </div>
             </main>
             <div className="sticky-footer sticky-content fix-bottom">
                 <a href="demo8.html" className="sticky-link active">
@@ -1172,183 +1374,6 @@ export default function Main(){
                                required=""/>
                             <label htmlFor="hide-newsletter-popup" className="font-size-sm text-light">Don't show this
                                 popup again.</label>
-                    </div>
-                </div>
-            </div>
-
-            <div className="product product-single product-popup">
-                <div className="row gutter-lg">
-                    <div className="col-md-6 mb-4 mb-md-0">
-                        <div className="product-gallery product-gallery-sticky">
-                            <div className="swiper-container product-single-swiper swiper-theme nav-inner">
-                                <div className="swiper-wrapper row cols-1 gutter-no">
-                                    <div className="swiper-slide">
-                                        <figure className="product-image">
-                                            <img src="assets/images/products/popup/1-440x494.jpg"
-                                                 data-zoom-image="assets/images/products/popup/1-800x900.jpg"
-                                                 alt="Water Boil Black Utensil" width="800" height="900"/>
-                                        </figure>
-                                    </div>
-                                    <div className="swiper-slide">
-                                        <figure className="product-image">
-                                            <img src="assets/images/products/popup/2-440x494.jpg"
-                                                 data-zoom-image="assets/images/products/popup/2-800x900.jpg"
-                                                 alt="Water Boil Black Utensil" width="800" height="900"/>
-                                        </figure>
-                                    </div>
-                                    <div className="swiper-slide">
-                                        <figure className="product-image">
-                                            <img src="assets/images/products/popup/3-440x494.jpg"
-                                                 data-zoom-image="assets/images/products/popup/3-800x900.jpg"
-                                                 alt="Water Boil Black Utensil" width="800" height="900"/>
-                                        </figure>
-                                    </div>
-                                    <div className="swiper-slide">
-                                        <figure className="product-image">
-                                            <img src="assets/images/products/popup/4-440x494.jpg"
-                                                 data-zoom-image="assets/images/products/popup/4-800x900.jpg"
-                                                 alt="Water Boil Black Utensil" width="800" height="900"/>
-                                        </figure>
-                                    </div>
-                                </div>
-                                <button className="swiper-button-next"></button>
-                                <button className="swiper-button-prev"></button>
-                            </div>
-                            <div className="product-thumbs-wrap swiper-container" data-swiper-options="{
-                        'navigation': {
-                            'nextEl': '.swiper-button-next',
-                            'prevEl': '.swiper-button-prev'
-                        }
-                    }">
-                                <div className="product-thumbs swiper-wrapper row cols-4 gutter-sm">
-                                    <div className="product-thumb swiper-slide">
-                                        <img src="assets/images/products/popup/1-103x116.jpg" alt="Product Thumb"
-                                             width="103"
-                                             height="116"/>
-                                    </div>
-                                    <div className="product-thumb swiper-slide">
-                                        <img src="assets/images/products/popup/2-103x116.jpg" alt="Product Thumb"
-                                             width="103"
-                                             height="116"/>
-                                    </div>
-                                    <div className="product-thumb swiper-slide">
-                                        <img src="assets/images/products/popup/3-103x116.jpg" alt="Product Thumb"
-                                             width="103"
-                                             height="116"/>
-                                    </div>
-                                    <div className="product-thumb swiper-slide">
-                                        <img src="assets/images/products/popup/4-103x116.jpg" alt="Product Thumb"
-                                             width="103"
-                                             height="116"/>
-                                    </div>
-                                </div>
-                                <button className="swiper-button-next"></button>
-                                <button className="swiper-button-prev"></button>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-md-6 overflow-hidden p-relative">
-                        <div className="product-details scrollable pl-0">
-                            <h2 className="product-title">Electronics Black Wrist Watch</h2>
-                            <div className="product-bm-wrapper">
-                                <figure className="brand">
-                                    <img src="assets/images/products/brand/brand-1.jpg" alt="Brand" width="102"
-                                         height="48"/>
-                                </figure>
-                                <div className="product-meta">
-                                    <div className="product-categories">
-                                        Category:
-                                        <span className="product-category"><a href="#">Electronics</a></span>
-                                    </div>
-                                    <div className="product-sku">
-                                        SKU: <span>MS46891340</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <hr className="product-divider"/>
-
-                                <div className="product-price">$40.00</div>
-
-                                <div className="ratings-container">
-                                    <div className="ratings-full">
-                                        <span className="ratings" style={{width: '80%'}}></span>
-                                        <span className="tooltiptext tooltip-top"></span>
-                                    </div>
-                                    <a href="#" className="rating-reviews">(3 Reviews)</a>
-                                </div>
-
-                                <div className="product-short-desc">
-                                    <ul className="list-type-check list-style-none">
-                                        <li>Ultrices eros in cursus turpis massa cursus mattis.</li>
-                                        <li>Volutpat ac tincidunt vitae semper quis lectus.</li>
-                                        <li>Aliquam id diam maecenas ultricies mi eget mauris.</li>
-                                    </ul>
-                                </div>
-
-                                <hr className="product-divider"/>
-
-                                    <div className="product-form product-variation-form product-color-swatch">
-                                        <label>Color:</label>
-                                        <div className="d-flex align-items-center product-variations">
-                                            <a href="#" className="color" style={{backgroundColor: '#ffcc01'}}></a>
-                                            <a href="#" className="color" style={{backgroundColor: '#ca6d00'}}></a>
-                                            <a href="#" className="color" style={{backgroundColor: '#1c93cb'}}></a>
-                                            <a href="#" className="color" style={{backgroundColor: '#ccc'}}></a>
-                                            <a href="#" className="color" style={{backgroundColor: '#333'}}></a>
-                                        </div>
-                                    </div>
-                                    <div className="product-form product-variation-form product-size-swatch">
-                                        <label className="mb-1">Size:</label>
-                                        <div className="flex-wrap d-flex align-items-center product-variations">
-                                            <a href="#" className="size">Small</a>
-                                            <a href="#" className="size">Medium</a>
-                                            <a href="#" className="size">Large</a>
-                                            <a href="#" className="size">Extra Large</a>
-                                        </div>
-                                        <a href="#" className="product-variation-clean">Clean All</a>
-                                    </div>
-
-                                    <div className="product-variation-price">
-                                        <span></span>
-                                    </div>
-
-                                    <div className="product-form">
-                                        <div className="product-qty-form">
-                                            <div className="input-group">
-                                                <input className="quantity form-control" type="number" min="1"
-                                                       max="10000000"/>
-                                                    <button className="quantity-plus w-icon-plus"></button>
-                                                    <button className="quantity-minus w-icon-minus"></button>
-                                            </div>
-                                        </div>
-                                        <button className="btn btn-primary btn-cart">
-                                            <i className="w-icon-cart"></i>
-                                            <span>Add to Cart</span>
-                                        </button>
-                                    </div>
-
-                                    <div className="social-links-wrapper">
-                                        <div className="social-links">
-                                            <div className="social-icons social-no-color border-thin">
-                                                <a href="#" className="social-icon social-facebook w-icon-facebook"></a>
-                                                <a href="#" className="social-icon social-twitter w-icon-twitter"></a>
-                                                <a href="#"
-                                                   className="social-icon social-pinterest fab fa-pinterest-p"></a>
-                                                <a href="#" className="social-icon social-whatsapp fab fa-whatsapp"></a>
-                                                <a href="#"
-                                                   className="social-icon social-youtube fab fa-linkedin-in"></a>
-                                            </div>
-                                        </div>
-                                        <span className="divider d-xs-show"></span>
-                                        <div className="product-link-wrapper d-flex">
-                                            <a href="#"
-                                               className="btn-product-icon btn-wishlist w-icon-heart"><span></span></a>
-                                            <a href="#"
-                                               className="btn-product-icon btn-compare btn-icon-left w-icon-compare"><span></span></a>
-                                        </div>
-                                    </div>
-                        </div>
                     </div>
                 </div>
             </div>
