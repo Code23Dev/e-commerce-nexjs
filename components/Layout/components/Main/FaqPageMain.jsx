@@ -4,14 +4,12 @@ import {faq} from "../../../../services/faq";
 export default function FaqPageMain(){
     const [faqTitle, faqData] = useState([]);
     useEffect(() => {
-        let mounted = true;
         faq()
             .then(items => {
-                if(mounted) {
+                if(items.data) {
                     faqData(items.data)
                 }
             })
-        return () => mounted = false;
     }, [])
     return (
         <div>

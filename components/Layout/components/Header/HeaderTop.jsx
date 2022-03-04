@@ -8,6 +8,10 @@ import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
 import Select from "react-select";
 import {categories} from "../../../../services/categories";
+import {getUserDataByToken} from "../../../../services/auth/getUserDataByToken";
+import {getUserWishlist} from "../../../../services/wishlist/GetUserWishlist";
+import {removeFromWishlist} from "../../../../services/wishlist/RemoveFromWishlist";
+import {addToWishlist} from "../../../../services/wishlist/AddToWishlist";
 export default function HeaderTop(){
     const style = {
         control: base => ({
@@ -47,9 +51,11 @@ export default function HeaderTop(){
     const [numberLogin, setNumberLogin] = React.useState("");
     const [passwordLogin, setPasswordLogin] = React.useState("");
     const [loginPost, setLoginPost] = React.useState([]);
+
+    const [loginPhoneInput, setPhoneInput] = React.useState("");
     const handleLoginInput = () =>{
-        let data = {number:numberLogin,
-            password:passwordLogin}
+        let data = {number:loginPhoneInput,
+                    password:passwordLogin}
         login(data)
             .then(items => {
                     console.log(items)
@@ -106,8 +112,6 @@ export default function HeaderTop(){
             .then(items => {
                 showMeFunc()
                 showMeNumberFunc()
-
-
             }).catch(e =>{
             console.log(e)
         })
@@ -116,8 +120,13 @@ export default function HeaderTop(){
 
     const [phone, setState] = useState("");
   const handleOnChange = (value) => {
-        console.log(value);
+      setPhoneInput(`+${value}`)
     };
+
+
+
+
+
     return (
         <div>
             <style jsx>{`
@@ -404,11 +413,11 @@ export default function HeaderTop(){
                                     <a href="tel:#" className="phone-number font-weight-bolder text-white ls-50">0(800)123-456</a>
                                 </div>
                             </div>
-                            <a className="wishlist label-down link d-xs-show" href="wishlist.html">
+                            <a className="wishlist label-down link d-xs-show" href="/wishlist">
                                 <i className="w-icon-heart"></i>
                                 <span className="wishlist-label d-lg-show">Bəyəndiklərim</span>
                             </a>
-                            <a className="compare label-down link d-xs-show" href="compare.html">
+                            <a className="compare label-down link d-xs-show" href="/compare">
                                 <i className="w-icon-compare"></i>
                                 <span className="compare-label d-lg-show">Müqayisə</span>
                             </a>

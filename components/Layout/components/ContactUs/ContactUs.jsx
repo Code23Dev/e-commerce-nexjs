@@ -22,17 +22,18 @@ export default function ContactUs(){
         console.log(data)
     }
 
-    const [faqTitle, faqData] = useState(null);
-    const [faqsTitle, faqsData] = useState([]);
+    const [faqsItem, faqsData] = useState([]);
+    const [faqTitle, faqTitleData] = useState(null);
     useEffect(() => {
         faq()
            .then(items => {
-               faqData(items.data[0].title)
-               faqsData(items.data[0].title)
+               if (items.data[0].faqs && items.data[0].title){
+                   faqsData(items.data[0].faqs)
+                   faqTitleData(items.data[0].title)
+               }
 
             })
     }, [])
-    console.log(faqTitle)
     return (
         <div>
             <main className="main">
@@ -120,25 +121,23 @@ export default function ContactUs(){
                             <section className="contact-section">
                                 <div className="row gutter-lg pb-3">
                                     <div className="col-lg-6 mb-8">
-                                            <div>
-                                                <h4 className="title mb-3">{faqTitle}</h4>
+                                        <h4 className="title mb-3">{faqTitle}</h4>
+                                        {faqsItem.map(e=>(
+                                            <div className="mb-4">
                                                 <div className="accordion accordion-bg accordion-gutter-md accordion-border">
-                                                        <div className="card">
-                                                            <div className="card-header">
-                                                                <a href="#collapse1" className="collapse"></a>
-                                                            </div>
-                                                            <div id="collapse1" className="card-body expanded">
-                                                                <p className="mb-0">
-                                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                                                    eiusmod temp orincid
-                                                                    idunt ut labore et dolore magna aliqua. Venenatis tellus in
-                                                                    metus vulp utate eu sceler
-                                                                    isque felis. Vel pretium.
-                                                                </p>
-                                                            </div>
+                                                    <div className="card">
+                                                        <div className="card-header">
+                                                            <a href="#collapse1" className="collapse">{e.question}</a>
                                                         </div>
+                                                        <div id="collapse1" className="card-body expanded">
+                                                            <p className="mb-0">
+                                                                {e.answer}
+                                                            </p>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
+                                        ))}
                                     </div>
                                     <div className="col-lg-6 mb-8">
                                         <h4 className="title mb-3">Bizə Mesaj Göndərin</h4>

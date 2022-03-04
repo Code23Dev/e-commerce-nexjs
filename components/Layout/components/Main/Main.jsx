@@ -7,6 +7,8 @@ import {allProducts} from "../../../../services/products/allProducts";
 import {partners} from "../../../../services/partners";
 import PhoneInput from "react-phone-input-2";
 import MainProductDetails from "./MainProductDetails";
+import {getUserDataByToken} from "../../../../services/auth/getUserDataByToken";
+import {addToWishlist} from "../../../../services/wishlist/AddToWishlist";
 
 export default function Main(){
     const [optionsTitle, optionsData] = useState([]);
@@ -49,16 +51,10 @@ export default function Main(){
 
     const [allProductsTitle, allProductsData] = useState([]);
     useEffect(() => {
-      if(JSON.parse(localStorage.getItem('allProductsTitle'))){
-          allProductsData(JSON.parse(localStorage.getItem('allProductsTitle')))
-      }
-      else{
           allProducts()
               .then(items => {
-                  localStorage.setItem('allProductsTitle',  JSON.stringify(items.data));
-                  JSON.parse(localStorage.getItem('allProductsTitle')) ? allProductsData(JSON.parse(localStorage.getItem('allProductsTitle'))) : []
+                  allProductsData(items.data.results)
               })
-      }
     }, [])
 
     const [partnersTitle, partnersData] = useState([]);
@@ -84,6 +80,26 @@ export default function Main(){
         }else{
             setShowMe("none");
         }
+    }
+
+
+    const [userId, userIdData] = useState(null);
+    useEffect(() => {
+        getUserDataByToken()
+            .then(items => {
+                if(items.data.id){
+                    userIdData(items.data.id)
+                }
+            })
+    }, [])
+
+    const addWishlist = (id) =>{
+        let data = {user:userId,product:id}
+        addToWishlist(data)
+            .then(e=>{
+                console.log(e)
+            })
+            .catch(e=>{console.log(e)})
     }
     return (
         <div>
@@ -369,6 +385,7 @@ export default function Main(){
                                             <a href="#" className="btn-product-icon btn-cart w-icon-cart"
                                                title="Add to cart"></a>
                                             <a href="#" className="btn-product-icon btn-wishlist w-icon-heart"
+                                               onClick={()=>{addWishlist(e.id)}}
                                                title="Wishlist"></a>
                                             <a href="#" className="btn-product-icon btn-compare w-icon-compare"
                                                title="Compare"></a>

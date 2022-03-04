@@ -1,150 +1,112 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
+import {getUserDataByToken} from "../../../../services/auth/getUserDataByToken";
+import {getUserWishlist} from "../../../../services/wishlist/GetUserWishlist";
+import {removeFromWishlist} from "../../../../services/wishlist/RemoveFromWishlist";
 
 export default function WishlistPage(){
+    const [allGetUserDataItemsTitle, allGetUserDataItemsData] = useState([]);
+    const [userId, userIdData] = useState(null);
+    useEffect(() => {
+        getUserDataByToken()
+                .then(items => {
+                    if(items.data.id){
+                        userIdData(items.data.id)
+                        getUserWishlist(items.data.id)
+                            .then(itemsData =>{
+                                if (itemsData.data.product) {
+                                    allGetUserDataItemsData(itemsData.data.product)
+                                }
+
+                            })
+                    }
+                })
+    }, [])
+
+    const deleteWishlist = (id) =>{
+      let data = {user:userId,product:id}
+        removeFromWishlist(data)
+            .then(e=>{
+                if (e){
+                    getUserWishlist(userId)
+                        .then(itemsData =>{
+                            if (itemsData.data.product) {
+                                allGetUserDataItemsData(itemsData.data.product)
+                            }
+
+                        })
+                }
+            })
+            .catch(e=>{console.log(e)})
+    }
+
+
+
     return (
         <div>
             <main className="main wishlist-page">
                 <div className="page-header">
                     <div className="container">
-                        <h1 className="page-title mb-0">Wishlist</h1>
+                        <h1 className="page-title mb-0">Bəyəndiklərim</h1>
                     </div>
                 </div>
                 <nav className="breadcrumb-nav mb-10">
                     <div className="container">
                         <ul className="breadcrumb">
-                            <li><a href="demo1.html">Home</a></li>
-                            <li>Wishlist</li>
+                            <li><a href="/home">Ana Səhifə</a></li>
+                            <li>Bəyəndiklərim</li>
                         </ul>
                     </div>
                 </nav>
                 <div className="page-content">
                     <div className="container">
-                        <h3 className="wishlist-title">My wishlist</h3>
+                        <h3 className="wishlist-title">Bəyəndiklərim</h3>
                         <table className="shop-table wishlist-table">
                             <thead>
                             <tr>
-                                <th className="product-name"><span>Product</span></th>
+                                <th className="product-name"><span>Məhsul</span></th>
                                 <th></th>
-                                <th className="product-price"><span>Price</span></th>
-                                <th className="product-stock-status"><span>Stock Status</span></th>
-                                <th className="wishlist-action">Actions</th>
+                                <th className="product-price"><span>Qiymət</span></th>
+                                <th></th>
+                                <th className="wishlist-action">Tədbirlər</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td className="product-thumbnail">
-                                    <div className="p-relative">
+                            {allGetUserDataItemsTitle.map(e=>(
+                                <tr>
+                                    <td className="product-thumbnail">
+                                        <div className="p-relative">
+                                            <a href="product-default.html">
+                                                <figure>
+                                                    <img src={e.main_image} alt="product" width="300"
+                                                         height="338"/>
+                                                </figure>
+                                            </a>
+                                            <button type="submit" className="btn btn-close" onClick={()=>{deleteWishlist(e.id)}}><i className="fas fa-times"></i></button>
+                                        </div>
+                                    </td>
+                                    <td className="product-name">
                                         <a href="product-default.html">
-                                            <figure>
-                                                <img src="assets/images/shop/7-1.jpg" alt="product" width="300"
-                                                     height="338"/>
-                                            </figure>
+                                            {e.title}
                                         </a>
-                                        <button type="submit" className="btn btn-close"><i
-                                            className="fas fa-times"></i></button>
-                                    </div>
-                                </td>
-                                <td className="product-name">
-                                    <a href="product-default.html">
-                                        Blue Sky Trunk
-                                    </a>
-                                </td>
-                                <td className="product-price">
-                                    <ins className="new-price">$85.00</ins>
-                                </td>
-                                <td className="product-stock-status">
-                                    <span className="wishlist-in-stock">In Stock</span>
-                                </td>
-                                <td className="wishlist-action">
-                                    <div className="d-lg-flex">
-                                        <a href="#"
-                                           className="btn btn-quickview btn-outline btn-default btn-rounded btn-sm mb-2 mb-lg-0">Quick
-                                            View</a>
-                                        <a href="#" className="btn btn-dark btn-rounded btn-sm ml-lg-2 btn-cart">Add to
-                                            cart</a>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td className="product-thumbnail">
-                                    <div className="p-relative">
-                                        <a href="product-default.html">
-                                            <figure>
-                                                <img src="assets/images/shop/19-1.jpg" alt="product" width="300"
-                                                     height="338"/>
-                                            </figure>
-                                        </a>
-                                        <button type="submit" className="btn btn-close"><i
-                                            className="fas fa-times"></i></button>
-                                    </div>
-                                </td>
-                                <td className="product-name">
-                                    <a href="product-default.html">
-                                        Handmade Ring
-                                    </a>
-                                </td>
-                                <td className="product-price">
-                                    <ins className="new-price">$5.00</ins>
-                                </td>
-                                <td className="product-stock-status">
-                                    <span className="wishlist-in-stock">In Stock</span>
-                                </td>
-                                <td className="wishlist-action">
-                                    <div className="d-lg-flex">
-                                        <a href="#"
-                                           className="btn btn-quickview btn-outline btn-default btn-rounded btn-sm mb-2 mb-lg-0">Quick
-                                            View</a>
-                                        <a href="#" className="btn btn-dark btn-rounded btn-sm ml-lg-2 btn-cart">Add to
-                                            cart</a>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td className="product-thumbnail">
-                                    <div className="p-relative">
-                                        <a href="product-default.html">
-                                            <figure>
-                                                <img src="assets/images/shop/20.jpg" alt="product" width="300"
-                                                     height="338"/>
-                                            </figure>
-                                        </a>
-                                        <button type="submit" className="btn btn-close"><i
-                                            className="fas fa-times"></i></button>
-                                    </div>
-                                </td>
-                                <td className="product-name">
-                                    <a href="product-default.html">
-                                        Pencil Case
-                                    </a>
-                                </td>
-                                <td className="product-price">
-                                    <ins className="new-price">$54.00</ins>
-                                </td>
-                                <td className="product-stock-status">
-                                    <span className="wishlist-in-stock">In Stock</span>
-                                </td>
-                                <td className="wishlist-action">
-                                    <div className="d-lg-flex">
-                                        <a href="#"
-                                           className="btn btn-quickview btn-outline btn-default btn-rounded btn-sm mb-2 mb-lg-0">Quick
-                                            View</a>
-                                        <a href="#" className="btn btn-dark btn-rounded btn-sm ml-lg-2 btn-cart">Add to
-                                            cart</a>
-                                    </div>
-                                </td>
-                            </tr>
+                                    </td>
+                                    <td className="product-price" style={{paddingLeft:"80px"}}>
+                                        <ins className="new-price ">₼ {e.price}</ins>
+                                    </td>
+                                    <td className="product-stock-status">
+                                        <span className="wishlist-in-stock"></span>
+                                    </td>
+                                    <td className="wishlist-action">
+                                        <div className="d-lg-flex">
+                                            <a href="#"
+                                               className="btn btn-quickview btn-outline btn-default btn-rounded btn-sm mb-2 mb-lg-0">TEZ BAXIŞ</a>
+                                            <a href="#" className="btn btn-dark btn-rounded btn-sm ml-lg-2 btn-cart">SƏBƏTƏ ƏLAVƏ EDİN</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            ))}
+
                             </tbody>
                         </table>
-                        <div className="social-links">
-                            <label>Share On:</label>
-                            <div className="social-icons social-no-color border-thin">
-                                <a href="#" className="social-icon social-facebook w-icon-facebook"></a>
-                                <a href="#" className="social-icon social-twitter w-icon-twitter"></a>
-                                <a href="#" className="social-icon social-pinterest w-icon-pinterest"></a>
-                                <a href="#" className="social-icon social-email far fa-envelope"></a>
-                                <a href="#" className="social-icon social-whatsapp fab fa-whatsapp"></a>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </main>
