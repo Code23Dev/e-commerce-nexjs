@@ -5,7 +5,6 @@ import {displayedCategories} from "../../../../services/displayedCategories";
 import {benefits} from "../../../../services/benefits";
 import {allProducts} from "../../../../services/products/allProducts";
 import {partners} from "../../../../services/partners";
-import PhoneInput from "react-phone-input-2";
 import MainProductDetails from "./MainProductDetails";
 import {getUserDataByToken} from "../../../../services/auth/getUserDataByToken";
 import {addToWishlist} from "../../../../services/wishlist/AddToWishlist";
@@ -100,6 +99,35 @@ export default function Main(){
                 console.log(e)
             })
             .catch(e=>{console.log(e)})
+    }
+
+
+    const addCompare = (row) =>{
+        if(JSON.parse(localStorage.getItem('compare')) == null){
+            localStorage.setItem('compare',  JSON.stringify([row]));
+        }
+        else if(JSON.parse(localStorage.getItem('compare')).length == 1){
+            JSON.parse(localStorage.getItem('compare')).map(e=>{
+                if (row.category == e.category){
+                    let compareArray = JSON.parse(localStorage.getItem('compare'))
+                    compareArray.push(row)
+                    localStorage.setItem('compare',  JSON.stringify(compareArray));
+                }else {
+                    swal({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Something went wrong!',
+                        footer: '<a href="">Why do I have this issue?</a>',
+                        button:'ok'
+                    })
+                    console.log(row)
+                }
+            })
+        }
+        else if(JSON.parse(localStorage.getItem('compare')).length == 0){
+            localStorage.setItem('compare',  JSON.stringify([row]));
+        }
+
     }
     return (
         <div>
@@ -387,7 +415,8 @@ export default function Main(){
                                             <a href="#" className="btn-product-icon btn-wishlist w-icon-heart"
                                                onClick={()=>{addWishlist(e.id)}}
                                                title="Wishlist"></a>
-                                            <a href="#" className="btn-product-icon btn-compare w-icon-compare"
+                                            <a href="#" className="btn-product-icon  w-icon-compare"
+                                               onClick={()=>{addCompare(e)}}
                                                title="Compare"></a>
                                             <a href="#" onClick={showMeFunc} className="btn-product-icon w-icon-search"
                                                title="CƏLD BAXIŞ"></a>
