@@ -7,19 +7,23 @@ export default function WishlistPage(){
     const [allGetUserDataItemsTitle, allGetUserDataItemsData] = useState([]);
     const [userId, userIdData] = useState(null);
     useEffect(() => {
-        getUserDataByToken()
-                .then(items => {
-                    if(items.data.id){
-                        userIdData(items.data.id)
-                        getUserWishlist(items.data.id)
-                            .then(itemsData =>{
-                                if (itemsData.data.product) {
-                                    allGetUserDataItemsData(itemsData.data.product)
-                                }
+        let  token = localStorage.getItem('username')
+       if(token){
+           getUserDataByToken()
+               .then(items => {
+                   if(items.data.id){
+                       localStorage.setItem('UserId', items.data.id);
+                       userIdData(items.data.id)
+                       getUserWishlist(items.data.id)
+                           .then(itemsData =>{
+                               if (itemsData.data.product) {
+                                   allGetUserDataItemsData(itemsData.data.product)
+                               }
 
-                            })
-                    }
-                })
+                           })
+                   }
+               })
+       }
     }, [])
 
     const deleteWishlist = (id) =>{

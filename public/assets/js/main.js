@@ -2218,8 +2218,9 @@ window.Wolmart = {};
                     nameLink: $product.find('.product-name > a, .product-title > a').attr('href'),
                     imageSrc: $product.find('.product-media img, .product-image:first-child img').attr('src'),
                     imageLink: $product.find('.product-name > a').attr('href'),
-                    message: '<p>has been added to cart:</p>',
-                    actionTemplate: '<a href="cart.html" class="btn btn-rounded btn-sm">View Cart</a><a href="checkout.html" class="btn btn-dark btn-rounded btn-sm">Checkout</a>'
+                    message: '<p>səbətə əlavə edildi:</p>',
+                    actionTemplate: '<a href="/cart" class="btn btn-rounded btn-sm">Səbətə Baxın</a><a href="/checkout" class="btn btn-dark btn-rounded btn-sm">Yoxla</a>'
+
                 });
             }, 500);
         });

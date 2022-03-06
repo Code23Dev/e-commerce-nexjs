@@ -8,6 +8,7 @@ import {partners} from "../../../../services/partners";
 import MainProductDetails from "./MainProductDetails";
 import {getUserDataByToken} from "../../../../services/auth/getUserDataByToken";
 import {addToWishlist} from "../../../../services/wishlist/AddToWishlist";
+import {addToCard} from "../../../../services/card/addToCard";
 
 export default function Main(){
     const [optionsTitle, optionsData] = useState([]);
@@ -84,12 +85,16 @@ export default function Main(){
 
     const [userId, userIdData] = useState(null);
     useEffect(() => {
-        getUserDataByToken()
-            .then(items => {
-                if(items.data.id){
-                    userIdData(items.data.id)
-                }
-            })
+        let  token = localStorage.getItem('username')
+        if (token){
+            getUserDataByToken()
+                .then(items => {
+                    if(items.data.id){
+                        userIdData(items.data.id)
+                    }
+                })
+        }
+
     }, [])
 
     const addWishlist = (id) =>{
@@ -128,6 +133,16 @@ export default function Main(){
             localStorage.setItem('compare',  JSON.stringify([row]));
         }
 
+    }
+    const addToCardFunc = (productId) =>{
+        let data = {quantity:1, product:productId}
+        addToCard(data)
+            .then((e)=>{
+                console.log(e)
+            })
+            .catch((e)=>{
+                console.log(e)
+            })
     }
     return (
         <div>
@@ -411,6 +426,7 @@ export default function Main(){
                                         </a>
                                         <div className="product-action-horizontal">
                                             <a href="#" className="btn-product-icon btn-cart w-icon-cart"
+                                               onClick={()=>{addToCardFunc(e.id)}}
                                                title="Add to cart"></a>
                                             <a href="#" className="btn-product-icon btn-wishlist w-icon-heart"
                                                onClick={()=>{addWishlist(e.id)}}
@@ -509,334 +525,334 @@ export default function Main(){
                     <div className="title-link-wrapper title-recent mb-6 after-none appear-animate">
                         <h2 className="title mb-0 ls-normal appear-animate pb-1">Ən son baxdığınız məhsullar</h2>
                     </div>
-                    <div className="swiper-container swiper-theme recent-view shadow-swiper appear-animate mb-8 pb-2"
-                         data-swiper-options="{
-                        'spaceBetween': 20,
-                        'slidesPerView': 2,
-                        'breakpoints': {
-                            '576': {
-                                'slidesPerView': 3
-                            },
-                            '768': {
-                                'slidesPerView': 5
-                            },
-                            '992': {
-                                'slidesPerView': 6
-                            },
-                            '1200': {
-                                'slidesPerView': 8,
-                                'dots': false
-                            }
-                        }
-                    }">
-                        <div className="swiper-wrapper row cols-xl-8 cols-lg-6 cols-md-4 cols-2">
-                            <div className="swiper-slide product-wrap">
-                                <div className="product text-center product-absolute">
-                                    <figure className="product-media">
-                                        <a href="product-defaproduct-default.html">
-                                            <img src="assets/images/demos/demo11/products/1-1-1.jpg"
-                                                 alt="Category image"
-                                                 width="130" height="146"/>
-                                        </a>
-                                    </figure>
-                                    <h4 className="product-name">
-                                        <a href="product-default.html">Headkerchief</a>
-                                    </h4>
-                                </div>
-                            </div>
-                            <div className="swiper-slide product-wrap">
-                                <div className="product text-center product-absolute">
-                                    <figure className="product-media">
-                                        <a href="product-defaproduct-default.html">
-                                            <img src="assets/images/demos/demo11/products/1-1-2.jpg"
-                                                 alt="Category image"
-                                                 width="130" height="146"/>
-                                        </a>
-                                    </figure>
-                                    <h4 className="product-name">
-                                        <a href="product-default.html">Leather Stripe Watch</a>
-                                    </h4>
-                                </div>
-                            </div>
-                            <div className="swiper-slide product-wrap">
-                                <div className="product text-center product-absolute">
-                                    <figure className="product-media">
-                                        <a href="product-defaproduct-default.html">
-                                            <img src="assets/images/demos/demo11/products/4-1-1.jpg"
-                                                 alt="Category image"
-                                                 width="130" height="146"/>
-                                        </a>
-                                    </figure>
-                                    <h4 className="product-name">
-                                        <a href="product-default.html">Red Cap Sound Marker</a>
-                                    </h4>
-                                </div>
-                            </div>
-                            <div className="swiper-slide product-wrap">
-                                <div className="product text-center product-absolute">
-                                    <figure className="product-media">
-                                        <a href="product-defaproduct-default.html">
-                                            <img src="assets/images/demos/demo11/products/2-3-1.jpg"
-                                                 alt="Category image"
-                                                 width="130" height="146"/>
-                                        </a>
-                                    </figure>
-                                    <h4 className="product-name">
-                                        <a href="product-default.html">Smartphone Electronic Charger</a>
-                                    </h4>
-                                </div>
-                            </div>
-                            <div className="swiper-slide product-wrap">
-                                <div className="product text-center product-absolute">
-                                    <figure className="product-media">
-                                        <a href="product-defaproduct-default.html">
-                                            <img src="assets/images/demos/demo11/products/2-4-1.jpg"
-                                                 alt="Category image"
-                                                 width="130" height="146"/>
-                                        </a>
-                                    </figure>
-                                    <h4 className="product-name">
-                                        <a href="product-default.html">Blue Ski Boots</a>
-                                    </h4>
-                                </div>
-                            </div>
-                            <div className="swiper-slide product-wrap">
-                                <div className="product text-center product-absolute">
-                                    <figure className="product-media">
-                                        <a href="product-defaproduct-default.html">
-                                            <img src="assets/images/demos/demo11/products/2-2-1.jpg"
-                                                 alt="Category image"
-                                                 width="130" height="146"/>
-                                        </a>
-                                    </figure>
-                                    <h4 className="product-name">
-                                        <a href="product-default.html">Soft Sound Marker</a>
-                                    </h4>
-                                </div>
-                            </div>
-                            <div className="swiper-slide product-wrap">
-                                <div className="product text-center product-absolute">
-                                    <figure className="product-media">
-                                        <a href="product-defaproduct-default.html">
-                                            <img src="assets/images/demos/demo11/products/3-1-1.jpg"
-                                                 alt="Category image"
-                                                 width="130" height="146"/>
-                                        </a>
-                                    </figure>
-                                    <h4 className="product-name">
-                                        <a href="product-default.html">Multi function Watch</a>
-                                    </h4>
-                                </div>
-                            </div>
-                            <div className="swiper-slide product-wrap">
-                                <div className="product text-center product-absolute">
-                                    <figure className="product-media">
-                                        <a href="product-defaproduct-default.html">
-                                            <img src="assets/images/demos/demo11/products/4-2-1.jpg"
-                                                 alt="Category image"
-                                                 width="130" height="146"/>
-                                        </a>
-                                    </figure>
-                                    <h4 className="product-name">
-                                        <a href="product-default.html">Running Machine</a>
-                                    </h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="swiper-pagination"></div>
-                    </div>
+                    {/*<div className="swiper-container swiper-theme recent-view shadow-swiper appear-animate mb-8 pb-2"*/}
+                    {/*     data-swiper-options="{*/}
+                    {/*    'spaceBetween': 20,*/}
+                    {/*    'slidesPerView': 2,*/}
+                    {/*    'breakpoints': {*/}
+                    {/*        '576': {*/}
+                    {/*            'slidesPerView': 3*/}
+                    {/*        },*/}
+                    {/*        '768': {*/}
+                    {/*            'slidesPerView': 5*/}
+                    {/*        },*/}
+                    {/*        '992': {*/}
+                    {/*            'slidesPerView': 6*/}
+                    {/*        },*/}
+                    {/*        '1200': {*/}
+                    {/*            'slidesPerView': 8,*/}
+                    {/*            'dots': false*/}
+                    {/*        }*/}
+                    {/*    }*/}
+                    {/*}">*/}
+                    {/*    <div className="swiper-wrapper row cols-xl-8 cols-lg-6 cols-md-4 cols-2">*/}
+                    {/*        <div className="swiper-slide product-wrap">*/}
+                    {/*            <div className="product text-center product-absolute">*/}
+                    {/*                <figure className="product-media">*/}
+                    {/*                    <a href="product-defaproduct-default.html">*/}
+                    {/*                        <img src="assets/images/demos/demo11/products/1-1-1.jpg"*/}
+                    {/*                             alt="Category image"*/}
+                    {/*                             width="130" height="146"/>*/}
+                    {/*                    </a>*/}
+                    {/*                </figure>*/}
+                    {/*                <h4 className="product-name">*/}
+                    {/*                    <a href="product-default.html">Headkerchief</a>*/}
+                    {/*                </h4>*/}
+                    {/*            </div>*/}
+                    {/*        </div>*/}
+                    {/*        <div className="swiper-slide product-wrap">*/}
+                    {/*            <div className="product text-center product-absolute">*/}
+                    {/*                <figure className="product-media">*/}
+                    {/*                    <a href="product-defaproduct-default.html">*/}
+                    {/*                        <img src="assets/images/demos/demo11/products/1-1-2.jpg"*/}
+                    {/*                             alt="Category image"*/}
+                    {/*                             width="130" height="146"/>*/}
+                    {/*                    </a>*/}
+                    {/*                </figure>*/}
+                    {/*                <h4 className="product-name">*/}
+                    {/*                    <a href="product-default.html">Leather Stripe Watch</a>*/}
+                    {/*                </h4>*/}
+                    {/*            </div>*/}
+                    {/*        </div>*/}
+                    {/*        <div className="swiper-slide product-wrap">*/}
+                    {/*            <div className="product text-center product-absolute">*/}
+                    {/*                <figure className="product-media">*/}
+                    {/*                    <a href="product-defaproduct-default.html">*/}
+                    {/*                        <img src="assets/images/demos/demo11/products/4-1-1.jpg"*/}
+                    {/*                             alt="Category image"*/}
+                    {/*                             width="130" height="146"/>*/}
+                    {/*                    </a>*/}
+                    {/*                </figure>*/}
+                    {/*                <h4 className="product-name">*/}
+                    {/*                    <a href="product-default.html">Red Cap Sound Marker</a>*/}
+                    {/*                </h4>*/}
+                    {/*            </div>*/}
+                    {/*        </div>*/}
+                    {/*        <div className="swiper-slide product-wrap">*/}
+                    {/*            <div className="product text-center product-absolute">*/}
+                    {/*                <figure className="product-media">*/}
+                    {/*                    <a href="product-defaproduct-default.html">*/}
+                    {/*                        <img src="assets/images/demos/demo11/products/2-3-1.jpg"*/}
+                    {/*                             alt="Category image"*/}
+                    {/*                             width="130" height="146"/>*/}
+                    {/*                    </a>*/}
+                    {/*                </figure>*/}
+                    {/*                <h4 className="product-name">*/}
+                    {/*                    <a href="product-default.html">Smartphone Electronic Charger</a>*/}
+                    {/*                </h4>*/}
+                    {/*            </div>*/}
+                    {/*        </div>*/}
+                    {/*        <div className="swiper-slide product-wrap">*/}
+                    {/*            <div className="product text-center product-absolute">*/}
+                    {/*                <figure className="product-media">*/}
+                    {/*                    <a href="product-defaproduct-default.html">*/}
+                    {/*                        <img src="assets/images/demos/demo11/products/2-4-1.jpg"*/}
+                    {/*                             alt="Category image"*/}
+                    {/*                             width="130" height="146"/>*/}
+                    {/*                    </a>*/}
+                    {/*                </figure>*/}
+                    {/*                <h4 className="product-name">*/}
+                    {/*                    <a href="product-default.html">Blue Ski Boots</a>*/}
+                    {/*                </h4>*/}
+                    {/*            </div>*/}
+                    {/*        </div>*/}
+                    {/*        <div className="swiper-slide product-wrap">*/}
+                    {/*            <div className="product text-center product-absolute">*/}
+                    {/*                <figure className="product-media">*/}
+                    {/*                    <a href="product-defaproduct-default.html">*/}
+                    {/*                        <img src="assets/images/demos/demo11/products/2-2-1.jpg"*/}
+                    {/*                             alt="Category image"*/}
+                    {/*                             width="130" height="146"/>*/}
+                    {/*                    </a>*/}
+                    {/*                </figure>*/}
+                    {/*                <h4 className="product-name">*/}
+                    {/*                    <a href="product-default.html">Soft Sound Marker</a>*/}
+                    {/*                </h4>*/}
+                    {/*            </div>*/}
+                    {/*        </div>*/}
+                    {/*        <div className="swiper-slide product-wrap">*/}
+                    {/*            <div className="product text-center product-absolute">*/}
+                    {/*                <figure className="product-media">*/}
+                    {/*                    <a href="product-defaproduct-default.html">*/}
+                    {/*                        <img src="assets/images/demos/demo11/products/3-1-1.jpg"*/}
+                    {/*                             alt="Category image"*/}
+                    {/*                             width="130" height="146"/>*/}
+                    {/*                    </a>*/}
+                    {/*                </figure>*/}
+                    {/*                <h4 className="product-name">*/}
+                    {/*                    <a href="product-default.html">Multi function Watch</a>*/}
+                    {/*                </h4>*/}
+                    {/*            </div>*/}
+                    {/*        </div>*/}
+                    {/*        <div className="swiper-slide product-wrap">*/}
+                    {/*            <div className="product text-center product-absolute">*/}
+                    {/*                <figure className="product-media">*/}
+                    {/*                    <a href="product-defaproduct-default.html">*/}
+                    {/*                        <img src="assets/images/demos/demo11/products/4-2-1.jpg"*/}
+                    {/*                             alt="Category image"*/}
+                    {/*                             width="130" height="146"/>*/}
+                    {/*                    </a>*/}
+                    {/*                </figure>*/}
+                    {/*                <h4 className="product-name">*/}
+                    {/*                    <a href="product-default.html">Running Machine</a>*/}
+                    {/*                </h4>*/}
+                    {/*            </div>*/}
+                    {/*        </div>*/}
+                    {/*    </div>*/}
+                    {/*    <div className="swiper-pagination"></div>*/}
+                    {/*</div>*/}
                 </div>
                 <section className="grey-section pt-10">
                     <div className="container mt-3 mb-1">
                         <h2 className="title text-left pt-1 mb-5 appear-animate">İnstagramda Biz</h2>
-                        <div className="swiper-container swiper-theme appear-animate" data-swiper-options="{
-                        'spaceBetween': 20,
-                        'slidesPerView': 2,
-                        'breakpoints': {
-                            '576': {
-                                'slidesPerView': 3
-                            },
-                            '768': {
-                                'slidesPerView': 4
-                            },
-                            '992': {
-                                'slidesPerView': 5
-                            },
-                            '1200': {
-                                'slidesPerView': 6
-                            }
-                        }
-                    }">
-                            <div className="swiper-wrapper row cols-xl-6 cols-lg-5 cols-md-4 cols-sm-3 cols-2">
-                                <div className="swiper-slide">
-                                    <figure className="instagram br-sm">
-                                        <a href="#">
-                                            <img src="assets/images/demos/demo4/instagrams/1.jpg" alt="Instagram" width="200"
-                                                 height="200" style={{backgroundColor: '#E6E4E5'}}/>
-                                        </a>
-                                    </figure>
+                    {/*    <div className="swiper-container swiper-theme appear-animate" data-swiper-options="{*/}
+                    {/*    'spaceBetween': 20,*/}
+                    {/*    'slidesPerView': 2,*/}
+                    {/*    'breakpoints': {*/}
+                    {/*        '576': {*/}
+                    {/*            'slidesPerView': 3*/}
+                    {/*        },*/}
+                    {/*        '768': {*/}
+                    {/*            'slidesPerView': 4*/}
+                    {/*        },*/}
+                    {/*        '992': {*/}
+                    {/*            'slidesPerView': 5*/}
+                    {/*        },*/}
+                    {/*        '1200': {*/}
+                    {/*            'slidesPerView': 6*/}
+                    {/*        }*/}
+                    {/*    }*/}
+                    {/*}">*/}
+                    {/*        <div className="swiper-wrapper row cols-xl-6 cols-lg-5 cols-md-4 cols-sm-3 cols-2">*/}
+                    {/*            <div className="swiper-slide">*/}
+                    {/*                <figure className="instagram br-sm">*/}
+                    {/*                    <a href="#">*/}
+                    {/*                        <img src="assets/images/demos/demo4/instagrams/1.jpg" alt="Instagram" width="200"*/}
+                    {/*                             height="200" style={{backgroundColor: '#E6E4E5'}}/>*/}
+                    {/*                    </a>*/}
+                    {/*                </figure>*/}
 
-                                </div>
-                                <div className="swiper-slide">
+                    {/*            </div>*/}
+                    {/*            <div className="swiper-slide">*/}
 
-                                    <figure className="instagram br-sm">
-                                        <a href="#">
-                                            <img src="assets/images/demos/demo4/instagrams/2.jpg" alt="Instagram" width="200"
-                                                 height="200" style={{backgroundColor: '#C6C7CB'}}/>
-                                        </a>
-                                    </figure>
-                                </div>
-                                <div className="swiper-slide">
+                    {/*                <figure className="instagram br-sm">*/}
+                    {/*                    <a href="#">*/}
+                    {/*                        <img src="assets/images/demos/demo4/instagrams/2.jpg" alt="Instagram" width="200"*/}
+                    {/*                             height="200" style={{backgroundColor: '#C6C7CB'}}/>*/}
+                    {/*                    </a>*/}
+                    {/*                </figure>*/}
+                    {/*            </div>*/}
+                    {/*            <div className="swiper-slide">*/}
 
-                                    <figure className="instagram br-sm">
-                                        <a href="#">
-                                            <img src="assets/images/demos/demo4/instagrams/3.jpg" alt="Instagram" width="200"
-                                                 height="200" style={{backgroundColor: '#E3E5E4'}}/>
-                                        </a>
-                                    </figure>
-                                </div>
-                                <div className="swiper-slide">
+                    {/*                <figure className="instagram br-sm">*/}
+                    {/*                    <a href="#">*/}
+                    {/*                        <img src="assets/images/demos/demo4/instagrams/3.jpg" alt="Instagram" width="200"*/}
+                    {/*                             height="200" style={{backgroundColor: '#E3E5E4'}}/>*/}
+                    {/*                    </a>*/}
+                    {/*                </figure>*/}
+                    {/*            </div>*/}
+                    {/*            <div className="swiper-slide">*/}
 
-                                    <figure className="instagram br-sm">
-                                        <a href="#">
-                                            <img src="assets/images/demos/demo4/instagrams/4.jpg" alt="Instagram" width="200"
-                                                 height="200" style={{backgroundColor: '#BDD1D0'}}/>
-                                        </a>
-                                    </figure>
-                                </div>
-                                <div className="swiper-slide">
+                    {/*                <figure className="instagram br-sm">*/}
+                    {/*                    <a href="#">*/}
+                    {/*                        <img src="assets/images/demos/demo4/instagrams/4.jpg" alt="Instagram" width="200"*/}
+                    {/*                             height="200" style={{backgroundColor: '#BDD1D0'}}/>*/}
+                    {/*                    </a>*/}
+                    {/*                </figure>*/}
+                    {/*            </div>*/}
+                    {/*            <div className="swiper-slide">*/}
 
-                                    <figure className="instagram br-sm">
-                                        <a href="#">
-                                            <img src="assets/images/demos/demo4/instagrams/5.jpg" alt="Instagram" width="200"
-                                                 height="200" style={{backgroundColor: '#CED3D9'}}/>
-                                        </a>
-                                    </figure>
-                                </div>
-                                <div className="swiper-slide">
+                    {/*                <figure className="instagram br-sm">*/}
+                    {/*                    <a href="#">*/}
+                    {/*                        <img src="assets/images/demos/demo4/instagrams/5.jpg" alt="Instagram" width="200"*/}
+                    {/*                             height="200" style={{backgroundColor: '#CED3D9'}}/>*/}
+                    {/*                    </a>*/}
+                    {/*                </figure>*/}
+                    {/*            </div>*/}
+                    {/*            <div className="swiper-slide">*/}
 
-                                    <figure className="instagram br-sm">
-                                        <a href="#">
-                                            <img src="assets/images/demos/demo4/instagrams/6.jpg" alt="Instagram" width="200"
-                                                 height="200" style={{backgroundColor: '#B6CBCC'}}/>
-                                        </a>
-                                    </figure>
-                                </div>
-                            </div>
-                            <div className="swiper-pagination"></div>
-                        </div>
+                    {/*                <figure className="instagram br-sm">*/}
+                    {/*                    <a href="#">*/}
+                    {/*                        <img src="assets/images/demos/demo4/instagrams/6.jpg" alt="Instagram" width="200"*/}
+                    {/*                             height="200" style={{backgroundColor: '#B6CBCC'}}/>*/}
+                    {/*                    </a>*/}
+                    {/*                </figure>*/}
+                    {/*            </div>*/}
+                    {/*        </div>*/}
+                    {/*        <div className="swiper-pagination"></div>*/}
+                    {/*    </div>*/}
                     </div>
                 </section>
 
 
-                <div id="myModal" className="modal" style={{display:showMe}}>
-                    <div className="modal-content">
-                        <span className="close" onClick={showMeFunc}>&times;</span>
-                        <div className="page-wrapper">
-                            <main className="main">
-                                <div className="page-content">
-                                    <div>
-                                        <div className="row gutter-lg">
-                                            <div className="mt-5">
-                                                <div className="product product-single row">
-                                                    <div className="product product-single row">
-                                                        <div className="col-md-6 mb-4 mb-md-8">
-                                                            <div className="product-gallery product-gallery-sticky">
-                                                                <div
-                                                                    className="swiper-container product-single-swiper swiper-theme nav-inner"
-                                                                    data-swiper-options="{
-                                            'navigation': {
-                                                'nextEl': '.swiper-button-next',
-                                                'prevEl': '.swiper-button-prev'
-                                            }
-                                        }">
-                                                                    <div className="swiper-wrapper row cols-1 gutter-no">
-                                                                        <div className="swiper-slide">
-                                                                            <figure className="product-image">
-                                                                                <img
-                                                                                    src="assets/images/products/accordion/1-800x900.jpg"
-                                                                                    data-zoom-image="assets/images/products/accordion/1-800x900.jpg"
-                                                                                    alt="Bodycare Smooth Powder" width="800"
-                                                                                    height="900"/>
-                                                                            </figure>
-                                                                        </div>
-                                                                        <div className="swiper-slide">
-                                                                            <figure className="product-image">
-                                                                                <img
-                                                                                    src="assets/images/products/accordion/2-800x900.jpg"
-                                                                                    data-zoom-image="assets/images/products/accordion/2-800x900.jpg"
-                                                                                    alt="Bodycare Smooth Powder" width="488"
-                                                                                    height="549"/>
-                                                                            </figure>
-                                                                        </div>
-                                                                        <div className="swiper-slide">
-                                                                            <figure className="product-image">
-                                                                                <img
-                                                                                    src="assets/images/products/accordion/3-800x900.jpg"
-                                                                                    data-zoom-image="assets/images/products/accordion/3-800x900.jpg"
-                                                                                    alt="Bodycare Smooth Powder" width="800"
-                                                                                    height="900"/>
-                                                                            </figure>
-                                                                        </div>
-                                                                        <div className="swiper-slide">
-                                                                            <figure className="product-image">
-                                                                                <img
-                                                                                    src="assets/images/products/accordion/4-800x900.jpg"
-                                                                                    data-zoom-image="assets/images/products/accordion/4-800x900.jpg"
-                                                                                    alt="Bodycare Smooth Powder" width="800"
-                                                                                    height="900"/>
-                                                                            </figure>
-                                                                        </div>
-                                                                    </div>
-                                                                    <button className="swiper-button-next"></button>
-                                                                    <button className="swiper-button-prev"></button>
-                                                                    <a href="#" className="product-gallery-btn product-image-full"><i
-                                                                        className="w-icon-zoom"></i></a>
-                                                                </div>
+                {/*<div id="myModal" className="modal" style={{display:showMe}}>*/}
+                {/*    <div className="modal-content">*/}
+                {/*        <span className="close" onClick={showMeFunc}>&times;</span>*/}
+                {/*        <div className="page-wrapper">*/}
+                {/*            <main className="main">*/}
+                {/*                <div className="page-content">*/}
+                {/*                    <div>*/}
+                {/*                        <div className="row gutter-lg">*/}
+                {/*                            <div className="mt-5">*/}
+                {/*                                <div className="product product-single row">*/}
+                {/*                                    <div className="product product-single row">*/}
+                {/*                                        <div className="col-md-6 mb-4 mb-md-8">*/}
+                {/*                                            <div className="product-gallery product-gallery-sticky">*/}
+                {/*                                                <div*/}
+                {/*                                                    className="swiper-container product-single-swiper swiper-theme nav-inner"*/}
+                {/*                                                    data-swiper-options="{*/}
+                {/*                            'navigation': {*/}
+                {/*                                'nextEl': '.swiper-button-next',*/}
+                {/*                                'prevEl': '.swiper-button-prev'*/}
+                {/*                            }*/}
+                {/*                        }">*/}
+                {/*                                                    <div className="swiper-wrapper row cols-1 gutter-no">*/}
+                {/*                                                        <div className="swiper-slide">*/}
+                {/*                                                            <figure className="product-image">*/}
+                {/*                                                                <img*/}
+                {/*                                                                    src="assets/images/products/accordion/1-800x900.jpg"*/}
+                {/*                                                                    data-zoom-image="assets/images/products/accordion/1-800x900.jpg"*/}
+                {/*                                                                    alt="Bodycare Smooth Powder" width="800"*/}
+                {/*                                                                    height="900"/>*/}
+                {/*                                                            </figure>*/}
+                {/*                                                        </div>*/}
+                {/*                                                        <div className="swiper-slide">*/}
+                {/*                                                            <figure className="product-image">*/}
+                {/*                                                                <img*/}
+                {/*                                                                    src="assets/images/products/accordion/2-800x900.jpg"*/}
+                {/*                                                                    data-zoom-image="assets/images/products/accordion/2-800x900.jpg"*/}
+                {/*                                                                    alt="Bodycare Smooth Powder" width="488"*/}
+                {/*                                                                    height="549"/>*/}
+                {/*                                                            </figure>*/}
+                {/*                                                        </div>*/}
+                {/*                                                        <div className="swiper-slide">*/}
+                {/*                                                            <figure className="product-image">*/}
+                {/*                                                                <img*/}
+                {/*                                                                    src="assets/images/products/accordion/3-800x900.jpg"*/}
+                {/*                                                                    data-zoom-image="assets/images/products/accordion/3-800x900.jpg"*/}
+                {/*                                                                    alt="Bodycare Smooth Powder" width="800"*/}
+                {/*                                                                    height="900"/>*/}
+                {/*                                                            </figure>*/}
+                {/*                                                        </div>*/}
+                {/*                                                        <div className="swiper-slide">*/}
+                {/*                                                            <figure className="product-image">*/}
+                {/*                                                                <img*/}
+                {/*                                                                    src="assets/images/products/accordion/4-800x900.jpg"*/}
+                {/*                                                                    data-zoom-image="assets/images/products/accordion/4-800x900.jpg"*/}
+                {/*                                                                    alt="Bodycare Smooth Powder" width="800"*/}
+                {/*                                                                    height="900"/>*/}
+                {/*                                                            </figure>*/}
+                {/*                                                        </div>*/}
+                {/*                                                    </div>*/}
+                {/*                                                    <button className="swiper-button-next"></button>*/}
+                {/*                                                    <button className="swiper-button-prev"></button>*/}
+                {/*                                                    <a href="#" className="product-gallery-btn product-image-full"><i*/}
+                {/*                                                        className="w-icon-zoom"></i></a>*/}
+                {/*                                                </div>*/}
 
-                                                                <div className="product-thumbs-wrap swiper-container"
-                                                                     data-swiper-options="{
-                                            'navigation': {
-                                                'nextEl': '.swiper-button-next',
-                                                'prevEl': '.swiper-button-prev'
-                                            }
-                                        }">
-                                                                    <div className="product-thumbs swiper-wrapper row cols-4 gutter-sm">
-                                                                        <div className="product-thumb swiper-slide">
-                                                                            <img src="assets/images/products/accordion/1-800x900.jpg"
-                                                                                 alt="Product Thumb" width="800" height="900"/>
-                                                                        </div>
-                                                                        <div className="product-thumb swiper-slide">
-                                                                            <img src="assets/images/products/accordion/2-800x900.jpg"
-                                                                                 alt="Product Thumb" width="800" height="900"/>
-                                                                        </div>
-                                                                        <div className="product-thumb swiper-slide">
-                                                                            <img src="assets/images/products/accordion/3-800x900.jpg"
-                                                                                 alt="Product Thumb" width="800" height="900"/>
-                                                                        </div>
-                                                                        <div className="product-thumb swiper-slide">
-                                                                            <img src="assets/images/products/accordion/4-800x900.jpg"
-                                                                                 alt="Product Thumb" width="800" height="900"/>
-                                                                        </div>
-                                                                    </div>
-                                                                    <button className="swiper-button-next"></button>
-                                                                    <button className="swiper-button-prev"></button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div className="col-md-6 mb-6 mb-md-8">
-                                                            <MainProductDetails/>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </main>
-                        </div>
-                    </div>
-                </div>
+                {/*                                                <div className="product-thumbs-wrap swiper-container"*/}
+                {/*                                                     data-swiper-options="{*/}
+                {/*                            'navigation': {*/}
+                {/*                                'nextEl': '.swiper-button-next',*/}
+                {/*                                'prevEl': '.swiper-button-prev'*/}
+                {/*                            }*/}
+                {/*                        }">*/}
+                {/*                                                    <div className="product-thumbs swiper-wrapper row cols-4 gutter-sm">*/}
+                {/*                                                        <div className="product-thumb swiper-slide">*/}
+                {/*                                                            <img src="assets/images/products/accordion/1-800x900.jpg"*/}
+                {/*                                                                 alt="Product Thumb" width="800" height="900"/>*/}
+                {/*                                                        </div>*/}
+                {/*                                                        <div className="product-thumb swiper-slide">*/}
+                {/*                                                            <img src="assets/images/products/accordion/2-800x900.jpg"*/}
+                {/*                                                                 alt="Product Thumb" width="800" height="900"/>*/}
+                {/*                                                        </div>*/}
+                {/*                                                        <div className="product-thumb swiper-slide">*/}
+                {/*                                                            <img src="assets/images/products/accordion/3-800x900.jpg"*/}
+                {/*                                                                 alt="Product Thumb" width="800" height="900"/>*/}
+                {/*                                                        </div>*/}
+                {/*                                                        <div className="product-thumb swiper-slide">*/}
+                {/*                                                            <img src="assets/images/products/accordion/4-800x900.jpg"*/}
+                {/*                                                                 alt="Product Thumb" width="800" height="900"/>*/}
+                {/*                                                        </div>*/}
+                {/*                                                    </div>*/}
+                {/*                                                    <button className="swiper-button-next"></button>*/}
+                {/*                                                    <button className="swiper-button-prev"></button>*/}
+                {/*                                                </div>*/}
+                {/*                                            </div>*/}
+                {/*                                        </div>*/}
+                {/*                                        <div className="col-md-6 mb-6 mb-md-8">*/}
+                {/*                                            <MainProductDetails/>*/}
+                {/*                                        </div>*/}
+                {/*                                    </div>*/}
+                {/*                                </div>*/}
+                {/*                            </div>*/}
+                {/*                        </div>*/}
+                {/*                    </div>*/}
+                {/*                </div>*/}
+                {/*            </main>*/}
+                {/*        </div>*/}
+                {/*    </div>*/}
+                {/*</div>*/}
             </main>
             <div className="sticky-footer sticky-content fix-bottom">
                 <a href="demo8.html" className="sticky-link active">
@@ -909,8 +925,8 @@ export default function Main(){
                         </div>
 
                         <div className="cart-action">
-                            <a href="cart.html" className="btn btn-dark btn-outline btn-rounded">View Cart</a>
-                            <a href="checkout.html" className="btn btn-primary  btn-rounded">Checkout</a>
+                            <a href="/cart" className="btn btn-dark btn-outline btn-rounded">Səbətə Baxın</a>
+                            <a href="/checkout" className="btn btn-primary  btn-rounded">Yoxla</a>
                         </div>
                     </div>
                 </div>

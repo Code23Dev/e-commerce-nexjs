@@ -8,7 +8,7 @@ export default function Home1Card(){
         }else{
             allDiscount()
                 .then(items => {
-                    localStorage.setItem('allDiscountTitle',  JSON.stringify(items.data));
+                    localStorage.setItem('allDiscountTitle',  JSON.stringify(items.data.results));
                     JSON.parse(localStorage.getItem('allDiscountTitle')) ? allDiscountData(JSON.parse(localStorage.getItem('allDiscountTitle'))) : []
                 })
         }

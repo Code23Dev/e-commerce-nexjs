@@ -8,10 +8,9 @@ import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
 import Select from "react-select";
 import {categories} from "../../../../services/categories";
+import {phoneNumber} from "../../../../services/phoneNumber";
+import {cartByUserID} from "../../../../services/card/cartByUserID";
 import {getUserDataByToken} from "../../../../services/auth/getUserDataByToken";
-import {getUserWishlist} from "../../../../services/wishlist/GetUserWishlist";
-import {removeFromWishlist} from "../../../../services/wishlist/RemoveFromWishlist";
-import {addToWishlist} from "../../../../services/wishlist/AddToWishlist";
 export default function HeaderTop(){
     const style = {
         control: base => ({
@@ -62,6 +61,11 @@ export default function HeaderTop(){
                     localStorage.setItem('username', items.data.access);
                     localStorage.setItem('token', items.data.refresh)
                     setLoginPost(items.data)
+                getUserDataByToken()
+                    .then(e=>{
+                        console.log(e)
+                        localStorage.setItem('userId', e.data.id);
+                    })
             })
             .catch(e=>console.log(e))
         console.log(data)
@@ -75,6 +79,25 @@ export default function HeaderTop(){
             setLogoPost(response.data.image);
         });
     }, []);
+    //number
+    const [phoneNumberItem, setPhoneNumberItem] = React.useState(null);
+    useEffect(() => {
+        phoneNumber()
+            .then(items => {
+                setPhoneNumberItem(items.data.number)
+            })
+    }, [])
+
+    //card
+    const [cartByUserIDItem, setCartByUserIDItem] = React.useState([]);
+    const [cartCount, setCartCountItem] = React.useState(0);
+    useEffect(() => {
+        let  userId = localStorage.getItem('userId')
+        cartByUserID(userId)
+            .then(items => {
+                setCartByUserIDItem(items.data.product_version)
+            })
+    }, [])
     //header-text
     const [headerText, setHeaderTextURL] = React.useState(null);
     React.useEffect(() => {
@@ -410,7 +433,7 @@ export default function HeaderTop(){
                                 <div className="call-info d-lg-show">
                                     <h4 className="chat font-weight-normal font-size-md text-normal ls-normal text-white mb-0">
                                         <a href="mailto:#" className="text-capitalize text-white">Bizə zəng</a> </h4>
-                                    <a href="tel:#" className="phone-number font-weight-bolder text-white ls-50">0(800)123-456</a>
+                                    <a href="tel:#" className="phone-number font-weight-bolder text-white ls-50">{phoneNumberItem}</a>
                                 </div>
                             </div>
                             <a className="wishlist label-down link d-xs-show" href="/wishlist">
@@ -425,7 +448,7 @@ export default function HeaderTop(){
                                 <div className="cart-overlay"></div>
                                 <a href="#" className="cart-toggle label-down link text-white">
                                     <i className="w-icon-cart">
-                                        <span className="cart-count">2</span>
+                                        <span className="cart-count">{cartCount}</span>
                                     </i>
                                     <span className="cart-label">Səbət</span>
                                 </a>
@@ -436,53 +459,35 @@ export default function HeaderTop(){
                                     </div>
 
                                     <div className="products">
-                                        <div className="product product-cart">
-                                            <div className="product-detail">
-                                                <a href="product-default.html" className="product-name">Beige knitted
-                                                    elas<br/>tic
-                                                    runner shoes</a>
-                                                <div className="price-box">
-                                                    <span className="product-quantity">1</span>
-                                                    <span className="product-price">$25.68</span>
+                                        {cartByUserIDItem.map(e=>(
+                                            <div className="product product-cart">
+                                                <div className="product-detail">
+                                                    <a href="product-default.html" className="product-name">Beige knitted
+                                                        elas<br/>tic
+                                                        runner shoes</a>
+                                                    <div className="price-box">
+                                                        <span className="product-quantity">1</span>
+                                                        <span className="product-price">$25.68</span>
+                                                    </div>
                                                 </div>
+                                                <figure className="product-media">
+                                                    <a href="product-default.html">
+                                                        <img src="assets/images/cart/product-1.jpg" alt="product" height="84"
+                                                             width="94"/>
+                                                    </a>
+                                                </figure>
+                                                <button className="btn btn-link btn-close" aria-label="button">
+                                                    <i className="fas fa-times"></i>
+                                                </button>
                                             </div>
-                                            <figure className="product-media">
-                                                <a href="product-default.html">
-                                                    <img src="assets/images/cart/product-1.jpg" alt="product" height="84"
-                                                         width="94"/>
-                                                </a>
-                                            </figure>
-                                            <button className="btn btn-link btn-close" aria-label="button">
-                                                <i className="fas fa-times"></i>
-                                            </button>
-                                        </div>
+                                        ))}
 
-                                        <div className="product product-cart">
-                                            <div className="product-detail">
-                                                <a href="product-default.html" className="product-name">Blue utility
-                                                    pina<br/>fore
-                                                    denim dress</a>
-                                                <div className="price-box">
-                                                    <span className="product-quantity">1</span>
-                                                    <span className="product-price">$32.99</span>
-                                                </div>
-                                            </div>
-                                            <figure className="product-media">
-                                                <a href="product-default.html">
-                                                    <img src="assets/images/cart/product-2.jpg" alt="product" width="84"
-                                                         height="94"/>
-                                                </a>
-                                            </figure>
-                                            <button className="btn btn-link btn-close" aria-label="button">
-                                                <i className="fas fa-times"></i>
-                                            </button>
-                                        </div>
                                     </div>
 
-                                    <div className="cart-total">
-                                        <label>Subtotal:</label>
-                                        <span className="price">$58.67</span>
-                                    </div>
+                                    {/*<div className="cart-total">*/}
+                                    {/*    <label>Subtotal:</label>*/}
+                                    {/*    <span className="price">$58.67</span>*/}
+                                    {/*</div>*/}
 
                                     <div className="cart-action">
                                         <a href="/cart" className="btn btn-dark btn-outline btn-rounded">SƏBƏBƏTƏ BAXIN</a>

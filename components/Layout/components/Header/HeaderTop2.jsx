@@ -53,7 +53,7 @@ export default function HeaderTop2() {
                                         <ul className="menu vertical-menu category-menu">
                                         {logoPost.map(item => (
                                             <li>
-                                                <a href="shop-fullwidth-banner.html">
+                                                <a href="#">
                                                     <img src={item.icon}/> {item.title}
                                                     <ul className="megamenu" >
                                                         <li>
@@ -62,7 +62,7 @@ export default function HeaderTop2() {
                                                                     <h4 className="menu-title">{e.title}</h4>
                                                                     <hr className="divider"/>
                                                                     <ul>
-                                                                        {e.sub_sub_categories.map(e=>(<li><a href="shop-fullwidth-banner.html">{e.title}</a></li>))}
+                                                                        {e.sub_sub_categories.map(e=>(<li><a href={`/shop/${e.id}`}>{e.title}</a></li>))}
                                                                     </ul>
                                                                 </div>
                                                             ))}

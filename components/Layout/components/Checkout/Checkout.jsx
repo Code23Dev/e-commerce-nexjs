@@ -7,50 +7,14 @@ export default function Compare(){
                 <nav className="breadcrumb-nav">
                     <div className="container">
                         <ul className="breadcrumb shop-breadcrumb bb-no">
-                            <li className="passed"><a href="/cart">Shopping Cart</a></li>
-                            <li className="active"><a href="/checkout">Checkout</a></li>
-                            <li><a href="/order">Order Complete</a></li>
+                            <li className="passed"><a href="/cart">Alış-veriş kartı</a></li>
+                            <li className="active"><a href="/checkout" >Yoxla</a></li>
+                            <li><a href="/order">Sifariş tamamlandı</a></li>
                         </ul>
                     </div>
                 </nav>
                 <div className="page-content">
                     <div className="container">
-                        <div className="login-toggle">
-                            Returning customer? <a href="#"
-                                                   className="show-login font-weight-bold text-uppercase text-dark">Login</a>
-                        </div>
-                        <form className="login-content">
-                            <p>If you have shopped with us before, please enter your details below.
-                                If you are a new customer, please proceed to the Billing section.</p>
-                            <div className="row">
-                                <div className="col-xs-6">
-                                    <div className="form-group">
-                                        <label>Username or email *</label>
-                                        <input type="text" className="form-control form-control-md" name="name"
-                                               required/>
-                                    </div>
-                                </div>
-                                <div className="col-xs-6">
-                                    <div className="form-group">
-                                        <label>Şifrə *</label>
-                                        <input type="text" className="form-control form-control-md" name="password"
-                                               required/>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="form-group checkbox">
-                                <input type="checkbox" className="custom-checkbox" id="remember" name="remember"/>
-                                    <label htmlFor="remember" className="mb-0 lh-2">Remember me</label>
-                                    <a href="#" className="ml-3">Last your password?</a>
-                            </div>
-                            <button className="btn btn-rounded btn-login">Login</button>
-                        </form>
-                        <div className="coupon-toggle">
-                            Have a coupon? <a href="#"
-                                              className="show-coupon font-weight-bold text-uppercase text-dark">Enter
-                            your
-                            code</a>
-                        </div>
                         <div className="coupon-content mb-4">
                             <p>If you have a coupon code, please apply it below.</p>
                             <div className="input-wrapper-inline">
@@ -65,12 +29,12 @@ export default function Compare(){
                             <div className="row mb-9">
                                 <div className="col-lg-7 pr-lg-4 mb-4">
                                     <h3 className="title billing-title text-uppercase ls-10 pt-1 pb-3 mb-0">
-                                        Billing Details
+                                        ƏTRAFLI
                                     </h3>
                                     <div className="row gutter-sm">
                                         <div className="col-xs-6">
                                             <div className="form-group">
-                                                <label>First name *</label>
+                                                <label>Ad *</label>
                                                 <input type="text" className="form-control form-control-md"
                                                        name="firstname"
                                                        required/>
@@ -78,44 +42,44 @@ export default function Compare(){
                                         </div>
                                         <div className="col-xs-6">
                                             <div className="form-group">
-                                                <label>Last name *</label>
+                                                <label>Soyad *</label>
                                                 <input type="text" className="form-control form-control-md"
                                                        name="lastname"
                                                        required/>
                                             </div>
                                         </div>
                                     </div>
+                                    {/*<div className="form-group">*/}
+                                    {/*    <label>Company name (optional)</label>*/}
+                                    {/*    <input type="text" className="form-control form-control-md" name="company-name"/>*/}
+                                    {/*</div>*/}
+                                    {/*<div className="form-group">*/}
+                                    {/*    <label>Country / Region *</label>*/}
+                                    {/*    <div className="select-box">*/}
+                                    {/*        <select name="country" className="form-control form-control-md">*/}
+                                    {/*            <option value="default" selected="selected">United States*/}
+                                    {/*                (US)*/}
+                                    {/*            </option>*/}
+                                    {/*            <option value="uk">United Kingdom (UK)</option>*/}
+                                    {/*            <option value="us">United States</option>*/}
+                                    {/*            <option value="fr">France</option>*/}
+                                    {/*            <option value="aus">Australia</option>*/}
+                                    {/*        </select>*/}
+                                    {/*    </div>*/}
+                                    {/*</div>*/}
                                     <div className="form-group">
-                                        <label>Company name (optional)</label>
-                                        <input type="text" className="form-control form-control-md" name="company-name"/>
-                                    </div>
-                                    <div className="form-group">
-                                        <label>Country / Region *</label>
-                                        <div className="select-box">
-                                            <select name="country" className="form-control form-control-md">
-                                                <option value="default" selected="selected">United States
-                                                    (US)
-                                                </option>
-                                                <option value="uk">United Kingdom (UK)</option>
-                                                <option value="us">United States</option>
-                                                <option value="fr">France</option>
-                                                <option value="aus">Australia</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div className="form-group">
-                                        <label>Street address *</label>
-                                        <input type="text" placeholder="House number and street name"
+                                        <label>Küçə ünvanı *</label>
+                                        <input type="text" placeholder="Ev nömrəsi və küçə adı"
                                                className="form-control form-control-md mb-2" name="street-address-1"
                                                required/>
-                                            <input type="text" placeholder="Apartment, suite, unit, etc. (optional)"
+                                            <input type="text" placeholder="Mənzil, suit, bölmə və s. (istəyə görə)"
                                                    className="form-control form-control-md" name="street-address-2"
                                                    required/>
                                     </div>
                                     <div className="row gutter-sm">
                                         <div className="col-md-6">
                                             <div className="form-group">
-                                                <label>Town / City *</label>
+                                                <label>Şəhər  *</label>
                                                 <input type="text" className="form-control form-control-md" name="town"
                                                        required/>
                                             </div>
@@ -146,14 +110,14 @@ export default function Compare(){
                                         </div>
                                     </div>
                                     <div className="form-group mb-7">
-                                        <label>Email address *</label>
+                                        <label>E-poçt ünvanı *</label>
                                         <input type="email" className="form-control form-control-md" name="email"
                                                required/>
                                     </div>
                                     <div className="form-group checkbox-toggle pb-2">
                                         <input type="checkbox" className="custom-checkbox" id="shipping-toggle"
                                                name="shipping-toggle"/>
-                                            <label htmlFor="shipping-toggle">Ship to a different address?</label>
+                                            <label htmlFor="shipping-toggle">Fərqli ünvana göndərilsin?</label>
                                     </div>
                                     <div className="checkbox-content">
                                         <div className="row gutter-sm">
@@ -175,7 +139,7 @@ export default function Compare(){
                                             </div>
                                         </div>
                                         <div className="form-group">
-                                            <label>Company name (optional)</label>
+                                            <label>Sifariş qeydləri (istəyə görə)</label>
                                             <input type="text" className="form-control form-control-md"
                                                    name="company-name"/>
                                         </div>
@@ -226,11 +190,11 @@ export default function Compare(){
                                     </div>
 
                                     <div className="form-group mt-3">
-                                        <label htmlFor="order-notes">Order notes (optional)</label>
+                                        <label htmlFor="order-notes">Sifariş qeydləri (istəyə görə)</label>
                                         <textarea className="form-control mb-0" id="order-notes" name="order-notes"
                                                   cols="30"
                                                   rows="4"
-                                                  placeholder="Notes about your order, e.g special notes for delivery"></textarea>
+                                                  placeholder="Sifarişiniz haqqında qeydlər, məsələn, çatdırılma üçün xüsusi qeydlər"></textarea>
                                     </div>
                                 </div>
                             </div>
