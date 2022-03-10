@@ -1,18 +1,39 @@
 import React, {useEffect, useState} from 'react'
 import {allDiscount} from "../../../../services/discount/allDiscount";
+import Select from "react-select";
+import {subSubCategories} from "../../../../services/subSubCategories";
+import {allCategories} from "../../../../services/allCategories";
 export default function MyAccount(){
     const [allDiscountTitle, allDiscountData] = useState([]);
     const [quickViewTitle, quickViewData] = useState(null);
     useEffect(() => {
         allDiscount()
             .then(items => {
-                allDiscountData(items.data)
+                allDiscountData(items.data.results)
             })
+    }, [])
+
+    const [optionsTitle, optionsData] = useState([]);
+    useEffect(() => {
+        let mounted = true;
+        let options = []
+        allCategories()
+            .then(items => {
+                if(mounted) {
+                    const data = items.data.map(e=>{
+                        options.push({value:e['id'], label:e['title']})
+                    })
+                    optionsData(options)
+                }
+            })
+        return () => mounted = false;
     }, [])
    function quickViewFunc(id){
        quickViewData(allDiscountTitle.find(r=>r.product == id ? r : []))
     }
-    console.log(quickViewTitle,"dd")
+    function handleChange(id){
+        console.log(id)
+    }
     return (
         <div>
             <style jsx>{`
@@ -160,8 +181,19 @@ export default function MyAccount(){
                 <main className="main">
                     <div className="page-content">
                         <div className="container">
-                            <div className="title-link-wrapper title-deals appear-animate">
+                            <div className="filter-with-title appear-animate">
                                 <h2 className="title">Günün endirimləri</h2>
+                                <ul className="nav-filters filter-boxed" data-target="#products-1">
+                                    <li>
+                                        <Select
+                                            name="colors"
+                                            options={optionsTitle}
+                                            className="basic-multi-select"
+                                            placeholder={"Bütün kateqoriyalar"}
+                                            classNamePrefix="select"
+                                            onChange={handleChange}
+                                        /></li>
+                                </ul>
                             </div>
                             <div className="row appear-animate">
                                 {allDiscountTitle.map(e=>(
@@ -800,190 +832,6 @@ export default function MyAccount(){
                                 popup again.</label>
                     </div>
                 </div>
-            </div>
-
-            <div className="product product-single product-popup">
-                {allDiscountTitle.map(e=>(
-                    <div className="row gutter-lg">
-                        <div className="col-md-6 mb-4 mb-md-0">
-                            <div className="product-gallery product-gallery-sticky">
-                                <div className="swiper-container product-single-swiper swiper-theme nav-inner">
-                                    <div className="swiper-wrapper row cols-1 gutter-no">
-                                        <div className="swiper-slide">
-                                            <figure className="product-image">
-                                                <img src="assets/images/products/popup/1-440x494.jpg"
-                                                     data-zoom-image="assets/images/products/popup/1-800x900.jpg"
-                                                     alt="Water Boil Black Utensil" width="800" height="900"/>
-                                            </figure>
-                                        </div>
-                                        <div className="swiper-slide">
-                                            <figure className="product-image">
-                                                <img src="assets/images/products/popup/2-440x494.jpg"
-                                                     data-zoom-image="assets/images/products/popup/2-800x900.jpg"
-                                                     alt="Water Boil Black Utensil" width="800" height="900"/>
-                                            </figure>
-                                        </div>
-                                        <div className="swiper-slide">
-                                            <figure className="product-image">
-                                                <img src="assets/images/products/popup/3-440x494.jpg"
-                                                     data-zoom-image="assets/images/products/popup/3-800x900.jpg"
-                                                     alt="Water Boil Black Utensil" width="800" height="900"/>
-                                            </figure>
-                                        </div>
-                                        <div className="swiper-slide">
-                                            <figure className="product-image">
-                                                <img src="assets/images/products/popup/4-440x494.jpg"
-                                                     data-zoom-image="assets/images/products/popup/4-800x900.jpg"
-                                                     alt="Water Boil Black Utensil" width="800" height="900"/>
-                                            </figure>
-                                        </div>
-                                    </div>
-                                    <button className="swiper-button-next"></button>
-                                    <button className="swiper-button-prev"></button>
-                                </div>
-                                <div className="product-thumbs-wrap swiper-container" data-swiper-options="{
-                        'navigation': {
-                            'nextEl': '.swiper-button-next',
-                            'prevEl': '.swiper-button-prev'
-                        }
-                    }">
-                                    <div className="product-thumbs swiper-wrapper row cols-4 gutter-sm">
-                                        <div className="product-thumb swiper-slide">
-                                            <img src="assets/images/products/popup/1-103x116.jpg" alt="Product Thumb"
-                                                 width="103"
-                                                 height="116"/>
-                                        </div>
-                                        <div className="product-thumb swiper-slide">
-                                            <img src="assets/images/products/popup/2-103x116.jpg" alt="Product Thumb"
-                                                 width="103"
-                                                 height="116"/>
-                                        </div>
-                                        <div className="product-thumb swiper-slide">
-                                            <img src="assets/images/products/popup/3-103x116.jpg" alt="Product Thumb"
-                                                 width="103"
-                                                 height="116"/>
-                                        </div>
-                                        <div className="product-thumb swiper-slide">
-                                            <img src="assets/images/products/popup/4-103x116.jpg" alt="Product Thumb"
-                                                 width="103"
-                                                 height="116"/>
-                                        </div>
-                                    </div>
-                                    <button className="swiper-button-next"></button>
-                                    <button className="swiper-button-prev"></button>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-md-6 overflow-hidden p-relative">
-                            <div className="product-details scrollable pl-0">
-                                <h2 className="product-title">gg</h2>
-                                <div className="product-bm-wrapper">
-                                    <figure className="brand">
-                                        <img src="assets/images/products/brand/brand-1.jpg" alt="Brand" width="102"
-                                             height="48"/>
-                                    </figure>
-                                    <div className="product-meta">
-                                        <div className="product-categories">
-                                            Category:
-                                            <span className="product-category"><a href="#">Electronics</a></span>
-                                        </div>
-                                        <div className="product-sku">
-                                            SKU: <span>MS46891340</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <hr className="product-divider"/>
-
-                                <div className="product-price">$40.00</div>
-
-                                <div className="ratings-container">
-                                    <div className="ratings-full">
-                                        <span className="ratings" style={{width:'80%'}}></span>
-                                        <span className="tooltiptext tooltip-top"></span>
-                                    </div>
-                                    <a href="#" className="rating-reviews">(3 Reviews)</a>
-                                </div>
-
-                                <div className="product-short-desc">
-                                    <ul className="list-type-check list-style-none">
-                                        <li>Ultrices eros in cursus turpis massa cursus mattis.</li>
-                                        <li>Volutpat ac tincidunt vitae semper quis lectus.</li>
-                                        <li>Aliquam id diam maecenas ultricies mi eget mauris.</li>
-                                    </ul>
-                                </div>
-
-                                <hr className="product-divider"/>
-                                <div className="product-form product-variation-form product-color-swatch">
-                                    <div>
-                                        <div>
-                                            <div  id="product-tab-specification">
-                                                <ul className="list-none">
-                                                    <li>
-                                                        <label>Model</label>
-                                                        <p>Skysuite 320</p>
-                                                    </li>
-                                                    <li>
-                                                        <label>Color</label>
-                                                        <p>Black</p>
-                                                    </li>
-                                                    <li>
-                                                        <label>Size</label>
-                                                        <p>Large, Small</p>
-                                                    </li>
-                                                    <li>
-                                                        <label>Guarantee Time</label>
-                                                        <p>3 Months</p>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div className="product-form">
-                                    <div className="product-qty-form">
-                                        <div className="input-group">
-                                            <input className="quantity form-control" type="number" min="1"
-                                                   max="10000000"/>
-                                            <button className="quantity-plus w-icon-plus"></button>
-                                            <button className="quantity-minus w-icon-minus"></button>
-                                        </div>
-                                    </div>
-                                    <button className="btn btn-primary btn-cart">
-                                        <i className="w-icon-cart"></i>
-                                        <span>Add to Cart</span>
-                                    </button>
-                                </div>
-
-                                <div className="social-links-wrapper">
-                                    <div className="social-links">
-                                        <div
-                                            className="social-icons social-no-color border-thin">
-                                            <a href="#"
-                                               className="social-icon social-facebook w-icon-facebook"></a>
-                                            <a href="#"
-                                               className="social-icon social-instagram fab fa-instagram"></a>
-                                            <a href="#"
-                                               className="social-icon social-twitter fab fa-telegram"></a>
-                                            <a href="#"
-                                               className="social-icon social-whatsapp fab fa-whatsapp"></a>
-                                            <a href="#"
-                                               className="social-icon social-youtube fab fa-linkedin-in"></a>
-                                        </div>
-                                    </div>
-                                    <span className="divider d-xs-show"></span>
-                                    <div className="product-link-wrapper d-flex">
-                                        <a href="#"
-                                           className="btn-product-icon btn-wishlist w-icon-heart"><span></span></a>
-                                        <a href="#"
-                                           className="btn-product-icon btn-compare btn-icon-left w-icon-compare"><span></span></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                ))}
             </div>
         </div>
     )}

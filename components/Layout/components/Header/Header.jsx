@@ -101,7 +101,7 @@ export default function Header(){
                         <ul className="menu horizontal-menu category-menu">
                             {categoryLineData.map(item => (
                                 <li>
-                                <a href={`/shop/${item.id}`}>
+                                <a href={`/shop/${item.id}?mdk`}>
                                 <img src={item.category.icon} width="50" height="68"/>{item.category.title}
                                 </a>
                                 </li>))}

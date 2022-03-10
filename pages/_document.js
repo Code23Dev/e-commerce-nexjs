@@ -38,6 +38,7 @@ class MyDocument extends Document {
                 <body>
                 <Main />
                 <NextScript />
+
                 <script src="assets/vendor/photoswipe/photoswipe.min.js"></script>
                 <script src="assets/vendor/photoswipe/photoswipe-ui-default.min.js"></script>
                 <script src="assets/vendor/parallax/parallax.min.js"></script>

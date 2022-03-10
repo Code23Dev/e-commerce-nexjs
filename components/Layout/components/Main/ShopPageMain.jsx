@@ -9,10 +9,9 @@ import {subBySubsub} from "../../../../services/subBySubsub";
 import {productFilter} from "../../../../services/productFilter";
 import {productsPost} from "../../../../services/productsPost";
 import {productById} from "../../../../services/products/productById";
-import {useForm} from "react-final-form";
+import {categoryBanner} from "../../../../services/categoryBanner";
 
 export default function ShopPageMain(){
-    let text = 'ttttttttttt'
     const [optionsTitle, optionsData] = useState([]);
     const [displayedBenefits, displayedBenefitsData] = useState([]);
     const [subSubCategoriesTitle, subSubCategoriesData] = useState([]);
@@ -88,6 +87,15 @@ export default function ShopPageMain(){
             })
         return () => mounted = false;
     }, [])
+
+    const [categoryBannerData, setCategoryBanner] = useState([]);
+    useEffect(() => {
+        categoryBanner()
+            .then(items => {
+                setCategoryBanner([items.data])
+            })
+    }, [])
+    console.log(categoryBannerData)
 
 
     const [showMe, setShowMe] = useState(true);
@@ -290,6 +298,33 @@ export default function ShopPageMain(){
                 allProductsData(items.data.results)
             })
     }
+
+
+    const [urlSubSubCategoriaId, setUrlSubSubCategoriaId] = useState(null);
+    const [urlSubCategoriaId, setUrlSubCategoriaId] = useState(null);
+    const [urlCategoriaId, setUrlCategoriaId] = useState(null);
+    useEffect(() => {
+        if (window.location.href.split('/')[4] && window.location.href.split('?')[1] == 'mdk'){
+            setUrlCategoriaId(window.location.href.split('/')[4].split('?')[0])
+        }else if (window.location.href.split('/')[4] && window.location.href.split('?')[1] == 'card'){
+            setUrlSubCategoriaId(window.location.href.split('/')[4].split('?')[0])
+            optionsTitle.map((e,i)=>{
+                e.sub_categories.map(k=>k.id == urlSubCategoriaId ? setUrlCategoriaId(e.id) : null)
+            })
+        }
+        else {
+            console.log('window.location.href.split('/')')
+            subCategoriesTitle.map((e,i)=>{
+                e.sub_sub_categories.map(k=>k.id == urlSubSubCategoriaId ? setUrlSubCategoriaId(e.id) : null)
+            })
+            optionsTitle.map((e,i)=>{
+                e.sub_categories.map(k=>k.id == urlSubCategoriaId ? setUrlCategoriaId(e.id) : null)
+            })
+            setUrlSubSubCategoriaId(window.location.href.split('/')[4])
+        }
+
+    }, null)
+
     return (
         <div>
             <main className="main">
@@ -315,17 +350,16 @@ export default function ShopPageMain(){
 
                 <div className="page-content">
                     <div className="container">
-                        <div className="shop-default-banner banner d-flex align-items-center mb-5 br-xs"
-                             style={{backgroundImage: 'url(assets/images/shopShop/banner1.jpg)', backgroundColor: '#FFC74E'}}>
-                            <div className="banner-content">
-                                <h4 className="banner-subtitle font-weight-bold">Accessories Collection</h4>
-                                <h3 className="banner-title text-white text-uppercase font-weight-bolder ls-normal">Smart
-                                    Wrist
-                                    Watches</h3>
-                                <a href="shop-banner-sidebar.html" className="btn btn-dark btn-rounded btn-icon-right">Discover
-                                    Now<i className="w-icon-long-arrow-right"></i></a>
+                        {categoryBannerData.map(e=>(
+                            <div className="shop-default-banner banner d-flex align-items-center mb-5 br-xs" style={{backgroundImage: 'url('+e.image+')', backgroundColor: '#FFC74E'}}>
+                                <div className="banner-content">
+                                    <h4 className="banner-subtitle font-weight-bold"></h4>
+                                    <h3 className="banner-title text-white text-uppercase font-weight-bolder ls-normal"></h3>
+                                    <a href={e.button_link} className="btn btn-dark btn-rounded btn-icon-right">{e.button_text}<i className="w-icon-long-arrow-right"></i></a>
+                                </div>
                             </div>
-                        </div>
+                        ))}
+
                         <div className="shop-content row gutter-lg mb-10">
                             <aside className="sidebar shop-sidebar sticky-sidebar-wrapper sidebar-fixed">
                                 <div className="sidebar-overlay"></div>
@@ -346,7 +380,7 @@ export default function ShopPageMain(){
                                                                 type="checkbox"
                                                                 value={item.id}
                                                                 style={{width:' 20px', height: '24px'}}
-                                                                checked={item.isChecked}
+                                                                checked={ urlCategoriaId==item.id ? true :item.isChecked}
                                                                 id={`options` + item.id}
                                                             />
                                                             <label htmlFor={`options` + item.id} className="ml-2" style={{position:"relative", top:'-5px',cursor:"pointer"}}>{item.title}</label>
@@ -366,7 +400,7 @@ export default function ShopPageMain(){
                                                                 type="checkbox"
                                                                 value={item.id}
                                                                 style={{width:' 20px', height: '24px'}}
-                                                                checked={item.isChecked}
+                                                                checked={urlSubCategoriaId==item.id ? true : item.isChecked}
                                                                 id={`sub` + item.id}
                                                             />
                                                             <label htmlFor={`sub` + item.id} className="ml-2" style={{position:"relative", top:'-5px',cursor:"pointer"}}>{item.title}</label>
@@ -384,9 +418,9 @@ export default function ShopPageMain(){
                                                         <div key={item.id} className="mt-2">
                                                             <input
                                                                 type="checkbox"
-                                                                value={item.id}
+                                                                value={urlSubSubCategoriaId ? urlSubSubCategoriaId : item.id}
                                                                 style={{width:' 20px', height: '24px'}}
-                                                                checked={item.isChecked}
+                                                                checked={urlSubSubCategoriaId==item.id ? true : item.isChecked}
                                                                 id={`subSub` + item.id}
                                                             />
                                                             <label htmlFor={`subSub` + item.id} className="ml-2" style={{position:"relative", top:'-5px',cursor:"pointer"}}>{item.title}</label>

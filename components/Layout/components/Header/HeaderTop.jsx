@@ -11,6 +11,8 @@ import {categories} from "../../../../services/categories";
 import {phoneNumber} from "../../../../services/phoneNumber";
 import {cartByUserID} from "../../../../services/card/cartByUserID";
 import {getUserDataByToken} from "../../../../services/auth/getUserDataByToken";
+import {removeFromCart} from "../../../../services/card/removeFromCart";
+import {addToCard} from "../../../../services/card/addToCard";
 export default function HeaderTop(){
     const style = {
         control: base => ({
@@ -91,11 +93,16 @@ export default function HeaderTop(){
     //card
     const [cartByUserIDItem, setCartByUserIDItem] = React.useState([]);
     const [cartCount, setCartCountItem] = React.useState(0);
+    const [allCardPrice, setAllCardPrice] = React.useState(0);
     useEffect(() => {
+        let cardPrice = 0
         let  userId = localStorage.getItem('userId')
         cartByUserID(userId)
             .then(items => {
                 setCartByUserIDItem(items.data.product_version)
+                setCartCountItem(items.data.product_version.length)
+                items.data.product_version.map(c=>cardPrice+=Number(c.final_price))
+                setAllCardPrice(cardPrice)
             })
     }, [])
     //header-text
@@ -144,6 +151,26 @@ export default function HeaderTop(){
     const [phone, setState] = useState("");
   const handleOnChange = (value) => {
       setPhoneInput(`+${value}`)
+    };
+
+  const deleteCardProduct = ({quantity:quantity,productId:productId}) => {
+      let data = {user:Number(localStorage.getItem('userId')), product:Number(productId)}
+      removeFromCart(data)
+          .then((e)=>{
+              let cardPrice = 0
+              let  userId = localStorage.getItem('userId')
+              cartByUserID(userId)
+                  .then(items => {
+                      setCartByUserIDItem(items.data.product_version)
+                      setCartCountItem(items.data.product_version.length)
+                      items.data.product_version.map(c=>cardPrice+=Number(c.final_price))
+                      setAllCardPrice(cardPrice)
+                  })
+          })
+          .catch((e)=>{
+              console.log(e)
+          })
+
     };
 
 
@@ -462,21 +489,19 @@ export default function HeaderTop(){
                                         {cartByUserIDItem.map(e=>(
                                             <div className="product product-cart">
                                                 <div className="product-detail">
-                                                    <a href="product-default.html" className="product-name">Beige knitted
-                                                        elas<br/>tic
-                                                        runner shoes</a>
+                                                    <a href="product-default.html" className="product-name">{e.product.title}</a>
                                                     <div className="price-box">
-                                                        <span className="product-quantity">1</span>
-                                                        <span className="product-price">$25.68</span>
+                                                        <span className="product-quantity">{e.quantity}</span>
+                                                        <span className="product-price">₼ {e.product.price}</span>
                                                     </div>
                                                 </div>
                                                 <figure className="product-media">
                                                     <a href="product-default.html">
-                                                        <img src="assets/images/cart/product-1.jpg" alt="product" height="84"
+                                                        <img src={e.product.main_image} alt="product" height="84"
                                                              width="94"/>
                                                     </a>
                                                 </figure>
-                                                <button className="btn btn-link btn-close" aria-label="button">
+                                                <button className="btn btn-link btn-close" aria-label="button" onClick={()=>{deleteCardProduct({quantity:e.quantity,productId:e.id})}}>
                                                     <i className="fas fa-times"></i>
                                                 </button>
                                             </div>
@@ -484,10 +509,10 @@ export default function HeaderTop(){
 
                                     </div>
 
-                                    {/*<div className="cart-total">*/}
-                                    {/*    <label>Subtotal:</label>*/}
-                                    {/*    <span className="price">$58.67</span>*/}
-                                    {/*</div>*/}
+                                    <div className="cart-total">
+                                        <label>Ara cəmi:</label>
+                                        <span className="price">{allCardPrice}</span>
+                                    </div>
 
                                     <div className="cart-action">
                                         <a href="/cart" className="btn btn-dark btn-outline btn-rounded">SƏBƏBƏTƏ BAXIN</a>
